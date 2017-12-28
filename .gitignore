@@ -1,24 +1,24 @@
-# Binaries for programs and plugins
-*.exe
-*.dll
-*.so
-*.dylib
+.DS_Store
+go/bin/
+go/pkg/
+go/src/.terraform/
+go/src/crash.log
+go/src/github.com/golang/
+go/src/github.com/hashicorp/
+go/src/github.com/mitchellh/
 
-# Test binary, build with `go test -c`
-*.test
 
-# Output of the go coverage tool, specifically when used with LiteIDE
-*.out
+*.pyc
 
-# Project-local glide cache, RE: https://github.com/Masterminds/glide/issues/736
-.glide/
 
-*.log
 
-.venv
+go/src/golang.org/
+go/src/google.golang.org/
+go/src/terraform-provider-vcloud-director
 
-# Byte-compiled / optimized / DLL files
-**/*.py[cod]
-**/*$py.class
 
-**/__pycache__/
+plugin-python/__pycache__/
+vcd.log
+go/src/test/test
+go/src/terraform.tfstate
+go/src/terraform.tfstate.backup
