@@ -1,26 +1,12 @@
-
-
 # terraform-provider-vcloud-director
 
 ## Overview
 
+This repository implements a Terraform provider to work with [VMware vCloud Director](https://www.vmware.com/products/vcloud-director.html) resources.
+
 ## Try it out
 
-### Prerequisites
-
-* Prereq 1
-* Prereq 2
-* Prereq 3
-
-### Build & Run
-
-1. Step 1
-2. Step 2
-3. Step 3
-
-## Documentation
-
-## Releases & Major Branches
+See the [Setup Guide](docs/SETUP.md)
 
 ## Contributing
 
@@ -30,3 +16,4 @@ questions about the CLA process, please refer to our [FAQ](https://cla.vmware.co
 refer to [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
+[BSD-2](LICENSE.txt)
