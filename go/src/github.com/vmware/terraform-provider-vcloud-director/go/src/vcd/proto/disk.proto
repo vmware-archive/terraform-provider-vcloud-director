@@ -1,0 +1,72 @@
+/*****************************************************************
+* terraform-provider-vcloud-director
+* Copyright (c) 2017 VMware, Inc. All Rights Reserved.
+* SPDX-License-Identifier: BSD-2-Clause
+******************************************************************/
+
+
+syntax = "proto3";
+
+
+
+package proto;
+
+service IndependentDisk {
+
+  rpc Create(CreateDiskInfo) returns ( CreateDiskResult ) {}
+
+  rpc Read(ReadDiskInfo) returns ( ReadDiskResult ) {}
+
+
+  rpc Delete (  DeleteDiskInfo ) returns ( DeleteDiskResult ) {}
+}
+
+message CreateDiskInfo{
+        string name =1 ;
+        string size = 2 ;
+        string  bus_type = 3;
+        string  bus_sub_type = 4;
+        string  description = 5;
+        string  storage_profile = 6;
+
+        string vdc=7;
+        string disk_id=8;
+
+      
+        
+}
+
+
+message CreateDiskResult{
+        bool created = 1;
+        string disk_id =2;
+}
+
+message DeleteDiskInfo{
+        string name =1 ;
+        string disk_id = 2 ;
+
+        string vdc=3;
+        
+        
+}
+
+
+message DeleteDiskResult{
+        bool created = 1;
+
+}
+
+
+message ReadDiskInfo{
+        string name =1 ;
+        string disk_id=2;
+
+        string vdc=3;
+
+        
+}
+message ReadDiskResult{
+        bool present = 1;
+        string disk_id =2;
+}
