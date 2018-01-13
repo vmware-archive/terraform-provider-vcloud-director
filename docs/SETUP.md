@@ -47,8 +47,7 @@ make install
  
  pip3.6 install grpcio_health_checking
 
- >> might be removed later
- pip3.6 install click
+ pip3.6 install vcd_cli
 ```
 
 
