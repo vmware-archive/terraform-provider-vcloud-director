@@ -1,0 +1,63 @@
+/*****************************************************************
+* terraform-provider-vcloud-director
+* Copyright (c) 2017 VMware, Inc. All Rights Reserved.
+* SPDX-License-Identifier: BSD-2-Clause
+******************************************************************/
+
+
+syntax = "proto3";
+
+
+
+package proto;
+message CreateVAppInfo{
+        string name = 1 ;
+        string catalog_name = 2 ;
+        string template_name = 3;
+        string vdc = 4;
+
+        string network =5;
+        string ip_allocation_mode=6;
+        string memory=7;
+        int32 cpu=8;
+        bool power_on=9;
+        string storage_profile=10;
+        
+}
+
+
+message CreateVAppResult{
+        bool created = 1;
+        CreateVAppInfo in_vapp_info =2;
+}
+
+
+
+
+message DeleteVAppInfo{
+        string name = 1 ;
+        string vdc = 2;
+        
+        
+}
+
+
+message DeleteVAppResult{
+        bool deleted = 1;
+        
+}
+
+message ReadVAppInfo{
+        string name = 1 ;
+        string vdc =2 ;
+        
+        
+}
+
+message ReadVAppResult{
+        bool present = 1;
+        string name = 2 ;
+
+        repeated string network =3;
+        
+}

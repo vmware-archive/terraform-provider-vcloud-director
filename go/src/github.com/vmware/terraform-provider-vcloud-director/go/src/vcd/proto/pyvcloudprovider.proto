@@ -1,0 +1,122 @@
+/*****************************************************************
+* terraform-provider-vcloud-director
+* Copyright (c) 2017 VMware, Inc. All Rights Reserved.
+* SPDX-License-Identifier: BSD-2-Clause
+******************************************************************/
+
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.vmware.pyvcloud.provider";
+option java_outer_classname = "PyVcloudProviderProto";
+
+package proto;
+
+import "proto/vapp.proto";
+import "proto/catalog_item.proto";
+
+
+// Interface exported by the server.
+service PyVcloudProvider {
+//Tenant Loging to VCD  
+  rpc Login(LoginCredentials) returns ( LoginResult ) {}
+
+  //check if catalog is preset and return true and the catalog details
+  rpc ReadCatalog (  Catalog ) returns ( ReadCatalogResult ) {}
+
+  //create a new catalog
+  rpc CreateCatalog ( Catalog ) returns ( CreateCatalogResult )  {}
+
+  //delete a catalog
+  rpc DeleteCatalog ( Catalog ) returns ( DeleteCatalogResult )  {}
+
+  //catalog upload Media - anything other than ova
+  rpc CatalogUploadMedia ( CatalogUploadMediaInfo ) returns ( CatalogUploadMediaResult )  {}
+
+  // catalog upload ova
+  rpc CatalogUploadOva ( CatalogUploadOvaInfo ) returns ( CatalogUploadOvaResult )  {}
+
+  // check resolved after upload
+  rpc OvaCheckResolved ( CatalogCheckResolvedInfo ) returns ( CheckResolvedResult )  {}
+
+  //catalog item delete
+  rpc DeleteCatalogItem ( DeleteCatalogItemInfo ) returns ( DeleteCatalogItemResult )  {}
+
+   //check if catalog item is preset and return true
+  rpc isPresentCatalogItem (  IsPresentCatalogItemInfo ) returns ( IsPresentCatalogItemResult ) {}
+
+  rpc CaptureVapp (  CaptureVAppInfo ) returns ( CaptureVAppResult ) {}
+
+
+
+   //create vApp
+  rpc CreateVApp (  CreateVAppInfo ) returns ( CreateVAppResult ) {}
+
+  // delete VApp
+  rpc DeleteVApp (  DeleteVAppInfo ) returns ( DeleteVAppResult ) {}
+
+  // Read VApp
+  rpc ReadVApp (  ReadVAppInfo ) returns ( ReadVAppResult ) {}
+
+  //remote stop interface for the plugin
+   rpc StopPlugin(StopInfo) returns ( StopResult ) {}
+}
+
+//Tenant VCD crendentials
+message LoginCredentials {
+  string username = 1;
+  string password = 2;
+  string org = 3;
+
+  bool use_vcd_cli_profile=4;
+
+  string ip = 5;
+
+  bool allow_insecure_flag =6 ;
+
+}
+
+
+message LoginResult{
+	string token = 1;
+}
+
+message Catalog {
+	string name = 1;
+	string description = 2;
+	bool shared = 3;
+}
+
+message ReadCatalogResult{
+
+	bool present=1;
+  string name = 2;
+  string description = 3;
+  bool shared = 4;
+}
+
+message CreateCatalogResult{
+	bool created = 1;
+}
+
+message DeleteCatalogResult{
+        bool deleted = 1;
+}
+
+
+
+// common 
+message CheckResolvedResult{
+        bool resolved = 1;
+        
+}
+
+
+
+message StopResult{
+        bool stopped = 1;
+}
+message StopInfo{
+        
+}
