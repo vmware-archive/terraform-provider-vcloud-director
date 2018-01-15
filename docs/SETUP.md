@@ -29,6 +29,21 @@ Protoc - for Devs making changes to the protoc file , required for rebuilding th
 
 The Below Steps are validated on Centos to set up the development environment 
 
+# Environment Variables 
+
+  The project requires below environment variables to be set
+```
+  [1]PY_PLUGIN
+  [2]GOROOT
+  [3]GOPATH
+```
+  Please refer [setenv.sh](../scripts/setenv.sh)
+
+
+
+# Automated Install
+  
+   [Centos7 Minimal](../scripts/centos7/setup_centos.sh)
 
 # Install python 3.6
 
