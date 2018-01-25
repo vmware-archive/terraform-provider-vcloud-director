@@ -8,8 +8,12 @@ echo 'set up rum dependencies'
  yum install wget -y
  yum install zlib-devel -y
  yum install openssl openssl-devel -y
+cd /home/terraform-provider-vcloud-director/scripts/centos7
 
+. ../setenv.sh
+. ./setup_py3.sh
 
+cd /home/terraform-provider-vcloud-director/scripts/centos7
 
 echo 'install  PIP3.6'
 
@@ -23,18 +27,18 @@ echo 'install  PIP3.6 dependencies'
  pip3.6 install vcd_cli
  pip3.6 install pyvcloud
 
-
+cd /home/terraform-provider-vcloud-director/scripts/centos7
 . ./setup_go.sh
 
- cd /home/
- ls
- export GOPATH=/home/terraform-provider-vcloud-director/go/
+
+export GOPATH=/home/terraform-provider-vcloud-director/go/
 
 
 cd $GOPATH/src/
 ./init.sh
 ./build.sh
 
+cd /home/terraform-provider-vcloud-director/scripts/centos7
 . ./setup_protoc.sh
 
 

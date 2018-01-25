@@ -10,4 +10,4 @@ export GOROOT=/opt/go
 export GOPATH=/home/terraform-provider-vcloud-director/go/
 export PATH=$PATH:$GOPATH/bin
 
-export PY_PLUGIN=python3 /home/terraform-provider-vcloud-director/plugin-python/plugin.py
+export PY_PLUGIN='python3 /home/terraform-provider-vcloud-director/plugin-python/plugin.py'
