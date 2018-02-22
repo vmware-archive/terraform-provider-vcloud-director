@@ -43,7 +43,8 @@ _CATALOGUPLOADMEDIAINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='file_path',
             full_name='proto.CatalogUploadMediaInfo.file_path',
@@ -59,7 +60,8 @@ _CATALOGUPLOADMEDIAINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='item_name',
             full_name='proto.CatalogUploadMediaInfo.item_name',
@@ -75,7 +77,8 @@ _CATALOGUPLOADMEDIAINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
     ],
     extensions=[],
     nested_types=[],
@@ -111,7 +114,8 @@ _CATALOGUPLOADMEDIARESULT = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
     ],
     extensions=[],
     nested_types=[],
@@ -147,7 +151,8 @@ _CATALOGUPLOADOVAINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='file_path',
             full_name='proto.CatalogUploadOvaInfo.file_path',
@@ -163,7 +168,8 @@ _CATALOGUPLOADOVAINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='item_name',
             full_name='proto.CatalogUploadOvaInfo.item_name',
@@ -179,7 +185,8 @@ _CATALOGUPLOADOVAINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
     ],
     extensions=[],
     nested_types=[],
@@ -215,7 +222,8 @@ _CATALOGCHECKRESOLVEDINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='item_name',
             full_name='proto.CatalogCheckResolvedInfo.item_name',
@@ -231,7 +239,8 @@ _CATALOGCHECKRESOLVEDINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
     ],
     extensions=[],
     nested_types=[],
@@ -267,7 +276,8 @@ _CATALOGUPLOADOVARESULT = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
     ],
     extensions=[],
     nested_types=[],
@@ -303,7 +313,8 @@ _DELETECATALOGITEMINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='file_path',
             full_name='proto.DeleteCatalogItemInfo.file_path',
@@ -319,7 +330,8 @@ _DELETECATALOGITEMINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='item_name',
             full_name='proto.DeleteCatalogItemInfo.item_name',
@@ -335,7 +347,8 @@ _DELETECATALOGITEMINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
     ],
     extensions=[],
     nested_types=[],
@@ -371,7 +384,8 @@ _DELETECATALOGITEMRESULT = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
     ],
     extensions=[],
     nested_types=[],
@@ -407,7 +421,8 @@ _ISPRESENTCATALOGITEMINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='item_name',
             full_name='proto.IsPresentCatalogItemInfo.item_name',
@@ -423,7 +438,8 @@ _ISPRESENTCATALOGITEMINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
     ],
     extensions=[],
     nested_types=[],
@@ -459,7 +475,8 @@ _ISPRESENTCATALOGITEMRESULT = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
     ],
     extensions=[],
     nested_types=[],
@@ -495,7 +512,8 @@ _CAPTUREVAPPINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='item_name',
             full_name='proto.CaptureVAppInfo.item_name',
@@ -511,7 +529,8 @@ _CAPTUREVAPPINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='vapp_name',
             full_name='proto.CaptureVAppInfo.vapp_name',
@@ -527,7 +546,8 @@ _CAPTUREVAPPINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='vdc_name',
             full_name='proto.CaptureVAppInfo.vdc_name',
@@ -543,7 +563,8 @@ _CAPTUREVAPPINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='description',
             full_name='proto.CaptureVAppInfo.description',
@@ -559,7 +580,8 @@ _CAPTUREVAPPINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='customize_on_instantiate',
             full_name='proto.CaptureVAppInfo.customize_on_instantiate',
@@ -575,7 +597,8 @@ _CAPTUREVAPPINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
     ],
     extensions=[],
     nested_types=[],
@@ -611,7 +634,8 @@ _CAPTUREVAPPRESULT = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
     ],
     extensions=[],
     nested_types=[],
@@ -757,14 +781,4 @@ CaptureVAppResult = _reflection.GeneratedProtocolMessageType(
     ))
 _sym_db.RegisterMessage(CaptureVAppResult)
 
-try:
-    # THESE ELEMENTS WILL BE DEPRECATED.
-    # Please use the generated *_pb2_grpc.py files instead.
-    import grpc
-    from grpc.beta import implementations as beta_implementations
-    from grpc.beta import interfaces as beta_interfaces
-    from grpc.framework.common import cardinality
-    from grpc.framework.interfaces.face import utilities as face_utilities
-except ImportError:
-    pass
 # @@protoc_insertion_point(module_scope)

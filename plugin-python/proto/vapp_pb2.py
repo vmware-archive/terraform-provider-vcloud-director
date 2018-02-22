@@ -43,7 +43,8 @@ _CREATEVAPPINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='catalog_name',
             full_name='proto.CreateVAppInfo.catalog_name',
@@ -59,7 +60,8 @@ _CREATEVAPPINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='template_name',
             full_name='proto.CreateVAppInfo.template_name',
@@ -75,7 +77,8 @@ _CREATEVAPPINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='vdc',
             full_name='proto.CreateVAppInfo.vdc',
@@ -91,7 +94,8 @@ _CREATEVAPPINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='network',
             full_name='proto.CreateVAppInfo.network',
@@ -107,7 +111,8 @@ _CREATEVAPPINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='ip_allocation_mode',
             full_name='proto.CreateVAppInfo.ip_allocation_mode',
@@ -123,7 +128,8 @@ _CREATEVAPPINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='memory',
             full_name='proto.CreateVAppInfo.memory',
@@ -139,7 +145,8 @@ _CREATEVAPPINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='cpu',
             full_name='proto.CreateVAppInfo.cpu',
@@ -155,7 +162,8 @@ _CREATEVAPPINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='power_on',
             full_name='proto.CreateVAppInfo.power_on',
@@ -171,7 +179,8 @@ _CREATEVAPPINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='storage_profile',
             full_name='proto.CreateVAppInfo.storage_profile',
@@ -187,7 +196,8 @@ _CREATEVAPPINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
     ],
     extensions=[],
     nested_types=[],
@@ -223,7 +233,8 @@ _CREATEVAPPRESULT = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='in_vapp_info',
             full_name='proto.CreateVAppResult.in_vapp_info',
@@ -239,7 +250,8 @@ _CREATEVAPPRESULT = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
     ],
     extensions=[],
     nested_types=[],
@@ -275,7 +287,8 @@ _DELETEVAPPINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='vdc',
             full_name='proto.DeleteVAppInfo.vdc',
@@ -291,7 +304,8 @@ _DELETEVAPPINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
     ],
     extensions=[],
     nested_types=[],
@@ -327,7 +341,8 @@ _DELETEVAPPRESULT = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
     ],
     extensions=[],
     nested_types=[],
@@ -363,7 +378,8 @@ _READVAPPINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='vdc',
             full_name='proto.ReadVAppInfo.vdc',
@@ -379,7 +395,8 @@ _READVAPPINFO = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
     ],
     extensions=[],
     nested_types=[],
@@ -415,7 +432,8 @@ _READVAPPRESULT = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='name',
             full_name='proto.ReadVAppResult.name',
@@ -431,7 +449,8 @@ _READVAPPRESULT = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
         _descriptor.FieldDescriptor(
             name='network',
             full_name='proto.ReadVAppResult.network',
@@ -447,7 +466,8 @@ _READVAPPRESULT = _descriptor.Descriptor(
             containing_type=None,
             is_extension=False,
             extension_scope=None,
-            options=None),
+            options=None,
+            file=DESCRIPTOR),
     ],
     extensions=[],
     nested_types=[],
@@ -530,14 +550,4 @@ ReadVAppResult = _reflection.GeneratedProtocolMessageType(
     ))
 _sym_db.RegisterMessage(ReadVAppResult)
 
-try:
-    # THESE ELEMENTS WILL BE DEPRECATED.
-    # Please use the generated *_pb2_grpc.py files instead.
-    import grpc
-    from grpc.beta import implementations as beta_implementations
-    from grpc.beta import interfaces as beta_interfaces
-    from grpc.framework.common import cardinality
-    from grpc.framework.interfaces.face import utilities as face_utilities
-except ImportError:
-    pass
 # @@protoc_insertion_point(module_scope)

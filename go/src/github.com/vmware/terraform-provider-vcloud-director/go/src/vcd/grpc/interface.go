@@ -28,6 +28,9 @@ var PluginMap = map[string]plugin.Plugin{
 	"PY_PLUGIN": &PyVcloudProviderPlugin{},
 
 	"DISK_PLUGIN": &IndependentDiskProviderPlugin{},
+	"ORG_PLUGIN":  &OrgProviderPlugin{},
+	"USER_PLUGIN": &UserProviderPlugin{},
+	//"VDC_PLUGIN":  &VdcProviderPlugin{},
 }
 
 // PyVcloudProvider is the interface that we're exposing as a plugin.
@@ -49,14 +52,14 @@ type PyVcloudProvider interface {
 	CatalogUploadOva(c proto.CatalogUploadOvaInfo ) (*proto.CatalogUploadOvaResult, error)
 
 	OvaCheckResolved(c proto.CatalogCheckResolvedInfo ) (*proto.CheckResolvedResult, error)
-	
+
 
 	DeleteCatalogItem(c proto.DeleteCatalogItemInfo ) (*proto.DeleteCatalogItemResult, error)
 
 	IsPresentCatalogItem(c proto.IsPresentCatalogItemInfo) (*proto.IsPresentCatalogItemResult, error)
 
 	//capture VAPP
-	
+
 	CaptureVapp(c proto.CaptureVAppInfo) (*proto.CaptureVAppResult, error)
 
 	//VAPP
@@ -80,23 +83,23 @@ type PyVcloudProviderPlugin struct {
 }
 
 func (*PyVcloudProviderPlugin) Client(b *plugin.MuxBroker, c *rpc.Client) (interface{}, error) {
-	
+
 	return &RPCClient{client: c}, nil
 }
 
 func (p *PyVcloudProviderPlugin) Server(*plugin.MuxBroker) (interface{}, error) {
-	
+
 	return &RPCServer{Impl: p.Impl}, nil
 }
 
 func (p *PyVcloudProviderPlugin) GRPCServer(s *grpc.Server) error {
-	
+
 	proto.RegisterPyVcloudProviderServer(s, &GRPCServer{Impl: p.Impl})
 	return nil
 }
 
 func (p *PyVcloudProviderPlugin) GRPCClient(c *grpc.ClientConn) (interface{}, error) {
 
-	
+
 	return &GRPCClient{client: proto.NewPyVcloudProviderClient(c)}, nil
 }

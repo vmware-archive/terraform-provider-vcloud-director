@@ -167,7 +167,8 @@ def create_org(client):
     logging.info("create org %s", str(client))
     sys_admin = client.get_admin()
     system = System(client, admin_resource=sys_admin)
-    system.create_org("O2", "O2 ORG")
+    task = system.create_org("O2", "O2 ORG")
+    print(type(task))
 
 
 if __name__ == '__main__':

@@ -8,6 +8,8 @@ import (
 type ProviderGlobalRef struct {
 	pyVcloudProvider        grpc.PyVcloudProvider
 	independentDiskProvider grpc.IndependentDiskProvider
+	orgProvider             grpc.OrgProvider
+	userProvider            grpc.UserProvider
 }
 
 var providerGlobalRefPointer *ProviderGlobalRef

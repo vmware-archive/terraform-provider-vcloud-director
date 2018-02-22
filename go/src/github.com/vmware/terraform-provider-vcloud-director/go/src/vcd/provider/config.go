@@ -89,12 +89,31 @@ func (c Config) CreateClient() (*VCDClient, error) {
 
 	//
 
+	//
+
+	rawOrgProvider, errOrg := rpcClient.Dispense("ORG_PLUGIN")
+	if errOrg != nil {
+		fmt.Println("Error:", errOrg.Error())
+
+	}
+
+	orgProvider := rawOrgProvider.(grpc.OrgProvider)
+
+	rawUserProvider, errUser := rpcClient.Dispense("USER_PLUGIN")
+	if errUser != nil {
+		fmt.Println("Error:", errUser.Error())
+
+	}
+	userProvider := rawUserProvider.(grpc.UserProvider)
+
 	vcdclient := &VCDClient{client, rpcClient.(*plugin.GRPCClient)}
 
 	//save for later use
 	providerGlobalRefPointer = &ProviderGlobalRef{
 		pyVcloudProvider:        provider,
 		independentDiskProvider: diskProvider,
+		orgProvider:             orgProvider,
+		userProvider:            userProvider,
 	}
 	return vcdclient, err
 

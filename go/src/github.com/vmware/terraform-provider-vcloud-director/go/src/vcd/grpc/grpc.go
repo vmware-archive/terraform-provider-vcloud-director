@@ -51,7 +51,7 @@ func (m *GRPCServer) ReadCatalog(
 	return &proto.ReadCatalogResult{Present: v.Present}, err
 }
 
-//catalog 
+//catalog
 func (m *GRPCClient) CreateCatalog(c proto.Catalog) (*proto.CreateCatalogResult, error) {
 	result, err := m.client.CreateCatalog(context.Background(), &c)
 	return result, err
@@ -83,7 +83,7 @@ func (m *GRPCServer) DeleteCatalog(
 
 // impl for CatalogUploadMedia
 
-func (m *GRPCClient) CatalogUploadMedia(mediaInfo proto.CatalogUploadMediaInfo ) (*proto.CatalogUploadMediaResult, error) {
+func (m *GRPCClient) CatalogUploadMedia(mediaInfo proto.CatalogUploadMediaInfo) (*proto.CatalogUploadMediaResult, error) {
 	result, err := m.client.CatalogUploadMedia(context.Background(), &mediaInfo)
 	return result, err
 }

@@ -9,6 +9,8 @@ It is generated from these files:
 	proto/vapp.proto
 	proto/catalog_item.proto
 	proto/disk.proto
+	proto/org.proto
+	proto/user.proto
 
 It has these top-level messages:
 	LoginCredentials
@@ -43,6 +45,22 @@ It has these top-level messages:
 	DeleteDiskResult
 	ReadDiskInfo
 	ReadDiskResult
+	CreateOrgInfo
+	CreateOrgResult
+	DeleteOrgInfo
+	DeleteOrgResult
+	ReadOrgInfo
+	ReadOrgResult
+	UpdateOrgInfo
+	UpdateOrgResult
+	CreateUserInfo
+	CreateUserResult
+	DeleteUserInfo
+	DeleteUserResult
+	ReadUserInfo
+	ReadUserResult
+	UpdateUserInfo
+	UpdateUserResult
 */
 package proto
 

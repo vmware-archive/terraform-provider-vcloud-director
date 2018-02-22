@@ -1,0 +1,70 @@
+/*****************************************************************
+* terraform-provider-vcloud-director
+* Copyright (c) 2017 VMware, Inc. All Rights Reserved.
+* SPDX-License-Identifier: BSD-2-Clause
+******************************************************************/
+
+
+syntax = "proto3";
+
+
+
+package proto;
+
+message CreateOrgInfo{
+        string name = 1;
+        string org_full_name = 2;
+        bool is_enabled = 3;
+}
+
+
+message CreateOrgResult{
+        bool created = 1;
+}
+
+message DeleteOrgInfo{
+        string name = 1 ;
+        bool force = 2;
+        bool recursive = 3;
+}
+
+message DeleteOrgResult{
+        bool deleted = 1;
+
+}
+
+message ReadOrgInfo{
+        string name = 1 ;
+}
+
+message ReadOrgResult{
+		string name = 1;
+        string org_full_name = 2;
+        bool is_enabled = 3;
+        bool present = 4;
+}
+
+message UpdateOrgInfo{
+	 	string name = 1;
+        string org_full_name = 2;
+        bool is_enabled = 3;
+}
+
+message UpdateOrgResult{
+		 bool updated = 1;
+}
+
+service Org {
+//create a organisation
+rpc Create(  CreateOrgInfo ) returns ( CreateOrgResult ) {}
+
+// delete a organisation
+rpc Delete(  DeleteOrgInfo ) returns ( DeleteOrgResult ) {}
+
+// Read Org
+rpc Read(  ReadOrgInfo ) returns ( ReadOrgResult ) {}
+
+//Update org
+rpc Update ( UpdateOrgInfo ) returns ( UpdateOrgResult ) {}
+
+}

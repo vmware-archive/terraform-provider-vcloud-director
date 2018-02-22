@@ -51,7 +51,6 @@ func resourceIndependentDisk() *schema.Resource {
 				Optional: true,
 				ForceNew: false,
 			},
-			
 		},
 	}
 }

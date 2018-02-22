@@ -77,6 +77,7 @@ def create(client, context, vappInfo):
 
         task = client.get_task_monitor().wait_for_status(
             task=result.Tasks.Task[0],
+            #TODO timeout configurable
             timeout=60,
             poll_frequency=2,
             fail_on_status=None,

@@ -26,6 +26,21 @@ class VCDDiskDeletionError(Exception):
         Exception.__init__(self, msg)
 
 
+class VCDOrgCreationError(Exception):
+    def __init__(self, msg):
+        Exception.__init__(self, msg)
+
+
+class VCDOrgDeleteError(Exception):
+    def __init__(self, msg):
+        Exception.__init__(self, msg)
+
+
+class APINotImplement(Exception):
+    def __init__(self, msg):
+        Exception.__init__(self, msg)
+
+
 if __name__ == '__main__':
 
     logging.basicConfig(level=logging.DEBUG)

@@ -1,0 +1,93 @@
+/*****************************************************************
+* terraform-provider-vcloud-director
+* Copyright (c) 2017 VMware, Inc. All Rights Reserved.
+* SPDX-License-Identifier: BSD-2-Clause
+******************************************************************/
+
+
+syntax = "proto3";
+
+
+
+package proto;
+
+service User {
+	// create a User
+	rpc Create(  CreateUserInfo ) returns ( CreateUserResult ) {}
+	
+	// delete a User
+	rpc Delete(  DeleteUserInfo ) returns ( DeleteUserResult ) {}
+	
+	// Read User
+	rpc Read(  ReadUserInfo ) returns ( ReadUserResult ) {}
+	
+	// Update User
+	rpc Update ( UpdateUserInfo ) returns ( UpdateUserResult ) {}
+
+}
+
+message CreateUserInfo{
+        string name = 1;
+        string password = 2;
+        string role_name = 3;
+        string full_name = 4;
+        string description = 5;
+        string email = 6;
+        string telephone = 7;
+        string im = 8;
+        string alert_email = 9;
+        string alert_email_prefix = 10;
+        int32 stored_vm_quota = 11;
+        int32 deployed_vm_quota = 12;
+        bool is_group_role = 13;
+        bool is_default_cached = 14;
+        bool is_external = 15;
+        bool is_alert_enabled = 16;
+        bool is_enabled = 17; 
+}
+
+
+message CreateUserResult{
+        bool created = 1;
+}
+
+message DeleteUserInfo{
+        string name = 1;
+}
+
+message DeleteUserResult{
+        bool deleted = 1;
+}
+
+message ReadUserInfo{
+        string name = 1 ;
+}
+
+message ReadUserResult{
+        string name = 1;
+        string role_name = 2;
+        string full_name = 3;
+        string description = 4;
+        string email = 5;
+        string telephone = 6;
+        string im = 7;
+        string alert_email = 8;
+        string alert_email_prefix = 9;
+        int32 stored_vm_quota = 10;
+        int32 deployed_vm_quota = 11;
+        bool is_group_role = 12;
+        bool is_default_cached = 13;
+        bool is_external = 14;
+        bool is_alert_enabled = 15;
+        bool is_enabled = 16; 
+        bool present = 17;
+}
+
+message UpdateUserInfo{
+	 	string name = 1;
+        bool is_enabled = 2;
+}
+
+message UpdateUserResult{
+		 bool updated = 1;
+}

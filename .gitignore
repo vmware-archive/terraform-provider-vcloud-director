@@ -22,3 +22,5 @@ vcd.log
 go/src/test/test
 go/src/terraform.tfstate
 go/src/terraform.tfstate.backup
+.project
+.pydevproject
