@@ -13,7 +13,6 @@ import (
 
 	"github.com/hashicorp/go-plugin"
 	"github.com/vmware/terraform-provider-vcloud-director/go/src/vcd/proto"
-
 )
 
 // Handshake is a common handshake that is shared by plugin and host.
@@ -30,13 +29,12 @@ var PluginMap = map[string]plugin.Plugin{
 	"DISK_PLUGIN": &IndependentDiskProviderPlugin{},
 	"ORG_PLUGIN":  &OrgProviderPlugin{},
 	"USER_PLUGIN": &UserProviderPlugin{},
-	//"VDC_PLUGIN":  &VdcProviderPlugin{},
+	"VDC_PLUGIN":  &VdcProviderPlugin{},
 }
 
 // PyVcloudProvider is the interface that we're exposing as a plugin.
 type PyVcloudProvider interface {
 	Login(lc proto.LoginCredentials) (*proto.LoginResult, error)
-
 
 	//Catalog
 	ReadCatalog(name string) (*proto.ReadCatalogResult, error)
@@ -45,16 +43,14 @@ type PyVcloudProvider interface {
 
 	DeleteCatalog(name string) (*proto.DeleteCatalogResult, error)
 
-
 	//Catalog Item
-	CatalogUploadMedia(c proto.CatalogUploadMediaInfo ) (*proto.CatalogUploadMediaResult, error)
+	CatalogUploadMedia(c proto.CatalogUploadMediaInfo) (*proto.CatalogUploadMediaResult, error)
 
-	CatalogUploadOva(c proto.CatalogUploadOvaInfo ) (*proto.CatalogUploadOvaResult, error)
+	CatalogUploadOva(c proto.CatalogUploadOvaInfo) (*proto.CatalogUploadOvaResult, error)
 
-	OvaCheckResolved(c proto.CatalogCheckResolvedInfo ) (*proto.CheckResolvedResult, error)
+	OvaCheckResolved(c proto.CatalogCheckResolvedInfo) (*proto.CheckResolvedResult, error)
 
-
-	DeleteCatalogItem(c proto.DeleteCatalogItemInfo ) (*proto.DeleteCatalogItemResult, error)
+	DeleteCatalogItem(c proto.DeleteCatalogItemInfo) (*proto.DeleteCatalogItemResult, error)
 
 	IsPresentCatalogItem(c proto.IsPresentCatalogItemInfo) (*proto.IsPresentCatalogItemResult, error)
 
@@ -63,14 +59,14 @@ type PyVcloudProvider interface {
 	CaptureVapp(c proto.CaptureVAppInfo) (*proto.CaptureVAppResult, error)
 
 	//VAPP
-	CreateVApp(c proto.CreateVAppInfo ) (*proto.CreateVAppResult, error)
+	CreateVApp(c proto.CreateVAppInfo) (*proto.CreateVAppResult, error)
 
 	DeleteVApp(c proto.DeleteVAppInfo) (*proto.DeleteVAppResult, error)
 
 	ReadVApp(c proto.ReadVAppInfo) (*proto.ReadVAppResult, error)
 
 	//Plugin Remote control
-	StopPlugin(c proto.StopInfo ) (*proto.StopResult, error)
+	StopPlugin(c proto.StopInfo) (*proto.StopResult, error)
 }
 
 // This is the implementation of plugin.Plugin so we can serve/consume this.
@@ -99,7 +95,6 @@ func (p *PyVcloudProviderPlugin) GRPCServer(s *grpc.Server) error {
 }
 
 func (p *PyVcloudProviderPlugin) GRPCClient(c *grpc.ClientConn) (interface{}, error) {
-
 
 	return &GRPCClient{client: proto.NewPyVcloudProviderClient(c)}, nil
 }

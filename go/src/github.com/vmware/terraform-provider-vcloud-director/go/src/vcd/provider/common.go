@@ -10,6 +10,7 @@ type ProviderGlobalRef struct {
 	independentDiskProvider grpc.IndependentDiskProvider
 	orgProvider             grpc.OrgProvider
 	userProvider            grpc.UserProvider
+	vdcProvider             grpc.VdcProvider
 }
 
 var providerGlobalRefPointer *ProviderGlobalRef

@@ -106,6 +106,13 @@ func (c Config) CreateClient() (*VCDClient, error) {
 	}
 	userProvider := rawUserProvider.(grpc.UserProvider)
 
+	rawVdcProvider, errVdc := rpcClient.Dispense("VDC_PLUGIN")
+	if errUser != nil {
+		fmt.Println("Error:", errVdc.Error())
+
+	}
+	vdcProvider := rawVdcProvider.(grpc.VdcProvider)
+
 	vcdclient := &VCDClient{client, rpcClient.(*plugin.GRPCClient)}
 
 	//save for later use
@@ -114,6 +121,7 @@ func (c Config) CreateClient() (*VCDClient, error) {
 		independentDiskProvider: diskProvider,
 		orgProvider:             orgProvider,
 		userProvider:            userProvider,
+		vdcProvider:             vdcProvider,
 	}
 	return vcdclient, err
 

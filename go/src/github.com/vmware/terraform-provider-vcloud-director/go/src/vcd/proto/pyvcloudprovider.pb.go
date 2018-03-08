@@ -11,6 +11,7 @@ It is generated from these files:
 	proto/disk.proto
 	proto/org.proto
 	proto/user.proto
+	proto/vdc.proto
 
 It has these top-level messages:
 	LoginCredentials
@@ -61,6 +62,14 @@ It has these top-level messages:
 	ReadUserResult
 	UpdateUserInfo
 	UpdateUserResult
+	CreateVdcInfo
+	CreateVdcResult
+	DeleteVdcInfo
+	DeleteVdcResult
+	ReadVdcInfo
+	ReadVdcResult
+	UpdateVdcInfo
+	UpdateVdcResult
 */
 package proto
 

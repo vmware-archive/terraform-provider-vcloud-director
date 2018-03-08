@@ -19,6 +19,9 @@ from proto import org_pb2_grpc as org_pb2_grpc
 from proto import user_pb2 as user_pb2
 from proto import user_pb2_grpc as user_pb2_grpc
 
+from proto import vdc_pb2 as vdc_pb2
+from proto import vdc_pb2_grpc as vdc_pb2_grpc
+
 from proto import vapp_pb2 as vapp_pb2
 from proto import catalog_item_pb2 as catalog_item_pb2
 
@@ -46,6 +49,7 @@ import plugin_stop
 from disk import IndependentDiskServicer
 from org import OrgServicer
 from user import UserServicer
+from vdc import VdcServicer
 
 
 class PyVcloudProviderServicer(
@@ -215,6 +219,8 @@ class PyPluginServer:
         org_pb2_grpc.add_OrgServicer_to_server(OrgServicer(self), server)
 
         user_pb2_grpc.add_UserServicer_to_server(UserServicer(self), server)
+
+        vdc_pb2_grpc.add_VdcServicer_to_server(VdcServicer(self), server)
 
         health_pb2_grpc.add_HealthServicer_to_server(health, server)
         server.add_insecure_port('127.0.0.1:1234')

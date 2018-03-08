@@ -41,6 +41,16 @@ class APINotImplement(Exception):
         Exception.__init__(self, msg)
 
 
+class VCDVdcDeleteError(Exception):
+    def __init__(self, msg):
+        Exception.__init__(self, msg)
+
+
+class VCDVdcCreateError(Exception):
+    def __init__(self, msg):
+        Exception.__init__(self, msg)
+
+
 if __name__ == '__main__':
 
     logging.basicConfig(level=logging.DEBUG)

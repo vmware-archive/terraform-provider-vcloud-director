@@ -70,6 +70,7 @@ func Provider() terraform.ResourceProvider {
 			"vcloud-director_org":                resourceOrg(),
 			"vcloud-director_disk":               resourceIndependentDisk(),
 			"vcloud-director_user":               resourceUser(),
+			"vcloud-director_vdc":                resourceVdc(),
 		},
 
 		ConfigureFunc: providerConfigure,

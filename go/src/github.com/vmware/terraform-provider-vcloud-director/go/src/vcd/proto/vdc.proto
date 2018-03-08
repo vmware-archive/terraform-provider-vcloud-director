@@ -1,0 +1,124 @@
+/*****************************************************************
+* terraform-provider-vcloud-director
+* Copyright (c) 2017 VMware, Inc. All Rights Reserved.
+* SPDX-License-Identifier: BSD-2-Clause
+******************************************************************/
+
+syntax = "proto3";
+
+package proto;
+
+message CreateVdcInfo{
+		string name = 1;
+		string provider_vdc = 2;
+		string description = 3;
+		string allocation_model = 4;
+		string cpu_units = 5;
+		int32 cpu_allocated = 6;
+		int32 cpu_limit = 7;
+		string mem_units = 8;
+		int32 mem_allocated = 9;
+		int32 mem_limit = 10;
+		int32 nic_quota = 11;
+		int32 network_quota = 12;
+		int32 vm_quota = 13;
+		
+		//repeated StorageProfile storage_profiles = 14;
+		string storage_profiles = 14;
+		
+		float resource_guaranteed_memory = 15;
+		float resource_guaranteed_cpu = 16;
+		int32 vcpu_in_mhz = 17;
+		bool is_thin_provision = 18;
+		string network_pool_name = 19;
+		bool uses_fast_provisioning = 20;
+		bool over_commit_allowed = 21;
+		bool vm_discovery_enabled = 22;
+		bool is_enabled = 23;
+}
+
+
+message CreateVdcResult{
+        bool created = 1;
+}
+
+message DeleteVdcInfo{
+        string name = 1 ;
+}
+
+message DeleteVdcResult{
+        bool deleted = 1;
+
+}
+
+message ReadVdcInfo{
+        string name = 1 ;
+}
+
+message ReadVdcResult{
+        string name = 1;
+		string provider_vdc = 2;
+		string description = 3;
+		string allocation_model = 4;
+		string cpu_units = 5;
+		int32 cpu_allocated = 6;
+		int32 cpu_limit = 7;
+		string mem_units = 8;
+		int32 mem_allocated = 9;
+		int32 mem_limit = 10;
+		int32 nic_quota = 11;
+		int32 network_quota = 12;
+		int32 vm_quota = 13;
+		
+		//repeated StorageProfile storage_profiles = 14;
+		string storage_profiles = 14;
+		
+		float resource_guaranteed_memory = 15;
+		float resource_guaranteed_cpu = 16;
+		int32 vcpu_in_mhz = 17;
+		bool is_thin_provision = 18;
+		string network_pool_name = 19;
+		bool uses_fast_provisioning = 20;
+		bool over_commit_allowed = 21;
+		bool vm_discovery_enabled = 22;
+		bool is_enabled = 23;
+        bool present = 24;
+        
+        //string storage_profiles_name = 25;
+		//bool storage_profiles_is_enabled = 26;
+		//string storage_profiles_units = 27;
+		//string storage_profiles_limit = 28;
+		//bool storage_profiles_default = 29;
+}
+
+message UpdateVdcInfo{
+	 	string name = 1;
+	 	bool is_enabled = 2;
+}
+
+message UpdateVdcResult{
+		bool updated = 1;
+}
+
+//message StorageProfile{
+//        string name = 1;
+//        bool is_enabled = 2;
+//        string units = 3;
+//        int32 limit = 4;
+//        bool default = 5;
+//}
+
+service Vdc {
+//create a Vdc
+rpc Create(  CreateVdcInfo ) returns ( CreateVdcResult ) {}
+
+// delete a Vdc
+rpc Delete(  DeleteVdcInfo ) returns ( DeleteVdcResult ) {}
+
+// Read Vdc
+rpc Read(  ReadVdcInfo ) returns ( ReadVdcResult ) {}
+
+//Update Vdc
+rpc Update ( UpdateVdcInfo ) returns ( UpdateVdcResult ) {}
+
+}
