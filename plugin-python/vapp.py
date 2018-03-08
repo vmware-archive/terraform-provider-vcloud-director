@@ -80,7 +80,7 @@ def create(client, context, vappInfo):
             #TODO timeout configurable
             timeout=60,
             poll_frequency=2,
-            fail_on_status=None,
+            fail_on_statuses=None,
             expected_target_statuses=[
                 TaskStatus.SUCCESS, TaskStatus.ABORTED, TaskStatus.ERROR,
                 TaskStatus.CANCELED
@@ -168,7 +168,7 @@ def delete(client, vappInfo):
                 task=result,
                 timeout=60,
                 poll_frequency=2,
-                fail_on_status=None,
+                fail_on_statuses=None,
                 expected_target_statuses=[
                     TaskStatus.SUCCESS, TaskStatus.ABORTED, TaskStatus.ERROR,
                     TaskStatus.CANCELED

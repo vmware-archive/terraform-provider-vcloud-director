@@ -6,7 +6,7 @@ go/src/crash.log
 go/src/github.com/golang/
 go/src/github.com/hashicorp/
 go/src/github.com/mitchellh/
-
+go/src/github.com/oklog/
 
 *.pyc
 
