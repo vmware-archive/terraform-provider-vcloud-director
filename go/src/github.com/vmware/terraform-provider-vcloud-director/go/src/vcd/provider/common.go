@@ -11,6 +11,7 @@ type ProviderGlobalRef struct {
 	orgProvider             grpc.OrgProvider
 	userProvider            grpc.UserProvider
 	vdcProvider             grpc.VdcProvider
+	vappVmProvider          grpc.VappVmProvider
 }
 
 var providerGlobalRefPointer *ProviderGlobalRef

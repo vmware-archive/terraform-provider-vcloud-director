@@ -26,10 +26,11 @@ var Handshake = plugin.HandshakeConfig{
 var PluginMap = map[string]plugin.Plugin{
 	"PY_PLUGIN": &PyVcloudProviderPlugin{},
 
-	"DISK_PLUGIN": &IndependentDiskProviderPlugin{},
-	"ORG_PLUGIN":  &OrgProviderPlugin{},
-	"USER_PLUGIN": &UserProviderPlugin{},
-	"VDC_PLUGIN":  &VdcProviderPlugin{},
+	"DISK_PLUGIN":    &IndependentDiskProviderPlugin{},
+	"ORG_PLUGIN":     &OrgProviderPlugin{},
+	"USER_PLUGIN":    &UserProviderPlugin{},
+	"VDC_PLUGIN":     &VdcProviderPlugin{},
+	"VAPP_VM_PLUGIN": &VappVmProviderPlugin{},
 }
 
 // PyVcloudProvider is the interface that we're exposing as a plugin.

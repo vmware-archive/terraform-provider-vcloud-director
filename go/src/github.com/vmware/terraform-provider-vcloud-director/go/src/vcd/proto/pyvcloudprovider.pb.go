@@ -12,6 +12,7 @@ It is generated from these files:
 	proto/org.proto
 	proto/user.proto
 	proto/vdc.proto
+	proto/vapp_vm.proto
 
 It has these top-level messages:
 	LoginCredentials
@@ -70,6 +71,14 @@ It has these top-level messages:
 	ReadVdcResult
 	UpdateVdcInfo
 	UpdateVdcResult
+	CreateVappVmInfo
+	CreateVappVmResult
+	DeleteVappVmInfo
+	DeleteVappVmResult
+	ReadVappVmInfo
+	ReadVappVmResult
+	UpdateVappVmInfo
+	UpdateVappVmResult
 */
 package proto
 

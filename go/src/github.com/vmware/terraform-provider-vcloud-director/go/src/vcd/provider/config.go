@@ -113,6 +113,13 @@ func (c Config) CreateClient() (*VCDClient, error) {
 	}
 	vdcProvider := rawVdcProvider.(grpc.VdcProvider)
 
+	rawVappVmProvider, errVappVm := rpcClient.Dispense("VAPP_VM_PLUGIN")
+	if errVappVm != nil {
+		fmt.Println("Error:", errVappVm.Error())
+
+	}
+	vappVmProvider := rawVappVmProvider.(grpc.VappVmProvider)
+
 	vcdclient := &VCDClient{client, rpcClient.(*plugin.GRPCClient)}
 
 	//save for later use
@@ -122,6 +129,7 @@ func (c Config) CreateClient() (*VCDClient, error) {
 		orgProvider:             orgProvider,
 		userProvider:            userProvider,
 		vdcProvider:             vdcProvider,
+		vappVmProvider:          vappVmProvider,
 	}
 	return vcdclient, err
 
