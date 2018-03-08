@@ -36,7 +36,9 @@ message CreateVappVmResult{
 }
 
 message DeleteVappVmInfo{
-        string name = 1 ;
+        string target_vm_name = 1 ;
+        string target_vdc = 2;
+        string target_vapp = 3;
 }
 
 message DeleteVappVmResult{
@@ -45,7 +47,9 @@ message DeleteVappVmResult{
 }
 
 message ReadVappVmInfo{
-        string name = 1 ;
+        string target_vm_name = 1 ;
+        string target_vdc = 2;
+        string target_vapp = 3;
 }
 
 message ReadVappVmResult{

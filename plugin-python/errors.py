@@ -51,6 +51,16 @@ class VCDVdcCreateError(Exception):
         Exception.__init__(self, msg)
 
 
+class VappVmCreateError(Exception):
+    def __init__(self, msg):
+        Exception.__init__(self, msg)
+
+
+class VappVmDeleteError(Exception):
+    def __init__(self, msg):
+        Exception.__init__(self, msg)
+
+
 if __name__ == '__main__':
 
     logging.basicConfig(level=logging.DEBUG)

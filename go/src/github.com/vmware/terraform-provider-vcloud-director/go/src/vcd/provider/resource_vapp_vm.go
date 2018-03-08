@@ -56,7 +56,7 @@ func resourceVappVm() *schema.Resource {
 				Optional: true,
 				ForceNew: false,
 			},
-			
+
 			"hostname": &schema.Schema{
 				Type:     schema.TypeString,
 				Optional: true,
@@ -103,7 +103,7 @@ func resourceVappVm() *schema.Resource {
 				ForceNew: false,
 			},
 			"ip_allocation_mode": &schema.Schema{
-				Type:     schema.TypeBool,
+				Type:     schema.TypeString,
 				Optional: true,
 				ForceNew: false,
 			},
@@ -134,25 +134,28 @@ func resourceVappVmCreate(d *schema.ResourceData, m interface{}) error {
 	sourceCatalogName := d.Get("source_catalog_name").(string)
 	sourceTemplateName := d.Get("source_template_name").(string)
 
+	ipAllocationMode := d.Get("ip_allocation_mode").(string)
+
 	provider := providerGlobalRefPointer.vappVmProvider
 
 	createVappVmInfo := proto.CreateVappVmInfo{
-		TargetVmName:     targetVmName,
-		TargetVapp:       targetVapp,
-		TargetVdc:        targetVdc,
-		SourceVapp:       sourceVapp,
-		SourceVmName:     sourceVmName,
-		SourceCatalogName: sourceCatalogName,
+		TargetVmName:       targetVmName,
+		TargetVapp:         targetVapp,
+		TargetVdc:          targetVdc,
+		SourceVapp:         sourceVapp,
+		SourceVmName:       sourceVmName,
+		SourceCatalogName:  sourceCatalogName,
 		SourceTemplateName: sourceTemplateName,
-		Hostname:         hostname,
-		Password:         password,
-		PasswordAuto:     passwordAuto,
-		PasswordReset:    passwordReset,
-		CustScript:       custScript,
-		Network:          network,
-		StorageProfile:   storageProfile,
-		PowerOn:          powerOn,
-		AllEulasAccepted: allEulasAccepted,
+		Hostname:           hostname,
+		Password:           password,
+		PasswordAuto:       passwordAuto,
+		PasswordReset:      passwordReset,
+		CustScript:         custScript,
+		Network:            network,
+		StorageProfile:     storageProfile,
+		PowerOn:            powerOn,
+		AllEulasAccepted:   allEulasAccepted,
+		IpAllocationMode:   ipAllocationMode,
 	}
 
 	res, err := provider.Create(createVappVmInfo)
@@ -173,11 +176,17 @@ func resourceVappVmCreate(d *schema.ResourceData, m interface{}) error {
 func resourceVappVmDelete(d *schema.ResourceData, m interface{}) error {
 	logging.Plog("__INIT__resourceVappVmDelete_")
 
-	name := d.Get("target_vm_name").(string)
+	targetVmName := d.Get("target_vm_name").(string)
+	targetVapp := d.Get("target_vapp").(string)
+	targetVdc := d.Get("target_vdc").(string)
 
 	provider := providerGlobalRefPointer.vappVmProvider
 
-	deleteVappVmInfo := proto.DeleteVappVmInfo{Name: name}
+	deleteVappVmInfo := proto.DeleteVappVmInfo{
+		TargetVmName: targetVmName,
+		TargetVapp:   targetVapp,
+		TargetVdc:    targetVdc,
+	}
 	res, err := provider.Delete(deleteVappVmInfo)
 
 	if err != nil {
@@ -226,11 +235,17 @@ func resourceVappVmUpdate(d *schema.ResourceData, m interface{}) error {
 func resourceVappVmRead(d *schema.ResourceData, m interface{}) error {
 	logging.Plog("__INIT__resourceVappVmRead_")
 
-	name := d.Get("target_vm_name").(string)
+	targetVmName := d.Get("target_vm_name").(string)
+	targetVapp := d.Get("target_vapp").(string)
+	targetVdc := d.Get("target_vdc").(string)
 
 	provider := providerGlobalRefPointer.vappVmProvider
 
-	readVappVmInfo := proto.ReadVappVmInfo{Name: name}
+	readVappVmInfo := proto.ReadVappVmInfo{
+		TargetVmName: targetVmName,
+		TargetVapp:   targetVapp,
+		TargetVdc:    targetVdc,
+	}
 	res, err := provider.Read(readVappVmInfo)
 
 	if err != nil {
@@ -239,13 +254,12 @@ func resourceVappVmRead(d *schema.ResourceData, m interface{}) error {
 	}
 
 	if res.Present {
-		d.SetId(name)
-		d.Set("is_enabled", res.IsEnabled)
-		logging.Plog(fmt.Sprintf("__DONE__resourceVappVmRead_ +setting id %v", name))
+		d.SetId(targetVmName)
+		logging.Plog(fmt.Sprintf("__DONE__resourceVappVmRead_ +setting id %v", targetVmName))
 		return nil
 	} else {
 		d.SetId("")
-		logging.Plog(fmt.Sprintf("__DONE__resourceVappVmRead_ +unsetting id,resource got deleted %v", name))
+		logging.Plog(fmt.Sprintf("__DONE__resourceVappVmRead_ +unsetting id,resource got deleted %v", targetVmName))
 	}
 
 	logging.Plog("__DONE__resourceVappVmRead_")

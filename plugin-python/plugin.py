@@ -227,8 +227,8 @@ class PyPluginServer:
 
         vdc_pb2_grpc.add_VdcServicer_to_server(VdcServicer(self), server)
 
-        vapp_vm_pb2_grpc.add_VappVmServicer_to_server(VappVmServicer(self), server)
-
+        vapp_vm_pb2_grpc.add_VappVmServicer_to_server(
+            VappVmServicer(self), server)
 
         health_pb2_grpc.add_HealthServicer_to_server(health, server)
         server.add_insecure_port('127.0.0.1:1234')

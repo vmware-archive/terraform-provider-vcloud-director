@@ -20,4 +20,4 @@ DIR="go/src/github.com/vmware/terraform-provider-vcloud-director/go/src/vcd/"
 echo 'rebuild python'
 
 
-python3 -m grpc_tools.protoc -I ./$DIR -I ./$DIR/proto   --python_out=./plugin-python/ --grpc_python_out=./plugin-python/  proto/vapp.proto proto/pyvcloudprovider.proto proto/catalog_item.proto proto/disk.proto proto/org.proto proto/user.proto proto/vdc.proto  proto/vapp_vm.proto      
+python3 -m grpc_tools.protoc -I ./$DIR -I ./$DIR/proto   --python_out=./plugin-python/ --grpc_python_out=./plugin-python/  proto/vapp.proto proto/pyvcloudprovider.proto proto/catalog_item.proto proto/disk.proto proto/org.proto proto/user.proto proto/vdc.proto proto/vapp_vm.proto

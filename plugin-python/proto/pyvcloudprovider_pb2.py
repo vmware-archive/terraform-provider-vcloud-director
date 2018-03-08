@@ -2,7 +2,8 @@
 # source: proto/pyvcloudprovider.proto
 
 import sys
-_b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
+_b = sys.version_info[0] < 3 and (lambda x: x) or (
+    lambda x: x.encode('latin1'))
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
@@ -12,361 +13,504 @@ from google.protobuf import descriptor_pb2
 
 _sym_db = _symbol_database.Default()
 
-
 from proto import vapp_pb2 as proto_dot_vapp__pb2
 from proto import catalog_item_pb2 as proto_dot_catalog__item__pb2
 
-
 DESCRIPTOR = _descriptor.FileDescriptor(
-  name='proto/pyvcloudprovider.proto',
-  package='proto',
-  syntax='proto3',
-  serialized_pb=_b('\n\x1cproto/pyvcloudprovider.proto\x12\x05proto\x1a\x10proto/vapp.proto\x1a\x18proto/catalog_item.proto\"\x89\x01\n\x10LoginCredentials\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x0b\n\x03org\x18\x03 \x01(\t\x12\x1b\n\x13use_vcd_cli_profile\x18\x04 \x01(\x08\x12\n\n\x02ip\x18\x05 \x01(\t\x12\x1b\n\x13\x61llow_insecure_flag\x18\x06 \x01(\x08\"\x1c\n\x0bLoginResult\x12\r\n\x05token\x18\x01 \x01(\t\"<\n\x07\x43\x61talog\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x0e\n\x06shared\x18\x03 \x01(\x08\"W\n\x11ReadCatalogResult\x12\x0f\n\x07present\x18\x01 \x01(\x08\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x0e\n\x06shared\x18\x04 \x01(\x08\"&\n\x13\x43reateCatalogResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\"&\n\x13\x44\x65leteCatalogResult\x12\x0f\n\x07\x64\x65leted\x18\x01 \x01(\x08\"\'\n\x13\x43heckResolvedResult\x12\x10\n\x08resolved\x18\x01 \x01(\x08\"\x1d\n\nStopResult\x12\x0f\n\x07stopped\x18\x01 \x01(\x08\"\n\n\x08StopInfo2\xe4\x07\n\x10PyVcloudProvider\x12\x36\n\x05Login\x12\x17.proto.LoginCredentials\x1a\x12.proto.LoginResult\"\x00\x12\x39\n\x0bReadCatalog\x12\x0e.proto.Catalog\x1a\x18.proto.ReadCatalogResult\"\x00\x12=\n\rCreateCatalog\x12\x0e.proto.Catalog\x1a\x1a.proto.CreateCatalogResult\"\x00\x12=\n\rDeleteCatalog\x12\x0e.proto.Catalog\x1a\x1a.proto.DeleteCatalogResult\"\x00\x12V\n\x12\x43\x61talogUploadMedia\x12\x1d.proto.CatalogUploadMediaInfo\x1a\x1f.proto.CatalogUploadMediaResult\"\x00\x12P\n\x10\x43\x61talogUploadOva\x12\x1b.proto.CatalogUploadOvaInfo\x1a\x1d.proto.CatalogUploadOvaResult\"\x00\x12Q\n\x10OvaCheckResolved\x12\x1f.proto.CatalogCheckResolvedInfo\x1a\x1a.proto.CheckResolvedResult\"\x00\x12S\n\x11\x44\x65leteCatalogItem\x12\x1c.proto.DeleteCatalogItemInfo\x1a\x1e.proto.DeleteCatalogItemResult\"\x00\x12\\\n\x14isPresentCatalogItem\x12\x1f.proto.IsPresentCatalogItemInfo\x1a!.proto.IsPresentCatalogItemResult\"\x00\x12\x41\n\x0b\x43\x61ptureVapp\x12\x16.proto.CaptureVAppInfo\x1a\x18.proto.CaptureVAppResult\"\x00\x12>\n\nCreateVApp\x12\x15.proto.CreateVAppInfo\x1a\x17.proto.CreateVAppResult\"\x00\x12>\n\nDeleteVApp\x12\x15.proto.DeleteVAppInfo\x1a\x17.proto.DeleteVAppResult\"\x00\x12\x38\n\x08ReadVApp\x12\x13.proto.ReadVAppInfo\x1a\x15.proto.ReadVAppResult\"\x00\x12\x32\n\nStopPlugin\x12\x0f.proto.StopInfo\x1a\x11.proto.StopResult\"\x00\x42\x37\n\x1c\x63om.vmware.pyvcloud.providerB\x15PyVcloudProviderProtoP\x01\x62\x06proto3')
-  ,
-  dependencies=[proto_dot_vapp__pb2.DESCRIPTOR,proto_dot_catalog__item__pb2.DESCRIPTOR,])
-
-
-
+    name='proto/pyvcloudprovider.proto',
+    package='proto',
+    syntax='proto3',
+    serialized_pb=_b(
+        '\n\x1cproto/pyvcloudprovider.proto\x12\x05proto\x1a\x10proto/vapp.proto\x1a\x18proto/catalog_item.proto\"\x89\x01\n\x10LoginCredentials\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x0b\n\x03org\x18\x03 \x01(\t\x12\x1b\n\x13use_vcd_cli_profile\x18\x04 \x01(\x08\x12\n\n\x02ip\x18\x05 \x01(\t\x12\x1b\n\x13\x61llow_insecure_flag\x18\x06 \x01(\x08\"\x1c\n\x0bLoginResult\x12\r\n\x05token\x18\x01 \x01(\t\"<\n\x07\x43\x61talog\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x0e\n\x06shared\x18\x03 \x01(\x08\"W\n\x11ReadCatalogResult\x12\x0f\n\x07present\x18\x01 \x01(\x08\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x0e\n\x06shared\x18\x04 \x01(\x08\"&\n\x13\x43reateCatalogResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\"&\n\x13\x44\x65leteCatalogResult\x12\x0f\n\x07\x64\x65leted\x18\x01 \x01(\x08\"\'\n\x13\x43heckResolvedResult\x12\x10\n\x08resolved\x18\x01 \x01(\x08\"\x1d\n\nStopResult\x12\x0f\n\x07stopped\x18\x01 \x01(\x08\"\n\n\x08StopInfo2\xe4\x07\n\x10PyVcloudProvider\x12\x36\n\x05Login\x12\x17.proto.LoginCredentials\x1a\x12.proto.LoginResult\"\x00\x12\x39\n\x0bReadCatalog\x12\x0e.proto.Catalog\x1a\x18.proto.ReadCatalogResult\"\x00\x12=\n\rCreateCatalog\x12\x0e.proto.Catalog\x1a\x1a.proto.CreateCatalogResult\"\x00\x12=\n\rDeleteCatalog\x12\x0e.proto.Catalog\x1a\x1a.proto.DeleteCatalogResult\"\x00\x12V\n\x12\x43\x61talogUploadMedia\x12\x1d.proto.CatalogUploadMediaInfo\x1a\x1f.proto.CatalogUploadMediaResult\"\x00\x12P\n\x10\x43\x61talogUploadOva\x12\x1b.proto.CatalogUploadOvaInfo\x1a\x1d.proto.CatalogUploadOvaResult\"\x00\x12Q\n\x10OvaCheckResolved\x12\x1f.proto.CatalogCheckResolvedInfo\x1a\x1a.proto.CheckResolvedResult\"\x00\x12S\n\x11\x44\x65leteCatalogItem\x12\x1c.proto.DeleteCatalogItemInfo\x1a\x1e.proto.DeleteCatalogItemResult\"\x00\x12\\\n\x14isPresentCatalogItem\x12\x1f.proto.IsPresentCatalogItemInfo\x1a!.proto.IsPresentCatalogItemResult\"\x00\x12\x41\n\x0b\x43\x61ptureVapp\x12\x16.proto.CaptureVAppInfo\x1a\x18.proto.CaptureVAppResult\"\x00\x12>\n\nCreateVApp\x12\x15.proto.CreateVAppInfo\x1a\x17.proto.CreateVAppResult\"\x00\x12>\n\nDeleteVApp\x12\x15.proto.DeleteVAppInfo\x1a\x17.proto.DeleteVAppResult\"\x00\x12\x38\n\x08ReadVApp\x12\x13.proto.ReadVAppInfo\x1a\x15.proto.ReadVAppResult\"\x00\x12\x32\n\nStopPlugin\x12\x0f.proto.StopInfo\x1a\x11.proto.StopResult\"\x00\x42\x37\n\x1c\x63om.vmware.pyvcloud.providerB\x15PyVcloudProviderProtoP\x01\x62\x06proto3'
+    ),
+    dependencies=[
+        proto_dot_vapp__pb2.DESCRIPTOR,
+        proto_dot_catalog__item__pb2.DESCRIPTOR,
+    ])
 
 _LOGINCREDENTIALS = _descriptor.Descriptor(
-  name='LoginCredentials',
-  full_name='proto.LoginCredentials',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='username', full_name='proto.LoginCredentials.username', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='password', full_name='proto.LoginCredentials.password', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='org', full_name='proto.LoginCredentials.org', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='use_vcd_cli_profile', full_name='proto.LoginCredentials.use_vcd_cli_profile', index=3,
-      number=4, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='ip', full_name='proto.LoginCredentials.ip', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='allow_insecure_flag', full_name='proto.LoginCredentials.allow_insecure_flag', index=5,
-      number=6, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=84,
-  serialized_end=221,
+    name='LoginCredentials',
+    full_name='proto.LoginCredentials',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='username',
+            full_name='proto.LoginCredentials.username',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='password',
+            full_name='proto.LoginCredentials.password',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='org',
+            full_name='proto.LoginCredentials.org',
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='use_vcd_cli_profile',
+            full_name='proto.LoginCredentials.use_vcd_cli_profile',
+            index=3,
+            number=4,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='ip',
+            full_name='proto.LoginCredentials.ip',
+            index=4,
+            number=5,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='allow_insecure_flag',
+            full_name='proto.LoginCredentials.allow_insecure_flag',
+            index=5,
+            number=6,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=84,
+    serialized_end=221,
 )
-
 
 _LOGINRESULT = _descriptor.Descriptor(
-  name='LoginResult',
-  full_name='proto.LoginResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='token', full_name='proto.LoginResult.token', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=223,
-  serialized_end=251,
+    name='LoginResult',
+    full_name='proto.LoginResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='token',
+            full_name='proto.LoginResult.token',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=223,
+    serialized_end=251,
 )
-
 
 _CATALOG = _descriptor.Descriptor(
-  name='Catalog',
-  full_name='proto.Catalog',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='proto.Catalog.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='description', full_name='proto.Catalog.description', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='shared', full_name='proto.Catalog.shared', index=2,
-      number=3, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=253,
-  serialized_end=313,
+    name='Catalog',
+    full_name='proto.Catalog',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='name',
+            full_name='proto.Catalog.name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='description',
+            full_name='proto.Catalog.description',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='shared',
+            full_name='proto.Catalog.shared',
+            index=2,
+            number=3,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=253,
+    serialized_end=313,
 )
-
 
 _READCATALOGRESULT = _descriptor.Descriptor(
-  name='ReadCatalogResult',
-  full_name='proto.ReadCatalogResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='present', full_name='proto.ReadCatalogResult.present', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='name', full_name='proto.ReadCatalogResult.name', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='description', full_name='proto.ReadCatalogResult.description', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='shared', full_name='proto.ReadCatalogResult.shared', index=3,
-      number=4, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=315,
-  serialized_end=402,
+    name='ReadCatalogResult',
+    full_name='proto.ReadCatalogResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='present',
+            full_name='proto.ReadCatalogResult.present',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='name',
+            full_name='proto.ReadCatalogResult.name',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='description',
+            full_name='proto.ReadCatalogResult.description',
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='shared',
+            full_name='proto.ReadCatalogResult.shared',
+            index=3,
+            number=4,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=315,
+    serialized_end=402,
 )
-
 
 _CREATECATALOGRESULT = _descriptor.Descriptor(
-  name='CreateCatalogResult',
-  full_name='proto.CreateCatalogResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='created', full_name='proto.CreateCatalogResult.created', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=404,
-  serialized_end=442,
+    name='CreateCatalogResult',
+    full_name='proto.CreateCatalogResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='created',
+            full_name='proto.CreateCatalogResult.created',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=404,
+    serialized_end=442,
 )
-
 
 _DELETECATALOGRESULT = _descriptor.Descriptor(
-  name='DeleteCatalogResult',
-  full_name='proto.DeleteCatalogResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='deleted', full_name='proto.DeleteCatalogResult.deleted', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=444,
-  serialized_end=482,
+    name='DeleteCatalogResult',
+    full_name='proto.DeleteCatalogResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='deleted',
+            full_name='proto.DeleteCatalogResult.deleted',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=444,
+    serialized_end=482,
 )
-
 
 _CHECKRESOLVEDRESULT = _descriptor.Descriptor(
-  name='CheckResolvedResult',
-  full_name='proto.CheckResolvedResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='resolved', full_name='proto.CheckResolvedResult.resolved', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=484,
-  serialized_end=523,
+    name='CheckResolvedResult',
+    full_name='proto.CheckResolvedResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='resolved',
+            full_name='proto.CheckResolvedResult.resolved',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=484,
+    serialized_end=523,
 )
-
 
 _STOPRESULT = _descriptor.Descriptor(
-  name='StopResult',
-  full_name='proto.StopResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='stopped', full_name='proto.StopResult.stopped', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=525,
-  serialized_end=554,
+    name='StopResult',
+    full_name='proto.StopResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='stopped',
+            full_name='proto.StopResult.stopped',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=525,
+    serialized_end=554,
 )
 
-
 _STOPINFO = _descriptor.Descriptor(
-  name='StopInfo',
-  full_name='proto.StopInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=556,
-  serialized_end=566,
+    name='StopInfo',
+    full_name='proto.StopInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=556,
+    serialized_end=566,
 )
 
 DESCRIPTOR.message_types_by_name['LoginCredentials'] = _LOGINCREDENTIALS
@@ -380,746 +524,240 @@ DESCRIPTOR.message_types_by_name['StopResult'] = _STOPRESULT
 DESCRIPTOR.message_types_by_name['StopInfo'] = _STOPINFO
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-LoginCredentials = _reflection.GeneratedProtocolMessageType('LoginCredentials', (_message.Message,), dict(
-  DESCRIPTOR = _LOGINCREDENTIALS,
-  __module__ = 'proto.pyvcloudprovider_pb2'
-  # @@protoc_insertion_point(class_scope:proto.LoginCredentials)
-  ))
+LoginCredentials = _reflection.GeneratedProtocolMessageType(
+    'LoginCredentials',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_LOGINCREDENTIALS,
+        __module__='proto.pyvcloudprovider_pb2'
+        # @@protoc_insertion_point(class_scope:proto.LoginCredentials)
+    ))
 _sym_db.RegisterMessage(LoginCredentials)
 
-LoginResult = _reflection.GeneratedProtocolMessageType('LoginResult', (_message.Message,), dict(
-  DESCRIPTOR = _LOGINRESULT,
-  __module__ = 'proto.pyvcloudprovider_pb2'
-  # @@protoc_insertion_point(class_scope:proto.LoginResult)
-  ))
+LoginResult = _reflection.GeneratedProtocolMessageType(
+    'LoginResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_LOGINRESULT,
+        __module__='proto.pyvcloudprovider_pb2'
+        # @@protoc_insertion_point(class_scope:proto.LoginResult)
+    ))
 _sym_db.RegisterMessage(LoginResult)
 
-Catalog = _reflection.GeneratedProtocolMessageType('Catalog', (_message.Message,), dict(
-  DESCRIPTOR = _CATALOG,
-  __module__ = 'proto.pyvcloudprovider_pb2'
-  # @@protoc_insertion_point(class_scope:proto.Catalog)
-  ))
+Catalog = _reflection.GeneratedProtocolMessageType(
+    'Catalog',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_CATALOG,
+        __module__='proto.pyvcloudprovider_pb2'
+        # @@protoc_insertion_point(class_scope:proto.Catalog)
+    ))
 _sym_db.RegisterMessage(Catalog)
 
-ReadCatalogResult = _reflection.GeneratedProtocolMessageType('ReadCatalogResult', (_message.Message,), dict(
-  DESCRIPTOR = _READCATALOGRESULT,
-  __module__ = 'proto.pyvcloudprovider_pb2'
-  # @@protoc_insertion_point(class_scope:proto.ReadCatalogResult)
-  ))
+ReadCatalogResult = _reflection.GeneratedProtocolMessageType(
+    'ReadCatalogResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_READCATALOGRESULT,
+        __module__='proto.pyvcloudprovider_pb2'
+        # @@protoc_insertion_point(class_scope:proto.ReadCatalogResult)
+    ))
 _sym_db.RegisterMessage(ReadCatalogResult)
 
-CreateCatalogResult = _reflection.GeneratedProtocolMessageType('CreateCatalogResult', (_message.Message,), dict(
-  DESCRIPTOR = _CREATECATALOGRESULT,
-  __module__ = 'proto.pyvcloudprovider_pb2'
-  # @@protoc_insertion_point(class_scope:proto.CreateCatalogResult)
-  ))
+CreateCatalogResult = _reflection.GeneratedProtocolMessageType(
+    'CreateCatalogResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_CREATECATALOGRESULT,
+        __module__='proto.pyvcloudprovider_pb2'
+        # @@protoc_insertion_point(class_scope:proto.CreateCatalogResult)
+    ))
 _sym_db.RegisterMessage(CreateCatalogResult)
 
-DeleteCatalogResult = _reflection.GeneratedProtocolMessageType('DeleteCatalogResult', (_message.Message,), dict(
-  DESCRIPTOR = _DELETECATALOGRESULT,
-  __module__ = 'proto.pyvcloudprovider_pb2'
-  # @@protoc_insertion_point(class_scope:proto.DeleteCatalogResult)
-  ))
+DeleteCatalogResult = _reflection.GeneratedProtocolMessageType(
+    'DeleteCatalogResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_DELETECATALOGRESULT,
+        __module__='proto.pyvcloudprovider_pb2'
+        # @@protoc_insertion_point(class_scope:proto.DeleteCatalogResult)
+    ))
 _sym_db.RegisterMessage(DeleteCatalogResult)
 
-CheckResolvedResult = _reflection.GeneratedProtocolMessageType('CheckResolvedResult', (_message.Message,), dict(
-  DESCRIPTOR = _CHECKRESOLVEDRESULT,
-  __module__ = 'proto.pyvcloudprovider_pb2'
-  # @@protoc_insertion_point(class_scope:proto.CheckResolvedResult)
-  ))
+CheckResolvedResult = _reflection.GeneratedProtocolMessageType(
+    'CheckResolvedResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_CHECKRESOLVEDRESULT,
+        __module__='proto.pyvcloudprovider_pb2'
+        # @@protoc_insertion_point(class_scope:proto.CheckResolvedResult)
+    ))
 _sym_db.RegisterMessage(CheckResolvedResult)
 
-StopResult = _reflection.GeneratedProtocolMessageType('StopResult', (_message.Message,), dict(
-  DESCRIPTOR = _STOPRESULT,
-  __module__ = 'proto.pyvcloudprovider_pb2'
-  # @@protoc_insertion_point(class_scope:proto.StopResult)
-  ))
+StopResult = _reflection.GeneratedProtocolMessageType(
+    'StopResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_STOPRESULT,
+        __module__='proto.pyvcloudprovider_pb2'
+        # @@protoc_insertion_point(class_scope:proto.StopResult)
+    ))
 _sym_db.RegisterMessage(StopResult)
 
-StopInfo = _reflection.GeneratedProtocolMessageType('StopInfo', (_message.Message,), dict(
-  DESCRIPTOR = _STOPINFO,
-  __module__ = 'proto.pyvcloudprovider_pb2'
-  # @@protoc_insertion_point(class_scope:proto.StopInfo)
-  ))
+StopInfo = _reflection.GeneratedProtocolMessageType(
+    'StopInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_STOPINFO,
+        __module__='proto.pyvcloudprovider_pb2'
+        # @@protoc_insertion_point(class_scope:proto.StopInfo)
+    ))
 _sym_db.RegisterMessage(StopInfo)
 
-
 DESCRIPTOR.has_options = True
-DESCRIPTOR._options = _descriptor._ParseOptions(descriptor_pb2.FileOptions(), _b('\n\034com.vmware.pyvcloud.providerB\025PyVcloudProviderProtoP\001'))
+DESCRIPTOR._options = _descriptor._ParseOptions(
+    descriptor_pb2.FileOptions(),
+    _b('\n\034com.vmware.pyvcloud.providerB\025PyVcloudProviderProtoP\001'))
 
 _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
-  name='PyVcloudProvider',
-  full_name='proto.PyVcloudProvider',
-  file=DESCRIPTOR,
-  index=0,
-  options=None,
-  serialized_start=569,
-  serialized_end=1565,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='Login',
-    full_name='proto.PyVcloudProvider.Login',
+    name='PyVcloudProvider',
+    full_name='proto.PyVcloudProvider',
+    file=DESCRIPTOR,
     index=0,
-    containing_service=None,
-    input_type=_LOGINCREDENTIALS,
-    output_type=_LOGINRESULT,
     options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='ReadCatalog',
-    full_name='proto.PyVcloudProvider.ReadCatalog',
-    index=1,
-    containing_service=None,
-    input_type=_CATALOG,
-    output_type=_READCATALOGRESULT,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='CreateCatalog',
-    full_name='proto.PyVcloudProvider.CreateCatalog',
-    index=2,
-    containing_service=None,
-    input_type=_CATALOG,
-    output_type=_CREATECATALOGRESULT,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='DeleteCatalog',
-    full_name='proto.PyVcloudProvider.DeleteCatalog',
-    index=3,
-    containing_service=None,
-    input_type=_CATALOG,
-    output_type=_DELETECATALOGRESULT,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='CatalogUploadMedia',
-    full_name='proto.PyVcloudProvider.CatalogUploadMedia',
-    index=4,
-    containing_service=None,
-    input_type=proto_dot_catalog__item__pb2._CATALOGUPLOADMEDIAINFO,
-    output_type=proto_dot_catalog__item__pb2._CATALOGUPLOADMEDIARESULT,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='CatalogUploadOva',
-    full_name='proto.PyVcloudProvider.CatalogUploadOva',
-    index=5,
-    containing_service=None,
-    input_type=proto_dot_catalog__item__pb2._CATALOGUPLOADOVAINFO,
-    output_type=proto_dot_catalog__item__pb2._CATALOGUPLOADOVARESULT,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='OvaCheckResolved',
-    full_name='proto.PyVcloudProvider.OvaCheckResolved',
-    index=6,
-    containing_service=None,
-    input_type=proto_dot_catalog__item__pb2._CATALOGCHECKRESOLVEDINFO,
-    output_type=_CHECKRESOLVEDRESULT,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='DeleteCatalogItem',
-    full_name='proto.PyVcloudProvider.DeleteCatalogItem',
-    index=7,
-    containing_service=None,
-    input_type=proto_dot_catalog__item__pb2._DELETECATALOGITEMINFO,
-    output_type=proto_dot_catalog__item__pb2._DELETECATALOGITEMRESULT,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='isPresentCatalogItem',
-    full_name='proto.PyVcloudProvider.isPresentCatalogItem',
-    index=8,
-    containing_service=None,
-    input_type=proto_dot_catalog__item__pb2._ISPRESENTCATALOGITEMINFO,
-    output_type=proto_dot_catalog__item__pb2._ISPRESENTCATALOGITEMRESULT,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='CaptureVapp',
-    full_name='proto.PyVcloudProvider.CaptureVapp',
-    index=9,
-    containing_service=None,
-    input_type=proto_dot_catalog__item__pb2._CAPTUREVAPPINFO,
-    output_type=proto_dot_catalog__item__pb2._CAPTUREVAPPRESULT,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='CreateVApp',
-    full_name='proto.PyVcloudProvider.CreateVApp',
-    index=10,
-    containing_service=None,
-    input_type=proto_dot_vapp__pb2._CREATEVAPPINFO,
-    output_type=proto_dot_vapp__pb2._CREATEVAPPRESULT,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='DeleteVApp',
-    full_name='proto.PyVcloudProvider.DeleteVApp',
-    index=11,
-    containing_service=None,
-    input_type=proto_dot_vapp__pb2._DELETEVAPPINFO,
-    output_type=proto_dot_vapp__pb2._DELETEVAPPRESULT,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='ReadVApp',
-    full_name='proto.PyVcloudProvider.ReadVApp',
-    index=12,
-    containing_service=None,
-    input_type=proto_dot_vapp__pb2._READVAPPINFO,
-    output_type=proto_dot_vapp__pb2._READVAPPRESULT,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='StopPlugin',
-    full_name='proto.PyVcloudProvider.StopPlugin',
-    index=13,
-    containing_service=None,
-    input_type=_STOPINFO,
-    output_type=_STOPRESULT,
-    options=None,
-  ),
-])
+    serialized_start=569,
+    serialized_end=1565,
+    methods=[
+        _descriptor.MethodDescriptor(
+            name='Login',
+            full_name='proto.PyVcloudProvider.Login',
+            index=0,
+            containing_service=None,
+            input_type=_LOGINCREDENTIALS,
+            output_type=_LOGINRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='ReadCatalog',
+            full_name='proto.PyVcloudProvider.ReadCatalog',
+            index=1,
+            containing_service=None,
+            input_type=_CATALOG,
+            output_type=_READCATALOGRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='CreateCatalog',
+            full_name='proto.PyVcloudProvider.CreateCatalog',
+            index=2,
+            containing_service=None,
+            input_type=_CATALOG,
+            output_type=_CREATECATALOGRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='DeleteCatalog',
+            full_name='proto.PyVcloudProvider.DeleteCatalog',
+            index=3,
+            containing_service=None,
+            input_type=_CATALOG,
+            output_type=_DELETECATALOGRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='CatalogUploadMedia',
+            full_name='proto.PyVcloudProvider.CatalogUploadMedia',
+            index=4,
+            containing_service=None,
+            input_type=proto_dot_catalog__item__pb2._CATALOGUPLOADMEDIAINFO,
+            output_type=proto_dot_catalog__item__pb2._CATALOGUPLOADMEDIARESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='CatalogUploadOva',
+            full_name='proto.PyVcloudProvider.CatalogUploadOva',
+            index=5,
+            containing_service=None,
+            input_type=proto_dot_catalog__item__pb2._CATALOGUPLOADOVAINFO,
+            output_type=proto_dot_catalog__item__pb2._CATALOGUPLOADOVARESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='OvaCheckResolved',
+            full_name='proto.PyVcloudProvider.OvaCheckResolved',
+            index=6,
+            containing_service=None,
+            input_type=proto_dot_catalog__item__pb2._CATALOGCHECKRESOLVEDINFO,
+            output_type=_CHECKRESOLVEDRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='DeleteCatalogItem',
+            full_name='proto.PyVcloudProvider.DeleteCatalogItem',
+            index=7,
+            containing_service=None,
+            input_type=proto_dot_catalog__item__pb2._DELETECATALOGITEMINFO,
+            output_type=proto_dot_catalog__item__pb2._DELETECATALOGITEMRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='isPresentCatalogItem',
+            full_name='proto.PyVcloudProvider.isPresentCatalogItem',
+            index=8,
+            containing_service=None,
+            input_type=proto_dot_catalog__item__pb2._ISPRESENTCATALOGITEMINFO,
+            output_type=proto_dot_catalog__item__pb2.
+            _ISPRESENTCATALOGITEMRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='CaptureVapp',
+            full_name='proto.PyVcloudProvider.CaptureVapp',
+            index=9,
+            containing_service=None,
+            input_type=proto_dot_catalog__item__pb2._CAPTUREVAPPINFO,
+            output_type=proto_dot_catalog__item__pb2._CAPTUREVAPPRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='CreateVApp',
+            full_name='proto.PyVcloudProvider.CreateVApp',
+            index=10,
+            containing_service=None,
+            input_type=proto_dot_vapp__pb2._CREATEVAPPINFO,
+            output_type=proto_dot_vapp__pb2._CREATEVAPPRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='DeleteVApp',
+            full_name='proto.PyVcloudProvider.DeleteVApp',
+            index=11,
+            containing_service=None,
+            input_type=proto_dot_vapp__pb2._DELETEVAPPINFO,
+            output_type=proto_dot_vapp__pb2._DELETEVAPPRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='ReadVApp',
+            full_name='proto.PyVcloudProvider.ReadVApp',
+            index=12,
+            containing_service=None,
+            input_type=proto_dot_vapp__pb2._READVAPPINFO,
+            output_type=proto_dot_vapp__pb2._READVAPPRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='StopPlugin',
+            full_name='proto.PyVcloudProvider.StopPlugin',
+            index=13,
+            containing_service=None,
+            input_type=_STOPINFO,
+            output_type=_STOPRESULT,
+            options=None,
+        ),
+    ])
 _sym_db.RegisterServiceDescriptor(_PYVCLOUDPROVIDER)
 
 DESCRIPTOR.services_by_name['PyVcloudProvider'] = _PYVCLOUDPROVIDER
 
-try:
-  # THESE ELEMENTS WILL BE DEPRECATED.
-  # Please use the generated *_pb2_grpc.py files instead.
-  import grpc
-  from grpc.beta import implementations as beta_implementations
-  from grpc.beta import interfaces as beta_interfaces
-  from grpc.framework.common import cardinality
-  from grpc.framework.interfaces.face import utilities as face_utilities
-
-
-  class PyVcloudProviderStub(object):
-    """Interface exported by the server.
-    """
-
-    def __init__(self, channel):
-      """Constructor.
-
-      Args:
-        channel: A grpc.Channel.
-      """
-      self.Login = channel.unary_unary(
-          '/proto.PyVcloudProvider/Login',
-          request_serializer=LoginCredentials.SerializeToString,
-          response_deserializer=LoginResult.FromString,
-          )
-      self.ReadCatalog = channel.unary_unary(
-          '/proto.PyVcloudProvider/ReadCatalog',
-          request_serializer=Catalog.SerializeToString,
-          response_deserializer=ReadCatalogResult.FromString,
-          )
-      self.CreateCatalog = channel.unary_unary(
-          '/proto.PyVcloudProvider/CreateCatalog',
-          request_serializer=Catalog.SerializeToString,
-          response_deserializer=CreateCatalogResult.FromString,
-          )
-      self.DeleteCatalog = channel.unary_unary(
-          '/proto.PyVcloudProvider/DeleteCatalog',
-          request_serializer=Catalog.SerializeToString,
-          response_deserializer=DeleteCatalogResult.FromString,
-          )
-      self.CatalogUploadMedia = channel.unary_unary(
-          '/proto.PyVcloudProvider/CatalogUploadMedia',
-          request_serializer=proto_dot_catalog__item__pb2.CatalogUploadMediaInfo.SerializeToString,
-          response_deserializer=proto_dot_catalog__item__pb2.CatalogUploadMediaResult.FromString,
-          )
-      self.CatalogUploadOva = channel.unary_unary(
-          '/proto.PyVcloudProvider/CatalogUploadOva',
-          request_serializer=proto_dot_catalog__item__pb2.CatalogUploadOvaInfo.SerializeToString,
-          response_deserializer=proto_dot_catalog__item__pb2.CatalogUploadOvaResult.FromString,
-          )
-      self.OvaCheckResolved = channel.unary_unary(
-          '/proto.PyVcloudProvider/OvaCheckResolved',
-          request_serializer=proto_dot_catalog__item__pb2.CatalogCheckResolvedInfo.SerializeToString,
-          response_deserializer=CheckResolvedResult.FromString,
-          )
-      self.DeleteCatalogItem = channel.unary_unary(
-          '/proto.PyVcloudProvider/DeleteCatalogItem',
-          request_serializer=proto_dot_catalog__item__pb2.DeleteCatalogItemInfo.SerializeToString,
-          response_deserializer=proto_dot_catalog__item__pb2.DeleteCatalogItemResult.FromString,
-          )
-      self.isPresentCatalogItem = channel.unary_unary(
-          '/proto.PyVcloudProvider/isPresentCatalogItem',
-          request_serializer=proto_dot_catalog__item__pb2.IsPresentCatalogItemInfo.SerializeToString,
-          response_deserializer=proto_dot_catalog__item__pb2.IsPresentCatalogItemResult.FromString,
-          )
-      self.CaptureVapp = channel.unary_unary(
-          '/proto.PyVcloudProvider/CaptureVapp',
-          request_serializer=proto_dot_catalog__item__pb2.CaptureVAppInfo.SerializeToString,
-          response_deserializer=proto_dot_catalog__item__pb2.CaptureVAppResult.FromString,
-          )
-      self.CreateVApp = channel.unary_unary(
-          '/proto.PyVcloudProvider/CreateVApp',
-          request_serializer=proto_dot_vapp__pb2.CreateVAppInfo.SerializeToString,
-          response_deserializer=proto_dot_vapp__pb2.CreateVAppResult.FromString,
-          )
-      self.DeleteVApp = channel.unary_unary(
-          '/proto.PyVcloudProvider/DeleteVApp',
-          request_serializer=proto_dot_vapp__pb2.DeleteVAppInfo.SerializeToString,
-          response_deserializer=proto_dot_vapp__pb2.DeleteVAppResult.FromString,
-          )
-      self.ReadVApp = channel.unary_unary(
-          '/proto.PyVcloudProvider/ReadVApp',
-          request_serializer=proto_dot_vapp__pb2.ReadVAppInfo.SerializeToString,
-          response_deserializer=proto_dot_vapp__pb2.ReadVAppResult.FromString,
-          )
-      self.StopPlugin = channel.unary_unary(
-          '/proto.PyVcloudProvider/StopPlugin',
-          request_serializer=StopInfo.SerializeToString,
-          response_deserializer=StopResult.FromString,
-          )
-
-
-  class PyVcloudProviderServicer(object):
-    """Interface exported by the server.
-    """
-
-    def Login(self, request, context):
-      """Tenant Loging to VCD  
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def ReadCatalog(self, request, context):
-      """check if catalog is preset and return true and the catalog details
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def CreateCatalog(self, request, context):
-      """create a new catalog
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def DeleteCatalog(self, request, context):
-      """delete a catalog
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def CatalogUploadMedia(self, request, context):
-      """catalog upload Media - anything other than ova
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def CatalogUploadOva(self, request, context):
-      """catalog upload ova
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def OvaCheckResolved(self, request, context):
-      """check resolved after upload
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def DeleteCatalogItem(self, request, context):
-      """catalog item delete
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def isPresentCatalogItem(self, request, context):
-      """check if catalog item is preset and return true
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def CaptureVapp(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def CreateVApp(self, request, context):
-      """create vApp
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def DeleteVApp(self, request, context):
-      """delete VApp
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def ReadVApp(self, request, context):
-      """Read VApp
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def StopPlugin(self, request, context):
-      """remote stop interface for the plugin
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-
-  def add_PyVcloudProviderServicer_to_server(servicer, server):
-    rpc_method_handlers = {
-        'Login': grpc.unary_unary_rpc_method_handler(
-            servicer.Login,
-            request_deserializer=LoginCredentials.FromString,
-            response_serializer=LoginResult.SerializeToString,
-        ),
-        'ReadCatalog': grpc.unary_unary_rpc_method_handler(
-            servicer.ReadCatalog,
-            request_deserializer=Catalog.FromString,
-            response_serializer=ReadCatalogResult.SerializeToString,
-        ),
-        'CreateCatalog': grpc.unary_unary_rpc_method_handler(
-            servicer.CreateCatalog,
-            request_deserializer=Catalog.FromString,
-            response_serializer=CreateCatalogResult.SerializeToString,
-        ),
-        'DeleteCatalog': grpc.unary_unary_rpc_method_handler(
-            servicer.DeleteCatalog,
-            request_deserializer=Catalog.FromString,
-            response_serializer=DeleteCatalogResult.SerializeToString,
-        ),
-        'CatalogUploadMedia': grpc.unary_unary_rpc_method_handler(
-            servicer.CatalogUploadMedia,
-            request_deserializer=proto_dot_catalog__item__pb2.CatalogUploadMediaInfo.FromString,
-            response_serializer=proto_dot_catalog__item__pb2.CatalogUploadMediaResult.SerializeToString,
-        ),
-        'CatalogUploadOva': grpc.unary_unary_rpc_method_handler(
-            servicer.CatalogUploadOva,
-            request_deserializer=proto_dot_catalog__item__pb2.CatalogUploadOvaInfo.FromString,
-            response_serializer=proto_dot_catalog__item__pb2.CatalogUploadOvaResult.SerializeToString,
-        ),
-        'OvaCheckResolved': grpc.unary_unary_rpc_method_handler(
-            servicer.OvaCheckResolved,
-            request_deserializer=proto_dot_catalog__item__pb2.CatalogCheckResolvedInfo.FromString,
-            response_serializer=CheckResolvedResult.SerializeToString,
-        ),
-        'DeleteCatalogItem': grpc.unary_unary_rpc_method_handler(
-            servicer.DeleteCatalogItem,
-            request_deserializer=proto_dot_catalog__item__pb2.DeleteCatalogItemInfo.FromString,
-            response_serializer=proto_dot_catalog__item__pb2.DeleteCatalogItemResult.SerializeToString,
-        ),
-        'isPresentCatalogItem': grpc.unary_unary_rpc_method_handler(
-            servicer.isPresentCatalogItem,
-            request_deserializer=proto_dot_catalog__item__pb2.IsPresentCatalogItemInfo.FromString,
-            response_serializer=proto_dot_catalog__item__pb2.IsPresentCatalogItemResult.SerializeToString,
-        ),
-        'CaptureVapp': grpc.unary_unary_rpc_method_handler(
-            servicer.CaptureVapp,
-            request_deserializer=proto_dot_catalog__item__pb2.CaptureVAppInfo.FromString,
-            response_serializer=proto_dot_catalog__item__pb2.CaptureVAppResult.SerializeToString,
-        ),
-        'CreateVApp': grpc.unary_unary_rpc_method_handler(
-            servicer.CreateVApp,
-            request_deserializer=proto_dot_vapp__pb2.CreateVAppInfo.FromString,
-            response_serializer=proto_dot_vapp__pb2.CreateVAppResult.SerializeToString,
-        ),
-        'DeleteVApp': grpc.unary_unary_rpc_method_handler(
-            servicer.DeleteVApp,
-            request_deserializer=proto_dot_vapp__pb2.DeleteVAppInfo.FromString,
-            response_serializer=proto_dot_vapp__pb2.DeleteVAppResult.SerializeToString,
-        ),
-        'ReadVApp': grpc.unary_unary_rpc_method_handler(
-            servicer.ReadVApp,
-            request_deserializer=proto_dot_vapp__pb2.ReadVAppInfo.FromString,
-            response_serializer=proto_dot_vapp__pb2.ReadVAppResult.SerializeToString,
-        ),
-        'StopPlugin': grpc.unary_unary_rpc_method_handler(
-            servicer.StopPlugin,
-            request_deserializer=StopInfo.FromString,
-            response_serializer=StopResult.SerializeToString,
-        ),
-    }
-    generic_handler = grpc.method_handlers_generic_handler(
-        'proto.PyVcloudProvider', rpc_method_handlers)
-    server.add_generic_rpc_handlers((generic_handler,))
-
-
-  class BetaPyVcloudProviderServicer(object):
-    """The Beta API is deprecated for 0.15.0 and later.
-
-    It is recommended to use the GA API (classes and functions in this
-    file not marked beta) for all further purposes. This class was generated
-    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
-    """Interface exported by the server.
-    """
-    def Login(self, request, context):
-      """Tenant Loging to VCD  
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def ReadCatalog(self, request, context):
-      """check if catalog is preset and return true and the catalog details
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def CreateCatalog(self, request, context):
-      """create a new catalog
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def DeleteCatalog(self, request, context):
-      """delete a catalog
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def CatalogUploadMedia(self, request, context):
-      """catalog upload Media - anything other than ova
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def CatalogUploadOva(self, request, context):
-      """catalog upload ova
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def OvaCheckResolved(self, request, context):
-      """check resolved after upload
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def DeleteCatalogItem(self, request, context):
-      """catalog item delete
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def isPresentCatalogItem(self, request, context):
-      """check if catalog item is preset and return true
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def CaptureVapp(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def CreateVApp(self, request, context):
-      """create vApp
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def DeleteVApp(self, request, context):
-      """delete VApp
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def ReadVApp(self, request, context):
-      """Read VApp
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def StopPlugin(self, request, context):
-      """remote stop interface for the plugin
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-
-
-  class BetaPyVcloudProviderStub(object):
-    """The Beta API is deprecated for 0.15.0 and later.
-
-    It is recommended to use the GA API (classes and functions in this
-    file not marked beta) for all further purposes. This class was generated
-    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
-    """Interface exported by the server.
-    """
-    def Login(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """Tenant Loging to VCD  
-      """
-      raise NotImplementedError()
-    Login.future = None
-    def ReadCatalog(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """check if catalog is preset and return true and the catalog details
-      """
-      raise NotImplementedError()
-    ReadCatalog.future = None
-    def CreateCatalog(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """create a new catalog
-      """
-      raise NotImplementedError()
-    CreateCatalog.future = None
-    def DeleteCatalog(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """delete a catalog
-      """
-      raise NotImplementedError()
-    DeleteCatalog.future = None
-    def CatalogUploadMedia(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """catalog upload Media - anything other than ova
-      """
-      raise NotImplementedError()
-    CatalogUploadMedia.future = None
-    def CatalogUploadOva(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """catalog upload ova
-      """
-      raise NotImplementedError()
-    CatalogUploadOva.future = None
-    def OvaCheckResolved(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """check resolved after upload
-      """
-      raise NotImplementedError()
-    OvaCheckResolved.future = None
-    def DeleteCatalogItem(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """catalog item delete
-      """
-      raise NotImplementedError()
-    DeleteCatalogItem.future = None
-    def isPresentCatalogItem(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """check if catalog item is preset and return true
-      """
-      raise NotImplementedError()
-    isPresentCatalogItem.future = None
-    def CaptureVapp(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
-      raise NotImplementedError()
-    CaptureVapp.future = None
-    def CreateVApp(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """create vApp
-      """
-      raise NotImplementedError()
-    CreateVApp.future = None
-    def DeleteVApp(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """delete VApp
-      """
-      raise NotImplementedError()
-    DeleteVApp.future = None
-    def ReadVApp(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """Read VApp
-      """
-      raise NotImplementedError()
-    ReadVApp.future = None
-    def StopPlugin(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """remote stop interface for the plugin
-      """
-      raise NotImplementedError()
-    StopPlugin.future = None
-
-
-  def beta_create_PyVcloudProvider_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
-    """The Beta API is deprecated for 0.15.0 and later.
-
-    It is recommended to use the GA API (classes and functions in this
-    file not marked beta) for all further purposes. This function was
-    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
-    request_deserializers = {
-      ('proto.PyVcloudProvider', 'CaptureVapp'): proto_dot_catalog__item__pb2.CaptureVAppInfo.FromString,
-      ('proto.PyVcloudProvider', 'CatalogUploadMedia'): proto_dot_catalog__item__pb2.CatalogUploadMediaInfo.FromString,
-      ('proto.PyVcloudProvider', 'CatalogUploadOva'): proto_dot_catalog__item__pb2.CatalogUploadOvaInfo.FromString,
-      ('proto.PyVcloudProvider', 'CreateCatalog'): Catalog.FromString,
-      ('proto.PyVcloudProvider', 'CreateVApp'): proto_dot_vapp__pb2.CreateVAppInfo.FromString,
-      ('proto.PyVcloudProvider', 'DeleteCatalog'): Catalog.FromString,
-      ('proto.PyVcloudProvider', 'DeleteCatalogItem'): proto_dot_catalog__item__pb2.DeleteCatalogItemInfo.FromString,
-      ('proto.PyVcloudProvider', 'DeleteVApp'): proto_dot_vapp__pb2.DeleteVAppInfo.FromString,
-      ('proto.PyVcloudProvider', 'Login'): LoginCredentials.FromString,
-      ('proto.PyVcloudProvider', 'OvaCheckResolved'): proto_dot_catalog__item__pb2.CatalogCheckResolvedInfo.FromString,
-      ('proto.PyVcloudProvider', 'ReadCatalog'): Catalog.FromString,
-      ('proto.PyVcloudProvider', 'ReadVApp'): proto_dot_vapp__pb2.ReadVAppInfo.FromString,
-      ('proto.PyVcloudProvider', 'StopPlugin'): StopInfo.FromString,
-      ('proto.PyVcloudProvider', 'isPresentCatalogItem'): proto_dot_catalog__item__pb2.IsPresentCatalogItemInfo.FromString,
-    }
-    response_serializers = {
-      ('proto.PyVcloudProvider', 'CaptureVapp'): proto_dot_catalog__item__pb2.CaptureVAppResult.SerializeToString,
-      ('proto.PyVcloudProvider', 'CatalogUploadMedia'): proto_dot_catalog__item__pb2.CatalogUploadMediaResult.SerializeToString,
-      ('proto.PyVcloudProvider', 'CatalogUploadOva'): proto_dot_catalog__item__pb2.CatalogUploadOvaResult.SerializeToString,
-      ('proto.PyVcloudProvider', 'CreateCatalog'): CreateCatalogResult.SerializeToString,
-      ('proto.PyVcloudProvider', 'CreateVApp'): proto_dot_vapp__pb2.CreateVAppResult.SerializeToString,
-      ('proto.PyVcloudProvider', 'DeleteCatalog'): DeleteCatalogResult.SerializeToString,
-      ('proto.PyVcloudProvider', 'DeleteCatalogItem'): proto_dot_catalog__item__pb2.DeleteCatalogItemResult.SerializeToString,
-      ('proto.PyVcloudProvider', 'DeleteVApp'): proto_dot_vapp__pb2.DeleteVAppResult.SerializeToString,
-      ('proto.PyVcloudProvider', 'Login'): LoginResult.SerializeToString,
-      ('proto.PyVcloudProvider', 'OvaCheckResolved'): CheckResolvedResult.SerializeToString,
-      ('proto.PyVcloudProvider', 'ReadCatalog'): ReadCatalogResult.SerializeToString,
-      ('proto.PyVcloudProvider', 'ReadVApp'): proto_dot_vapp__pb2.ReadVAppResult.SerializeToString,
-      ('proto.PyVcloudProvider', 'StopPlugin'): StopResult.SerializeToString,
-      ('proto.PyVcloudProvider', 'isPresentCatalogItem'): proto_dot_catalog__item__pb2.IsPresentCatalogItemResult.SerializeToString,
-    }
-    method_implementations = {
-      ('proto.PyVcloudProvider', 'CaptureVapp'): face_utilities.unary_unary_inline(servicer.CaptureVapp),
-      ('proto.PyVcloudProvider', 'CatalogUploadMedia'): face_utilities.unary_unary_inline(servicer.CatalogUploadMedia),
-      ('proto.PyVcloudProvider', 'CatalogUploadOva'): face_utilities.unary_unary_inline(servicer.CatalogUploadOva),
-      ('proto.PyVcloudProvider', 'CreateCatalog'): face_utilities.unary_unary_inline(servicer.CreateCatalog),
-      ('proto.PyVcloudProvider', 'CreateVApp'): face_utilities.unary_unary_inline(servicer.CreateVApp),
-      ('proto.PyVcloudProvider', 'DeleteCatalog'): face_utilities.unary_unary_inline(servicer.DeleteCatalog),
-      ('proto.PyVcloudProvider', 'DeleteCatalogItem'): face_utilities.unary_unary_inline(servicer.DeleteCatalogItem),
-      ('proto.PyVcloudProvider', 'DeleteVApp'): face_utilities.unary_unary_inline(servicer.DeleteVApp),
-      ('proto.PyVcloudProvider', 'Login'): face_utilities.unary_unary_inline(servicer.Login),
-      ('proto.PyVcloudProvider', 'OvaCheckResolved'): face_utilities.unary_unary_inline(servicer.OvaCheckResolved),
-      ('proto.PyVcloudProvider', 'ReadCatalog'): face_utilities.unary_unary_inline(servicer.ReadCatalog),
-      ('proto.PyVcloudProvider', 'ReadVApp'): face_utilities.unary_unary_inline(servicer.ReadVApp),
-      ('proto.PyVcloudProvider', 'StopPlugin'): face_utilities.unary_unary_inline(servicer.StopPlugin),
-      ('proto.PyVcloudProvider', 'isPresentCatalogItem'): face_utilities.unary_unary_inline(servicer.isPresentCatalogItem),
-    }
-    server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
-    return beta_implementations.server(method_implementations, options=server_options)
-
-
-  def beta_create_PyVcloudProvider_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
-    """The Beta API is deprecated for 0.15.0 and later.
-
-    It is recommended to use the GA API (classes and functions in this
-    file not marked beta) for all further purposes. This function was
-    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
-    request_serializers = {
-      ('proto.PyVcloudProvider', 'CaptureVapp'): proto_dot_catalog__item__pb2.CaptureVAppInfo.SerializeToString,
-      ('proto.PyVcloudProvider', 'CatalogUploadMedia'): proto_dot_catalog__item__pb2.CatalogUploadMediaInfo.SerializeToString,
-      ('proto.PyVcloudProvider', 'CatalogUploadOva'): proto_dot_catalog__item__pb2.CatalogUploadOvaInfo.SerializeToString,
-      ('proto.PyVcloudProvider', 'CreateCatalog'): Catalog.SerializeToString,
-      ('proto.PyVcloudProvider', 'CreateVApp'): proto_dot_vapp__pb2.CreateVAppInfo.SerializeToString,
-      ('proto.PyVcloudProvider', 'DeleteCatalog'): Catalog.SerializeToString,
-      ('proto.PyVcloudProvider', 'DeleteCatalogItem'): proto_dot_catalog__item__pb2.DeleteCatalogItemInfo.SerializeToString,
-      ('proto.PyVcloudProvider', 'DeleteVApp'): proto_dot_vapp__pb2.DeleteVAppInfo.SerializeToString,
-      ('proto.PyVcloudProvider', 'Login'): LoginCredentials.SerializeToString,
-      ('proto.PyVcloudProvider', 'OvaCheckResolved'): proto_dot_catalog__item__pb2.CatalogCheckResolvedInfo.SerializeToString,
-      ('proto.PyVcloudProvider', 'ReadCatalog'): Catalog.SerializeToString,
-      ('proto.PyVcloudProvider', 'ReadVApp'): proto_dot_vapp__pb2.ReadVAppInfo.SerializeToString,
-      ('proto.PyVcloudProvider', 'StopPlugin'): StopInfo.SerializeToString,
-      ('proto.PyVcloudProvider', 'isPresentCatalogItem'): proto_dot_catalog__item__pb2.IsPresentCatalogItemInfo.SerializeToString,
-    }
-    response_deserializers = {
-      ('proto.PyVcloudProvider', 'CaptureVapp'): proto_dot_catalog__item__pb2.CaptureVAppResult.FromString,
-      ('proto.PyVcloudProvider', 'CatalogUploadMedia'): proto_dot_catalog__item__pb2.CatalogUploadMediaResult.FromString,
-      ('proto.PyVcloudProvider', 'CatalogUploadOva'): proto_dot_catalog__item__pb2.CatalogUploadOvaResult.FromString,
-      ('proto.PyVcloudProvider', 'CreateCatalog'): CreateCatalogResult.FromString,
-      ('proto.PyVcloudProvider', 'CreateVApp'): proto_dot_vapp__pb2.CreateVAppResult.FromString,
-      ('proto.PyVcloudProvider', 'DeleteCatalog'): DeleteCatalogResult.FromString,
-      ('proto.PyVcloudProvider', 'DeleteCatalogItem'): proto_dot_catalog__item__pb2.DeleteCatalogItemResult.FromString,
-      ('proto.PyVcloudProvider', 'DeleteVApp'): proto_dot_vapp__pb2.DeleteVAppResult.FromString,
-      ('proto.PyVcloudProvider', 'Login'): LoginResult.FromString,
-      ('proto.PyVcloudProvider', 'OvaCheckResolved'): CheckResolvedResult.FromString,
-      ('proto.PyVcloudProvider', 'ReadCatalog'): ReadCatalogResult.FromString,
-      ('proto.PyVcloudProvider', 'ReadVApp'): proto_dot_vapp__pb2.ReadVAppResult.FromString,
-      ('proto.PyVcloudProvider', 'StopPlugin'): StopResult.FromString,
-      ('proto.PyVcloudProvider', 'isPresentCatalogItem'): proto_dot_catalog__item__pb2.IsPresentCatalogItemResult.FromString,
-    }
-    cardinalities = {
-      'CaptureVapp': cardinality.Cardinality.UNARY_UNARY,
-      'CatalogUploadMedia': cardinality.Cardinality.UNARY_UNARY,
-      'CatalogUploadOva': cardinality.Cardinality.UNARY_UNARY,
-      'CreateCatalog': cardinality.Cardinality.UNARY_UNARY,
-      'CreateVApp': cardinality.Cardinality.UNARY_UNARY,
-      'DeleteCatalog': cardinality.Cardinality.UNARY_UNARY,
-      'DeleteCatalogItem': cardinality.Cardinality.UNARY_UNARY,
-      'DeleteVApp': cardinality.Cardinality.UNARY_UNARY,
-      'Login': cardinality.Cardinality.UNARY_UNARY,
-      'OvaCheckResolved': cardinality.Cardinality.UNARY_UNARY,
-      'ReadCatalog': cardinality.Cardinality.UNARY_UNARY,
-      'ReadVApp': cardinality.Cardinality.UNARY_UNARY,
-      'StopPlugin': cardinality.Cardinality.UNARY_UNARY,
-      'isPresentCatalogItem': cardinality.Cardinality.UNARY_UNARY,
-    }
-    stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
-    return beta_implementations.dynamic_stub(channel, 'proto.PyVcloudProvider', cardinalities, options=stub_options)
-except ImportError:
-  pass
 # @@protoc_insertion_point(module_scope)

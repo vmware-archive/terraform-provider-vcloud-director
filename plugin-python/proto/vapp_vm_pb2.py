@@ -2,7 +2,8 @@
 # source: proto/vapp_vm.proto
 
 import sys
-_b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
+_b = sys.version_info[0] < 3 and (lambda x: x) or (
+    lambda x: x.encode('latin1'))
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
@@ -12,481 +13,903 @@ from google.protobuf import descriptor_pb2
 
 _sym_db = _symbol_database.Default()
 
-
-
-
 DESCRIPTOR = _descriptor.FileDescriptor(
-  name='proto/vapp_vm.proto',
-  package='proto',
-  syntax='proto3',
-  serialized_pb=_b('\n\x13proto/vapp_vm.proto\x12\x05proto\"\x97\x03\n\x10\x43reateVappVmInfo\x12\x16\n\x0etarget_vm_name\x18\x01 \x01(\t\x12\x13\n\x0btarget_vapp\x18\x02 \x01(\t\x12\x12\n\ntarget_vdc\x18\x03 \x01(\t\x12\x13\n\x0bsource_vapp\x18\x04 \x01(\t\x12\x16\n\x0esource_vm_name\x18\x05 \x01(\t\x12\x10\n\x08hostname\x18\x06 \x01(\t\x12\x10\n\x08password\x18\x07 \x01(\t\x12\x15\n\rpassword_auto\x18\x08 \x01(\x08\x12\x16\n\x0epassword_reset\x18\t \x01(\x08\x12\x13\n\x0b\x63ust_script\x18\n \x01(\t\x12\x0f\n\x07network\x18\x0b \x01(\t\x12\x17\n\x0fstorage_profile\x18\x0c \x01(\t\x12\x10\n\x08power_on\x18\r \x01(\x08\x12\x1a\n\x12\x61ll_eulas_accepted\x18\x0e \x01(\x08\x12\x1b\n\x13source_catalog_name\x18\x0f \x01(\t\x12\x1c\n\x14source_template_name\x18\x10 \x01(\t\x12\x1a\n\x12ip_allocation_mode\x18\x11 \x01(\t\"%\n\x12\x43reateVappVmResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\" \n\x10\x44\x65leteVappVmInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\"%\n\x12\x44\x65leteVappVmResult\x12\x0f\n\x07\x64\x65leted\x18\x01 \x01(\x08\"\x1e\n\x0eReadVappVmInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\"\xd3\x02\n\x10ReadVappVmResult\x12\x16\n\x0etarget_vm_name\x18\x01 \x01(\t\x12\x13\n\x0btarget_vapp\x18\x02 \x01(\t\x12\x12\n\ntarget_vdc\x18\x03 \x01(\t\x12\x13\n\x0bsource_vapp\x18\x04 \x01(\t\x12\x16\n\x0esource_vm_name\x18\x05 \x01(\t\x12\x10\n\x08hostname\x18\x06 \x01(\t\x12\x15\n\rpassword_auto\x18\x07 \x01(\x08\x12\x16\n\x0epassword_reset\x18\x08 \x01(\x08\x12\x13\n\x0b\x63ust_script\x18\t \x01(\t\x12\x0f\n\x07network\x18\n \x01(\t\x12\x17\n\x0fstorage_profile\x18\x0b \x01(\t\x12\x10\n\x08power_on\x18\x0c \x01(\x08\x12\x1a\n\x12\x61ll_eulas_accepted\x18\r \x01(\x08\x12\x0f\n\x07present\x18\x0e \x01(\x08\x12\x12\n\nis_enabled\x18\x0f \x01(\x08\"4\n\x10UpdateVappVmInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nis_enabled\x18\x02 \x01(\x08\"%\n\x12UpdateVappVmResult\x12\x0f\n\x07updated\x18\x01 \x01(\x08\x32\x82\x02\n\x06VappVm\x12>\n\x06\x43reate\x12\x17.proto.CreateVappVmInfo\x1a\x19.proto.CreateVappVmResult\"\x00\x12>\n\x06\x44\x65lete\x12\x17.proto.DeleteVappVmInfo\x1a\x19.proto.DeleteVappVmResult\"\x00\x12\x38\n\x04Read\x12\x15.proto.ReadVappVmInfo\x1a\x17.proto.ReadVappVmResult\"\x00\x12>\n\x06Update\x12\x17.proto.UpdateVappVmInfo\x1a\x19.proto.UpdateVappVmResult\"\x00\x62\x06proto3')
-)
-
-
-
+    name='proto/vapp_vm.proto',
+    package='proto',
+    syntax='proto3',
+    serialized_pb=_b(
+        '\n\x13proto/vapp_vm.proto\x12\x05proto\"\x97\x03\n\x10\x43reateVappVmInfo\x12\x16\n\x0etarget_vm_name\x18\x01 \x01(\t\x12\x13\n\x0btarget_vapp\x18\x02 \x01(\t\x12\x12\n\ntarget_vdc\x18\x03 \x01(\t\x12\x13\n\x0bsource_vapp\x18\x04 \x01(\t\x12\x16\n\x0esource_vm_name\x18\x05 \x01(\t\x12\x10\n\x08hostname\x18\x06 \x01(\t\x12\x10\n\x08password\x18\x07 \x01(\t\x12\x15\n\rpassword_auto\x18\x08 \x01(\x08\x12\x16\n\x0epassword_reset\x18\t \x01(\x08\x12\x13\n\x0b\x63ust_script\x18\n \x01(\t\x12\x0f\n\x07network\x18\x0b \x01(\t\x12\x17\n\x0fstorage_profile\x18\x0c \x01(\t\x12\x10\n\x08power_on\x18\r \x01(\x08\x12\x1a\n\x12\x61ll_eulas_accepted\x18\x0e \x01(\x08\x12\x1b\n\x13source_catalog_name\x18\x0f \x01(\t\x12\x1c\n\x14source_template_name\x18\x10 \x01(\t\x12\x1a\n\x12ip_allocation_mode\x18\x11 \x01(\t\"%\n\x12\x43reateVappVmResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\"S\n\x10\x44\x65leteVappVmInfo\x12\x16\n\x0etarget_vm_name\x18\x01 \x01(\t\x12\x12\n\ntarget_vdc\x18\x02 \x01(\t\x12\x13\n\x0btarget_vapp\x18\x03 \x01(\t\"%\n\x12\x44\x65leteVappVmResult\x12\x0f\n\x07\x64\x65leted\x18\x01 \x01(\x08\"Q\n\x0eReadVappVmInfo\x12\x16\n\x0etarget_vm_name\x18\x01 \x01(\t\x12\x12\n\ntarget_vdc\x18\x02 \x01(\t\x12\x13\n\x0btarget_vapp\x18\x03 \x01(\t\"\xd3\x02\n\x10ReadVappVmResult\x12\x16\n\x0etarget_vm_name\x18\x01 \x01(\t\x12\x13\n\x0btarget_vapp\x18\x02 \x01(\t\x12\x12\n\ntarget_vdc\x18\x03 \x01(\t\x12\x13\n\x0bsource_vapp\x18\x04 \x01(\t\x12\x16\n\x0esource_vm_name\x18\x05 \x01(\t\x12\x10\n\x08hostname\x18\x06 \x01(\t\x12\x15\n\rpassword_auto\x18\x07 \x01(\x08\x12\x16\n\x0epassword_reset\x18\x08 \x01(\x08\x12\x13\n\x0b\x63ust_script\x18\t \x01(\t\x12\x0f\n\x07network\x18\n \x01(\t\x12\x17\n\x0fstorage_profile\x18\x0b \x01(\t\x12\x10\n\x08power_on\x18\x0c \x01(\x08\x12\x1a\n\x12\x61ll_eulas_accepted\x18\r \x01(\x08\x12\x0f\n\x07present\x18\x0e \x01(\x08\x12\x12\n\nis_enabled\x18\x0f \x01(\x08\"4\n\x10UpdateVappVmInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nis_enabled\x18\x02 \x01(\x08\"%\n\x12UpdateVappVmResult\x12\x0f\n\x07updated\x18\x01 \x01(\x08\x32\x82\x02\n\x06VappVm\x12>\n\x06\x43reate\x12\x17.proto.CreateVappVmInfo\x1a\x19.proto.CreateVappVmResult\"\x00\x12>\n\x06\x44\x65lete\x12\x17.proto.DeleteVappVmInfo\x1a\x19.proto.DeleteVappVmResult\"\x00\x12\x38\n\x04Read\x12\x15.proto.ReadVappVmInfo\x1a\x17.proto.ReadVappVmResult\"\x00\x12>\n\x06Update\x12\x17.proto.UpdateVappVmInfo\x1a\x19.proto.UpdateVappVmResult\"\x00\x62\x06proto3'
+    ))
 
 _CREATEVAPPVMINFO = _descriptor.Descriptor(
-  name='CreateVappVmInfo',
-  full_name='proto.CreateVappVmInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='target_vm_name', full_name='proto.CreateVappVmInfo.target_vm_name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='target_vapp', full_name='proto.CreateVappVmInfo.target_vapp', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='target_vdc', full_name='proto.CreateVappVmInfo.target_vdc', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='source_vapp', full_name='proto.CreateVappVmInfo.source_vapp', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='source_vm_name', full_name='proto.CreateVappVmInfo.source_vm_name', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='hostname', full_name='proto.CreateVappVmInfo.hostname', index=5,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='password', full_name='proto.CreateVappVmInfo.password', index=6,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='password_auto', full_name='proto.CreateVappVmInfo.password_auto', index=7,
-      number=8, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='password_reset', full_name='proto.CreateVappVmInfo.password_reset', index=8,
-      number=9, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='cust_script', full_name='proto.CreateVappVmInfo.cust_script', index=9,
-      number=10, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='network', full_name='proto.CreateVappVmInfo.network', index=10,
-      number=11, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='storage_profile', full_name='proto.CreateVappVmInfo.storage_profile', index=11,
-      number=12, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='power_on', full_name='proto.CreateVappVmInfo.power_on', index=12,
-      number=13, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='all_eulas_accepted', full_name='proto.CreateVappVmInfo.all_eulas_accepted', index=13,
-      number=14, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='source_catalog_name', full_name='proto.CreateVappVmInfo.source_catalog_name', index=14,
-      number=15, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='source_template_name', full_name='proto.CreateVappVmInfo.source_template_name', index=15,
-      number=16, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='ip_allocation_mode', full_name='proto.CreateVappVmInfo.ip_allocation_mode', index=16,
-      number=17, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=31,
-  serialized_end=438,
+    name='CreateVappVmInfo',
+    full_name='proto.CreateVappVmInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='target_vm_name',
+            full_name='proto.CreateVappVmInfo.target_vm_name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='target_vapp',
+            full_name='proto.CreateVappVmInfo.target_vapp',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='target_vdc',
+            full_name='proto.CreateVappVmInfo.target_vdc',
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='source_vapp',
+            full_name='proto.CreateVappVmInfo.source_vapp',
+            index=3,
+            number=4,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='source_vm_name',
+            full_name='proto.CreateVappVmInfo.source_vm_name',
+            index=4,
+            number=5,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='hostname',
+            full_name='proto.CreateVappVmInfo.hostname',
+            index=5,
+            number=6,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='password',
+            full_name='proto.CreateVappVmInfo.password',
+            index=6,
+            number=7,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='password_auto',
+            full_name='proto.CreateVappVmInfo.password_auto',
+            index=7,
+            number=8,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='password_reset',
+            full_name='proto.CreateVappVmInfo.password_reset',
+            index=8,
+            number=9,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='cust_script',
+            full_name='proto.CreateVappVmInfo.cust_script',
+            index=9,
+            number=10,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='network',
+            full_name='proto.CreateVappVmInfo.network',
+            index=10,
+            number=11,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='storage_profile',
+            full_name='proto.CreateVappVmInfo.storage_profile',
+            index=11,
+            number=12,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='power_on',
+            full_name='proto.CreateVappVmInfo.power_on',
+            index=12,
+            number=13,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='all_eulas_accepted',
+            full_name='proto.CreateVappVmInfo.all_eulas_accepted',
+            index=13,
+            number=14,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='source_catalog_name',
+            full_name='proto.CreateVappVmInfo.source_catalog_name',
+            index=14,
+            number=15,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='source_template_name',
+            full_name='proto.CreateVappVmInfo.source_template_name',
+            index=15,
+            number=16,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='ip_allocation_mode',
+            full_name='proto.CreateVappVmInfo.ip_allocation_mode',
+            index=16,
+            number=17,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=31,
+    serialized_end=438,
 )
-
 
 _CREATEVAPPVMRESULT = _descriptor.Descriptor(
-  name='CreateVappVmResult',
-  full_name='proto.CreateVappVmResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='created', full_name='proto.CreateVappVmResult.created', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=440,
-  serialized_end=477,
+    name='CreateVappVmResult',
+    full_name='proto.CreateVappVmResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='created',
+            full_name='proto.CreateVappVmResult.created',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=440,
+    serialized_end=477,
 )
-
 
 _DELETEVAPPVMINFO = _descriptor.Descriptor(
-  name='DeleteVappVmInfo',
-  full_name='proto.DeleteVappVmInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='proto.DeleteVappVmInfo.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=479,
-  serialized_end=511,
+    name='DeleteVappVmInfo',
+    full_name='proto.DeleteVappVmInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='target_vm_name',
+            full_name='proto.DeleteVappVmInfo.target_vm_name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='target_vdc',
+            full_name='proto.DeleteVappVmInfo.target_vdc',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='target_vapp',
+            full_name='proto.DeleteVappVmInfo.target_vapp',
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=479,
+    serialized_end=562,
 )
-
 
 _DELETEVAPPVMRESULT = _descriptor.Descriptor(
-  name='DeleteVappVmResult',
-  full_name='proto.DeleteVappVmResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='deleted', full_name='proto.DeleteVappVmResult.deleted', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=513,
-  serialized_end=550,
+    name='DeleteVappVmResult',
+    full_name='proto.DeleteVappVmResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='deleted',
+            full_name='proto.DeleteVappVmResult.deleted',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=564,
+    serialized_end=601,
 )
-
 
 _READVAPPVMINFO = _descriptor.Descriptor(
-  name='ReadVappVmInfo',
-  full_name='proto.ReadVappVmInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='proto.ReadVappVmInfo.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=552,
-  serialized_end=582,
+    name='ReadVappVmInfo',
+    full_name='proto.ReadVappVmInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='target_vm_name',
+            full_name='proto.ReadVappVmInfo.target_vm_name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='target_vdc',
+            full_name='proto.ReadVappVmInfo.target_vdc',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='target_vapp',
+            full_name='proto.ReadVappVmInfo.target_vapp',
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=603,
+    serialized_end=684,
 )
-
 
 _READVAPPVMRESULT = _descriptor.Descriptor(
-  name='ReadVappVmResult',
-  full_name='proto.ReadVappVmResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='target_vm_name', full_name='proto.ReadVappVmResult.target_vm_name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='target_vapp', full_name='proto.ReadVappVmResult.target_vapp', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='target_vdc', full_name='proto.ReadVappVmResult.target_vdc', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='source_vapp', full_name='proto.ReadVappVmResult.source_vapp', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='source_vm_name', full_name='proto.ReadVappVmResult.source_vm_name', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='hostname', full_name='proto.ReadVappVmResult.hostname', index=5,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='password_auto', full_name='proto.ReadVappVmResult.password_auto', index=6,
-      number=7, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='password_reset', full_name='proto.ReadVappVmResult.password_reset', index=7,
-      number=8, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='cust_script', full_name='proto.ReadVappVmResult.cust_script', index=8,
-      number=9, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='network', full_name='proto.ReadVappVmResult.network', index=9,
-      number=10, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='storage_profile', full_name='proto.ReadVappVmResult.storage_profile', index=10,
-      number=11, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='power_on', full_name='proto.ReadVappVmResult.power_on', index=11,
-      number=12, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='all_eulas_accepted', full_name='proto.ReadVappVmResult.all_eulas_accepted', index=12,
-      number=13, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='present', full_name='proto.ReadVappVmResult.present', index=13,
-      number=14, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='is_enabled', full_name='proto.ReadVappVmResult.is_enabled', index=14,
-      number=15, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=585,
-  serialized_end=924,
+    name='ReadVappVmResult',
+    full_name='proto.ReadVappVmResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='target_vm_name',
+            full_name='proto.ReadVappVmResult.target_vm_name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='target_vapp',
+            full_name='proto.ReadVappVmResult.target_vapp',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='target_vdc',
+            full_name='proto.ReadVappVmResult.target_vdc',
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='source_vapp',
+            full_name='proto.ReadVappVmResult.source_vapp',
+            index=3,
+            number=4,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='source_vm_name',
+            full_name='proto.ReadVappVmResult.source_vm_name',
+            index=4,
+            number=5,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='hostname',
+            full_name='proto.ReadVappVmResult.hostname',
+            index=5,
+            number=6,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='password_auto',
+            full_name='proto.ReadVappVmResult.password_auto',
+            index=6,
+            number=7,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='password_reset',
+            full_name='proto.ReadVappVmResult.password_reset',
+            index=7,
+            number=8,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='cust_script',
+            full_name='proto.ReadVappVmResult.cust_script',
+            index=8,
+            number=9,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='network',
+            full_name='proto.ReadVappVmResult.network',
+            index=9,
+            number=10,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='storage_profile',
+            full_name='proto.ReadVappVmResult.storage_profile',
+            index=10,
+            number=11,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='power_on',
+            full_name='proto.ReadVappVmResult.power_on',
+            index=11,
+            number=12,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='all_eulas_accepted',
+            full_name='proto.ReadVappVmResult.all_eulas_accepted',
+            index=12,
+            number=13,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='present',
+            full_name='proto.ReadVappVmResult.present',
+            index=13,
+            number=14,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='is_enabled',
+            full_name='proto.ReadVappVmResult.is_enabled',
+            index=14,
+            number=15,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=687,
+    serialized_end=1026,
 )
-
 
 _UPDATEVAPPVMINFO = _descriptor.Descriptor(
-  name='UpdateVappVmInfo',
-  full_name='proto.UpdateVappVmInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='proto.UpdateVappVmInfo.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='is_enabled', full_name='proto.UpdateVappVmInfo.is_enabled', index=1,
-      number=2, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=926,
-  serialized_end=978,
+    name='UpdateVappVmInfo',
+    full_name='proto.UpdateVappVmInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='name',
+            full_name='proto.UpdateVappVmInfo.name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='is_enabled',
+            full_name='proto.UpdateVappVmInfo.is_enabled',
+            index=1,
+            number=2,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=1028,
+    serialized_end=1080,
 )
 
-
 _UPDATEVAPPVMRESULT = _descriptor.Descriptor(
-  name='UpdateVappVmResult',
-  full_name='proto.UpdateVappVmResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='updated', full_name='proto.UpdateVappVmResult.updated', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=980,
-  serialized_end=1017,
+    name='UpdateVappVmResult',
+    full_name='proto.UpdateVappVmResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='updated',
+            full_name='proto.UpdateVappVmResult.updated',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=1082,
+    serialized_end=1119,
 )
 
 DESCRIPTOR.message_types_by_name['CreateVappVmInfo'] = _CREATEVAPPVMINFO
@@ -499,327 +922,134 @@ DESCRIPTOR.message_types_by_name['UpdateVappVmInfo'] = _UPDATEVAPPVMINFO
 DESCRIPTOR.message_types_by_name['UpdateVappVmResult'] = _UPDATEVAPPVMRESULT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-CreateVappVmInfo = _reflection.GeneratedProtocolMessageType('CreateVappVmInfo', (_message.Message,), dict(
-  DESCRIPTOR = _CREATEVAPPVMINFO,
-  __module__ = 'proto.vapp_vm_pb2'
-  # @@protoc_insertion_point(class_scope:proto.CreateVappVmInfo)
-  ))
+CreateVappVmInfo = _reflection.GeneratedProtocolMessageType(
+    'CreateVappVmInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_CREATEVAPPVMINFO,
+        __module__='proto.vapp_vm_pb2'
+        # @@protoc_insertion_point(class_scope:proto.CreateVappVmInfo)
+    ))
 _sym_db.RegisterMessage(CreateVappVmInfo)
 
-CreateVappVmResult = _reflection.GeneratedProtocolMessageType('CreateVappVmResult', (_message.Message,), dict(
-  DESCRIPTOR = _CREATEVAPPVMRESULT,
-  __module__ = 'proto.vapp_vm_pb2'
-  # @@protoc_insertion_point(class_scope:proto.CreateVappVmResult)
-  ))
+CreateVappVmResult = _reflection.GeneratedProtocolMessageType(
+    'CreateVappVmResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_CREATEVAPPVMRESULT,
+        __module__='proto.vapp_vm_pb2'
+        # @@protoc_insertion_point(class_scope:proto.CreateVappVmResult)
+    ))
 _sym_db.RegisterMessage(CreateVappVmResult)
 
-DeleteVappVmInfo = _reflection.GeneratedProtocolMessageType('DeleteVappVmInfo', (_message.Message,), dict(
-  DESCRIPTOR = _DELETEVAPPVMINFO,
-  __module__ = 'proto.vapp_vm_pb2'
-  # @@protoc_insertion_point(class_scope:proto.DeleteVappVmInfo)
-  ))
+DeleteVappVmInfo = _reflection.GeneratedProtocolMessageType(
+    'DeleteVappVmInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_DELETEVAPPVMINFO,
+        __module__='proto.vapp_vm_pb2'
+        # @@protoc_insertion_point(class_scope:proto.DeleteVappVmInfo)
+    ))
 _sym_db.RegisterMessage(DeleteVappVmInfo)
 
-DeleteVappVmResult = _reflection.GeneratedProtocolMessageType('DeleteVappVmResult', (_message.Message,), dict(
-  DESCRIPTOR = _DELETEVAPPVMRESULT,
-  __module__ = 'proto.vapp_vm_pb2'
-  # @@protoc_insertion_point(class_scope:proto.DeleteVappVmResult)
-  ))
+DeleteVappVmResult = _reflection.GeneratedProtocolMessageType(
+    'DeleteVappVmResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_DELETEVAPPVMRESULT,
+        __module__='proto.vapp_vm_pb2'
+        # @@protoc_insertion_point(class_scope:proto.DeleteVappVmResult)
+    ))
 _sym_db.RegisterMessage(DeleteVappVmResult)
 
-ReadVappVmInfo = _reflection.GeneratedProtocolMessageType('ReadVappVmInfo', (_message.Message,), dict(
-  DESCRIPTOR = _READVAPPVMINFO,
-  __module__ = 'proto.vapp_vm_pb2'
-  # @@protoc_insertion_point(class_scope:proto.ReadVappVmInfo)
-  ))
+ReadVappVmInfo = _reflection.GeneratedProtocolMessageType(
+    'ReadVappVmInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_READVAPPVMINFO,
+        __module__='proto.vapp_vm_pb2'
+        # @@protoc_insertion_point(class_scope:proto.ReadVappVmInfo)
+    ))
 _sym_db.RegisterMessage(ReadVappVmInfo)
 
-ReadVappVmResult = _reflection.GeneratedProtocolMessageType('ReadVappVmResult', (_message.Message,), dict(
-  DESCRIPTOR = _READVAPPVMRESULT,
-  __module__ = 'proto.vapp_vm_pb2'
-  # @@protoc_insertion_point(class_scope:proto.ReadVappVmResult)
-  ))
+ReadVappVmResult = _reflection.GeneratedProtocolMessageType(
+    'ReadVappVmResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_READVAPPVMRESULT,
+        __module__='proto.vapp_vm_pb2'
+        # @@protoc_insertion_point(class_scope:proto.ReadVappVmResult)
+    ))
 _sym_db.RegisterMessage(ReadVappVmResult)
 
-UpdateVappVmInfo = _reflection.GeneratedProtocolMessageType('UpdateVappVmInfo', (_message.Message,), dict(
-  DESCRIPTOR = _UPDATEVAPPVMINFO,
-  __module__ = 'proto.vapp_vm_pb2'
-  # @@protoc_insertion_point(class_scope:proto.UpdateVappVmInfo)
-  ))
+UpdateVappVmInfo = _reflection.GeneratedProtocolMessageType(
+    'UpdateVappVmInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_UPDATEVAPPVMINFO,
+        __module__='proto.vapp_vm_pb2'
+        # @@protoc_insertion_point(class_scope:proto.UpdateVappVmInfo)
+    ))
 _sym_db.RegisterMessage(UpdateVappVmInfo)
 
-UpdateVappVmResult = _reflection.GeneratedProtocolMessageType('UpdateVappVmResult', (_message.Message,), dict(
-  DESCRIPTOR = _UPDATEVAPPVMRESULT,
-  __module__ = 'proto.vapp_vm_pb2'
-  # @@protoc_insertion_point(class_scope:proto.UpdateVappVmResult)
-  ))
+UpdateVappVmResult = _reflection.GeneratedProtocolMessageType(
+    'UpdateVappVmResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_UPDATEVAPPVMRESULT,
+        __module__='proto.vapp_vm_pb2'
+        # @@protoc_insertion_point(class_scope:proto.UpdateVappVmResult)
+    ))
 _sym_db.RegisterMessage(UpdateVappVmResult)
 
-
-
 _VAPPVM = _descriptor.ServiceDescriptor(
-  name='VappVm',
-  full_name='proto.VappVm',
-  file=DESCRIPTOR,
-  index=0,
-  options=None,
-  serialized_start=1020,
-  serialized_end=1278,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='Create',
-    full_name='proto.VappVm.Create',
+    name='VappVm',
+    full_name='proto.VappVm',
+    file=DESCRIPTOR,
     index=0,
-    containing_service=None,
-    input_type=_CREATEVAPPVMINFO,
-    output_type=_CREATEVAPPVMRESULT,
     options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='Delete',
-    full_name='proto.VappVm.Delete',
-    index=1,
-    containing_service=None,
-    input_type=_DELETEVAPPVMINFO,
-    output_type=_DELETEVAPPVMRESULT,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='Read',
-    full_name='proto.VappVm.Read',
-    index=2,
-    containing_service=None,
-    input_type=_READVAPPVMINFO,
-    output_type=_READVAPPVMRESULT,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='Update',
-    full_name='proto.VappVm.Update',
-    index=3,
-    containing_service=None,
-    input_type=_UPDATEVAPPVMINFO,
-    output_type=_UPDATEVAPPVMRESULT,
-    options=None,
-  ),
-])
+    serialized_start=1122,
+    serialized_end=1380,
+    methods=[
+        _descriptor.MethodDescriptor(
+            name='Create',
+            full_name='proto.VappVm.Create',
+            index=0,
+            containing_service=None,
+            input_type=_CREATEVAPPVMINFO,
+            output_type=_CREATEVAPPVMRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='Delete',
+            full_name='proto.VappVm.Delete',
+            index=1,
+            containing_service=None,
+            input_type=_DELETEVAPPVMINFO,
+            output_type=_DELETEVAPPVMRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='Read',
+            full_name='proto.VappVm.Read',
+            index=2,
+            containing_service=None,
+            input_type=_READVAPPVMINFO,
+            output_type=_READVAPPVMRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='Update',
+            full_name='proto.VappVm.Update',
+            index=3,
+            containing_service=None,
+            input_type=_UPDATEVAPPVMINFO,
+            output_type=_UPDATEVAPPVMRESULT,
+            options=None,
+        ),
+    ])
 _sym_db.RegisterServiceDescriptor(_VAPPVM)
 
 DESCRIPTOR.services_by_name['VappVm'] = _VAPPVM
 
-try:
-  # THESE ELEMENTS WILL BE DEPRECATED.
-  # Please use the generated *_pb2_grpc.py files instead.
-  import grpc
-  from grpc.beta import implementations as beta_implementations
-  from grpc.beta import interfaces as beta_interfaces
-  from grpc.framework.common import cardinality
-  from grpc.framework.interfaces.face import utilities as face_utilities
-
-
-  class VappVmStub(object):
-    # missing associated documentation comment in .proto file
-    pass
-
-    def __init__(self, channel):
-      """Constructor.
-
-      Args:
-        channel: A grpc.Channel.
-      """
-      self.Create = channel.unary_unary(
-          '/proto.VappVm/Create',
-          request_serializer=CreateVappVmInfo.SerializeToString,
-          response_deserializer=CreateVappVmResult.FromString,
-          )
-      self.Delete = channel.unary_unary(
-          '/proto.VappVm/Delete',
-          request_serializer=DeleteVappVmInfo.SerializeToString,
-          response_deserializer=DeleteVappVmResult.FromString,
-          )
-      self.Read = channel.unary_unary(
-          '/proto.VappVm/Read',
-          request_serializer=ReadVappVmInfo.SerializeToString,
-          response_deserializer=ReadVappVmResult.FromString,
-          )
-      self.Update = channel.unary_unary(
-          '/proto.VappVm/Update',
-          request_serializer=UpdateVappVmInfo.SerializeToString,
-          response_deserializer=UpdateVappVmResult.FromString,
-          )
-
-
-  class VappVmServicer(object):
-    # missing associated documentation comment in .proto file
-    pass
-
-    def Create(self, request, context):
-      """create a VappVm
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def Delete(self, request, context):
-      """delete a VappVm
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def Read(self, request, context):
-      """Read VappVm
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def Update(self, request, context):
-      """Update VappVm
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-
-  def add_VappVmServicer_to_server(servicer, server):
-    rpc_method_handlers = {
-        'Create': grpc.unary_unary_rpc_method_handler(
-            servicer.Create,
-            request_deserializer=CreateVappVmInfo.FromString,
-            response_serializer=CreateVappVmResult.SerializeToString,
-        ),
-        'Delete': grpc.unary_unary_rpc_method_handler(
-            servicer.Delete,
-            request_deserializer=DeleteVappVmInfo.FromString,
-            response_serializer=DeleteVappVmResult.SerializeToString,
-        ),
-        'Read': grpc.unary_unary_rpc_method_handler(
-            servicer.Read,
-            request_deserializer=ReadVappVmInfo.FromString,
-            response_serializer=ReadVappVmResult.SerializeToString,
-        ),
-        'Update': grpc.unary_unary_rpc_method_handler(
-            servicer.Update,
-            request_deserializer=UpdateVappVmInfo.FromString,
-            response_serializer=UpdateVappVmResult.SerializeToString,
-        ),
-    }
-    generic_handler = grpc.method_handlers_generic_handler(
-        'proto.VappVm', rpc_method_handlers)
-    server.add_generic_rpc_handlers((generic_handler,))
-
-
-  class BetaVappVmServicer(object):
-    """The Beta API is deprecated for 0.15.0 and later.
-
-    It is recommended to use the GA API (classes and functions in this
-    file not marked beta) for all further purposes. This class was generated
-    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
-    # missing associated documentation comment in .proto file
-    pass
-    def Create(self, request, context):
-      """create a VappVm
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def Delete(self, request, context):
-      """delete a VappVm
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def Read(self, request, context):
-      """Read VappVm
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def Update(self, request, context):
-      """Update VappVm
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-
-
-  class BetaVappVmStub(object):
-    """The Beta API is deprecated for 0.15.0 and later.
-
-    It is recommended to use the GA API (classes and functions in this
-    file not marked beta) for all further purposes. This class was generated
-    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
-    # missing associated documentation comment in .proto file
-    pass
-    def Create(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """create a VappVm
-      """
-      raise NotImplementedError()
-    Create.future = None
-    def Delete(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """delete a VappVm
-      """
-      raise NotImplementedError()
-    Delete.future = None
-    def Read(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """Read VappVm
-      """
-      raise NotImplementedError()
-    Read.future = None
-    def Update(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """Update VappVm
-      """
-      raise NotImplementedError()
-    Update.future = None
-
-
-  def beta_create_VappVm_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
-    """The Beta API is deprecated for 0.15.0 and later.
-
-    It is recommended to use the GA API (classes and functions in this
-    file not marked beta) for all further purposes. This function was
-    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
-    request_deserializers = {
-      ('proto.VappVm', 'Create'): CreateVappVmInfo.FromString,
-      ('proto.VappVm', 'Delete'): DeleteVappVmInfo.FromString,
-      ('proto.VappVm', 'Read'): ReadVappVmInfo.FromString,
-      ('proto.VappVm', 'Update'): UpdateVappVmInfo.FromString,
-    }
-    response_serializers = {
-      ('proto.VappVm', 'Create'): CreateVappVmResult.SerializeToString,
-      ('proto.VappVm', 'Delete'): DeleteVappVmResult.SerializeToString,
-      ('proto.VappVm', 'Read'): ReadVappVmResult.SerializeToString,
-      ('proto.VappVm', 'Update'): UpdateVappVmResult.SerializeToString,
-    }
-    method_implementations = {
-      ('proto.VappVm', 'Create'): face_utilities.unary_unary_inline(servicer.Create),
-      ('proto.VappVm', 'Delete'): face_utilities.unary_unary_inline(servicer.Delete),
-      ('proto.VappVm', 'Read'): face_utilities.unary_unary_inline(servicer.Read),
-      ('proto.VappVm', 'Update'): face_utilities.unary_unary_inline(servicer.Update),
-    }
-    server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
-    return beta_implementations.server(method_implementations, options=server_options)
-
-
-  def beta_create_VappVm_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
-    """The Beta API is deprecated for 0.15.0 and later.
-
-    It is recommended to use the GA API (classes and functions in this
-    file not marked beta) for all further purposes. This function was
-    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
-    request_serializers = {
-      ('proto.VappVm', 'Create'): CreateVappVmInfo.SerializeToString,
-      ('proto.VappVm', 'Delete'): DeleteVappVmInfo.SerializeToString,
-      ('proto.VappVm', 'Read'): ReadVappVmInfo.SerializeToString,
-      ('proto.VappVm', 'Update'): UpdateVappVmInfo.SerializeToString,
-    }
-    response_deserializers = {
-      ('proto.VappVm', 'Create'): CreateVappVmResult.FromString,
-      ('proto.VappVm', 'Delete'): DeleteVappVmResult.FromString,
-      ('proto.VappVm', 'Read'): ReadVappVmResult.FromString,
-      ('proto.VappVm', 'Update'): UpdateVappVmResult.FromString,
-    }
-    cardinalities = {
-      'Create': cardinality.Cardinality.UNARY_UNARY,
-      'Delete': cardinality.Cardinality.UNARY_UNARY,
-      'Read': cardinality.Cardinality.UNARY_UNARY,
-      'Update': cardinality.Cardinality.UNARY_UNARY,
-    }
-    stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
-    return beta_implementations.dynamic_stub(channel, 'proto.VappVm', cardinalities, options=stub_options)
-except ImportError:
-  pass
 # @@protoc_insertion_point(module_scope)

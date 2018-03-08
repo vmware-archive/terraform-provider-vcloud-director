@@ -2,7 +2,8 @@
 # source: proto/vdc.proto
 
 import sys
-_b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
+_b = sys.version_info[0] < 3 and (lambda x: x) or (
+    lambda x: x.encode('latin1'))
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
@@ -12,586 +13,1090 @@ from google.protobuf import descriptor_pb2
 
 _sym_db = _symbol_database.Default()
 
-
-
-
 DESCRIPTOR = _descriptor.FileDescriptor(
-  name='proto/vdc.proto',
-  package='proto',
-  syntax='proto3',
-  serialized_pb=_b('\n\x0fproto/vdc.proto\x12\x05proto\"\xb1\x04\n\rCreateVdcInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0cprovider_vdc\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x18\n\x10\x61llocation_model\x18\x04 \x01(\t\x12\x11\n\tcpu_units\x18\x05 \x01(\t\x12\x15\n\rcpu_allocated\x18\x06 \x01(\x05\x12\x11\n\tcpu_limit\x18\x07 \x01(\x05\x12\x11\n\tmem_units\x18\x08 \x01(\t\x12\x15\n\rmem_allocated\x18\t \x01(\x05\x12\x11\n\tmem_limit\x18\n \x01(\x05\x12\x11\n\tnic_quota\x18\x0b \x01(\x05\x12\x15\n\rnetwork_quota\x18\x0c \x01(\x05\x12\x10\n\x08vm_quota\x18\r \x01(\x05\x12\x18\n\x10storage_profiles\x18\x0e \x01(\t\x12\"\n\x1aresource_guaranteed_memory\x18\x0f \x01(\x02\x12\x1f\n\x17resource_guaranteed_cpu\x18\x10 \x01(\x02\x12\x13\n\x0bvcpu_in_mhz\x18\x11 \x01(\x05\x12\x19\n\x11is_thin_provision\x18\x12 \x01(\x08\x12\x19\n\x11network_pool_name\x18\x13 \x01(\t\x12\x1e\n\x16uses_fast_provisioning\x18\x14 \x01(\x08\x12\x1b\n\x13over_commit_allowed\x18\x15 \x01(\x08\x12\x1c\n\x14vm_discovery_enabled\x18\x16 \x01(\x08\x12\x12\n\nis_enabled\x18\x17 \x01(\x08\"\"\n\x0f\x43reateVdcResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\"\x1d\n\rDeleteVdcInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\"\"\n\x0f\x44\x65leteVdcResult\x12\x0f\n\x07\x64\x65leted\x18\x01 \x01(\x08\"\x1b\n\x0bReadVdcInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\"\xc2\x04\n\rReadVdcResult\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0cprovider_vdc\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x18\n\x10\x61llocation_model\x18\x04 \x01(\t\x12\x11\n\tcpu_units\x18\x05 \x01(\t\x12\x15\n\rcpu_allocated\x18\x06 \x01(\x05\x12\x11\n\tcpu_limit\x18\x07 \x01(\x05\x12\x11\n\tmem_units\x18\x08 \x01(\t\x12\x15\n\rmem_allocated\x18\t \x01(\x05\x12\x11\n\tmem_limit\x18\n \x01(\x05\x12\x11\n\tnic_quota\x18\x0b \x01(\x05\x12\x15\n\rnetwork_quota\x18\x0c \x01(\x05\x12\x10\n\x08vm_quota\x18\r \x01(\x05\x12\x18\n\x10storage_profiles\x18\x0e \x01(\t\x12\"\n\x1aresource_guaranteed_memory\x18\x0f \x01(\x02\x12\x1f\n\x17resource_guaranteed_cpu\x18\x10 \x01(\x02\x12\x13\n\x0bvcpu_in_mhz\x18\x11 \x01(\x05\x12\x19\n\x11is_thin_provision\x18\x12 \x01(\x08\x12\x19\n\x11network_pool_name\x18\x13 \x01(\t\x12\x1e\n\x16uses_fast_provisioning\x18\x14 \x01(\x08\x12\x1b\n\x13over_commit_allowed\x18\x15 \x01(\x08\x12\x1c\n\x14vm_discovery_enabled\x18\x16 \x01(\x08\x12\x12\n\nis_enabled\x18\x17 \x01(\x08\x12\x0f\n\x07present\x18\x18 \x01(\x08\"1\n\rUpdateVdcInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nis_enabled\x18\x02 \x01(\x08\"\"\n\x0fUpdateVdcResult\x12\x0f\n\x07updated\x18\x01 \x01(\x08\x32\xe7\x01\n\x03Vdc\x12\x38\n\x06\x43reate\x12\x14.proto.CreateVdcInfo\x1a\x16.proto.CreateVdcResult\"\x00\x12\x38\n\x06\x44\x65lete\x12\x14.proto.DeleteVdcInfo\x1a\x16.proto.DeleteVdcResult\"\x00\x12\x32\n\x04Read\x12\x12.proto.ReadVdcInfo\x1a\x14.proto.ReadVdcResult\"\x00\x12\x38\n\x06Update\x12\x14.proto.UpdateVdcInfo\x1a\x16.proto.UpdateVdcResult\"\x00\x62\x06proto3')
-)
-
-
-
+    name='proto/vdc.proto',
+    package='proto',
+    syntax='proto3',
+    serialized_pb=_b(
+        '\n\x0fproto/vdc.proto\x12\x05proto\"\xb1\x04\n\rCreateVdcInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0cprovider_vdc\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x18\n\x10\x61llocation_model\x18\x04 \x01(\t\x12\x11\n\tcpu_units\x18\x05 \x01(\t\x12\x15\n\rcpu_allocated\x18\x06 \x01(\x05\x12\x11\n\tcpu_limit\x18\x07 \x01(\x05\x12\x11\n\tmem_units\x18\x08 \x01(\t\x12\x15\n\rmem_allocated\x18\t \x01(\x05\x12\x11\n\tmem_limit\x18\n \x01(\x05\x12\x11\n\tnic_quota\x18\x0b \x01(\x05\x12\x15\n\rnetwork_quota\x18\x0c \x01(\x05\x12\x10\n\x08vm_quota\x18\r \x01(\x05\x12\x18\n\x10storage_profiles\x18\x0e \x01(\t\x12\"\n\x1aresource_guaranteed_memory\x18\x0f \x01(\x02\x12\x1f\n\x17resource_guaranteed_cpu\x18\x10 \x01(\x02\x12\x13\n\x0bvcpu_in_mhz\x18\x11 \x01(\x05\x12\x19\n\x11is_thin_provision\x18\x12 \x01(\x08\x12\x19\n\x11network_pool_name\x18\x13 \x01(\t\x12\x1e\n\x16uses_fast_provisioning\x18\x14 \x01(\x08\x12\x1b\n\x13over_commit_allowed\x18\x15 \x01(\x08\x12\x1c\n\x14vm_discovery_enabled\x18\x16 \x01(\x08\x12\x12\n\nis_enabled\x18\x17 \x01(\x08\"\"\n\x0f\x43reateVdcResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\"\x1d\n\rDeleteVdcInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\"\"\n\x0f\x44\x65leteVdcResult\x12\x0f\n\x07\x64\x65leted\x18\x01 \x01(\x08\"\x1b\n\x0bReadVdcInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\"\xc2\x04\n\rReadVdcResult\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0cprovider_vdc\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x18\n\x10\x61llocation_model\x18\x04 \x01(\t\x12\x11\n\tcpu_units\x18\x05 \x01(\t\x12\x15\n\rcpu_allocated\x18\x06 \x01(\x05\x12\x11\n\tcpu_limit\x18\x07 \x01(\x05\x12\x11\n\tmem_units\x18\x08 \x01(\t\x12\x15\n\rmem_allocated\x18\t \x01(\x05\x12\x11\n\tmem_limit\x18\n \x01(\x05\x12\x11\n\tnic_quota\x18\x0b \x01(\x05\x12\x15\n\rnetwork_quota\x18\x0c \x01(\x05\x12\x10\n\x08vm_quota\x18\r \x01(\x05\x12\x18\n\x10storage_profiles\x18\x0e \x01(\t\x12\"\n\x1aresource_guaranteed_memory\x18\x0f \x01(\x02\x12\x1f\n\x17resource_guaranteed_cpu\x18\x10 \x01(\x02\x12\x13\n\x0bvcpu_in_mhz\x18\x11 \x01(\x05\x12\x19\n\x11is_thin_provision\x18\x12 \x01(\x08\x12\x19\n\x11network_pool_name\x18\x13 \x01(\t\x12\x1e\n\x16uses_fast_provisioning\x18\x14 \x01(\x08\x12\x1b\n\x13over_commit_allowed\x18\x15 \x01(\x08\x12\x1c\n\x14vm_discovery_enabled\x18\x16 \x01(\x08\x12\x12\n\nis_enabled\x18\x17 \x01(\x08\x12\x0f\n\x07present\x18\x18 \x01(\x08\"1\n\rUpdateVdcInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nis_enabled\x18\x02 \x01(\x08\"\"\n\x0fUpdateVdcResult\x12\x0f\n\x07updated\x18\x01 \x01(\x08\x32\xe7\x01\n\x03Vdc\x12\x38\n\x06\x43reate\x12\x14.proto.CreateVdcInfo\x1a\x16.proto.CreateVdcResult\"\x00\x12\x38\n\x06\x44\x65lete\x12\x14.proto.DeleteVdcInfo\x1a\x16.proto.DeleteVdcResult\"\x00\x12\x32\n\x04Read\x12\x12.proto.ReadVdcInfo\x1a\x14.proto.ReadVdcResult\"\x00\x12\x38\n\x06Update\x12\x14.proto.UpdateVdcInfo\x1a\x16.proto.UpdateVdcResult\"\x00\x62\x06proto3'
+    ))
 
 _CREATEVDCINFO = _descriptor.Descriptor(
-  name='CreateVdcInfo',
-  full_name='proto.CreateVdcInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='proto.CreateVdcInfo.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='provider_vdc', full_name='proto.CreateVdcInfo.provider_vdc', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='description', full_name='proto.CreateVdcInfo.description', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='allocation_model', full_name='proto.CreateVdcInfo.allocation_model', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='cpu_units', full_name='proto.CreateVdcInfo.cpu_units', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='cpu_allocated', full_name='proto.CreateVdcInfo.cpu_allocated', index=5,
-      number=6, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='cpu_limit', full_name='proto.CreateVdcInfo.cpu_limit', index=6,
-      number=7, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='mem_units', full_name='proto.CreateVdcInfo.mem_units', index=7,
-      number=8, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='mem_allocated', full_name='proto.CreateVdcInfo.mem_allocated', index=8,
-      number=9, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='mem_limit', full_name='proto.CreateVdcInfo.mem_limit', index=9,
-      number=10, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='nic_quota', full_name='proto.CreateVdcInfo.nic_quota', index=10,
-      number=11, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='network_quota', full_name='proto.CreateVdcInfo.network_quota', index=11,
-      number=12, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='vm_quota', full_name='proto.CreateVdcInfo.vm_quota', index=12,
-      number=13, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='storage_profiles', full_name='proto.CreateVdcInfo.storage_profiles', index=13,
-      number=14, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='resource_guaranteed_memory', full_name='proto.CreateVdcInfo.resource_guaranteed_memory', index=14,
-      number=15, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='resource_guaranteed_cpu', full_name='proto.CreateVdcInfo.resource_guaranteed_cpu', index=15,
-      number=16, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='vcpu_in_mhz', full_name='proto.CreateVdcInfo.vcpu_in_mhz', index=16,
-      number=17, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='is_thin_provision', full_name='proto.CreateVdcInfo.is_thin_provision', index=17,
-      number=18, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='network_pool_name', full_name='proto.CreateVdcInfo.network_pool_name', index=18,
-      number=19, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='uses_fast_provisioning', full_name='proto.CreateVdcInfo.uses_fast_provisioning', index=19,
-      number=20, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='over_commit_allowed', full_name='proto.CreateVdcInfo.over_commit_allowed', index=20,
-      number=21, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='vm_discovery_enabled', full_name='proto.CreateVdcInfo.vm_discovery_enabled', index=21,
-      number=22, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='is_enabled', full_name='proto.CreateVdcInfo.is_enabled', index=22,
-      number=23, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=27,
-  serialized_end=588,
+    name='CreateVdcInfo',
+    full_name='proto.CreateVdcInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='name',
+            full_name='proto.CreateVdcInfo.name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='provider_vdc',
+            full_name='proto.CreateVdcInfo.provider_vdc',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='description',
+            full_name='proto.CreateVdcInfo.description',
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='allocation_model',
+            full_name='proto.CreateVdcInfo.allocation_model',
+            index=3,
+            number=4,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='cpu_units',
+            full_name='proto.CreateVdcInfo.cpu_units',
+            index=4,
+            number=5,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='cpu_allocated',
+            full_name='proto.CreateVdcInfo.cpu_allocated',
+            index=5,
+            number=6,
+            type=5,
+            cpp_type=1,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='cpu_limit',
+            full_name='proto.CreateVdcInfo.cpu_limit',
+            index=6,
+            number=7,
+            type=5,
+            cpp_type=1,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='mem_units',
+            full_name='proto.CreateVdcInfo.mem_units',
+            index=7,
+            number=8,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='mem_allocated',
+            full_name='proto.CreateVdcInfo.mem_allocated',
+            index=8,
+            number=9,
+            type=5,
+            cpp_type=1,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='mem_limit',
+            full_name='proto.CreateVdcInfo.mem_limit',
+            index=9,
+            number=10,
+            type=5,
+            cpp_type=1,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='nic_quota',
+            full_name='proto.CreateVdcInfo.nic_quota',
+            index=10,
+            number=11,
+            type=5,
+            cpp_type=1,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='network_quota',
+            full_name='proto.CreateVdcInfo.network_quota',
+            index=11,
+            number=12,
+            type=5,
+            cpp_type=1,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='vm_quota',
+            full_name='proto.CreateVdcInfo.vm_quota',
+            index=12,
+            number=13,
+            type=5,
+            cpp_type=1,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='storage_profiles',
+            full_name='proto.CreateVdcInfo.storage_profiles',
+            index=13,
+            number=14,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='resource_guaranteed_memory',
+            full_name='proto.CreateVdcInfo.resource_guaranteed_memory',
+            index=14,
+            number=15,
+            type=2,
+            cpp_type=6,
+            label=1,
+            has_default_value=False,
+            default_value=float(0),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='resource_guaranteed_cpu',
+            full_name='proto.CreateVdcInfo.resource_guaranteed_cpu',
+            index=15,
+            number=16,
+            type=2,
+            cpp_type=6,
+            label=1,
+            has_default_value=False,
+            default_value=float(0),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='vcpu_in_mhz',
+            full_name='proto.CreateVdcInfo.vcpu_in_mhz',
+            index=16,
+            number=17,
+            type=5,
+            cpp_type=1,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='is_thin_provision',
+            full_name='proto.CreateVdcInfo.is_thin_provision',
+            index=17,
+            number=18,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='network_pool_name',
+            full_name='proto.CreateVdcInfo.network_pool_name',
+            index=18,
+            number=19,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='uses_fast_provisioning',
+            full_name='proto.CreateVdcInfo.uses_fast_provisioning',
+            index=19,
+            number=20,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='over_commit_allowed',
+            full_name='proto.CreateVdcInfo.over_commit_allowed',
+            index=20,
+            number=21,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='vm_discovery_enabled',
+            full_name='proto.CreateVdcInfo.vm_discovery_enabled',
+            index=21,
+            number=22,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='is_enabled',
+            full_name='proto.CreateVdcInfo.is_enabled',
+            index=22,
+            number=23,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=27,
+    serialized_end=588,
 )
-
 
 _CREATEVDCRESULT = _descriptor.Descriptor(
-  name='CreateVdcResult',
-  full_name='proto.CreateVdcResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='created', full_name='proto.CreateVdcResult.created', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=590,
-  serialized_end=624,
+    name='CreateVdcResult',
+    full_name='proto.CreateVdcResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='created',
+            full_name='proto.CreateVdcResult.created',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=590,
+    serialized_end=624,
 )
-
 
 _DELETEVDCINFO = _descriptor.Descriptor(
-  name='DeleteVdcInfo',
-  full_name='proto.DeleteVdcInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='proto.DeleteVdcInfo.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=626,
-  serialized_end=655,
+    name='DeleteVdcInfo',
+    full_name='proto.DeleteVdcInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='name',
+            full_name='proto.DeleteVdcInfo.name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=626,
+    serialized_end=655,
 )
-
 
 _DELETEVDCRESULT = _descriptor.Descriptor(
-  name='DeleteVdcResult',
-  full_name='proto.DeleteVdcResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='deleted', full_name='proto.DeleteVdcResult.deleted', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=657,
-  serialized_end=691,
+    name='DeleteVdcResult',
+    full_name='proto.DeleteVdcResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='deleted',
+            full_name='proto.DeleteVdcResult.deleted',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=657,
+    serialized_end=691,
 )
-
 
 _READVDCINFO = _descriptor.Descriptor(
-  name='ReadVdcInfo',
-  full_name='proto.ReadVdcInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='proto.ReadVdcInfo.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=693,
-  serialized_end=720,
+    name='ReadVdcInfo',
+    full_name='proto.ReadVdcInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='name',
+            full_name='proto.ReadVdcInfo.name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=693,
+    serialized_end=720,
 )
-
 
 _READVDCRESULT = _descriptor.Descriptor(
-  name='ReadVdcResult',
-  full_name='proto.ReadVdcResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='proto.ReadVdcResult.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='provider_vdc', full_name='proto.ReadVdcResult.provider_vdc', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='description', full_name='proto.ReadVdcResult.description', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='allocation_model', full_name='proto.ReadVdcResult.allocation_model', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='cpu_units', full_name='proto.ReadVdcResult.cpu_units', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='cpu_allocated', full_name='proto.ReadVdcResult.cpu_allocated', index=5,
-      number=6, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='cpu_limit', full_name='proto.ReadVdcResult.cpu_limit', index=6,
-      number=7, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='mem_units', full_name='proto.ReadVdcResult.mem_units', index=7,
-      number=8, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='mem_allocated', full_name='proto.ReadVdcResult.mem_allocated', index=8,
-      number=9, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='mem_limit', full_name='proto.ReadVdcResult.mem_limit', index=9,
-      number=10, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='nic_quota', full_name='proto.ReadVdcResult.nic_quota', index=10,
-      number=11, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='network_quota', full_name='proto.ReadVdcResult.network_quota', index=11,
-      number=12, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='vm_quota', full_name='proto.ReadVdcResult.vm_quota', index=12,
-      number=13, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='storage_profiles', full_name='proto.ReadVdcResult.storage_profiles', index=13,
-      number=14, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='resource_guaranteed_memory', full_name='proto.ReadVdcResult.resource_guaranteed_memory', index=14,
-      number=15, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='resource_guaranteed_cpu', full_name='proto.ReadVdcResult.resource_guaranteed_cpu', index=15,
-      number=16, type=2, cpp_type=6, label=1,
-      has_default_value=False, default_value=float(0),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='vcpu_in_mhz', full_name='proto.ReadVdcResult.vcpu_in_mhz', index=16,
-      number=17, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='is_thin_provision', full_name='proto.ReadVdcResult.is_thin_provision', index=17,
-      number=18, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='network_pool_name', full_name='proto.ReadVdcResult.network_pool_name', index=18,
-      number=19, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='uses_fast_provisioning', full_name='proto.ReadVdcResult.uses_fast_provisioning', index=19,
-      number=20, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='over_commit_allowed', full_name='proto.ReadVdcResult.over_commit_allowed', index=20,
-      number=21, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='vm_discovery_enabled', full_name='proto.ReadVdcResult.vm_discovery_enabled', index=21,
-      number=22, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='is_enabled', full_name='proto.ReadVdcResult.is_enabled', index=22,
-      number=23, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='present', full_name='proto.ReadVdcResult.present', index=23,
-      number=24, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=723,
-  serialized_end=1301,
+    name='ReadVdcResult',
+    full_name='proto.ReadVdcResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='name',
+            full_name='proto.ReadVdcResult.name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='provider_vdc',
+            full_name='proto.ReadVdcResult.provider_vdc',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='description',
+            full_name='proto.ReadVdcResult.description',
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='allocation_model',
+            full_name='proto.ReadVdcResult.allocation_model',
+            index=3,
+            number=4,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='cpu_units',
+            full_name='proto.ReadVdcResult.cpu_units',
+            index=4,
+            number=5,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='cpu_allocated',
+            full_name='proto.ReadVdcResult.cpu_allocated',
+            index=5,
+            number=6,
+            type=5,
+            cpp_type=1,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='cpu_limit',
+            full_name='proto.ReadVdcResult.cpu_limit',
+            index=6,
+            number=7,
+            type=5,
+            cpp_type=1,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='mem_units',
+            full_name='proto.ReadVdcResult.mem_units',
+            index=7,
+            number=8,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='mem_allocated',
+            full_name='proto.ReadVdcResult.mem_allocated',
+            index=8,
+            number=9,
+            type=5,
+            cpp_type=1,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='mem_limit',
+            full_name='proto.ReadVdcResult.mem_limit',
+            index=9,
+            number=10,
+            type=5,
+            cpp_type=1,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='nic_quota',
+            full_name='proto.ReadVdcResult.nic_quota',
+            index=10,
+            number=11,
+            type=5,
+            cpp_type=1,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='network_quota',
+            full_name='proto.ReadVdcResult.network_quota',
+            index=11,
+            number=12,
+            type=5,
+            cpp_type=1,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='vm_quota',
+            full_name='proto.ReadVdcResult.vm_quota',
+            index=12,
+            number=13,
+            type=5,
+            cpp_type=1,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='storage_profiles',
+            full_name='proto.ReadVdcResult.storage_profiles',
+            index=13,
+            number=14,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='resource_guaranteed_memory',
+            full_name='proto.ReadVdcResult.resource_guaranteed_memory',
+            index=14,
+            number=15,
+            type=2,
+            cpp_type=6,
+            label=1,
+            has_default_value=False,
+            default_value=float(0),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='resource_guaranteed_cpu',
+            full_name='proto.ReadVdcResult.resource_guaranteed_cpu',
+            index=15,
+            number=16,
+            type=2,
+            cpp_type=6,
+            label=1,
+            has_default_value=False,
+            default_value=float(0),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='vcpu_in_mhz',
+            full_name='proto.ReadVdcResult.vcpu_in_mhz',
+            index=16,
+            number=17,
+            type=5,
+            cpp_type=1,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='is_thin_provision',
+            full_name='proto.ReadVdcResult.is_thin_provision',
+            index=17,
+            number=18,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='network_pool_name',
+            full_name='proto.ReadVdcResult.network_pool_name',
+            index=18,
+            number=19,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='uses_fast_provisioning',
+            full_name='proto.ReadVdcResult.uses_fast_provisioning',
+            index=19,
+            number=20,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='over_commit_allowed',
+            full_name='proto.ReadVdcResult.over_commit_allowed',
+            index=20,
+            number=21,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='vm_discovery_enabled',
+            full_name='proto.ReadVdcResult.vm_discovery_enabled',
+            index=21,
+            number=22,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='is_enabled',
+            full_name='proto.ReadVdcResult.is_enabled',
+            index=22,
+            number=23,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='present',
+            full_name='proto.ReadVdcResult.present',
+            index=23,
+            number=24,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=723,
+    serialized_end=1301,
 )
-
 
 _UPDATEVDCINFO = _descriptor.Descriptor(
-  name='UpdateVdcInfo',
-  full_name='proto.UpdateVdcInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='proto.UpdateVdcInfo.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='is_enabled', full_name='proto.UpdateVdcInfo.is_enabled', index=1,
-      number=2, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1303,
-  serialized_end=1352,
+    name='UpdateVdcInfo',
+    full_name='proto.UpdateVdcInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='name',
+            full_name='proto.UpdateVdcInfo.name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='is_enabled',
+            full_name='proto.UpdateVdcInfo.is_enabled',
+            index=1,
+            number=2,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=1303,
+    serialized_end=1352,
 )
 
-
 _UPDATEVDCRESULT = _descriptor.Descriptor(
-  name='UpdateVdcResult',
-  full_name='proto.UpdateVdcResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='updated', full_name='proto.UpdateVdcResult.updated', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1354,
-  serialized_end=1388,
+    name='UpdateVdcResult',
+    full_name='proto.UpdateVdcResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='updated',
+            full_name='proto.UpdateVdcResult.updated',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=1354,
+    serialized_end=1388,
 )
 
 DESCRIPTOR.message_types_by_name['CreateVdcInfo'] = _CREATEVDCINFO
@@ -604,355 +1109,134 @@ DESCRIPTOR.message_types_by_name['UpdateVdcInfo'] = _UPDATEVDCINFO
 DESCRIPTOR.message_types_by_name['UpdateVdcResult'] = _UPDATEVDCRESULT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-CreateVdcInfo = _reflection.GeneratedProtocolMessageType('CreateVdcInfo', (_message.Message,), dict(
-  DESCRIPTOR = _CREATEVDCINFO,
-  __module__ = 'proto.vdc_pb2'
-  # @@protoc_insertion_point(class_scope:proto.CreateVdcInfo)
-  ))
+CreateVdcInfo = _reflection.GeneratedProtocolMessageType(
+    'CreateVdcInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_CREATEVDCINFO,
+        __module__='proto.vdc_pb2'
+        # @@protoc_insertion_point(class_scope:proto.CreateVdcInfo)
+    ))
 _sym_db.RegisterMessage(CreateVdcInfo)
 
-CreateVdcResult = _reflection.GeneratedProtocolMessageType('CreateVdcResult', (_message.Message,), dict(
-  DESCRIPTOR = _CREATEVDCRESULT,
-  __module__ = 'proto.vdc_pb2'
-  # @@protoc_insertion_point(class_scope:proto.CreateVdcResult)
-  ))
+CreateVdcResult = _reflection.GeneratedProtocolMessageType(
+    'CreateVdcResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_CREATEVDCRESULT,
+        __module__='proto.vdc_pb2'
+        # @@protoc_insertion_point(class_scope:proto.CreateVdcResult)
+    ))
 _sym_db.RegisterMessage(CreateVdcResult)
 
-DeleteVdcInfo = _reflection.GeneratedProtocolMessageType('DeleteVdcInfo', (_message.Message,), dict(
-  DESCRIPTOR = _DELETEVDCINFO,
-  __module__ = 'proto.vdc_pb2'
-  # @@protoc_insertion_point(class_scope:proto.DeleteVdcInfo)
-  ))
+DeleteVdcInfo = _reflection.GeneratedProtocolMessageType(
+    'DeleteVdcInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_DELETEVDCINFO,
+        __module__='proto.vdc_pb2'
+        # @@protoc_insertion_point(class_scope:proto.DeleteVdcInfo)
+    ))
 _sym_db.RegisterMessage(DeleteVdcInfo)
 
-DeleteVdcResult = _reflection.GeneratedProtocolMessageType('DeleteVdcResult', (_message.Message,), dict(
-  DESCRIPTOR = _DELETEVDCRESULT,
-  __module__ = 'proto.vdc_pb2'
-  # @@protoc_insertion_point(class_scope:proto.DeleteVdcResult)
-  ))
+DeleteVdcResult = _reflection.GeneratedProtocolMessageType(
+    'DeleteVdcResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_DELETEVDCRESULT,
+        __module__='proto.vdc_pb2'
+        # @@protoc_insertion_point(class_scope:proto.DeleteVdcResult)
+    ))
 _sym_db.RegisterMessage(DeleteVdcResult)
 
-ReadVdcInfo = _reflection.GeneratedProtocolMessageType('ReadVdcInfo', (_message.Message,), dict(
-  DESCRIPTOR = _READVDCINFO,
-  __module__ = 'proto.vdc_pb2'
-  # @@protoc_insertion_point(class_scope:proto.ReadVdcInfo)
-  ))
+ReadVdcInfo = _reflection.GeneratedProtocolMessageType(
+    'ReadVdcInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_READVDCINFO,
+        __module__='proto.vdc_pb2'
+        # @@protoc_insertion_point(class_scope:proto.ReadVdcInfo)
+    ))
 _sym_db.RegisterMessage(ReadVdcInfo)
 
-ReadVdcResult = _reflection.GeneratedProtocolMessageType('ReadVdcResult', (_message.Message,), dict(
-  DESCRIPTOR = _READVDCRESULT,
-  __module__ = 'proto.vdc_pb2'
-  # @@protoc_insertion_point(class_scope:proto.ReadVdcResult)
-  ))
+ReadVdcResult = _reflection.GeneratedProtocolMessageType(
+    'ReadVdcResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_READVDCRESULT,
+        __module__='proto.vdc_pb2'
+        # @@protoc_insertion_point(class_scope:proto.ReadVdcResult)
+    ))
 _sym_db.RegisterMessage(ReadVdcResult)
 
-UpdateVdcInfo = _reflection.GeneratedProtocolMessageType('UpdateVdcInfo', (_message.Message,), dict(
-  DESCRIPTOR = _UPDATEVDCINFO,
-  __module__ = 'proto.vdc_pb2'
-  # @@protoc_insertion_point(class_scope:proto.UpdateVdcInfo)
-  ))
+UpdateVdcInfo = _reflection.GeneratedProtocolMessageType(
+    'UpdateVdcInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_UPDATEVDCINFO,
+        __module__='proto.vdc_pb2'
+        # @@protoc_insertion_point(class_scope:proto.UpdateVdcInfo)
+    ))
 _sym_db.RegisterMessage(UpdateVdcInfo)
 
-UpdateVdcResult = _reflection.GeneratedProtocolMessageType('UpdateVdcResult', (_message.Message,), dict(
-  DESCRIPTOR = _UPDATEVDCRESULT,
-  __module__ = 'proto.vdc_pb2'
-  # @@protoc_insertion_point(class_scope:proto.UpdateVdcResult)
-  ))
+UpdateVdcResult = _reflection.GeneratedProtocolMessageType(
+    'UpdateVdcResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_UPDATEVDCRESULT,
+        __module__='proto.vdc_pb2'
+        # @@protoc_insertion_point(class_scope:proto.UpdateVdcResult)
+    ))
 _sym_db.RegisterMessage(UpdateVdcResult)
 
-
-
 _VDC = _descriptor.ServiceDescriptor(
-  name='Vdc',
-  full_name='proto.Vdc',
-  file=DESCRIPTOR,
-  index=0,
-  options=None,
-  serialized_start=1391,
-  serialized_end=1622,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='Create',
-    full_name='proto.Vdc.Create',
+    name='Vdc',
+    full_name='proto.Vdc',
+    file=DESCRIPTOR,
     index=0,
-    containing_service=None,
-    input_type=_CREATEVDCINFO,
-    output_type=_CREATEVDCRESULT,
     options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='Delete',
-    full_name='proto.Vdc.Delete',
-    index=1,
-    containing_service=None,
-    input_type=_DELETEVDCINFO,
-    output_type=_DELETEVDCRESULT,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='Read',
-    full_name='proto.Vdc.Read',
-    index=2,
-    containing_service=None,
-    input_type=_READVDCINFO,
-    output_type=_READVDCRESULT,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='Update',
-    full_name='proto.Vdc.Update',
-    index=3,
-    containing_service=None,
-    input_type=_UPDATEVDCINFO,
-    output_type=_UPDATEVDCRESULT,
-    options=None,
-  ),
-])
+    serialized_start=1391,
+    serialized_end=1622,
+    methods=[
+        _descriptor.MethodDescriptor(
+            name='Create',
+            full_name='proto.Vdc.Create',
+            index=0,
+            containing_service=None,
+            input_type=_CREATEVDCINFO,
+            output_type=_CREATEVDCRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='Delete',
+            full_name='proto.Vdc.Delete',
+            index=1,
+            containing_service=None,
+            input_type=_DELETEVDCINFO,
+            output_type=_DELETEVDCRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='Read',
+            full_name='proto.Vdc.Read',
+            index=2,
+            containing_service=None,
+            input_type=_READVDCINFO,
+            output_type=_READVDCRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='Update',
+            full_name='proto.Vdc.Update',
+            index=3,
+            containing_service=None,
+            input_type=_UPDATEVDCINFO,
+            output_type=_UPDATEVDCRESULT,
+            options=None,
+        ),
+    ])
 _sym_db.RegisterServiceDescriptor(_VDC)
 
 DESCRIPTOR.services_by_name['Vdc'] = _VDC
 
-try:
-  # THESE ELEMENTS WILL BE DEPRECATED.
-  # Please use the generated *_pb2_grpc.py files instead.
-  import grpc
-  from grpc.beta import implementations as beta_implementations
-  from grpc.beta import interfaces as beta_interfaces
-  from grpc.framework.common import cardinality
-  from grpc.framework.interfaces.face import utilities as face_utilities
-
-
-  class VdcStub(object):
-    """message StorageProfile{
-    string name = 1;
-    bool is_enabled = 2;
-    string units = 3;
-    int32 limit = 4;
-    bool default = 5;
-    }
-
-    """
-
-    def __init__(self, channel):
-      """Constructor.
-
-      Args:
-        channel: A grpc.Channel.
-      """
-      self.Create = channel.unary_unary(
-          '/proto.Vdc/Create',
-          request_serializer=CreateVdcInfo.SerializeToString,
-          response_deserializer=CreateVdcResult.FromString,
-          )
-      self.Delete = channel.unary_unary(
-          '/proto.Vdc/Delete',
-          request_serializer=DeleteVdcInfo.SerializeToString,
-          response_deserializer=DeleteVdcResult.FromString,
-          )
-      self.Read = channel.unary_unary(
-          '/proto.Vdc/Read',
-          request_serializer=ReadVdcInfo.SerializeToString,
-          response_deserializer=ReadVdcResult.FromString,
-          )
-      self.Update = channel.unary_unary(
-          '/proto.Vdc/Update',
-          request_serializer=UpdateVdcInfo.SerializeToString,
-          response_deserializer=UpdateVdcResult.FromString,
-          )
-
-
-  class VdcServicer(object):
-    """message StorageProfile{
-    string name = 1;
-    bool is_enabled = 2;
-    string units = 3;
-    int32 limit = 4;
-    bool default = 5;
-    }
-
-    """
-
-    def Create(self, request, context):
-      """create a Vdc
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def Delete(self, request, context):
-      """delete a Vdc
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def Read(self, request, context):
-      """Read Vdc
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def Update(self, request, context):
-      """Update Vdc
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-
-  def add_VdcServicer_to_server(servicer, server):
-    rpc_method_handlers = {
-        'Create': grpc.unary_unary_rpc_method_handler(
-            servicer.Create,
-            request_deserializer=CreateVdcInfo.FromString,
-            response_serializer=CreateVdcResult.SerializeToString,
-        ),
-        'Delete': grpc.unary_unary_rpc_method_handler(
-            servicer.Delete,
-            request_deserializer=DeleteVdcInfo.FromString,
-            response_serializer=DeleteVdcResult.SerializeToString,
-        ),
-        'Read': grpc.unary_unary_rpc_method_handler(
-            servicer.Read,
-            request_deserializer=ReadVdcInfo.FromString,
-            response_serializer=ReadVdcResult.SerializeToString,
-        ),
-        'Update': grpc.unary_unary_rpc_method_handler(
-            servicer.Update,
-            request_deserializer=UpdateVdcInfo.FromString,
-            response_serializer=UpdateVdcResult.SerializeToString,
-        ),
-    }
-    generic_handler = grpc.method_handlers_generic_handler(
-        'proto.Vdc', rpc_method_handlers)
-    server.add_generic_rpc_handlers((generic_handler,))
-
-
-  class BetaVdcServicer(object):
-    """The Beta API is deprecated for 0.15.0 and later.
-
-    It is recommended to use the GA API (classes and functions in this
-    file not marked beta) for all further purposes. This class was generated
-    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
-    """message StorageProfile{
-    string name = 1;
-    bool is_enabled = 2;
-    string units = 3;
-    int32 limit = 4;
-    bool default = 5;
-    }
-
-    """
-    def Create(self, request, context):
-      """create a Vdc
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def Delete(self, request, context):
-      """delete a Vdc
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def Read(self, request, context):
-      """Read Vdc
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def Update(self, request, context):
-      """Update Vdc
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-
-
-  class BetaVdcStub(object):
-    """The Beta API is deprecated for 0.15.0 and later.
-
-    It is recommended to use the GA API (classes and functions in this
-    file not marked beta) for all further purposes. This class was generated
-    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
-    """message StorageProfile{
-    string name = 1;
-    bool is_enabled = 2;
-    string units = 3;
-    int32 limit = 4;
-    bool default = 5;
-    }
-
-    """
-    def Create(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """create a Vdc
-      """
-      raise NotImplementedError()
-    Create.future = None
-    def Delete(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """delete a Vdc
-      """
-      raise NotImplementedError()
-    Delete.future = None
-    def Read(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """Read Vdc
-      """
-      raise NotImplementedError()
-    Read.future = None
-    def Update(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """Update Vdc
-      """
-      raise NotImplementedError()
-    Update.future = None
-
-
-  def beta_create_Vdc_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
-    """The Beta API is deprecated for 0.15.0 and later.
-
-    It is recommended to use the GA API (classes and functions in this
-    file not marked beta) for all further purposes. This function was
-    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
-    request_deserializers = {
-      ('proto.Vdc', 'Create'): CreateVdcInfo.FromString,
-      ('proto.Vdc', 'Delete'): DeleteVdcInfo.FromString,
-      ('proto.Vdc', 'Read'): ReadVdcInfo.FromString,
-      ('proto.Vdc', 'Update'): UpdateVdcInfo.FromString,
-    }
-    response_serializers = {
-      ('proto.Vdc', 'Create'): CreateVdcResult.SerializeToString,
-      ('proto.Vdc', 'Delete'): DeleteVdcResult.SerializeToString,
-      ('proto.Vdc', 'Read'): ReadVdcResult.SerializeToString,
-      ('proto.Vdc', 'Update'): UpdateVdcResult.SerializeToString,
-    }
-    method_implementations = {
-      ('proto.Vdc', 'Create'): face_utilities.unary_unary_inline(servicer.Create),
-      ('proto.Vdc', 'Delete'): face_utilities.unary_unary_inline(servicer.Delete),
-      ('proto.Vdc', 'Read'): face_utilities.unary_unary_inline(servicer.Read),
-      ('proto.Vdc', 'Update'): face_utilities.unary_unary_inline(servicer.Update),
-    }
-    server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
-    return beta_implementations.server(method_implementations, options=server_options)
-
-
-  def beta_create_Vdc_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
-    """The Beta API is deprecated for 0.15.0 and later.
-
-    It is recommended to use the GA API (classes and functions in this
-    file not marked beta) for all further purposes. This function was
-    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
-    request_serializers = {
-      ('proto.Vdc', 'Create'): CreateVdcInfo.SerializeToString,
-      ('proto.Vdc', 'Delete'): DeleteVdcInfo.SerializeToString,
-      ('proto.Vdc', 'Read'): ReadVdcInfo.SerializeToString,
-      ('proto.Vdc', 'Update'): UpdateVdcInfo.SerializeToString,
-    }
-    response_deserializers = {
-      ('proto.Vdc', 'Create'): CreateVdcResult.FromString,
-      ('proto.Vdc', 'Delete'): DeleteVdcResult.FromString,
-      ('proto.Vdc', 'Read'): ReadVdcResult.FromString,
-      ('proto.Vdc', 'Update'): UpdateVdcResult.FromString,
-    }
-    cardinalities = {
-      'Create': cardinality.Cardinality.UNARY_UNARY,
-      'Delete': cardinality.Cardinality.UNARY_UNARY,
-      'Read': cardinality.Cardinality.UNARY_UNARY,
-      'Update': cardinality.Cardinality.UNARY_UNARY,
-    }
-    stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
-    return beta_implementations.dynamic_stub(channel, 'proto.Vdc', cardinalities, options=stub_options)
-except ImportError:
-  pass
 # @@protoc_insertion_point(module_scope)

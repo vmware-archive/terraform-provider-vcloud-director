@@ -7,263 +7,330 @@ from proto import vapp_pb2 as proto_dot_vapp__pb2
 
 
 class PyVcloudProviderStub(object):
-  """Interface exported by the server.
+    """Interface exported by the server.
   """
 
-  def __init__(self, channel):
-    """Constructor.
+    def __init__(self, channel):
+        """Constructor.
 
     Args:
       channel: A grpc.Channel.
     """
-    self.Login = channel.unary_unary(
-        '/proto.PyVcloudProvider/Login',
-        request_serializer=proto_dot_pyvcloudprovider__pb2.LoginCredentials.SerializeToString,
-        response_deserializer=proto_dot_pyvcloudprovider__pb2.LoginResult.FromString,
+        self.Login = channel.unary_unary(
+            '/proto.PyVcloudProvider/Login',
+            request_serializer=proto_dot_pyvcloudprovider__pb2.
+            LoginCredentials.SerializeToString,
+            response_deserializer=proto_dot_pyvcloudprovider__pb2.LoginResult.
+            FromString,
         )
-    self.ReadCatalog = channel.unary_unary(
-        '/proto.PyVcloudProvider/ReadCatalog',
-        request_serializer=proto_dot_pyvcloudprovider__pb2.Catalog.SerializeToString,
-        response_deserializer=proto_dot_pyvcloudprovider__pb2.ReadCatalogResult.FromString,
+        self.ReadCatalog = channel.unary_unary(
+            '/proto.PyVcloudProvider/ReadCatalog',
+            request_serializer=proto_dot_pyvcloudprovider__pb2.Catalog.
+            SerializeToString,
+            response_deserializer=proto_dot_pyvcloudprovider__pb2.
+            ReadCatalogResult.FromString,
         )
-    self.CreateCatalog = channel.unary_unary(
-        '/proto.PyVcloudProvider/CreateCatalog',
-        request_serializer=proto_dot_pyvcloudprovider__pb2.Catalog.SerializeToString,
-        response_deserializer=proto_dot_pyvcloudprovider__pb2.CreateCatalogResult.FromString,
+        self.CreateCatalog = channel.unary_unary(
+            '/proto.PyVcloudProvider/CreateCatalog',
+            request_serializer=proto_dot_pyvcloudprovider__pb2.Catalog.
+            SerializeToString,
+            response_deserializer=proto_dot_pyvcloudprovider__pb2.
+            CreateCatalogResult.FromString,
         )
-    self.DeleteCatalog = channel.unary_unary(
-        '/proto.PyVcloudProvider/DeleteCatalog',
-        request_serializer=proto_dot_pyvcloudprovider__pb2.Catalog.SerializeToString,
-        response_deserializer=proto_dot_pyvcloudprovider__pb2.DeleteCatalogResult.FromString,
+        self.DeleteCatalog = channel.unary_unary(
+            '/proto.PyVcloudProvider/DeleteCatalog',
+            request_serializer=proto_dot_pyvcloudprovider__pb2.Catalog.
+            SerializeToString,
+            response_deserializer=proto_dot_pyvcloudprovider__pb2.
+            DeleteCatalogResult.FromString,
         )
-    self.CatalogUploadMedia = channel.unary_unary(
-        '/proto.PyVcloudProvider/CatalogUploadMedia',
-        request_serializer=proto_dot_catalog__item__pb2.CatalogUploadMediaInfo.SerializeToString,
-        response_deserializer=proto_dot_catalog__item__pb2.CatalogUploadMediaResult.FromString,
+        self.CatalogUploadMedia = channel.unary_unary(
+            '/proto.PyVcloudProvider/CatalogUploadMedia',
+            request_serializer=proto_dot_catalog__item__pb2.
+            CatalogUploadMediaInfo.SerializeToString,
+            response_deserializer=proto_dot_catalog__item__pb2.
+            CatalogUploadMediaResult.FromString,
         )
-    self.CatalogUploadOva = channel.unary_unary(
-        '/proto.PyVcloudProvider/CatalogUploadOva',
-        request_serializer=proto_dot_catalog__item__pb2.CatalogUploadOvaInfo.SerializeToString,
-        response_deserializer=proto_dot_catalog__item__pb2.CatalogUploadOvaResult.FromString,
+        self.CatalogUploadOva = channel.unary_unary(
+            '/proto.PyVcloudProvider/CatalogUploadOva',
+            request_serializer=proto_dot_catalog__item__pb2.
+            CatalogUploadOvaInfo.SerializeToString,
+            response_deserializer=proto_dot_catalog__item__pb2.
+            CatalogUploadOvaResult.FromString,
         )
-    self.OvaCheckResolved = channel.unary_unary(
-        '/proto.PyVcloudProvider/OvaCheckResolved',
-        request_serializer=proto_dot_catalog__item__pb2.CatalogCheckResolvedInfo.SerializeToString,
-        response_deserializer=proto_dot_pyvcloudprovider__pb2.CheckResolvedResult.FromString,
+        self.OvaCheckResolved = channel.unary_unary(
+            '/proto.PyVcloudProvider/OvaCheckResolved',
+            request_serializer=proto_dot_catalog__item__pb2.
+            CatalogCheckResolvedInfo.SerializeToString,
+            response_deserializer=proto_dot_pyvcloudprovider__pb2.
+            CheckResolvedResult.FromString,
         )
-    self.DeleteCatalogItem = channel.unary_unary(
-        '/proto.PyVcloudProvider/DeleteCatalogItem',
-        request_serializer=proto_dot_catalog__item__pb2.DeleteCatalogItemInfo.SerializeToString,
-        response_deserializer=proto_dot_catalog__item__pb2.DeleteCatalogItemResult.FromString,
+        self.DeleteCatalogItem = channel.unary_unary(
+            '/proto.PyVcloudProvider/DeleteCatalogItem',
+            request_serializer=proto_dot_catalog__item__pb2.
+            DeleteCatalogItemInfo.SerializeToString,
+            response_deserializer=proto_dot_catalog__item__pb2.
+            DeleteCatalogItemResult.FromString,
         )
-    self.isPresentCatalogItem = channel.unary_unary(
-        '/proto.PyVcloudProvider/isPresentCatalogItem',
-        request_serializer=proto_dot_catalog__item__pb2.IsPresentCatalogItemInfo.SerializeToString,
-        response_deserializer=proto_dot_catalog__item__pb2.IsPresentCatalogItemResult.FromString,
+        self.isPresentCatalogItem = channel.unary_unary(
+            '/proto.PyVcloudProvider/isPresentCatalogItem',
+            request_serializer=proto_dot_catalog__item__pb2.
+            IsPresentCatalogItemInfo.SerializeToString,
+            response_deserializer=proto_dot_catalog__item__pb2.
+            IsPresentCatalogItemResult.FromString,
         )
-    self.CaptureVapp = channel.unary_unary(
-        '/proto.PyVcloudProvider/CaptureVapp',
-        request_serializer=proto_dot_catalog__item__pb2.CaptureVAppInfo.SerializeToString,
-        response_deserializer=proto_dot_catalog__item__pb2.CaptureVAppResult.FromString,
+        self.CaptureVapp = channel.unary_unary(
+            '/proto.PyVcloudProvider/CaptureVapp',
+            request_serializer=proto_dot_catalog__item__pb2.CaptureVAppInfo.
+            SerializeToString,
+            response_deserializer=proto_dot_catalog__item__pb2.
+            CaptureVAppResult.FromString,
         )
-    self.CreateVApp = channel.unary_unary(
-        '/proto.PyVcloudProvider/CreateVApp',
-        request_serializer=proto_dot_vapp__pb2.CreateVAppInfo.SerializeToString,
-        response_deserializer=proto_dot_vapp__pb2.CreateVAppResult.FromString,
+        self.CreateVApp = channel.unary_unary(
+            '/proto.PyVcloudProvider/CreateVApp',
+            request_serializer=proto_dot_vapp__pb2.CreateVAppInfo.
+            SerializeToString,
+            response_deserializer=proto_dot_vapp__pb2.CreateVAppResult.
+            FromString,
         )
-    self.DeleteVApp = channel.unary_unary(
-        '/proto.PyVcloudProvider/DeleteVApp',
-        request_serializer=proto_dot_vapp__pb2.DeleteVAppInfo.SerializeToString,
-        response_deserializer=proto_dot_vapp__pb2.DeleteVAppResult.FromString,
+        self.DeleteVApp = channel.unary_unary(
+            '/proto.PyVcloudProvider/DeleteVApp',
+            request_serializer=proto_dot_vapp__pb2.DeleteVAppInfo.
+            SerializeToString,
+            response_deserializer=proto_dot_vapp__pb2.DeleteVAppResult.
+            FromString,
         )
-    self.ReadVApp = channel.unary_unary(
-        '/proto.PyVcloudProvider/ReadVApp',
-        request_serializer=proto_dot_vapp__pb2.ReadVAppInfo.SerializeToString,
-        response_deserializer=proto_dot_vapp__pb2.ReadVAppResult.FromString,
+        self.ReadVApp = channel.unary_unary(
+            '/proto.PyVcloudProvider/ReadVApp',
+            request_serializer=proto_dot_vapp__pb2.ReadVAppInfo.
+            SerializeToString,
+            response_deserializer=proto_dot_vapp__pb2.ReadVAppResult.
+            FromString,
         )
-    self.StopPlugin = channel.unary_unary(
-        '/proto.PyVcloudProvider/StopPlugin',
-        request_serializer=proto_dot_pyvcloudprovider__pb2.StopInfo.SerializeToString,
-        response_deserializer=proto_dot_pyvcloudprovider__pb2.StopResult.FromString,
+        self.StopPlugin = channel.unary_unary(
+            '/proto.PyVcloudProvider/StopPlugin',
+            request_serializer=proto_dot_pyvcloudprovider__pb2.StopInfo.
+            SerializeToString,
+            response_deserializer=proto_dot_pyvcloudprovider__pb2.StopResult.
+            FromString,
         )
 
 
 class PyVcloudProviderServicer(object):
-  """Interface exported by the server.
+    """Interface exported by the server.
   """
 
-  def Login(self, request, context):
-    """Tenant Loging to VCD  
+    def Login(self, request, context):
+        """Tenant Loging to VCD  
     """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-  def ReadCatalog(self, request, context):
-    """check if catalog is preset and return true and the catalog details
+    def ReadCatalog(self, request, context):
+        """check if catalog is preset and return true and the catalog details
     """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-  def CreateCatalog(self, request, context):
-    """create a new catalog
+    def CreateCatalog(self, request, context):
+        """create a new catalog
     """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-  def DeleteCatalog(self, request, context):
-    """delete a catalog
+    def DeleteCatalog(self, request, context):
+        """delete a catalog
     """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-  def CatalogUploadMedia(self, request, context):
-    """catalog upload Media - anything other than ova
+    def CatalogUploadMedia(self, request, context):
+        """catalog upload Media - anything other than ova
     """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-  def CatalogUploadOva(self, request, context):
-    """catalog upload ova
+    def CatalogUploadOva(self, request, context):
+        """catalog upload ova
     """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-  def OvaCheckResolved(self, request, context):
-    """check resolved after upload
+    def OvaCheckResolved(self, request, context):
+        """check resolved after upload
     """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-  def DeleteCatalogItem(self, request, context):
-    """catalog item delete
+    def DeleteCatalogItem(self, request, context):
+        """catalog item delete
     """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-  def isPresentCatalogItem(self, request, context):
-    """check if catalog item is preset and return true
+    def isPresentCatalogItem(self, request, context):
+        """check if catalog item is preset and return true
     """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-  def CaptureVapp(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
+    def CaptureVapp(self, request, context):
+        # missing associated documentation comment in .proto file
+        pass
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-  def CreateVApp(self, request, context):
-    """create vApp
+    def CreateVApp(self, request, context):
+        """create vApp
     """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-  def DeleteVApp(self, request, context):
-    """delete VApp
+    def DeleteVApp(self, request, context):
+        """delete VApp
     """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-  def ReadVApp(self, request, context):
-    """Read VApp
+    def ReadVApp(self, request, context):
+        """Read VApp
     """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
-  def StopPlugin(self, request, context):
-    """remote stop interface for the plugin
+    def StopPlugin(self, request, context):
+        """remote stop interface for the plugin
     """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
 
 def add_PyVcloudProviderServicer_to_server(servicer, server):
-  rpc_method_handlers = {
-      'Login': grpc.unary_unary_rpc_method_handler(
-          servicer.Login,
-          request_deserializer=proto_dot_pyvcloudprovider__pb2.LoginCredentials.FromString,
-          response_serializer=proto_dot_pyvcloudprovider__pb2.LoginResult.SerializeToString,
-      ),
-      'ReadCatalog': grpc.unary_unary_rpc_method_handler(
-          servicer.ReadCatalog,
-          request_deserializer=proto_dot_pyvcloudprovider__pb2.Catalog.FromString,
-          response_serializer=proto_dot_pyvcloudprovider__pb2.ReadCatalogResult.SerializeToString,
-      ),
-      'CreateCatalog': grpc.unary_unary_rpc_method_handler(
-          servicer.CreateCatalog,
-          request_deserializer=proto_dot_pyvcloudprovider__pb2.Catalog.FromString,
-          response_serializer=proto_dot_pyvcloudprovider__pb2.CreateCatalogResult.SerializeToString,
-      ),
-      'DeleteCatalog': grpc.unary_unary_rpc_method_handler(
-          servicer.DeleteCatalog,
-          request_deserializer=proto_dot_pyvcloudprovider__pb2.Catalog.FromString,
-          response_serializer=proto_dot_pyvcloudprovider__pb2.DeleteCatalogResult.SerializeToString,
-      ),
-      'CatalogUploadMedia': grpc.unary_unary_rpc_method_handler(
-          servicer.CatalogUploadMedia,
-          request_deserializer=proto_dot_catalog__item__pb2.CatalogUploadMediaInfo.FromString,
-          response_serializer=proto_dot_catalog__item__pb2.CatalogUploadMediaResult.SerializeToString,
-      ),
-      'CatalogUploadOva': grpc.unary_unary_rpc_method_handler(
-          servicer.CatalogUploadOva,
-          request_deserializer=proto_dot_catalog__item__pb2.CatalogUploadOvaInfo.FromString,
-          response_serializer=proto_dot_catalog__item__pb2.CatalogUploadOvaResult.SerializeToString,
-      ),
-      'OvaCheckResolved': grpc.unary_unary_rpc_method_handler(
-          servicer.OvaCheckResolved,
-          request_deserializer=proto_dot_catalog__item__pb2.CatalogCheckResolvedInfo.FromString,
-          response_serializer=proto_dot_pyvcloudprovider__pb2.CheckResolvedResult.SerializeToString,
-      ),
-      'DeleteCatalogItem': grpc.unary_unary_rpc_method_handler(
-          servicer.DeleteCatalogItem,
-          request_deserializer=proto_dot_catalog__item__pb2.DeleteCatalogItemInfo.FromString,
-          response_serializer=proto_dot_catalog__item__pb2.DeleteCatalogItemResult.SerializeToString,
-      ),
-      'isPresentCatalogItem': grpc.unary_unary_rpc_method_handler(
-          servicer.isPresentCatalogItem,
-          request_deserializer=proto_dot_catalog__item__pb2.IsPresentCatalogItemInfo.FromString,
-          response_serializer=proto_dot_catalog__item__pb2.IsPresentCatalogItemResult.SerializeToString,
-      ),
-      'CaptureVapp': grpc.unary_unary_rpc_method_handler(
-          servicer.CaptureVapp,
-          request_deserializer=proto_dot_catalog__item__pb2.CaptureVAppInfo.FromString,
-          response_serializer=proto_dot_catalog__item__pb2.CaptureVAppResult.SerializeToString,
-      ),
-      'CreateVApp': grpc.unary_unary_rpc_method_handler(
-          servicer.CreateVApp,
-          request_deserializer=proto_dot_vapp__pb2.CreateVAppInfo.FromString,
-          response_serializer=proto_dot_vapp__pb2.CreateVAppResult.SerializeToString,
-      ),
-      'DeleteVApp': grpc.unary_unary_rpc_method_handler(
-          servicer.DeleteVApp,
-          request_deserializer=proto_dot_vapp__pb2.DeleteVAppInfo.FromString,
-          response_serializer=proto_dot_vapp__pb2.DeleteVAppResult.SerializeToString,
-      ),
-      'ReadVApp': grpc.unary_unary_rpc_method_handler(
-          servicer.ReadVApp,
-          request_deserializer=proto_dot_vapp__pb2.ReadVAppInfo.FromString,
-          response_serializer=proto_dot_vapp__pb2.ReadVAppResult.SerializeToString,
-      ),
-      'StopPlugin': grpc.unary_unary_rpc_method_handler(
-          servicer.StopPlugin,
-          request_deserializer=proto_dot_pyvcloudprovider__pb2.StopInfo.FromString,
-          response_serializer=proto_dot_pyvcloudprovider__pb2.StopResult.SerializeToString,
-      ),
-  }
-  generic_handler = grpc.method_handlers_generic_handler(
-      'proto.PyVcloudProvider', rpc_method_handlers)
-  server.add_generic_rpc_handlers((generic_handler,))
+    rpc_method_handlers = {
+        'Login':
+        grpc.unary_unary_rpc_method_handler(
+            servicer.Login,
+            request_deserializer=proto_dot_pyvcloudprovider__pb2.
+            LoginCredentials.FromString,
+            response_serializer=proto_dot_pyvcloudprovider__pb2.LoginResult.
+            SerializeToString,
+        ),
+        'ReadCatalog':
+        grpc.unary_unary_rpc_method_handler(
+            servicer.ReadCatalog,
+            request_deserializer=proto_dot_pyvcloudprovider__pb2.Catalog.
+            FromString,
+            response_serializer=proto_dot_pyvcloudprovider__pb2.
+            ReadCatalogResult.SerializeToString,
+        ),
+        'CreateCatalog':
+        grpc.unary_unary_rpc_method_handler(
+            servicer.CreateCatalog,
+            request_deserializer=proto_dot_pyvcloudprovider__pb2.Catalog.
+            FromString,
+            response_serializer=proto_dot_pyvcloudprovider__pb2.
+            CreateCatalogResult.SerializeToString,
+        ),
+        'DeleteCatalog':
+        grpc.unary_unary_rpc_method_handler(
+            servicer.DeleteCatalog,
+            request_deserializer=proto_dot_pyvcloudprovider__pb2.Catalog.
+            FromString,
+            response_serializer=proto_dot_pyvcloudprovider__pb2.
+            DeleteCatalogResult.SerializeToString,
+        ),
+        'CatalogUploadMedia':
+        grpc.unary_unary_rpc_method_handler(
+            servicer.CatalogUploadMedia,
+            request_deserializer=proto_dot_catalog__item__pb2.
+            CatalogUploadMediaInfo.FromString,
+            response_serializer=proto_dot_catalog__item__pb2.
+            CatalogUploadMediaResult.SerializeToString,
+        ),
+        'CatalogUploadOva':
+        grpc.unary_unary_rpc_method_handler(
+            servicer.CatalogUploadOva,
+            request_deserializer=proto_dot_catalog__item__pb2.
+            CatalogUploadOvaInfo.FromString,
+            response_serializer=proto_dot_catalog__item__pb2.
+            CatalogUploadOvaResult.SerializeToString,
+        ),
+        'OvaCheckResolved':
+        grpc.unary_unary_rpc_method_handler(
+            servicer.OvaCheckResolved,
+            request_deserializer=proto_dot_catalog__item__pb2.
+            CatalogCheckResolvedInfo.FromString,
+            response_serializer=proto_dot_pyvcloudprovider__pb2.
+            CheckResolvedResult.SerializeToString,
+        ),
+        'DeleteCatalogItem':
+        grpc.unary_unary_rpc_method_handler(
+            servicer.DeleteCatalogItem,
+            request_deserializer=proto_dot_catalog__item__pb2.
+            DeleteCatalogItemInfo.FromString,
+            response_serializer=proto_dot_catalog__item__pb2.
+            DeleteCatalogItemResult.SerializeToString,
+        ),
+        'isPresentCatalogItem':
+        grpc.unary_unary_rpc_method_handler(
+            servicer.isPresentCatalogItem,
+            request_deserializer=proto_dot_catalog__item__pb2.
+            IsPresentCatalogItemInfo.FromString,
+            response_serializer=proto_dot_catalog__item__pb2.
+            IsPresentCatalogItemResult.SerializeToString,
+        ),
+        'CaptureVapp':
+        grpc.unary_unary_rpc_method_handler(
+            servicer.CaptureVapp,
+            request_deserializer=proto_dot_catalog__item__pb2.CaptureVAppInfo.
+            FromString,
+            response_serializer=proto_dot_catalog__item__pb2.CaptureVAppResult.
+            SerializeToString,
+        ),
+        'CreateVApp':
+        grpc.unary_unary_rpc_method_handler(
+            servicer.CreateVApp,
+            request_deserializer=proto_dot_vapp__pb2.CreateVAppInfo.FromString,
+            response_serializer=proto_dot_vapp__pb2.CreateVAppResult.
+            SerializeToString,
+        ),
+        'DeleteVApp':
+        grpc.unary_unary_rpc_method_handler(
+            servicer.DeleteVApp,
+            request_deserializer=proto_dot_vapp__pb2.DeleteVAppInfo.FromString,
+            response_serializer=proto_dot_vapp__pb2.DeleteVAppResult.
+            SerializeToString,
+        ),
+        'ReadVApp':
+        grpc.unary_unary_rpc_method_handler(
+            servicer.ReadVApp,
+            request_deserializer=proto_dot_vapp__pb2.ReadVAppInfo.FromString,
+            response_serializer=proto_dot_vapp__pb2.ReadVAppResult.
+            SerializeToString,
+        ),
+        'StopPlugin':
+        grpc.unary_unary_rpc_method_handler(
+            servicer.StopPlugin,
+            request_deserializer=proto_dot_pyvcloudprovider__pb2.StopInfo.
+            FromString,
+            response_serializer=proto_dot_pyvcloudprovider__pb2.StopResult.
+            SerializeToString,
+        ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+        'proto.PyVcloudProvider', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler, ))
