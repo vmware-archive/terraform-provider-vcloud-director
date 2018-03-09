@@ -38,21 +38,21 @@ _CREATEORGINFO = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='org_full_name', full_name='proto.CreateOrgInfo.org_full_name', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='is_enabled', full_name='proto.CreateOrgInfo.is_enabled', index=2,
       number=3, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -83,7 +83,7 @@ _CREATEORGRESULT = _descriptor.Descriptor(
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -114,21 +114,21 @@ _DELETEORGINFO = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='force', full_name='proto.DeleteOrgInfo.force', index=1,
       number=2, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='recursive', full_name='proto.DeleteOrgInfo.recursive', index=2,
       number=3, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -159,7 +159,7 @@ _DELETEORGRESULT = _descriptor.Descriptor(
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -190,7 +190,7 @@ _READORGINFO = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -221,28 +221,28 @@ _READORGRESULT = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='org_full_name', full_name='proto.ReadOrgResult.org_full_name', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='is_enabled', full_name='proto.ReadOrgResult.is_enabled', index=2,
       number=3, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='present', full_name='proto.ReadOrgResult.present', index=3,
       number=4, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -273,21 +273,21 @@ _UPDATEORGINFO = _descriptor.Descriptor(
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='org_full_name', full_name='proto.UpdateOrgInfo.org_full_name', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='is_enabled', full_name='proto.UpdateOrgInfo.is_enabled', index=2,
       number=3, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -318,7 +318,7 @@ _UPDATEORGRESULT = _descriptor.Descriptor(
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
-      options=None),
+      options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -453,219 +453,4 @@ _sym_db.RegisterServiceDescriptor(_ORG)
 
 DESCRIPTOR.services_by_name['Org'] = _ORG
 
-try:
-  # THESE ELEMENTS WILL BE DEPRECATED.
-  # Please use the generated *_pb2_grpc.py files instead.
-  import grpc
-  from grpc.beta import implementations as beta_implementations
-  from grpc.beta import interfaces as beta_interfaces
-  from grpc.framework.common import cardinality
-  from grpc.framework.interfaces.face import utilities as face_utilities
-
-
-  class OrgStub(object):
-    # missing associated documentation comment in .proto file
-    pass
-
-    def __init__(self, channel):
-      """Constructor.
-
-      Args:
-        channel: A grpc.Channel.
-      """
-      self.Create = channel.unary_unary(
-          '/proto.Org/Create',
-          request_serializer=CreateOrgInfo.SerializeToString,
-          response_deserializer=CreateOrgResult.FromString,
-          )
-      self.Delete = channel.unary_unary(
-          '/proto.Org/Delete',
-          request_serializer=DeleteOrgInfo.SerializeToString,
-          response_deserializer=DeleteOrgResult.FromString,
-          )
-      self.Read = channel.unary_unary(
-          '/proto.Org/Read',
-          request_serializer=ReadOrgInfo.SerializeToString,
-          response_deserializer=ReadOrgResult.FromString,
-          )
-      self.Update = channel.unary_unary(
-          '/proto.Org/Update',
-          request_serializer=UpdateOrgInfo.SerializeToString,
-          response_deserializer=UpdateOrgResult.FromString,
-          )
-
-
-  class OrgServicer(object):
-    # missing associated documentation comment in .proto file
-    pass
-
-    def Create(self, request, context):
-      """create a organisation
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def Delete(self, request, context):
-      """delete a organisation
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def Read(self, request, context):
-      """Read Org
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-    def Update(self, request, context):
-      """Update org
-      """
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
-
-  def add_OrgServicer_to_server(servicer, server):
-    rpc_method_handlers = {
-        'Create': grpc.unary_unary_rpc_method_handler(
-            servicer.Create,
-            request_deserializer=CreateOrgInfo.FromString,
-            response_serializer=CreateOrgResult.SerializeToString,
-        ),
-        'Delete': grpc.unary_unary_rpc_method_handler(
-            servicer.Delete,
-            request_deserializer=DeleteOrgInfo.FromString,
-            response_serializer=DeleteOrgResult.SerializeToString,
-        ),
-        'Read': grpc.unary_unary_rpc_method_handler(
-            servicer.Read,
-            request_deserializer=ReadOrgInfo.FromString,
-            response_serializer=ReadOrgResult.SerializeToString,
-        ),
-        'Update': grpc.unary_unary_rpc_method_handler(
-            servicer.Update,
-            request_deserializer=UpdateOrgInfo.FromString,
-            response_serializer=UpdateOrgResult.SerializeToString,
-        ),
-    }
-    generic_handler = grpc.method_handlers_generic_handler(
-        'proto.Org', rpc_method_handlers)
-    server.add_generic_rpc_handlers((generic_handler,))
-
-
-  class BetaOrgServicer(object):
-    """The Beta API is deprecated for 0.15.0 and later.
-
-    It is recommended to use the GA API (classes and functions in this
-    file not marked beta) for all further purposes. This class was generated
-    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
-    # missing associated documentation comment in .proto file
-    pass
-    def Create(self, request, context):
-      """create a organisation
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def Delete(self, request, context):
-      """delete a organisation
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def Read(self, request, context):
-      """Read Org
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def Update(self, request, context):
-      """Update org
-      """
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-
-
-  class BetaOrgStub(object):
-    """The Beta API is deprecated for 0.15.0 and later.
-
-    It is recommended to use the GA API (classes and functions in this
-    file not marked beta) for all further purposes. This class was generated
-    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
-    # missing associated documentation comment in .proto file
-    pass
-    def Create(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """create a organisation
-      """
-      raise NotImplementedError()
-    Create.future = None
-    def Delete(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """delete a organisation
-      """
-      raise NotImplementedError()
-    Delete.future = None
-    def Read(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """Read Org
-      """
-      raise NotImplementedError()
-    Read.future = None
-    def Update(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      """Update org
-      """
-      raise NotImplementedError()
-    Update.future = None
-
-
-  def beta_create_Org_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
-    """The Beta API is deprecated for 0.15.0 and later.
-
-    It is recommended to use the GA API (classes and functions in this
-    file not marked beta) for all further purposes. This function was
-    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
-    request_deserializers = {
-      ('proto.Org', 'Create'): CreateOrgInfo.FromString,
-      ('proto.Org', 'Delete'): DeleteOrgInfo.FromString,
-      ('proto.Org', 'Read'): ReadOrgInfo.FromString,
-      ('proto.Org', 'Update'): UpdateOrgInfo.FromString,
-    }
-    response_serializers = {
-      ('proto.Org', 'Create'): CreateOrgResult.SerializeToString,
-      ('proto.Org', 'Delete'): DeleteOrgResult.SerializeToString,
-      ('proto.Org', 'Read'): ReadOrgResult.SerializeToString,
-      ('proto.Org', 'Update'): UpdateOrgResult.SerializeToString,
-    }
-    method_implementations = {
-      ('proto.Org', 'Create'): face_utilities.unary_unary_inline(servicer.Create),
-      ('proto.Org', 'Delete'): face_utilities.unary_unary_inline(servicer.Delete),
-      ('proto.Org', 'Read'): face_utilities.unary_unary_inline(servicer.Read),
-      ('proto.Org', 'Update'): face_utilities.unary_unary_inline(servicer.Update),
-    }
-    server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
-    return beta_implementations.server(method_implementations, options=server_options)
-
-
-  def beta_create_Org_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
-    """The Beta API is deprecated for 0.15.0 and later.
-
-    It is recommended to use the GA API (classes and functions in this
-    file not marked beta) for all further purposes. This function was
-    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
-    request_serializers = {
-      ('proto.Org', 'Create'): CreateOrgInfo.SerializeToString,
-      ('proto.Org', 'Delete'): DeleteOrgInfo.SerializeToString,
-      ('proto.Org', 'Read'): ReadOrgInfo.SerializeToString,
-      ('proto.Org', 'Update'): UpdateOrgInfo.SerializeToString,
-    }
-    response_deserializers = {
-      ('proto.Org', 'Create'): CreateOrgResult.FromString,
-      ('proto.Org', 'Delete'): DeleteOrgResult.FromString,
-      ('proto.Org', 'Read'): ReadOrgResult.FromString,
-      ('proto.Org', 'Update'): UpdateOrgResult.FromString,
-    }
-    cardinalities = {
-      'Create': cardinality.Cardinality.UNARY_UNARY,
-      'Delete': cardinality.Cardinality.UNARY_UNARY,
-      'Read': cardinality.Cardinality.UNARY_UNARY,
-      'Update': cardinality.Cardinality.UNARY_UNARY,
-    }
-    stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
-    return beta_implementations.dynamic_stub(channel, 'proto.Org', cardinalities, options=stub_options)
-except ImportError:
-  pass
 # @@protoc_insertion_point(module_scope)

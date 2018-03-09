@@ -80,6 +80,12 @@ message UpdateVappVmResult{
 }
 
 service VappVm {
+// create a VappVM through vapp
+rpc CreateFromVapp(  CreateVappVmInfo ) returns ( CreateVappVmResult ) {}
+
+// create a VappVM through catalog
+rpc CreateFromCatalog(  CreateVappVmInfo ) returns ( CreateVappVmResult ) {}
+
 //create a VappVm
 rpc Create(  CreateVappVmInfo ) returns ( CreateVappVmResult ) {}
 

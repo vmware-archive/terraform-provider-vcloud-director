@@ -10,7 +10,7 @@ import (
 	"net/rpc"
 
 	"google.golang.org/grpc"
-	
+
 	"github.com/hashicorp/go-plugin"
 	"github.com/vmware/terraform-provider-vcloud-director/go/src/vcd/proto"
 	"golang.org/x/net/context"
@@ -19,6 +19,10 @@ import (
 )
 
 type VappVmProvider interface {
+	CreateFromVapp(lc proto.CreateVappVmInfo) (*proto.CreateVappVmResult, error)
+
+	CreateFromCatalog(lc proto.CreateVappVmInfo) (*proto.CreateVappVmResult, error)
+
 	Create(lc proto.CreateVappVmInfo) (*proto.CreateVappVmResult, error)
 
 	Delete(lc proto.DeleteVappVmInfo) (*proto.DeleteVappVmResult, error)
@@ -61,6 +65,14 @@ type VappVmRPCServer struct {
 	VappVmImpl proto.VappVmServer
 }
 
+func (m *VappVmGRPCClient) CreateFromVapp(lc proto.CreateVappVmInfo) (*proto.CreateVappVmResult, error) {
+	result, err := m.client.CreateFromVapp(context.Background(), &lc)
+	return result, err
+}
+func (m *VappVmGRPCClient) CreateFromCatalog(lc proto.CreateVappVmInfo) (*proto.CreateVappVmResult, error) {
+	result, err := m.client.CreateFromCatalog(context.Background(), &lc)
+	return result, err
+}
 func (m *VappVmGRPCClient) Create(lc proto.CreateVappVmInfo) (*proto.CreateVappVmResult, error) {
 	result, err := m.client.Create(context.Background(), &lc)
 	return result, err
@@ -118,16 +130,16 @@ func (p *VappVmProviderPlugin) Server(*plugin.MuxBroker) (interface{}, error) {
 	return &VappVmRPCServer{}, nil
 }
 
-func (p *VappVmProviderPlugin) GRPCServer(broker *plugin.GRPCBroker,s *grpc.Server) error {
+func (p *VappVmProviderPlugin) GRPCServer(broker *plugin.GRPCBroker, s *grpc.Server) error {
 
 	return nil
 }
 
 // ONLY GRPC CLIENT IS USE ON THIS SIDE
-func (p *VappVmProviderPlugin) GRPCClient(ctx context.Context,broker *plugin.GRPCBroker,c *grpc.ClientConn) (interface{}, error) {
+func (p *VappVmProviderPlugin) GRPCClient(ctx context.Context, broker *plugin.GRPCBroker, c *grpc.ClientConn) (interface{}, error) {
 	logging.Plog("VappVmProviderPlugin GRPCClient")
 	return &VappVmGRPCClient{
 		client: proto.NewVappVmClient(c),
 		broker: broker,
-		}, nil
+	}, nil
 }

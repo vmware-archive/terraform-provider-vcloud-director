@@ -14,6 +14,16 @@ class VappVmStub(object):
     Args:
       channel: A grpc.Channel.
     """
+    self.CreateFromVapp = channel.unary_unary(
+        '/proto.VappVm/CreateFromVapp',
+        request_serializer=proto_dot_vapp__vm__pb2.CreateVappVmInfo.SerializeToString,
+        response_deserializer=proto_dot_vapp__vm__pb2.CreateVappVmResult.FromString,
+        )
+    self.CreateFromCatalog = channel.unary_unary(
+        '/proto.VappVm/CreateFromCatalog',
+        request_serializer=proto_dot_vapp__vm__pb2.CreateVappVmInfo.SerializeToString,
+        response_deserializer=proto_dot_vapp__vm__pb2.CreateVappVmResult.FromString,
+        )
     self.Create = channel.unary_unary(
         '/proto.VappVm/Create',
         request_serializer=proto_dot_vapp__vm__pb2.CreateVappVmInfo.SerializeToString,
@@ -39,6 +49,20 @@ class VappVmStub(object):
 class VappVmServicer(object):
   # missing associated documentation comment in .proto file
   pass
+
+  def CreateFromVapp(self, request, context):
+    """create a VappVM through vapp
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def CreateFromCatalog(self, request, context):
+    """create a VappVM through catalog
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
 
   def Create(self, request, context):
     """create a VappVm
@@ -71,6 +95,16 @@ class VappVmServicer(object):
 
 def add_VappVmServicer_to_server(servicer, server):
   rpc_method_handlers = {
+      'CreateFromVapp': grpc.unary_unary_rpc_method_handler(
+          servicer.CreateFromVapp,
+          request_deserializer=proto_dot_vapp__vm__pb2.CreateVappVmInfo.FromString,
+          response_serializer=proto_dot_vapp__vm__pb2.CreateVappVmResult.SerializeToString,
+      ),
+      'CreateFromCatalog': grpc.unary_unary_rpc_method_handler(
+          servicer.CreateFromCatalog,
+          request_deserializer=proto_dot_vapp__vm__pb2.CreateVappVmInfo.FromString,
+          response_serializer=proto_dot_vapp__vm__pb2.CreateVappVmResult.SerializeToString,
+      ),
       'Create': grpc.unary_unary_rpc_method_handler(
           servicer.Create,
           request_deserializer=proto_dot_vapp__vm__pb2.CreateVappVmInfo.FromString,

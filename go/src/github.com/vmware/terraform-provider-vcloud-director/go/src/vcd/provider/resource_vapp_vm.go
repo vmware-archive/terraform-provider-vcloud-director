@@ -138,35 +138,66 @@ func resourceVappVmCreate(d *schema.ResourceData, m interface{}) error {
 
 	provider := providerGlobalRefPointer.vappVmProvider
 
-	createVappVmInfo := proto.CreateVappVmInfo{
-		TargetVmName:       targetVmName,
-		TargetVapp:         targetVapp,
-		TargetVdc:          targetVdc,
-		SourceVapp:         sourceVapp,
-		SourceVmName:       sourceVmName,
-		SourceCatalogName:  sourceCatalogName,
-		SourceTemplateName: sourceTemplateName,
-		Hostname:           hostname,
-		Password:           password,
-		PasswordAuto:       passwordAuto,
-		PasswordReset:      passwordReset,
-		CustScript:         custScript,
-		Network:            network,
-		StorageProfile:     storageProfile,
-		PowerOn:            powerOn,
-		AllEulasAccepted:   allEulasAccepted,
-		IpAllocationMode:   ipAllocationMode,
-	}
+	if len(sourceCatalogName) > 0 {
+		createVappVmInfo := proto.CreateVappVmInfo{
+			TargetVmName:       targetVmName,
+			TargetVapp:         targetVapp,
+			TargetVdc:          targetVdc,
+			SourceVmName:       sourceVmName,
+			SourceCatalogName:  sourceCatalogName,
+			SourceTemplateName: sourceTemplateName,
+			Hostname:           hostname,
+			Password:           password,
+			PasswordAuto:       passwordAuto,
+			PasswordReset:      passwordReset,
+			CustScript:         custScript,
+			Network:            network,
+			StorageProfile:     storageProfile,
+			PowerOn:            powerOn,
+			AllEulasAccepted:   allEulasAccepted,
+			IpAllocationMode:   ipAllocationMode,
+		}
 
-	res, err := provider.Create(createVappVmInfo)
+		res, err := provider.CreateFromCatalog(createVappVmInfo)
 
-	if err != nil {
-		return fmt.Errorf("Error Creating VappVm :[%+v] %#v", createVappVmInfo, err)
-	}
+		if err != nil {
+			return fmt.Errorf("Error Creating VappVm :[%+v] %#v", createVappVmInfo, err)
+		}
 
-	if res.Created {
-		logging.Plog(fmt.Sprintf("VappVm [%+v]  created  ", targetVmName))
-		d.SetId(targetVmName)
+		if res.Created {
+			logging.Plog(fmt.Sprintf("VappVm [%+v]  created  ", targetVmName))
+			d.SetId(targetVmName)
+		}
+
+	} else {
+		createVappVmInfo := proto.CreateVappVmInfo{
+			TargetVmName:     targetVmName,
+			TargetVapp:       targetVapp,
+			TargetVdc:        targetVdc,
+			SourceVapp:       sourceVapp,
+			SourceVmName:     sourceVmName,
+			Hostname:         hostname,
+			Password:         password,
+			PasswordAuto:     passwordAuto,
+			PasswordReset:    passwordReset,
+			CustScript:       custScript,
+			Network:          network,
+			StorageProfile:   storageProfile,
+			PowerOn:          powerOn,
+			AllEulasAccepted: allEulasAccepted,
+			IpAllocationMode: ipAllocationMode,
+		}
+
+		res, err := provider.CreateFromVapp(createVappVmInfo)
+
+		if err != nil {
+			return fmt.Errorf("Error Creating VappVm :[%+v] %#v", createVappVmInfo, err)
+		}
+
+		if res.Created {
+			logging.Plog(fmt.Sprintf("VappVm [%+v]  created  ", targetVmName))
+			d.SetId(targetVmName)
+		}
 	}
 
 	logging.Plog("__DONE__resourceVappVmCreate_")
