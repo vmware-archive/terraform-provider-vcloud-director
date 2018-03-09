@@ -10,7 +10,7 @@ import (
 	"net/rpc"
 
 	"google.golang.org/grpc"
-
+	"golang.org/x/net/context"
 	"github.com/hashicorp/go-plugin"
 	"github.com/vmware/terraform-provider-vcloud-director/go/src/vcd/proto"
 )
@@ -89,13 +89,19 @@ func (p *PyVcloudProviderPlugin) Server(*plugin.MuxBroker) (interface{}, error) 
 	return &RPCServer{Impl: p.Impl}, nil
 }
 
-func (p *PyVcloudProviderPlugin) GRPCServer(s *grpc.Server) error {
+func (p *PyVcloudProviderPlugin) GRPCServer(broker *plugin.GRPCBroker, s *grpc.Server) error {
 
-	proto.RegisterPyVcloudProviderServer(s, &GRPCServer{Impl: p.Impl})
+	proto.RegisterPyVcloudProviderServer(s, &GRPCServer{
+		Impl:   p.Impl,
+		broker: broker,
+	})
 	return nil
 }
 
-func (p *PyVcloudProviderPlugin) GRPCClient(c *grpc.ClientConn) (interface{}, error) {
+func (p *PyVcloudProviderPlugin) GRPCClient(ctx context.Context,broker *plugin.GRPCBroker, c *grpc.ClientConn) (interface{}, error) {
 
-	return &GRPCClient{client: proto.NewPyVcloudProviderClient(c)}, nil
+	return &GRPCClient{
+		client: proto.NewPyVcloudProviderClient(c),
+		broker: broker,
+	}, nil
 }

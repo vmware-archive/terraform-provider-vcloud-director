@@ -9,26 +9,26 @@ package grpc
 import (
 	"github.com/vmware/terraform-provider-vcloud-director/go/src/vcd/proto"
 	"golang.org/x/net/context"
+	plugin "github.com/hashicorp/go-plugin"
 )
 
 // GRPCClient is an implementation of KV that talks over RPC.
 type GRPCClient struct {
 	client proto.PyVcloudProviderClient
-	
+	broker *plugin.GRPCBroker
 }
 
 // Here is the gRPC server that GRPCClient talks to.
 type GRPCServer struct {
 	// This is the real implementation
 	Impl proto.PyVcloudProviderServer
-
+	broker *plugin.GRPCBroker
 }
 
 func (m *GRPCClient) Login(lc proto.LoginCredentials) (*proto.LoginResult, error) {
 	result, err := m.client.Login(context.Background(), &lc)
 	return result, err
 }
-
 
 func (m *GRPCServer) Login(
 	ctx context.Context,
@@ -80,7 +80,6 @@ func (m *GRPCServer) DeleteCatalog(
 
 }
 
-
 // impl for CatalogUploadMedia
 
 func (m *GRPCClient) CatalogUploadMedia(mediaInfo proto.CatalogUploadMediaInfo) (*proto.CatalogUploadMediaResult, error) {
@@ -98,7 +97,7 @@ func (m *GRPCServer) CatalogUploadMedia(
 
 // impl for CatalogUploadOva
 
-func (m *GRPCClient) CatalogUploadOva(ovaInfo proto.CatalogUploadOvaInfo ) (*proto.CatalogUploadOvaResult, error) {
+func (m *GRPCClient) CatalogUploadOva(ovaInfo proto.CatalogUploadOvaInfo) (*proto.CatalogUploadOvaResult, error) {
 	result, err := m.client.CatalogUploadOva(context.Background(), &ovaInfo)
 	return result, err
 }
@@ -113,8 +112,7 @@ func (m *GRPCServer) CatalogUploadOva(
 
 //impl to check resolved status
 
-
-func (m *GRPCClient) OvaCheckResolved(ovaInfo proto.CatalogCheckResolvedInfo ) (*proto.CheckResolvedResult, error) {
+func (m *GRPCClient) OvaCheckResolved(ovaInfo proto.CatalogCheckResolvedInfo) (*proto.CheckResolvedResult, error) {
 	result, err := m.client.OvaCheckResolved(context.Background(), &ovaInfo)
 	return result, err
 }
@@ -129,7 +127,7 @@ func (m *GRPCServer) OvaCheckResolved(
 
 // impl for DeleteCatalogItem
 
-func (m *GRPCClient) DeleteCatalogItem(itemInfo proto.DeleteCatalogItemInfo ) (*proto.DeleteCatalogItemResult, error) {
+func (m *GRPCClient) DeleteCatalogItem(itemInfo proto.DeleteCatalogItemInfo) (*proto.DeleteCatalogItemResult, error) {
 	result, err := m.client.DeleteCatalogItem(context.Background(), &itemInfo)
 	return result, err
 }
@@ -142,11 +140,9 @@ func (m *GRPCServer) DeleteCatalogItem(
 
 }
 
-
-
 // impl for DeleteCatalogItem
 
-func (m *GRPCClient) IsPresentCatalogItem(itemInfo proto.IsPresentCatalogItemInfo ) (*proto.IsPresentCatalogItemResult, error) {
+func (m *GRPCClient) IsPresentCatalogItem(itemInfo proto.IsPresentCatalogItemInfo) (*proto.IsPresentCatalogItemResult, error) {
 	result, err := m.client.IsPresentCatalogItem(context.Background(), &itemInfo)
 	return result, err
 }
@@ -163,7 +159,7 @@ func (m *GRPCServer) IsPresentCatalogItem(
 
 // impl for DeleteCatalogItem
 
-func (m *GRPCClient) CaptureVapp(itemInfo proto.CaptureVAppInfo ) (*proto.CaptureVAppResult, error) {
+func (m *GRPCClient) CaptureVapp(itemInfo proto.CaptureVAppInfo) (*proto.CaptureVAppResult, error) {
 	result, err := m.client.CaptureVapp(context.Background(), &itemInfo)
 	return result, err
 }
@@ -176,11 +172,9 @@ func (m *GRPCServer) CaptureVapp(
 
 }
 
-
-
 // VApp
 
-func (m *GRPCClient) CreateVApp(vappInfo proto.CreateVAppInfo ) (*proto.CreateVAppResult, error) {
+func (m *GRPCClient) CreateVApp(vappInfo proto.CreateVAppInfo) (*proto.CreateVAppResult, error) {
 	result, err := m.client.CreateVApp(context.Background(), &vappInfo)
 	return result, err
 }
@@ -193,7 +187,7 @@ func (m *GRPCServer) CreateVApp(
 
 }
 
-func (m *GRPCClient) DeleteVApp(vappInfo proto.DeleteVAppInfo ) (*proto.DeleteVAppResult, error) {
+func (m *GRPCClient) DeleteVApp(vappInfo proto.DeleteVAppInfo) (*proto.DeleteVAppResult, error) {
 	result, err := m.client.DeleteVApp(context.Background(), &vappInfo)
 	return result, err
 }
@@ -206,7 +200,7 @@ func (m *GRPCServer) DeleteVApp(
 
 }
 
-func (m *GRPCClient) ReadVApp(itemInfo proto.ReadVAppInfo ) (*proto.ReadVAppResult, error) {
+func (m *GRPCClient) ReadVApp(itemInfo proto.ReadVAppInfo) (*proto.ReadVAppResult, error) {
 	result, err := m.client.ReadVApp(context.Background(), &itemInfo)
 	return result, err
 }
@@ -219,11 +213,8 @@ func (m *GRPCServer) ReadVApp(
 
 }
 
-
-
-
 //IMPL for stop
-func (m *GRPCClient) StopPlugin(stopInfo proto.StopInfo ) (*proto.StopResult, error) {
+func (m *GRPCClient) StopPlugin(stopInfo proto.StopInfo) (*proto.StopResult, error) {
 	result, err := m.client.StopPlugin(context.Background(), &stopInfo)
 	return result, err
 }
@@ -235,5 +226,3 @@ func (m *GRPCServer) StopPlugin(
 	return &proto.StopResult{Stopped: v.Stopped}, err
 
 }
-
-

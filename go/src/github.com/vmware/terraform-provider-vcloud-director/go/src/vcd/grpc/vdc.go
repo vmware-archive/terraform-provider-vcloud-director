@@ -10,7 +10,7 @@ import (
 	"net/rpc"
 
 	"google.golang.org/grpc"
-
+	
 	"github.com/hashicorp/go-plugin"
 	"github.com/vmware/terraform-provider-vcloud-director/go/src/vcd/proto"
 	"golang.org/x/net/context"
@@ -40,6 +40,7 @@ type VdcProviderPlugin struct {
 // GRPCClient is an implementation of KV that talks over RPC.
 type VdcGRPCClient struct {
 	client proto.VdcClient
+	broker *plugin.GRPCBroker
 }
 
 // Here is the gRPC server that GRPCClient talks to.
@@ -117,13 +118,16 @@ func (p *VdcProviderPlugin) Server(*plugin.MuxBroker) (interface{}, error) {
 	return &VdcRPCServer{}, nil
 }
 
-func (p *VdcProviderPlugin) GRPCServer(s *grpc.Server) error {
+func (p *VdcProviderPlugin) GRPCServer(broker *plugin.GRPCBroker,s *grpc.Server) error {
 
 	return nil
 }
 
 // ONLY GRPC CLIENT IS USE ON THIS SIDE
-func (p *VdcProviderPlugin) GRPCClient(c *grpc.ClientConn) (interface{}, error) {
+func (p *VdcProviderPlugin) GRPCClient(ctx context.Context,broker *plugin.GRPCBroker,c *grpc.ClientConn) (interface{}, error) {
 	logging.Plog("VdcProviderPlugin GRPCClient")
-	return &VdcGRPCClient{client: proto.NewVdcClient(c)}, nil
+	return &VdcGRPCClient{
+		client: proto.NewVdcClient(c),
+		broker: broker,
+		}, nil
 }

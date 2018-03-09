@@ -4,7 +4,6 @@
 * SPDX-License-Identifier: BSD-2-Clause
 ******************************************************************/
 
-
 package grpc
 
 import (
@@ -21,6 +20,4 @@ type RPCClient struct{ client *rpc.Client }
 type RPCServer struct {
 	// This is the real implementation
 	Impl proto.PyVcloudProviderServer
-	
-	
 }

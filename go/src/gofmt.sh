@@ -5,3 +5,4 @@
 #*****************************************************************
 
 go fmt github.com/vmware/terraform-provider-vcloud-director/go/src/vcd/provider
+go fmt github.com/vmware/terraform-provider-vcloud-director/go/src/vcd/grpc
