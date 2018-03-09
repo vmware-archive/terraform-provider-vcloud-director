@@ -36,6 +36,26 @@ func TestAccResourceVappVm(t *testing.T) {
 	logging.Plog("__DONE__TestAccResourceVappVm_")
 }
 
+func TestAccResourceVappVmFromVapp(t *testing.T) {
+	logging.Plog("__INIT__TestAccResourceVappVm")
+	resource.Test(t, resource.TestCase{
+		PreCheck:     func() { testAccPreCheck(t) },
+		Providers:    testAccProviders,
+		CheckDestroy: testAccCheckVappVmDestroy,
+		Steps: []resource.TestStep{
+
+			resource.TestStep{
+				Config: testAccVappVm_basic + "\n" + testAccVappVmFromVapp,
+				Check: resource.ComposeTestCheckFunc(
+					testAccCheckCreateVappVm(),
+				),
+			},
+		},
+	})
+
+	logging.Plog("__DONE__TestAccResourceVappVm_")
+}
+
 func testAccCheckCreateVappVm() resource.TestCheckFunc {
 	return func(s *terraform.State) error {
 
@@ -136,6 +156,11 @@ variable "SOURCE_CATALOG_NAME" {
  default = "NOT DEFINED"
 }
 
+variable "SOURCE_VAPP" {
+ type    = "string"
+ default = "NOT DEFINED"
+}
+
 variable "TEMPLATE_NAME" {
  type    = "string"
  default = "NOT DEFINED"
@@ -158,22 +183,30 @@ variable "HOST_NAME" {
 
 
 `
-
 const testAccVappVm = `
 resource "vcloud-director_vapp_vm" "source_vapp_vm"{
-            target_vapp="${var.TARGET_VAPP_NAME}"
-            target_vdc="${var.TARGET_VAPP_VDC}"
-            target_vm_name="${var.TARGET_VM_NAME}"
+    target_vapp="${var.TARGET_VAPP_NAME}"
+    target_vdc="${var.TARGET_VAPP_VDC}"
+    target_vm_name="${var.TARGET_VM_NAME}"
+    source_vm_name="${var.SOURCE_VM_NAME}"
+    source_catalog_name="${var.SOURCE_CATALOG_NAME}"
+    source_template_name="${var.TEMPLATE_NAME}"
+    network = "${var.NETWORK}"
+    ip_allocation_mode = "${var.VAPP_IP_ALLOCATION_MODE}"
+    hostname = "${var.HOST_NAME}"
+}
 
-
-            source_vm_name="${var.SOURCE_VM_NAME}"
-            source_catalog_name="${var.SOURCE_CATALOG_NAME}"
-            source_template_name="${var.TEMPLATE_NAME}"
-            
-            network = "${var.NETWORK}"
-            ip_allocation_mode = "${var.VAPP_IP_ALLOCATION_MODE}"
-            hostname = "${var.HOST_NAME}"
-            
+`
+const testAccVappVmFromVapp = `
+resource "vcloud-director_vapp_vm" "source_vapp_vm"{
+	target_vapp="${var.TARGET_VAPP_NAME}"
+	target_vdc="${var.TARGET_VAPP_VDC}"
+	target_vm_name="${var.TARGET_VM_NAME}"
+	source_vm_name="${var.SOURCE_VM_NAME}"
+	source_vapp="${var.SOURCE_VAPP}"
+	network = "${var.NETWORK}"
+	ip_allocation_mode = "${var.VAPP_IP_ALLOCATION_MODE}"
+	hostname = "${var.HOST_NAME}"
 }
 
 `

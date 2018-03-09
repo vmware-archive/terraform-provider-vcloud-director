@@ -53,14 +53,10 @@ class VappVmServicer(vapp_vm_pb2_grpc.VappVmServicer):
 
     def Delete(self, request, context):
         logging.info("__INIT__Delete[VappVmServicer]")
-
-        target_vm_name = request.target_vm_name
-        target_vapp = request.target_vapp
-        target_vdc = request.target_vdc
-
-        vapp_vm = VappVm(target_vm_name=target_vm_name, context=context)
-        res = vapp_vm.delete(target_vdc, target_vapp)
+        vapp_vm = VappVm(context=context)
+        res = vapp_vm.delete(request)
         logging.info("__DONE__Delete[VappVmServicer]")
+
         return res
 
     def Update(self, request, context):
@@ -71,18 +67,15 @@ class VappVmServicer(vapp_vm_pb2_grpc.VappVmServicer):
         vapp_vm = VappVm(target_vm_name=target_vm_name)
         res = vapp_vm.update()
         logging.info("__DONE__Update[VappVmServicer]")
+
         return res
 
     def Read(self, request, context):
         logging.info("__INIT__Read[VappVmServicer]")
-
-        target_vm_name = request.target_vm_name
-        target_vapp = request.target_vapp
-        target_vdc = request.target_vdc
-
-        vapp_vm = VappVm(target_vm_name=target_vm_name, context=context)
-        res = vapp_vm.read(target_vdc, target_vapp)
+        vapp_vm = VappVm(context=context)
+        res = vapp_vm.read(request)
         logging.info("__DONE__Read[VappVmServicer]")
+
         return res
 
 
@@ -253,54 +246,53 @@ class VappVm:
         logging.info("__DONE__update[VappVm]")
         return res
 
-    def read(self, target_vdc, target_vapp):
+    def read(self, request):
         logging.info("__INIT__read[VappVm]")
         res = vapp_vm_pb2.ReadVappVmResult()
         res.present = False
-        context = self.context
         org_resource = self.client.get_org()
         org = Org(self.client, resource=org_resource)
         try:
-            vdc_resource = org.get_vdc(target_vdc)
-            vdc = VDC(self.client, name=target_vdc, resource=vdc_resource)
+            vdc_resource = org.get_vdc(request.target_vdc)
+            vdc = VDC(self.client, name=request.target_vdc,
+                      resource=vdc_resource)
 
-            vapp_resource = vdc.get_vapp(target_vapp)
-            vapp = VApp(self.client, name=target_vapp, resource=vapp_resource)
-            read_vapp_vm_resp = vapp.get_vm(self.target_vm_name)
+            vapp_resource = vdc.get_vapp(request.target_vapp)
+            vapp = VApp(self.client, name=request.target_vapp,
+                        resource=vapp_resource)
+            read_vapp_vm_resp = vapp.get_vm(request.target_vm_name)
             res.present = True
         except Exception as e:
-            error_message = '__ERROR_read[VappVm] failed for VappVm {0}. __ErrorMessage__ {1}'.format(
-                self.target_vm_name, str(e))
-            logging.warn(error_message)
-            # context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
-            # context.set_details(error_message)
+            errmsg = '__ERROR_read[VappVm] failed for VappVm {0}. __ErrorMessage__ {1}'
+            logging.warn(errmsg.format(request.target_vm_name, str(e)))
+
             return res
         logging.info("__DONE__read[VappVm]")
         return res
 
-    def delete(self, target_vdc, target_vapp):
+    def delete(self, request):
         logging.info("__INIT__delete[VappVm]")
         res = vapp_vm_pb2.DeleteVappVmResult()
         res.deleted = False
-
-        context = self.context
-
         org_resource = self.client.get_org()
         org = Org(self.client, resource=org_resource)
         try:
-            vdc_resource = org.get_vdc(target_vdc)
-            vdc = VDC(self.client, name=target_vdc, resource=vdc_resource)
+            vdc_resource = org.get_vdc(request.target_vdc)
+            vdc = VDC(self.client, name=request.target_vdc,
+                      resource=vdc_resource)
 
-            vapp_resource = vdc.get_vapp(target_vapp)
-            vapp = VApp(self.client, name=target_vapp, resource=vapp_resource)
+            vapp_resource = vdc.get_vapp(request.target_vapp)
+            vapp = VApp(self.client, name=request.target_vapp,
+                        resource=vapp_resource)
 
             # Before deliting power_off vm
-            #self.power_off(target_vdc, target_vapp)
+            # self.power_off(request.target_vdc, request.target_vapp)
 
             # Before deliting undeploy vm
-            self.undeploy(target_vdc, target_vapp)
+            self.undeploy(request.target_vm_name,
+                          request.target_vdc, request.target_vapp)
 
-            vms = [self.target_vm_name]
+            vms = [request.target_vm_name]
             delete_vapp_vm_resp = vapp.delete_vms(vms)
             task = self.client.get_task_monitor().wait_for_status(
                 task=delete_vapp_vm_resp,
@@ -314,26 +306,27 @@ class VappVm:
                 callback=None)
 
             st = task.get('status')
-            if st == TaskStatus.SUCCESS.value:
-                message = 'delete vapp_vm status : {0} '.format(st)
-                logging.info(message)
-                res.deleted = True
-            else:
+            if st != TaskStatus.SUCCESS.value:
                 raise errors.VappVmDeleteError(
                     etree.tostring(task, pretty_print=True))
+
+            message = 'delete vapp_vm status : {0} '.format(st)
+            logging.info(message)
+            res.deleted = True
+
         except Exception as e:
             res.deleted = False
-            error_message = '__ERROR_delete[VappVm] failed for VappVm {0}. __ErrorMessage__ {1}'.format(
-                self.target_vm_name, str(e))
-            logging.warn(error_message)
-            context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
-            context.set_details(error_message)
+            errmsg = '__ERROR_delete[VappVm] failed for VappVm {0}. __ErrorMessage__ {1}'
+            logging.warn(errmsg.format(request.target_vm_name, str(e)))
+            self.context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
+            self.context.set_details(errmsg)
+
             return res
 
         logging.info("__DONE__delete[VappVm]")
         return res
 
-    def power_off(self, target_vdc, target_vapp):
+    def power_off(self, target_vm_name, target_vdc, target_vapp):
         logging.info("__INIT__power_off[VappVm]")
 
         powered_off = False
@@ -345,7 +338,7 @@ class VappVm:
 
             vapp_resource = vdc.get_vapp(target_vapp)
             vapp = VApp(self.client, name=target_vapp, resource=vapp_resource)
-            vapp_vm_resource = vapp.get_vm(self.target_vm_name)
+            vapp_vm_resource = vapp.get_vm(target_vm_name)
             vm = VM(self.client, resource=vapp_vm_resource)
             power_off_response = vm.power_off()
 
@@ -361,22 +354,22 @@ class VappVm:
                 callback=None)
 
             st = task.get('status')
-            if st == TaskStatus.SUCCESS.value:
-                message = 'status : {0} '.format(st)
-                logging.info(message)
-                powered_off = True
-            else:
+            if st != TaskStatus.SUCCESS.value:
                 raise errors.VappVmCreateError(
                     etree.tostring(task, pretty_print=True))
+
+            message = 'status : {0} '.format(st)
+            logging.info(message)
+            powered_off = True
+
         except Exception as e:
-            error_message = '__ERROR_power_off[VappVm] failed for VappVm {0}. __ErrorMessage__ {1}'.format(
-                self.target_vm_name, str(e))
-            logging.warn(error_message)
+            errmsg = '__ERROR_power_off[VappVm] failed for VappVm {0}. __ErrorMessage__ {1}'
+            logging.warn(errmsg.format(target_vm_name, str(e)))
 
         logging.info("__DONE__power_off[VappVm]")
         return powered_off
 
-    def undeploy(self, target_vdc, target_vapp):
+    def undeploy(self, target_vm_name, target_vdc, target_vapp):
         logging.info("__INIT__undeploy[VappVm]")
 
         undeploy = False
@@ -388,7 +381,7 @@ class VappVm:
 
             vapp_resource = vdc.get_vapp(target_vapp)
             vapp = VApp(self.client, name=target_vapp, resource=vapp_resource)
-            vapp_vm_resource = vapp.get_vm(self.target_vm_name)
+            vapp_vm_resource = vapp.get_vm(target_vm_name)
             vm = VM(self.client, resource=vapp_vm_resource)
             undeploy_response = vm.undeploy()
 
@@ -404,17 +397,17 @@ class VappVm:
                 callback=None)
 
             st = task.get('status')
-            if st == TaskStatus.SUCCESS.value:
-                message = 'status : {0} '.format(st)
-                logging.info(message)
-                undeploy = True
-            else:
+            if st != TaskStatus.SUCCESS.value:
                 raise errors.VappVmCreateError(
                     etree.tostring(task, pretty_print=True))
+
+            message = 'status : {0} '.format(st)
+            logging.info(message)
+            undeploy = True
+
         except Exception as e:
-            error_message = '__ERROR_undeploy[VappVm] failed for VappVm {0}. __ErrorMessage__ {1}'.format(
-                self.target_vm_name, str(e))
-            logging.warn(error_message)
+            errmsg = '__ERROR_undeploy[VappVm] failed for VappVm {0}. __ErrorMessage__ {1}'
+            logging.warn(errmsg.format(target_vm_name, str(e)))
 
         logging.info("__DONE__undeploy[VappVm]")
         return undeploy
