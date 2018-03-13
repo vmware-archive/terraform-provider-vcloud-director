@@ -44,6 +44,26 @@ class VappVmStub(object):
         request_serializer=proto_dot_vapp__vm__pb2.UpdateVappVmInfo.SerializeToString,
         response_deserializer=proto_dot_vapp__vm__pb2.UpdateVappVmResult.FromString,
         )
+    self.PowerOn = channel.unary_unary(
+        '/proto.VappVm/PowerOn',
+        request_serializer=proto_dot_vapp__vm__pb2.PowerOnVappVmInfo.SerializeToString,
+        response_deserializer=proto_dot_vapp__vm__pb2.PowerOnVappVmResult.FromString,
+        )
+    self.PowerOff = channel.unary_unary(
+        '/proto.VappVm/PowerOff',
+        request_serializer=proto_dot_vapp__vm__pb2.PowerOffVappVmInfo.SerializeToString,
+        response_deserializer=proto_dot_vapp__vm__pb2.PowerOffVappVmResult.FromString,
+        )
+    self.ModifyCPU = channel.unary_unary(
+        '/proto.VappVm/ModifyCPU',
+        request_serializer=proto_dot_vapp__vm__pb2.ModifyVappVmCPUInfo.SerializeToString,
+        response_deserializer=proto_dot_vapp__vm__pb2.ModifyVappVmCPUResult.FromString,
+        )
+    self.ModifyMemory = channel.unary_unary(
+        '/proto.VappVm/ModifyMemory',
+        request_serializer=proto_dot_vapp__vm__pb2.ModifyVappVmMemoryInfo.SerializeToString,
+        response_deserializer=proto_dot_vapp__vm__pb2.ModifyVappVmMemoryResult.FromString,
+        )
 
 
 class VappVmServicer(object):
@@ -92,6 +112,34 @@ class VappVmServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def PowerOn(self, request, context):
+    """PowerOn VappVm
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def PowerOff(self, request, context):
+    """PowerOff VappVm
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def ModifyCPU(self, request, context):
+    """ModifyCPU VappVm
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def ModifyMemory(self, request, context):
+    """ModifyMemory VappVm
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_VappVmServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -124,6 +172,26 @@ def add_VappVmServicer_to_server(servicer, server):
           servicer.Update,
           request_deserializer=proto_dot_vapp__vm__pb2.UpdateVappVmInfo.FromString,
           response_serializer=proto_dot_vapp__vm__pb2.UpdateVappVmResult.SerializeToString,
+      ),
+      'PowerOn': grpc.unary_unary_rpc_method_handler(
+          servicer.PowerOn,
+          request_deserializer=proto_dot_vapp__vm__pb2.PowerOnVappVmInfo.FromString,
+          response_serializer=proto_dot_vapp__vm__pb2.PowerOnVappVmResult.SerializeToString,
+      ),
+      'PowerOff': grpc.unary_unary_rpc_method_handler(
+          servicer.PowerOff,
+          request_deserializer=proto_dot_vapp__vm__pb2.PowerOffVappVmInfo.FromString,
+          response_serializer=proto_dot_vapp__vm__pb2.PowerOffVappVmResult.SerializeToString,
+      ),
+      'ModifyCPU': grpc.unary_unary_rpc_method_handler(
+          servicer.ModifyCPU,
+          request_deserializer=proto_dot_vapp__vm__pb2.ModifyVappVmCPUInfo.FromString,
+          response_serializer=proto_dot_vapp__vm__pb2.ModifyVappVmCPUResult.SerializeToString,
+      ),
+      'ModifyMemory': grpc.unary_unary_rpc_method_handler(
+          servicer.ModifyMemory,
+          request_deserializer=proto_dot_vapp__vm__pb2.ModifyVappVmMemoryInfo.FromString,
+          response_serializer=proto_dot_vapp__vm__pb2.ModifyVappVmMemoryResult.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

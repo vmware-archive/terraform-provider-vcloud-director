@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='proto/vapp_vm.proto',
   package='proto',
   syntax='proto3',
-  serialized_pb=_b('\n\x13proto/vapp_vm.proto\x12\x05proto\"\x97\x03\n\x10\x43reateVappVmInfo\x12\x16\n\x0etarget_vm_name\x18\x01 \x01(\t\x12\x13\n\x0btarget_vapp\x18\x02 \x01(\t\x12\x12\n\ntarget_vdc\x18\x03 \x01(\t\x12\x13\n\x0bsource_vapp\x18\x04 \x01(\t\x12\x16\n\x0esource_vm_name\x18\x05 \x01(\t\x12\x10\n\x08hostname\x18\x06 \x01(\t\x12\x10\n\x08password\x18\x07 \x01(\t\x12\x15\n\rpassword_auto\x18\x08 \x01(\x08\x12\x16\n\x0epassword_reset\x18\t \x01(\x08\x12\x13\n\x0b\x63ust_script\x18\n \x01(\t\x12\x0f\n\x07network\x18\x0b \x01(\t\x12\x17\n\x0fstorage_profile\x18\x0c \x01(\t\x12\x10\n\x08power_on\x18\r \x01(\x08\x12\x1a\n\x12\x61ll_eulas_accepted\x18\x0e \x01(\x08\x12\x1b\n\x13source_catalog_name\x18\x0f \x01(\t\x12\x1c\n\x14source_template_name\x18\x10 \x01(\t\x12\x1a\n\x12ip_allocation_mode\x18\x11 \x01(\t\"%\n\x12\x43reateVappVmResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\"S\n\x10\x44\x65leteVappVmInfo\x12\x16\n\x0etarget_vm_name\x18\x01 \x01(\t\x12\x12\n\ntarget_vdc\x18\x02 \x01(\t\x12\x13\n\x0btarget_vapp\x18\x03 \x01(\t\"%\n\x12\x44\x65leteVappVmResult\x12\x0f\n\x07\x64\x65leted\x18\x01 \x01(\x08\"Q\n\x0eReadVappVmInfo\x12\x16\n\x0etarget_vm_name\x18\x01 \x01(\t\x12\x12\n\ntarget_vdc\x18\x02 \x01(\t\x12\x13\n\x0btarget_vapp\x18\x03 \x01(\t\"\xd3\x02\n\x10ReadVappVmResult\x12\x16\n\x0etarget_vm_name\x18\x01 \x01(\t\x12\x13\n\x0btarget_vapp\x18\x02 \x01(\t\x12\x12\n\ntarget_vdc\x18\x03 \x01(\t\x12\x13\n\x0bsource_vapp\x18\x04 \x01(\t\x12\x16\n\x0esource_vm_name\x18\x05 \x01(\t\x12\x10\n\x08hostname\x18\x06 \x01(\t\x12\x15\n\rpassword_auto\x18\x07 \x01(\x08\x12\x16\n\x0epassword_reset\x18\x08 \x01(\x08\x12\x13\n\x0b\x63ust_script\x18\t \x01(\t\x12\x0f\n\x07network\x18\n \x01(\t\x12\x17\n\x0fstorage_profile\x18\x0b \x01(\t\x12\x10\n\x08power_on\x18\x0c \x01(\x08\x12\x1a\n\x12\x61ll_eulas_accepted\x18\r \x01(\x08\x12\x0f\n\x07present\x18\x0e \x01(\x08\x12\x12\n\nis_enabled\x18\x0f \x01(\x08\"4\n\x10UpdateVappVmInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nis_enabled\x18\x02 \x01(\x08\"%\n\x12UpdateVappVmResult\x12\x0f\n\x07updated\x18\x01 \x01(\x08\x32\x95\x03\n\x06VappVm\x12\x46\n\x0e\x43reateFromVapp\x12\x17.proto.CreateVappVmInfo\x1a\x19.proto.CreateVappVmResult\"\x00\x12I\n\x11\x43reateFromCatalog\x12\x17.proto.CreateVappVmInfo\x1a\x19.proto.CreateVappVmResult\"\x00\x12>\n\x06\x43reate\x12\x17.proto.CreateVappVmInfo\x1a\x19.proto.CreateVappVmResult\"\x00\x12>\n\x06\x44\x65lete\x12\x17.proto.DeleteVappVmInfo\x1a\x19.proto.DeleteVappVmResult\"\x00\x12\x38\n\x04Read\x12\x15.proto.ReadVappVmInfo\x1a\x17.proto.ReadVappVmResult\"\x00\x12>\n\x06Update\x12\x17.proto.UpdateVappVmInfo\x1a\x19.proto.UpdateVappVmResult\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x13proto/vapp_vm.proto\x12\x05proto\"\x97\x03\n\x10\x43reateVappVmInfo\x12\x16\n\x0etarget_vm_name\x18\x01 \x01(\t\x12\x13\n\x0btarget_vapp\x18\x02 \x01(\t\x12\x12\n\ntarget_vdc\x18\x03 \x01(\t\x12\x13\n\x0bsource_vapp\x18\x04 \x01(\t\x12\x16\n\x0esource_vm_name\x18\x05 \x01(\t\x12\x10\n\x08hostname\x18\x06 \x01(\t\x12\x10\n\x08password\x18\x07 \x01(\t\x12\x15\n\rpassword_auto\x18\x08 \x01(\x08\x12\x16\n\x0epassword_reset\x18\t \x01(\x08\x12\x13\n\x0b\x63ust_script\x18\n \x01(\t\x12\x0f\n\x07network\x18\x0b \x01(\t\x12\x17\n\x0fstorage_profile\x18\x0c \x01(\t\x12\x10\n\x08power_on\x18\r \x01(\x08\x12\x1a\n\x12\x61ll_eulas_accepted\x18\x0e \x01(\x08\x12\x1b\n\x13source_catalog_name\x18\x0f \x01(\t\x12\x1c\n\x14source_template_name\x18\x10 \x01(\t\x12\x1a\n\x12ip_allocation_mode\x18\x11 \x01(\t\"%\n\x12\x43reateVappVmResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\"S\n\x10\x44\x65leteVappVmInfo\x12\x16\n\x0etarget_vm_name\x18\x01 \x01(\t\x12\x12\n\ntarget_vdc\x18\x02 \x01(\t\x12\x13\n\x0btarget_vapp\x18\x03 \x01(\t\"%\n\x12\x44\x65leteVappVmResult\x12\x0f\n\x07\x64\x65leted\x18\x01 \x01(\x08\"Q\n\x0eReadVappVmInfo\x12\x16\n\x0etarget_vm_name\x18\x01 \x01(\t\x12\x12\n\ntarget_vdc\x18\x02 \x01(\t\x12\x13\n\x0btarget_vapp\x18\x03 \x01(\t\"\xff\x02\n\x10ReadVappVmResult\x12\x16\n\x0etarget_vm_name\x18\x01 \x01(\t\x12\x13\n\x0btarget_vapp\x18\x02 \x01(\t\x12\x12\n\ntarget_vdc\x18\x03 \x01(\t\x12\x13\n\x0bsource_vapp\x18\x04 \x01(\t\x12\x16\n\x0esource_vm_name\x18\x05 \x01(\t\x12\x10\n\x08hostname\x18\x06 \x01(\t\x12\x15\n\rpassword_auto\x18\x07 \x01(\x08\x12\x16\n\x0epassword_reset\x18\x08 \x01(\x08\x12\x13\n\x0b\x63ust_script\x18\t \x01(\t\x12\x0f\n\x07network\x18\n \x01(\t\x12\x17\n\x0fstorage_profile\x18\x0b \x01(\t\x12\x10\n\x08power_on\x18\x0c \x01(\x08\x12\x1a\n\x12\x61ll_eulas_accepted\x18\r \x01(\x08\x12\x0f\n\x07present\x18\x0e \x01(\x08\x12\x14\n\x0cvirtual_cpus\x18\x0f \x01(\x05\x12\x18\n\x10\x63ores_per_socket\x18\x10 \x01(\x05\x12\x0e\n\x06memory\x18\x11 \x01(\x05\"4\n\x10UpdateVappVmInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nis_enabled\x18\x02 \x01(\x08\"%\n\x12UpdateVappVmResult\x12\x0f\n\x07updated\x18\x01 \x01(\x08\"T\n\x11PowerOnVappVmInfo\x12\x16\n\x0etarget_vm_name\x18\x01 \x01(\t\x12\x12\n\ntarget_vdc\x18\x02 \x01(\t\x12\x13\n\x0btarget_vapp\x18\x03 \x01(\t\")\n\x13PowerOnVappVmResult\x12\x12\n\npowered_on\x18\x01 \x01(\x08\"U\n\x12PowerOffVappVmInfo\x12\x16\n\x0etarget_vm_name\x18\x01 \x01(\t\x12\x12\n\ntarget_vdc\x18\x02 \x01(\t\x12\x13\n\x0btarget_vapp\x18\x03 \x01(\t\"+\n\x14PowerOffVappVmResult\x12\x13\n\x0bpowered_off\x18\x01 \x01(\x08\"i\n\x16ModifyVappVmMemoryInfo\x12\x16\n\x0etarget_vm_name\x18\x01 \x01(\t\x12\x12\n\ntarget_vdc\x18\x02 \x01(\t\x12\x13\n\x0btarget_vapp\x18\x03 \x01(\t\x12\x0e\n\x06memory\x18\x04 \x01(\x05\",\n\x18ModifyVappVmMemoryResult\x12\x10\n\x08modified\x18\x01 \x01(\x08\"\x86\x01\n\x13ModifyVappVmCPUInfo\x12\x16\n\x0etarget_vm_name\x18\x01 \x01(\t\x12\x12\n\ntarget_vdc\x18\x02 \x01(\t\x12\x13\n\x0btarget_vapp\x18\x03 \x01(\t\x12\x14\n\x0cvirtual_cpus\x18\x04 \x01(\x05\x12\x18\n\x10\x63ores_per_socket\x18\x05 \x01(\x05\")\n\x15ModifyVappVmCPUResult\x12\x10\n\x08modified\x18\x01 \x01(\x08\x32\xb9\x05\n\x06VappVm\x12\x46\n\x0e\x43reateFromVapp\x12\x17.proto.CreateVappVmInfo\x1a\x19.proto.CreateVappVmResult\"\x00\x12I\n\x11\x43reateFromCatalog\x12\x17.proto.CreateVappVmInfo\x1a\x19.proto.CreateVappVmResult\"\x00\x12>\n\x06\x43reate\x12\x17.proto.CreateVappVmInfo\x1a\x19.proto.CreateVappVmResult\"\x00\x12>\n\x06\x44\x65lete\x12\x17.proto.DeleteVappVmInfo\x1a\x19.proto.DeleteVappVmResult\"\x00\x12\x38\n\x04Read\x12\x15.proto.ReadVappVmInfo\x1a\x17.proto.ReadVappVmResult\"\x00\x12>\n\x06Update\x12\x17.proto.UpdateVappVmInfo\x1a\x19.proto.UpdateVappVmResult\"\x00\x12\x41\n\x07PowerOn\x12\x18.proto.PowerOnVappVmInfo\x1a\x1a.proto.PowerOnVappVmResult\"\x00\x12\x44\n\x08PowerOff\x12\x19.proto.PowerOffVappVmInfo\x1a\x1b.proto.PowerOffVappVmResult\"\x00\x12G\n\tModifyCPU\x12\x1a.proto.ModifyVappVmCPUInfo\x1a\x1c.proto.ModifyVappVmCPUResult\"\x00\x12P\n\x0cModifyMemory\x12\x1d.proto.ModifyVappVmMemoryInfo\x1a\x1f.proto.ModifyVappVmMemoryResult\"\x00\x62\x06proto3')
 )
 
 
@@ -426,9 +426,23 @@ _READVAPPVMRESULT = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='is_enabled', full_name='proto.ReadVappVmResult.is_enabled', index=14,
-      number=15, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
+      name='virtual_cpus', full_name='proto.ReadVappVmResult.virtual_cpus', index=14,
+      number=15, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='cores_per_socket', full_name='proto.ReadVappVmResult.cores_per_socket', index=15,
+      number=16, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='memory', full_name='proto.ReadVappVmResult.memory', index=16,
+      number=17, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
@@ -445,7 +459,7 @@ _READVAPPVMRESULT = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=687,
-  serialized_end=1026,
+  serialized_end=1070,
 )
 
 
@@ -482,8 +496,8 @@ _UPDATEVAPPVMINFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1028,
-  serialized_end=1080,
+  serialized_start=1072,
+  serialized_end=1124,
 )
 
 
@@ -513,8 +527,333 @@ _UPDATEVAPPVMRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1082,
-  serialized_end=1119,
+  serialized_start=1126,
+  serialized_end=1163,
+)
+
+
+_POWERONVAPPVMINFO = _descriptor.Descriptor(
+  name='PowerOnVappVmInfo',
+  full_name='proto.PowerOnVappVmInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='target_vm_name', full_name='proto.PowerOnVappVmInfo.target_vm_name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='target_vdc', full_name='proto.PowerOnVappVmInfo.target_vdc', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='target_vapp', full_name='proto.PowerOnVappVmInfo.target_vapp', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1165,
+  serialized_end=1249,
+)
+
+
+_POWERONVAPPVMRESULT = _descriptor.Descriptor(
+  name='PowerOnVappVmResult',
+  full_name='proto.PowerOnVappVmResult',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='powered_on', full_name='proto.PowerOnVappVmResult.powered_on', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1251,
+  serialized_end=1292,
+)
+
+
+_POWEROFFVAPPVMINFO = _descriptor.Descriptor(
+  name='PowerOffVappVmInfo',
+  full_name='proto.PowerOffVappVmInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='target_vm_name', full_name='proto.PowerOffVappVmInfo.target_vm_name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='target_vdc', full_name='proto.PowerOffVappVmInfo.target_vdc', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='target_vapp', full_name='proto.PowerOffVappVmInfo.target_vapp', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1294,
+  serialized_end=1379,
+)
+
+
+_POWEROFFVAPPVMRESULT = _descriptor.Descriptor(
+  name='PowerOffVappVmResult',
+  full_name='proto.PowerOffVappVmResult',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='powered_off', full_name='proto.PowerOffVappVmResult.powered_off', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1381,
+  serialized_end=1424,
+)
+
+
+_MODIFYVAPPVMMEMORYINFO = _descriptor.Descriptor(
+  name='ModifyVappVmMemoryInfo',
+  full_name='proto.ModifyVappVmMemoryInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='target_vm_name', full_name='proto.ModifyVappVmMemoryInfo.target_vm_name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='target_vdc', full_name='proto.ModifyVappVmMemoryInfo.target_vdc', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='target_vapp', full_name='proto.ModifyVappVmMemoryInfo.target_vapp', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='memory', full_name='proto.ModifyVappVmMemoryInfo.memory', index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1426,
+  serialized_end=1531,
+)
+
+
+_MODIFYVAPPVMMEMORYRESULT = _descriptor.Descriptor(
+  name='ModifyVappVmMemoryResult',
+  full_name='proto.ModifyVappVmMemoryResult',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='modified', full_name='proto.ModifyVappVmMemoryResult.modified', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1533,
+  serialized_end=1577,
+)
+
+
+_MODIFYVAPPVMCPUINFO = _descriptor.Descriptor(
+  name='ModifyVappVmCPUInfo',
+  full_name='proto.ModifyVappVmCPUInfo',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='target_vm_name', full_name='proto.ModifyVappVmCPUInfo.target_vm_name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='target_vdc', full_name='proto.ModifyVappVmCPUInfo.target_vdc', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='target_vapp', full_name='proto.ModifyVappVmCPUInfo.target_vapp', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='virtual_cpus', full_name='proto.ModifyVappVmCPUInfo.virtual_cpus', index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='cores_per_socket', full_name='proto.ModifyVappVmCPUInfo.cores_per_socket', index=4,
+      number=5, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1580,
+  serialized_end=1714,
+)
+
+
+_MODIFYVAPPVMCPURESULT = _descriptor.Descriptor(
+  name='ModifyVappVmCPUResult',
+  full_name='proto.ModifyVappVmCPUResult',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='modified', full_name='proto.ModifyVappVmCPUResult.modified', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1716,
+  serialized_end=1757,
 )
 
 DESCRIPTOR.message_types_by_name['CreateVappVmInfo'] = _CREATEVAPPVMINFO
@@ -525,6 +864,14 @@ DESCRIPTOR.message_types_by_name['ReadVappVmInfo'] = _READVAPPVMINFO
 DESCRIPTOR.message_types_by_name['ReadVappVmResult'] = _READVAPPVMRESULT
 DESCRIPTOR.message_types_by_name['UpdateVappVmInfo'] = _UPDATEVAPPVMINFO
 DESCRIPTOR.message_types_by_name['UpdateVappVmResult'] = _UPDATEVAPPVMRESULT
+DESCRIPTOR.message_types_by_name['PowerOnVappVmInfo'] = _POWERONVAPPVMINFO
+DESCRIPTOR.message_types_by_name['PowerOnVappVmResult'] = _POWERONVAPPVMRESULT
+DESCRIPTOR.message_types_by_name['PowerOffVappVmInfo'] = _POWEROFFVAPPVMINFO
+DESCRIPTOR.message_types_by_name['PowerOffVappVmResult'] = _POWEROFFVAPPVMRESULT
+DESCRIPTOR.message_types_by_name['ModifyVappVmMemoryInfo'] = _MODIFYVAPPVMMEMORYINFO
+DESCRIPTOR.message_types_by_name['ModifyVappVmMemoryResult'] = _MODIFYVAPPVMMEMORYRESULT
+DESCRIPTOR.message_types_by_name['ModifyVappVmCPUInfo'] = _MODIFYVAPPVMCPUINFO
+DESCRIPTOR.message_types_by_name['ModifyVappVmCPUResult'] = _MODIFYVAPPVMCPURESULT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CreateVappVmInfo = _reflection.GeneratedProtocolMessageType('CreateVappVmInfo', (_message.Message,), dict(
@@ -583,6 +930,62 @@ UpdateVappVmResult = _reflection.GeneratedProtocolMessageType('UpdateVappVmResul
   ))
 _sym_db.RegisterMessage(UpdateVappVmResult)
 
+PowerOnVappVmInfo = _reflection.GeneratedProtocolMessageType('PowerOnVappVmInfo', (_message.Message,), dict(
+  DESCRIPTOR = _POWERONVAPPVMINFO,
+  __module__ = 'proto.vapp_vm_pb2'
+  # @@protoc_insertion_point(class_scope:proto.PowerOnVappVmInfo)
+  ))
+_sym_db.RegisterMessage(PowerOnVappVmInfo)
+
+PowerOnVappVmResult = _reflection.GeneratedProtocolMessageType('PowerOnVappVmResult', (_message.Message,), dict(
+  DESCRIPTOR = _POWERONVAPPVMRESULT,
+  __module__ = 'proto.vapp_vm_pb2'
+  # @@protoc_insertion_point(class_scope:proto.PowerOnVappVmResult)
+  ))
+_sym_db.RegisterMessage(PowerOnVappVmResult)
+
+PowerOffVappVmInfo = _reflection.GeneratedProtocolMessageType('PowerOffVappVmInfo', (_message.Message,), dict(
+  DESCRIPTOR = _POWEROFFVAPPVMINFO,
+  __module__ = 'proto.vapp_vm_pb2'
+  # @@protoc_insertion_point(class_scope:proto.PowerOffVappVmInfo)
+  ))
+_sym_db.RegisterMessage(PowerOffVappVmInfo)
+
+PowerOffVappVmResult = _reflection.GeneratedProtocolMessageType('PowerOffVappVmResult', (_message.Message,), dict(
+  DESCRIPTOR = _POWEROFFVAPPVMRESULT,
+  __module__ = 'proto.vapp_vm_pb2'
+  # @@protoc_insertion_point(class_scope:proto.PowerOffVappVmResult)
+  ))
+_sym_db.RegisterMessage(PowerOffVappVmResult)
+
+ModifyVappVmMemoryInfo = _reflection.GeneratedProtocolMessageType('ModifyVappVmMemoryInfo', (_message.Message,), dict(
+  DESCRIPTOR = _MODIFYVAPPVMMEMORYINFO,
+  __module__ = 'proto.vapp_vm_pb2'
+  # @@protoc_insertion_point(class_scope:proto.ModifyVappVmMemoryInfo)
+  ))
+_sym_db.RegisterMessage(ModifyVappVmMemoryInfo)
+
+ModifyVappVmMemoryResult = _reflection.GeneratedProtocolMessageType('ModifyVappVmMemoryResult', (_message.Message,), dict(
+  DESCRIPTOR = _MODIFYVAPPVMMEMORYRESULT,
+  __module__ = 'proto.vapp_vm_pb2'
+  # @@protoc_insertion_point(class_scope:proto.ModifyVappVmMemoryResult)
+  ))
+_sym_db.RegisterMessage(ModifyVappVmMemoryResult)
+
+ModifyVappVmCPUInfo = _reflection.GeneratedProtocolMessageType('ModifyVappVmCPUInfo', (_message.Message,), dict(
+  DESCRIPTOR = _MODIFYVAPPVMCPUINFO,
+  __module__ = 'proto.vapp_vm_pb2'
+  # @@protoc_insertion_point(class_scope:proto.ModifyVappVmCPUInfo)
+  ))
+_sym_db.RegisterMessage(ModifyVappVmCPUInfo)
+
+ModifyVappVmCPUResult = _reflection.GeneratedProtocolMessageType('ModifyVappVmCPUResult', (_message.Message,), dict(
+  DESCRIPTOR = _MODIFYVAPPVMCPURESULT,
+  __module__ = 'proto.vapp_vm_pb2'
+  # @@protoc_insertion_point(class_scope:proto.ModifyVappVmCPUResult)
+  ))
+_sym_db.RegisterMessage(ModifyVappVmCPUResult)
+
 
 
 _VAPPVM = _descriptor.ServiceDescriptor(
@@ -591,8 +994,8 @@ _VAPPVM = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=1122,
-  serialized_end=1527,
+  serialized_start=1760,
+  serialized_end=2457,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateFromVapp',
@@ -646,6 +1049,42 @@ _VAPPVM = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_UPDATEVAPPVMINFO,
     output_type=_UPDATEVAPPVMRESULT,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='PowerOn',
+    full_name='proto.VappVm.PowerOn',
+    index=6,
+    containing_service=None,
+    input_type=_POWERONVAPPVMINFO,
+    output_type=_POWERONVAPPVMRESULT,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='PowerOff',
+    full_name='proto.VappVm.PowerOff',
+    index=7,
+    containing_service=None,
+    input_type=_POWEROFFVAPPVMINFO,
+    output_type=_POWEROFFVAPPVMRESULT,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ModifyCPU',
+    full_name='proto.VappVm.ModifyCPU',
+    index=8,
+    containing_service=None,
+    input_type=_MODIFYVAPPVMCPUINFO,
+    output_type=_MODIFYVAPPVMCPURESULT,
+    options=None,
+  ),
+  _descriptor.MethodDescriptor(
+    name='ModifyMemory',
+    full_name='proto.VappVm.ModifyMemory',
+    index=9,
+    containing_service=None,
+    input_type=_MODIFYVAPPVMMEMORYINFO,
+    output_type=_MODIFYVAPPVMMEMORYRESULT,
     options=None,
   ),
 ])

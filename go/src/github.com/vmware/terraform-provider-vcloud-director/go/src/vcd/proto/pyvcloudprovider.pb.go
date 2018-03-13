@@ -79,6 +79,14 @@ It has these top-level messages:
 	ReadVappVmResult
 	UpdateVappVmInfo
 	UpdateVappVmResult
+	PowerOnVappVmInfo
+	PowerOnVappVmResult
+	PowerOffVappVmInfo
+	PowerOffVappVmResult
+	ModifyVappVmMemoryInfo
+	ModifyVappVmMemoryResult
+	ModifyVappVmCPUInfo
+	ModifyVappVmCPUResult
 */
 package proto
 

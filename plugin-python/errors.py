@@ -60,6 +60,35 @@ class VappVmDeleteError(Exception):
     def __init__(self, msg):
         Exception.__init__(self, msg)
 
+class VappVmReloadError(Exception):
+    def __init__(self, msg):
+        Exception.__init__(self, msg)
+
+
+class VappVmModifyCPUError(Exception):
+    def __init__(self, msg):
+        Exception.__init__(self, msg)
+
+
+class VappVmModifyMemoryError(Exception):
+    def __init__(self, msg):
+        Exception.__init__(self, msg)
+
+
+class VappVmUnDeployError(Exception):
+    def __init__(self, msg):
+        Exception.__init__(self, msg)
+
+
+class VappVmPowerOnError(Exception):
+    def __init__(self, msg):
+        Exception.__init__(self, msg)
+
+
+class VappVmPowerOffError(Exception):
+    def __init__(self, msg):
+        Exception.__init__(self, msg)
+
 
 if __name__ == '__main__':
 

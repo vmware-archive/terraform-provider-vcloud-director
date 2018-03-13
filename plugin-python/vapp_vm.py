@@ -28,8 +28,8 @@ class VappVmServicer(vapp_vm_pb2_grpc.VappVmServicer):
     def Create(self, request, context):
         logging.basicConfig(level=logging.DEBUG)
         logging.info("__INIT__Create[VappVmServicer]")
-
         source_catalog_name = request.source_catalog_name
+
         if len(source_catalog_name) > 0:
             res = self.CreateFromCatalog(request, context)
         else:
@@ -53,28 +53,60 @@ class VappVmServicer(vapp_vm_pb2_grpc.VappVmServicer):
 
     def Delete(self, request, context):
         logging.info("__INIT__Delete[VappVmServicer]")
-        vapp_vm = VappVm(context=context)
+        vapp_vm = VappVm(context)
         res = vapp_vm.delete(request)
         logging.info("__DONE__Delete[VappVmServicer]")
 
         return res
 
-    def Update(self, request, context):
-        logging.info("__INIT__Update[VappVmServicer]")
+    # def Update(self, request, context):
+    #     logging.info("__INIT__Update[VappVmServicer]")
+    #     target_vm_name = request.target_vm_name
+    #     is_enabled = request.is_enabled
+    #     vapp_vm = VappVm(target_vm_name=target_vm_name)
+    #     res = vapp_vm.update()
+    #     logging.info("__DONE__Update[VappVmServicer]")
 
-        target_vm_name = request.target_vm_name
-        is_enabled = request.is_enabled
-        vapp_vm = VappVm(target_vm_name=target_vm_name)
-        res = vapp_vm.update()
-        logging.info("__DONE__Update[VappVmServicer]")
-
-        return res
+    #     return res
 
     def Read(self, request, context):
         logging.info("__INIT__Read[VappVmServicer]")
-        vapp_vm = VappVm(context=context)
+        vapp_vm = VappVm(context)
         res = vapp_vm.read(request)
         logging.info("__DONE__Read[VappVmServicer]")
+
+        return res
+
+    def ModifyCPU(self, request, context):
+        logging.info("__INIT__ModifyCPU[VappVmServicer]")
+        vapp_vm = VappVm(context)
+        res = vapp_vm.modify_cpu(request)
+        logging.info("__DONE__ModifyCPU[VappVmServicer]")
+
+        return res
+
+    def ModifyMemory(self, request, context):
+        logging.info("__INIT__ModifyMemory[VappVmServicer]")
+        vapp_vm = VappVm(context)
+        res = vapp_vm.modify_memory(request)
+        logging.info("__DONE__ModifyMemory[VappVmServicer]")
+
+        return res
+
+    def PowerOn(self, request, context):
+        logging.info("__INIT__PowerOn[VappVmServicer]")
+        vapp_vm = VappVm(context)
+        res = vapp_vm.power_on(request)
+        logging.info("__DONE__PowerOn[VappVmServicer]")
+
+        return res
+
+    def PowerOff(self, request, context):
+        logging.info("__INIT__PowerOff[VappVmServicer]")
+        vapp_vm = VappVm(context)
+        res = vapp_vm.power_off(request)
+
+        logging.info("__DONE__PowerOff[VappVmServicer]")
 
         return res
 
@@ -220,31 +252,30 @@ class VappVm:
         logging.info("__DONE__create[VappVm]")
         return res
 
-    def update(self):
-        logging.info("__INIT__update[VappVm]")
-        res = vapp_vm_pb2.UpdateUserResult()
-        res.updated = False
+    # def update(self):
+    #     logging.info("__INIT__update[VappVm]")
+    #     res = vapp_vm_pb2.UpdateUserResult()
+    #     res.updated = False
+    #     logged_in_org = self.client.get_org()
+    #     org = Org(self.client, resource=logged_in_org)
+    #     name = self.name
+    #     is_enabled = self.is_enabled
 
-        context = self.context
+    #     try:
+    #         result = org.update_user(name, is_enabled)
+    #         res.updated = True
+    #     except Exception as e:
+    #         error_message = '__ERROR_update[VappVm] failed for VappVm {0}. __ErrorMessage__ {1}'.format(
+    #             self.name, str(e))
+    #         logging.warn(error_message)
+    #         self.context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
+    #         self.context.set_details(error_message)
 
-        logged_in_org = self.client.get_org()
-        org = Org(self.client, resource=logged_in_org)
-        name = self.name
-        is_enabled = self.is_enabled
+    #         return res
 
-        try:
-            result = org.update_user(name, is_enabled)
-            res.updated = True
-        except Exception as e:
-            error_message = '__ERROR_update[VappVm] failed for VappVm {0}. __ErrorMessage__ {1}'.format(
-                self.name, str(e))
-            logging.warn(error_message)
-            context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
-            context.set_details(error_message)
-            return res
+    #     logging.info("__DONE__update[VappVm]")
 
-        logging.info("__DONE__update[VappVm]")
-        return res
+    #     return res
 
     def read(self, request):
         logging.info("__INIT__read[VappVm]")
@@ -261,13 +292,17 @@ class VappVm:
             vapp = VApp(self.client, name=request.target_vapp,
                         resource=vapp_resource)
             read_vapp_vm_resp = vapp.get_vm(request.target_vm_name)
+            vm = VM(client=self.client, href=None, resource=read_vapp_vm_resp)
+
             res.present = True
         except Exception as e:
             errmsg = '__ERROR_read[VappVm] failed for VappVm {0}. __ErrorMessage__ {1}'
             logging.warn(errmsg.format(request.target_vm_name, str(e)))
 
             return res
+
         logging.info("__DONE__read[VappVm]")
+
         return res
 
     def delete(self, request):
@@ -285,12 +320,11 @@ class VappVm:
             vapp = VApp(self.client, name=request.target_vapp,
                         resource=vapp_resource)
 
-            # Before deliting power_off vm
+            # Before deleting power_off vm
             # self.power_off(request.target_vdc, request.target_vapp)
 
-            # Before deliting undeploy vm
-            self.undeploy(request.target_vm_name,
-                          request.target_vdc, request.target_vapp)
+            # Before deleting undeploy vm
+            self.undeploy(request)
 
             vms = [request.target_vm_name]
             delete_vapp_vm_resp = vapp.delete_vms(vms)
@@ -324,23 +358,26 @@ class VappVm:
             return res
 
         logging.info("__DONE__delete[VappVm]")
+
         return res
 
-    def power_off(self, target_vm_name, target_vdc, target_vapp):
+    def power_off(self, request):
         logging.info("__INIT__power_off[VappVm]")
-
-        powered_off = False
+        res = vapp_vm_pb2.PowerOffVappVmResult()
+        res.powered_off = False
         org_resource = self.client.get_org()
         org = Org(self.client, resource=org_resource)
         try:
-            vdc_resource = org.get_vdc(target_vdc)
-            vdc = VDC(self.client, name=target_vdc, resource=vdc_resource)
+            vdc_resource = org.get_vdc(request.target_vdc)
+            vdc = VDC(self.client, name=request.target_vdc,
+                      resource=vdc_resource)
 
-            vapp_resource = vdc.get_vapp(target_vapp)
-            vapp = VApp(self.client, name=target_vapp, resource=vapp_resource)
-            vapp_vm_resource = vapp.get_vm(target_vm_name)
+            vapp_resource = vdc.get_vapp(request.target_vapp)
+            vapp = VApp(self.client, name=request.target_vapp,
+                        resource=vapp_resource)
+            vapp_vm_resource = vapp.get_vm(request.target_vm_name)
             vm = VM(self.client, resource=vapp_vm_resource)
-            power_off_response = vm.power_off()
+            power_off_response = vm.undeploy()
 
             task = self.client.get_task_monitor().wait_for_status(
                 task=power_off_response,
@@ -364,24 +401,75 @@ class VappVm:
 
         except Exception as e:
             errmsg = '__ERROR_power_off[VappVm] failed for VappVm {0}. __ErrorMessage__ {1}'
-            logging.warn(errmsg.format(target_vm_name, str(e)))
+            logging.warn(errmsg.format(request.target_vm_name, str(e)))
 
         logging.info("__DONE__power_off[VappVm]")
+
         return powered_off
 
-    def undeploy(self, target_vm_name, target_vdc, target_vapp):
-        logging.info("__INIT__undeploy[VappVm]")
+    def power_on(self, request):
+        logging.info("__INIT__power_on[VappVm]")
+        res = vapp_vm_pb2.PowerOnVappVmResult()
+        res.powered_on = False
 
+        org_resource = self.client.get_org()
+        org = Org(self.client, resource=org_resource)
+        try:
+            vdc_resource = org.get_vdc(request.target_vdc)
+            vdc = VDC(self.client, name=request.target_vdc,
+                      resource=vdc_resource)
+
+            vapp_resource = vdc.get_vapp(request.target_vapp)
+            vapp = VApp(self.client, name=request.target_vapp,
+                        resource=vapp_resource)
+            vapp_vm_resource = vapp.get_vm(request.target_vm_name)
+            vm = VM(self.client, resource=vapp_vm_resource)
+            power_on_response = vm.power_on()
+
+            task = self.client.get_task_monitor().wait_for_status(
+                task=power_on_response,
+                timeout=60,
+                poll_frequency=2,
+                fail_on_statuses=None,
+                expected_target_statuses=[
+                    TaskStatus.SUCCESS, TaskStatus.ABORTED, TaskStatus.ERROR,
+                    TaskStatus.CANCELED
+                ],
+                callback=None)
+
+            st = task.get('status')
+            if st != TaskStatus.SUCCESS.value:
+                raise errors.VappVmPowerOnError(
+                    etree.tostring(task, pretty_print=True))
+
+            message = 'status : {0} '.format(st)
+            logging.info(message)
+            res.powered_on = True
+
+        except Exception as e:
+            errmsg = '__ERROR_power_off[VappVm] failed for VappVm {0}. __ErrorMessage__ {1}'
+            logging.warn(errmsg.format(request.target_vm_name, str(e)))
+            self.context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
+            self.context.set_details(errmsg)
+
+        logging.info("__DONE__power_on[VappVm]")
+
+        return res
+
+    def undeploy(self, request):
+        logging.info("__INIT__undeploy[VappVm]")
         undeploy = False
         org_resource = self.client.get_org()
         org = Org(self.client, resource=org_resource)
         try:
-            vdc_resource = org.get_vdc(target_vdc)
-            vdc = VDC(self.client, name=target_vdc, resource=vdc_resource)
+            vdc_resource = org.get_vdc(request.target_vdc)
+            vdc = VDC(self.client, name=request.target_vdc,
+                      resource=vdc_resource)
 
-            vapp_resource = vdc.get_vapp(target_vapp)
-            vapp = VApp(self.client, name=target_vapp, resource=vapp_resource)
-            vapp_vm_resource = vapp.get_vm(target_vm_name)
+            vapp_resource = vdc.get_vapp(request.target_vapp)
+            vapp = VApp(self.client, name=request.target_vapp,
+                        resource=vapp_resource)
+            vapp_vm_resource = vapp.get_vm(request.target_vm_name)
             vm = VM(self.client, resource=vapp_vm_resource)
             undeploy_response = vm.undeploy()
 
@@ -407,7 +495,154 @@ class VappVm:
 
         except Exception as e:
             errmsg = '__ERROR_undeploy[VappVm] failed for VappVm {0}. __ErrorMessage__ {1}'
-            logging.warn(errmsg.format(target_vm_name, str(e)))
+            logging.warn(errmsg.format(request.target_vm_name, str(e)))
 
         logging.info("__DONE__undeploy[VappVm]")
+
         return undeploy
+
+    def modify_cpu(self, request):
+        logging.info("__INIT__modify_cpu[VappVm]")
+        res = vapp_vm_pb2.ModifyVappVmCPUResult()
+        res.modified = False
+
+        org_resource = self.client.get_org()
+        org = Org(self.client, resource=org_resource)
+        try:
+            vdc_resource = org.get_vdc(request.target_vdc)
+            vdc = VDC(self.client, name=request.target_vdc,
+                      resource=vdc_resource)
+
+            vapp_resource = vdc.get_vapp(request.target_vapp)
+            vapp = VApp(self.client, name=request.target_vapp,
+                        resource=vapp_resource)
+            vapp_vm_resource = vapp.get_vm(request.target_vm_name)
+            vm = VM(self.client, resource=vapp_vm_resource)
+
+            self.undeploy(request)
+            modify_cpu_response = vm.modify_cpu(
+                request.virtual_cpus, request.cores_per_socket)
+
+            task = self.client.get_task_monitor().wait_for_status(
+                task=modify_cpu_response,
+                timeout=60,
+                poll_frequency=2,
+                fail_on_statuses=None,
+                expected_target_statuses=[
+                    TaskStatus.SUCCESS, TaskStatus.ABORTED, TaskStatus.ERROR,
+                    TaskStatus.CANCELED
+                ],
+                callback=None)
+            st = task.get('status')
+            if st != TaskStatus.SUCCESS.value:
+                raise errors.VappVmModifyCPUError(
+                    etree.tostring(task, pretty_print=True))
+
+            message = 'status : {0} '.format(st)
+            logging.info(message)
+
+            self.power_on(request)
+            res.modified = True
+
+        except Exception as e:
+            errmsg = '__ERROR_modify_cpu[VappVm] failed for VappVm {0}. __ErrorMessage__ {1}'
+            logging.warn(errmsg.format(request.target_vm_name, str(e)))
+            self.context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
+            self.context.set_details(errmsg)
+
+        logging.info("__DONE__modify_cpu[VappVm]")
+
+        return res
+
+    def modify_memory(self, request):
+        logging.info("__INIT__modify_memory[VappVm]")
+        res = vapp_vm_pb2.ModifyVappVmMemoryResult()
+        res.modified = False
+        org_resource = self.client.get_org()
+        org = Org(self.client, resource=org_resource)
+        try:
+            vdc_resource = org.get_vdc(request.target_vdc)
+            vdc = VDC(self.client, name=request.target_vdc,
+                      resource=vdc_resource)
+
+            vapp_resource = vdc.get_vapp(request.target_vapp)
+            vapp = VApp(self.client, name=request.target_vapp,
+                        resource=vapp_resource)
+            vapp_vm_resource = vapp.get_vm(request.target_vm_name)
+            vm = VM(self.client, resource=vapp_vm_resource)
+
+            self.undeploy(request)
+            modify_memory_response = vm.modify_memory(request.memory)
+
+            task = self.client.get_task_monitor().wait_for_status(
+                task=modify_memory_response,
+                timeout=60,
+                poll_frequency=2,
+                fail_on_statuses=None,
+                expected_target_statuses=[
+                    TaskStatus.SUCCESS, TaskStatus.ABORTED, TaskStatus.ERROR,
+                    TaskStatus.CANCELED
+                ],
+                callback=None)
+            st = task.get('status')
+            if st != TaskStatus.SUCCESS.value:
+                raise errors.VappVmModifyMemoryError(
+                    etree.tostring(task, pretty_print=True))
+            message = 'status : {0} '.format(st)
+            logging.info(message)
+
+            self.power_on(request)
+            res.modified = True
+
+        except Exception as e:
+            errmsg = '__ERROR_modify_memory[VappVm] failed for VappVm {0}. __ErrorMessage__ {1}'
+            logging.warn(errmsg.format(request.target_vm_name, str(e)))
+            self.context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
+            self.context.set_details(errmsg)
+
+        logging.info("__DONE__modify_memory[VappVm]")
+
+        return res
+
+    def reload_vm(self, request):
+        logging.info("__INIT__reload_vm[VappVm]")
+        org_resource = self.client.get_org()
+        org = Org(self.client, resource=org_resource)
+        try:
+            vdc_resource = org.get_vdc(request.target_vdc)
+            vdc = VDC(self.client, name=request.target_vdc,
+                      resource=vdc_resource)
+
+            vapp_resource = vdc.get_vapp(request.target_vapp)
+            vapp = VApp(self.client, name=request.target_vapp,
+                        resource=vapp_resource)
+            vapp_vm_resource = vapp.get_vm(request.target_vm_name)
+            vm = VM(self.client, resource=vapp_vm_resource)
+
+            reload_vm_response = vm.reload()
+
+            task = self.client.get_task_monitor().wait_for_status(
+                task=reload_vm_response,
+                timeout=60,
+                poll_frequency=2,
+                fail_on_statuses=None,
+                expected_target_statuses=[
+                    TaskStatus.SUCCESS, TaskStatus.ABORTED, TaskStatus.ERROR,
+                    TaskStatus.CANCELED
+                ],
+                callback=None)
+            st = task.get('status')
+            if st != TaskStatus.SUCCESS.value:
+                raise errors.VappVmReloadError(
+                    etree.tostring(task, pretty_print=True))
+
+            message = 'status : {0} '.format(st)
+            logging.info(message)
+
+        except Exception as e:
+            errmsg = '__ERROR_reload_vm[VappVm] failed for VappVm {0}. __ErrorMessage__ {1}'
+            logging.warn(errmsg.format(request.target_vm_name, str(e)))
+            raise errors.VappVmReloadError(
+                etree.tostring(errmsg, pretty_print=True))
+
+        logging.info("__DONE__reload_vm[VappVm]")
