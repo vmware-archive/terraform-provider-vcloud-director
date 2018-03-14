@@ -10,7 +10,7 @@ import (
 	"net/rpc"
 
 	"google.golang.org/grpc"
-	
+
 	"github.com/hashicorp/go-plugin"
 	"github.com/vmware/terraform-provider-vcloud-director/go/src/vcd/proto"
 	"golang.org/x/net/context"
@@ -106,16 +106,16 @@ func (p *IndependentDiskProviderPlugin) Server(*plugin.MuxBroker) (interface{}, 
 	return &DiskRPCServer{}, nil
 }
 
-func (p *IndependentDiskProviderPlugin) GRPCServer(broker *plugin.GRPCBroker,s *grpc.Server) error {
+func (p *IndependentDiskProviderPlugin) GRPCServer(broker *plugin.GRPCBroker, s *grpc.Server) error {
 
 	return nil
 }
 
 // ONLY GRPC CLIENT IS USE ON THIS SIDE
-func (p *IndependentDiskProviderPlugin) GRPCClient(ctx context.Context,broker *plugin.GRPCBroker,c *grpc.ClientConn) (interface{}, error) {
+func (p *IndependentDiskProviderPlugin) GRPCClient(ctx context.Context, broker *plugin.GRPCBroker, c *grpc.ClientConn) (interface{}, error) {
 	logging.Plog("IndependentDiskProviderPlugin GRPCClient")
 	return &DiskGRPCClient{
 		client: proto.NewIndependentDiskClient(c),
 		broker: broker,
-		}, nil
+	}, nil
 }

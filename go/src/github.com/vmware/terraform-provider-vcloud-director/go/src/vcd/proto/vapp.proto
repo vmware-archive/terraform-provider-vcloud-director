@@ -61,3 +61,13 @@ message ReadVAppResult{
         repeated string network =3;
         
 }
+
+message UpdateVAppInfo{
+        string name = 1 ;
+        string vdc = 2 ;
+        bool power_on = 3;
+}
+
+message UpdateVAppResult{
+        bool updated = 3;
+}

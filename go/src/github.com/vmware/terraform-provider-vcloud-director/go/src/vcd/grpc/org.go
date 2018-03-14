@@ -141,15 +141,15 @@ func (p *OrgProviderPlugin) Server(*plugin.MuxBroker) (interface{}, error) {
 	return &OrgRPCServer{}, nil
 }
 
-func (p *OrgProviderPlugin) GRPCServer(broker *plugin.GRPCBroker,s *grpc.Server) error {
+func (p *OrgProviderPlugin) GRPCServer(broker *plugin.GRPCBroker, s *grpc.Server) error {
 
 	return nil
 }
 
 // ONLY GRPC CLIENT IS USE ON THIS SIDE
-func (p *OrgProviderPlugin) GRPCClient(ctx context.Context,broker *plugin.GRPCBroker,c *grpc.ClientConn) (interface{}, error) {
+func (p *OrgProviderPlugin) GRPCClient(ctx context.Context, broker *plugin.GRPCBroker, c *grpc.ClientConn) (interface{}, error) {
 	logging.Plog("OrgProviderPlugin GRPCClient")
 	return &OrgGRPCClient{client: proto.NewOrgClient(c),
 		broker: broker,
-		}, nil
+	}, nil
 }

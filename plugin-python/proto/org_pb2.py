@@ -2,7 +2,8 @@
 # source: proto/org.proto
 
 import sys
-_b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
+_b = sys.version_info[0] < 3 and (lambda x: x) or (
+    lambda x: x.encode('latin1'))
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
@@ -12,327 +13,461 @@ from google.protobuf import descriptor_pb2
 
 _sym_db = _symbol_database.Default()
 
-
-
-
 DESCRIPTOR = _descriptor.FileDescriptor(
-  name='proto/org.proto',
-  package='proto',
-  syntax='proto3',
-  serialized_pb=_b('\n\x0fproto/org.proto\x12\x05proto\"H\n\rCreateOrgInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\rorg_full_name\x18\x02 \x01(\t\x12\x12\n\nis_enabled\x18\x03 \x01(\x08\"\"\n\x0f\x43reateOrgResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\"?\n\rDeleteOrgInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x66orce\x18\x02 \x01(\x08\x12\x11\n\trecursive\x18\x03 \x01(\x08\"\"\n\x0f\x44\x65leteOrgResult\x12\x0f\n\x07\x64\x65leted\x18\x01 \x01(\x08\"\x1b\n\x0bReadOrgInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\"Y\n\rReadOrgResult\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\rorg_full_name\x18\x02 \x01(\t\x12\x12\n\nis_enabled\x18\x03 \x01(\x08\x12\x0f\n\x07present\x18\x04 \x01(\x08\"H\n\rUpdateOrgInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\rorg_full_name\x18\x02 \x01(\t\x12\x12\n\nis_enabled\x18\x03 \x01(\x08\"\"\n\x0fUpdateOrgResult\x12\x0f\n\x07updated\x18\x01 \x01(\x08\x32\xe7\x01\n\x03Org\x12\x38\n\x06\x43reate\x12\x14.proto.CreateOrgInfo\x1a\x16.proto.CreateOrgResult\"\x00\x12\x38\n\x06\x44\x65lete\x12\x14.proto.DeleteOrgInfo\x1a\x16.proto.DeleteOrgResult\"\x00\x12\x32\n\x04Read\x12\x12.proto.ReadOrgInfo\x1a\x14.proto.ReadOrgResult\"\x00\x12\x38\n\x06Update\x12\x14.proto.UpdateOrgInfo\x1a\x16.proto.UpdateOrgResult\"\x00\x62\x06proto3')
-)
-
-
-
+    name='proto/org.proto',
+    package='proto',
+    syntax='proto3',
+    serialized_pb=_b(
+        '\n\x0fproto/org.proto\x12\x05proto\"H\n\rCreateOrgInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\rorg_full_name\x18\x02 \x01(\t\x12\x12\n\nis_enabled\x18\x03 \x01(\x08\"\"\n\x0f\x43reateOrgResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\"?\n\rDeleteOrgInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x66orce\x18\x02 \x01(\x08\x12\x11\n\trecursive\x18\x03 \x01(\x08\"\"\n\x0f\x44\x65leteOrgResult\x12\x0f\n\x07\x64\x65leted\x18\x01 \x01(\x08\"\x1b\n\x0bReadOrgInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\"Y\n\rReadOrgResult\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\rorg_full_name\x18\x02 \x01(\t\x12\x12\n\nis_enabled\x18\x03 \x01(\x08\x12\x0f\n\x07present\x18\x04 \x01(\x08\"H\n\rUpdateOrgInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x15\n\rorg_full_name\x18\x02 \x01(\t\x12\x12\n\nis_enabled\x18\x03 \x01(\x08\"\"\n\x0fUpdateOrgResult\x12\x0f\n\x07updated\x18\x01 \x01(\x08\x32\xe7\x01\n\x03Org\x12\x38\n\x06\x43reate\x12\x14.proto.CreateOrgInfo\x1a\x16.proto.CreateOrgResult\"\x00\x12\x38\n\x06\x44\x65lete\x12\x14.proto.DeleteOrgInfo\x1a\x16.proto.DeleteOrgResult\"\x00\x12\x32\n\x04Read\x12\x12.proto.ReadOrgInfo\x1a\x14.proto.ReadOrgResult\"\x00\x12\x38\n\x06Update\x12\x14.proto.UpdateOrgInfo\x1a\x16.proto.UpdateOrgResult\"\x00\x62\x06proto3'
+    ))
 
 _CREATEORGINFO = _descriptor.Descriptor(
-  name='CreateOrgInfo',
-  full_name='proto.CreateOrgInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='proto.CreateOrgInfo.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='org_full_name', full_name='proto.CreateOrgInfo.org_full_name', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_enabled', full_name='proto.CreateOrgInfo.is_enabled', index=2,
-      number=3, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=26,
-  serialized_end=98,
+    name='CreateOrgInfo',
+    full_name='proto.CreateOrgInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='name',
+            full_name='proto.CreateOrgInfo.name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='org_full_name',
+            full_name='proto.CreateOrgInfo.org_full_name',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='is_enabled',
+            full_name='proto.CreateOrgInfo.is_enabled',
+            index=2,
+            number=3,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=26,
+    serialized_end=98,
 )
-
 
 _CREATEORGRESULT = _descriptor.Descriptor(
-  name='CreateOrgResult',
-  full_name='proto.CreateOrgResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='created', full_name='proto.CreateOrgResult.created', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=100,
-  serialized_end=134,
+    name='CreateOrgResult',
+    full_name='proto.CreateOrgResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='created',
+            full_name='proto.CreateOrgResult.created',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=100,
+    serialized_end=134,
 )
-
 
 _DELETEORGINFO = _descriptor.Descriptor(
-  name='DeleteOrgInfo',
-  full_name='proto.DeleteOrgInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='proto.DeleteOrgInfo.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='force', full_name='proto.DeleteOrgInfo.force', index=1,
-      number=2, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='recursive', full_name='proto.DeleteOrgInfo.recursive', index=2,
-      number=3, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=136,
-  serialized_end=199,
+    name='DeleteOrgInfo',
+    full_name='proto.DeleteOrgInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='name',
+            full_name='proto.DeleteOrgInfo.name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='force',
+            full_name='proto.DeleteOrgInfo.force',
+            index=1,
+            number=2,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='recursive',
+            full_name='proto.DeleteOrgInfo.recursive',
+            index=2,
+            number=3,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=136,
+    serialized_end=199,
 )
-
 
 _DELETEORGRESULT = _descriptor.Descriptor(
-  name='DeleteOrgResult',
-  full_name='proto.DeleteOrgResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='deleted', full_name='proto.DeleteOrgResult.deleted', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=201,
-  serialized_end=235,
+    name='DeleteOrgResult',
+    full_name='proto.DeleteOrgResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='deleted',
+            full_name='proto.DeleteOrgResult.deleted',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=201,
+    serialized_end=235,
 )
-
 
 _READORGINFO = _descriptor.Descriptor(
-  name='ReadOrgInfo',
-  full_name='proto.ReadOrgInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='proto.ReadOrgInfo.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=237,
-  serialized_end=264,
+    name='ReadOrgInfo',
+    full_name='proto.ReadOrgInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='name',
+            full_name='proto.ReadOrgInfo.name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=237,
+    serialized_end=264,
 )
-
 
 _READORGRESULT = _descriptor.Descriptor(
-  name='ReadOrgResult',
-  full_name='proto.ReadOrgResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='proto.ReadOrgResult.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='org_full_name', full_name='proto.ReadOrgResult.org_full_name', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_enabled', full_name='proto.ReadOrgResult.is_enabled', index=2,
-      number=3, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='present', full_name='proto.ReadOrgResult.present', index=3,
-      number=4, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=266,
-  serialized_end=355,
+    name='ReadOrgResult',
+    full_name='proto.ReadOrgResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='name',
+            full_name='proto.ReadOrgResult.name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='org_full_name',
+            full_name='proto.ReadOrgResult.org_full_name',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='is_enabled',
+            full_name='proto.ReadOrgResult.is_enabled',
+            index=2,
+            number=3,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='present',
+            full_name='proto.ReadOrgResult.present',
+            index=3,
+            number=4,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=266,
+    serialized_end=355,
 )
-
 
 _UPDATEORGINFO = _descriptor.Descriptor(
-  name='UpdateOrgInfo',
-  full_name='proto.UpdateOrgInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='proto.UpdateOrgInfo.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='org_full_name', full_name='proto.UpdateOrgInfo.org_full_name', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='is_enabled', full_name='proto.UpdateOrgInfo.is_enabled', index=2,
-      number=3, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=357,
-  serialized_end=429,
+    name='UpdateOrgInfo',
+    full_name='proto.UpdateOrgInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='name',
+            full_name='proto.UpdateOrgInfo.name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='org_full_name',
+            full_name='proto.UpdateOrgInfo.org_full_name',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='is_enabled',
+            full_name='proto.UpdateOrgInfo.is_enabled',
+            index=2,
+            number=3,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=357,
+    serialized_end=429,
 )
 
-
 _UPDATEORGRESULT = _descriptor.Descriptor(
-  name='UpdateOrgResult',
-  full_name='proto.UpdateOrgResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='updated', full_name='proto.UpdateOrgResult.updated', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=431,
-  serialized_end=465,
+    name='UpdateOrgResult',
+    full_name='proto.UpdateOrgResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='updated',
+            full_name='proto.UpdateOrgResult.updated',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=431,
+    serialized_end=465,
 )
 
 DESCRIPTOR.message_types_by_name['CreateOrgInfo'] = _CREATEORGINFO
@@ -345,110 +480,132 @@ DESCRIPTOR.message_types_by_name['UpdateOrgInfo'] = _UPDATEORGINFO
 DESCRIPTOR.message_types_by_name['UpdateOrgResult'] = _UPDATEORGRESULT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-CreateOrgInfo = _reflection.GeneratedProtocolMessageType('CreateOrgInfo', (_message.Message,), dict(
-  DESCRIPTOR = _CREATEORGINFO,
-  __module__ = 'proto.org_pb2'
-  # @@protoc_insertion_point(class_scope:proto.CreateOrgInfo)
-  ))
+CreateOrgInfo = _reflection.GeneratedProtocolMessageType(
+    'CreateOrgInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_CREATEORGINFO,
+        __module__='proto.org_pb2'
+        # @@protoc_insertion_point(class_scope:proto.CreateOrgInfo)
+    ))
 _sym_db.RegisterMessage(CreateOrgInfo)
 
-CreateOrgResult = _reflection.GeneratedProtocolMessageType('CreateOrgResult', (_message.Message,), dict(
-  DESCRIPTOR = _CREATEORGRESULT,
-  __module__ = 'proto.org_pb2'
-  # @@protoc_insertion_point(class_scope:proto.CreateOrgResult)
-  ))
+CreateOrgResult = _reflection.GeneratedProtocolMessageType(
+    'CreateOrgResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_CREATEORGRESULT,
+        __module__='proto.org_pb2'
+        # @@protoc_insertion_point(class_scope:proto.CreateOrgResult)
+    ))
 _sym_db.RegisterMessage(CreateOrgResult)
 
-DeleteOrgInfo = _reflection.GeneratedProtocolMessageType('DeleteOrgInfo', (_message.Message,), dict(
-  DESCRIPTOR = _DELETEORGINFO,
-  __module__ = 'proto.org_pb2'
-  # @@protoc_insertion_point(class_scope:proto.DeleteOrgInfo)
-  ))
+DeleteOrgInfo = _reflection.GeneratedProtocolMessageType(
+    'DeleteOrgInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_DELETEORGINFO,
+        __module__='proto.org_pb2'
+        # @@protoc_insertion_point(class_scope:proto.DeleteOrgInfo)
+    ))
 _sym_db.RegisterMessage(DeleteOrgInfo)
 
-DeleteOrgResult = _reflection.GeneratedProtocolMessageType('DeleteOrgResult', (_message.Message,), dict(
-  DESCRIPTOR = _DELETEORGRESULT,
-  __module__ = 'proto.org_pb2'
-  # @@protoc_insertion_point(class_scope:proto.DeleteOrgResult)
-  ))
+DeleteOrgResult = _reflection.GeneratedProtocolMessageType(
+    'DeleteOrgResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_DELETEORGRESULT,
+        __module__='proto.org_pb2'
+        # @@protoc_insertion_point(class_scope:proto.DeleteOrgResult)
+    ))
 _sym_db.RegisterMessage(DeleteOrgResult)
 
-ReadOrgInfo = _reflection.GeneratedProtocolMessageType('ReadOrgInfo', (_message.Message,), dict(
-  DESCRIPTOR = _READORGINFO,
-  __module__ = 'proto.org_pb2'
-  # @@protoc_insertion_point(class_scope:proto.ReadOrgInfo)
-  ))
+ReadOrgInfo = _reflection.GeneratedProtocolMessageType(
+    'ReadOrgInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_READORGINFO,
+        __module__='proto.org_pb2'
+        # @@protoc_insertion_point(class_scope:proto.ReadOrgInfo)
+    ))
 _sym_db.RegisterMessage(ReadOrgInfo)
 
-ReadOrgResult = _reflection.GeneratedProtocolMessageType('ReadOrgResult', (_message.Message,), dict(
-  DESCRIPTOR = _READORGRESULT,
-  __module__ = 'proto.org_pb2'
-  # @@protoc_insertion_point(class_scope:proto.ReadOrgResult)
-  ))
+ReadOrgResult = _reflection.GeneratedProtocolMessageType(
+    'ReadOrgResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_READORGRESULT,
+        __module__='proto.org_pb2'
+        # @@protoc_insertion_point(class_scope:proto.ReadOrgResult)
+    ))
 _sym_db.RegisterMessage(ReadOrgResult)
 
-UpdateOrgInfo = _reflection.GeneratedProtocolMessageType('UpdateOrgInfo', (_message.Message,), dict(
-  DESCRIPTOR = _UPDATEORGINFO,
-  __module__ = 'proto.org_pb2'
-  # @@protoc_insertion_point(class_scope:proto.UpdateOrgInfo)
-  ))
+UpdateOrgInfo = _reflection.GeneratedProtocolMessageType(
+    'UpdateOrgInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_UPDATEORGINFO,
+        __module__='proto.org_pb2'
+        # @@protoc_insertion_point(class_scope:proto.UpdateOrgInfo)
+    ))
 _sym_db.RegisterMessage(UpdateOrgInfo)
 
-UpdateOrgResult = _reflection.GeneratedProtocolMessageType('UpdateOrgResult', (_message.Message,), dict(
-  DESCRIPTOR = _UPDATEORGRESULT,
-  __module__ = 'proto.org_pb2'
-  # @@protoc_insertion_point(class_scope:proto.UpdateOrgResult)
-  ))
+UpdateOrgResult = _reflection.GeneratedProtocolMessageType(
+    'UpdateOrgResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_UPDATEORGRESULT,
+        __module__='proto.org_pb2'
+        # @@protoc_insertion_point(class_scope:proto.UpdateOrgResult)
+    ))
 _sym_db.RegisterMessage(UpdateOrgResult)
 
-
-
 _ORG = _descriptor.ServiceDescriptor(
-  name='Org',
-  full_name='proto.Org',
-  file=DESCRIPTOR,
-  index=0,
-  options=None,
-  serialized_start=468,
-  serialized_end=699,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='Create',
-    full_name='proto.Org.Create',
+    name='Org',
+    full_name='proto.Org',
+    file=DESCRIPTOR,
     index=0,
-    containing_service=None,
-    input_type=_CREATEORGINFO,
-    output_type=_CREATEORGRESULT,
     options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='Delete',
-    full_name='proto.Org.Delete',
-    index=1,
-    containing_service=None,
-    input_type=_DELETEORGINFO,
-    output_type=_DELETEORGRESULT,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='Read',
-    full_name='proto.Org.Read',
-    index=2,
-    containing_service=None,
-    input_type=_READORGINFO,
-    output_type=_READORGRESULT,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='Update',
-    full_name='proto.Org.Update',
-    index=3,
-    containing_service=None,
-    input_type=_UPDATEORGINFO,
-    output_type=_UPDATEORGRESULT,
-    options=None,
-  ),
-])
+    serialized_start=468,
+    serialized_end=699,
+    methods=[
+        _descriptor.MethodDescriptor(
+            name='Create',
+            full_name='proto.Org.Create',
+            index=0,
+            containing_service=None,
+            input_type=_CREATEORGINFO,
+            output_type=_CREATEORGRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='Delete',
+            full_name='proto.Org.Delete',
+            index=1,
+            containing_service=None,
+            input_type=_DELETEORGINFO,
+            output_type=_DELETEORGRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='Read',
+            full_name='proto.Org.Read',
+            index=2,
+            containing_service=None,
+            input_type=_READORGINFO,
+            output_type=_READORGRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='Update',
+            full_name='proto.Org.Update',
+            index=3,
+            containing_service=None,
+            input_type=_UPDATEORGINFO,
+            output_type=_UPDATEORGRESULT,
+            options=None,
+        ),
+    ])
 _sym_db.RegisterServiceDescriptor(_ORG)
 
 DESCRIPTOR.services_by_name['Org'] = _ORG

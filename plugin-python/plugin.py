@@ -179,6 +179,13 @@ class PyVcloudProviderServicer(
         read_app_info.vdc = request.vdc
         return vapp.read(self.client, context, read_app_info)
 
+    def UpdateVApp(self, request, context):
+        update_vapp_info = vapp_pb2.UpdateVAppInfo()
+        update_vapp_info.name = request.name
+        update_vapp_info.vdc = request.vdc
+        update_vapp_info.power_on = request.power_on
+        return vapp.update(self.client, context, update_vapp_info)
+
     def StopPlugin(self, request, context):
         self.py_plugin_server.stop()
         return pyvcloudprovider_pb2.StopResult()

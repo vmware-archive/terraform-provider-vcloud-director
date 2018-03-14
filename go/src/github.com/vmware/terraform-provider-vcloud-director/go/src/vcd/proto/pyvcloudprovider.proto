@@ -58,6 +58,9 @@ service PyVcloudProvider {
 
   // Read VApp
   rpc ReadVApp (  ReadVAppInfo ) returns ( ReadVAppResult ) {}
+  
+  // Update VApp
+  rpc UpdateVApp (  UpdateVAppInfo ) returns ( UpdateVAppResult ) {}
 
   //remote stop interface for the plugin
    rpc StopPlugin(StopInfo) returns ( StopResult ) {}

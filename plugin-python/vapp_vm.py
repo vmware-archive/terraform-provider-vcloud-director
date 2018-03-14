@@ -137,12 +137,12 @@ class VappVm:
 
         try:
             vdc_resource = org.get_vdc(request.target_vdc)
-            vdc = VDC(self.client, name=request.target_vdc,
-                      resource=vdc_resource)
+            vdc = VDC(
+                self.client, name=request.target_vdc, resource=vdc_resource)
 
             vapp_resource = vdc.get_vapp(request.target_vapp)
-            vapp = VApp(self.client, name=request.target_vapp,
-                        resource=vapp_resource)
+            vapp = VApp(
+                self.client, name=request.target_vapp, resource=vapp_resource)
 
             catalog_item = org.get_catalog_item(request.source_catalog_name,
                                                 request.source_template_name)
@@ -157,9 +157,10 @@ class VappVm:
                 'ip_allocation_mode': request.ip_allocation_mode,
                 # 'storage_profile': request.storage_profile
             }]
-            create_vapp_vm_resp = vapp.add_vms(specs,
-                                               power_on=request.power_on,
-                                               all_eulas_accepted=request.all_eulas_accepted)
+            create_vapp_vm_resp = vapp.add_vms(
+                specs,
+                power_on=request.power_on,
+                all_eulas_accepted=request.all_eulas_accepted)
             task_monitor = self.client.get_task_monitor()
             task = task_monitor.wait_for_status(
                 task=create_vapp_vm_resp,
@@ -193,8 +194,8 @@ class VappVm:
         return res
 
     def create_from_vapp(self, request):
-        logging.info(
-            "__INIT__create[VappVm] source_catalog_name[%s]", request.source_vapp)
+        logging.info("__INIT__create[VappVm] source_catalog_name[%s]",
+                     request.source_vapp)
         res = vapp_vm_pb2.CreateVappVmResult()
         res.created = False
         source_vapp_resource = self.get_vapp_resource(
@@ -217,9 +218,10 @@ class VappVm:
 
         try:
             vapp = VApp(self.client, resource=target_vapp_resource)
-            create_vapp_vm_resp = vapp.add_vms(specs,
-                                               power_on=request.power_on,
-                                               all_eulas_accepted=request.all_eulas_accepted)
+            create_vapp_vm_resp = vapp.add_vms(
+                specs,
+                power_on=request.power_on,
+                all_eulas_accepted=request.all_eulas_accepted)
             task_monitor = self.client.get_task_monitor()
             task = task_monitor.wait_for_status(
                 task=create_vapp_vm_resp,
@@ -285,12 +287,12 @@ class VappVm:
         org = Org(self.client, resource=org_resource)
         try:
             vdc_resource = org.get_vdc(request.target_vdc)
-            vdc = VDC(self.client, name=request.target_vdc,
-                      resource=vdc_resource)
+            vdc = VDC(
+                self.client, name=request.target_vdc, resource=vdc_resource)
 
             vapp_resource = vdc.get_vapp(request.target_vapp)
-            vapp = VApp(self.client, name=request.target_vapp,
-                        resource=vapp_resource)
+            vapp = VApp(
+                self.client, name=request.target_vapp, resource=vapp_resource)
             read_vapp_vm_resp = vapp.get_vm(request.target_vm_name)
             vm = VM(client=self.client, href=None, resource=read_vapp_vm_resp)
 
@@ -313,12 +315,12 @@ class VappVm:
         org = Org(self.client, resource=org_resource)
         try:
             vdc_resource = org.get_vdc(request.target_vdc)
-            vdc = VDC(self.client, name=request.target_vdc,
-                      resource=vdc_resource)
+            vdc = VDC(
+                self.client, name=request.target_vdc, resource=vdc_resource)
 
             vapp_resource = vdc.get_vapp(request.target_vapp)
-            vapp = VApp(self.client, name=request.target_vapp,
-                        resource=vapp_resource)
+            vapp = VApp(
+                self.client, name=request.target_vapp, resource=vapp_resource)
 
             # Before deleting power_off vm
             # self.power_off(request.target_vdc, request.target_vapp)
@@ -369,12 +371,12 @@ class VappVm:
         org = Org(self.client, resource=org_resource)
         try:
             vdc_resource = org.get_vdc(request.target_vdc)
-            vdc = VDC(self.client, name=request.target_vdc,
-                      resource=vdc_resource)
+            vdc = VDC(
+                self.client, name=request.target_vdc, resource=vdc_resource)
 
             vapp_resource = vdc.get_vapp(request.target_vapp)
-            vapp = VApp(self.client, name=request.target_vapp,
-                        resource=vapp_resource)
+            vapp = VApp(
+                self.client, name=request.target_vapp, resource=vapp_resource)
             vapp_vm_resource = vapp.get_vm(request.target_vm_name)
             vm = VM(self.client, resource=vapp_vm_resource)
             power_off_response = vm.undeploy()
@@ -416,12 +418,12 @@ class VappVm:
         org = Org(self.client, resource=org_resource)
         try:
             vdc_resource = org.get_vdc(request.target_vdc)
-            vdc = VDC(self.client, name=request.target_vdc,
-                      resource=vdc_resource)
+            vdc = VDC(
+                self.client, name=request.target_vdc, resource=vdc_resource)
 
             vapp_resource = vdc.get_vapp(request.target_vapp)
-            vapp = VApp(self.client, name=request.target_vapp,
-                        resource=vapp_resource)
+            vapp = VApp(
+                self.client, name=request.target_vapp, resource=vapp_resource)
             vapp_vm_resource = vapp.get_vm(request.target_vm_name)
             vm = VM(self.client, resource=vapp_vm_resource)
             power_on_response = vm.power_on()
@@ -463,12 +465,12 @@ class VappVm:
         org = Org(self.client, resource=org_resource)
         try:
             vdc_resource = org.get_vdc(request.target_vdc)
-            vdc = VDC(self.client, name=request.target_vdc,
-                      resource=vdc_resource)
+            vdc = VDC(
+                self.client, name=request.target_vdc, resource=vdc_resource)
 
             vapp_resource = vdc.get_vapp(request.target_vapp)
-            vapp = VApp(self.client, name=request.target_vapp,
-                        resource=vapp_resource)
+            vapp = VApp(
+                self.client, name=request.target_vapp, resource=vapp_resource)
             vapp_vm_resource = vapp.get_vm(request.target_vm_name)
             vm = VM(self.client, resource=vapp_vm_resource)
             undeploy_response = vm.undeploy()
@@ -510,18 +512,18 @@ class VappVm:
         org = Org(self.client, resource=org_resource)
         try:
             vdc_resource = org.get_vdc(request.target_vdc)
-            vdc = VDC(self.client, name=request.target_vdc,
-                      resource=vdc_resource)
+            vdc = VDC(
+                self.client, name=request.target_vdc, resource=vdc_resource)
 
             vapp_resource = vdc.get_vapp(request.target_vapp)
-            vapp = VApp(self.client, name=request.target_vapp,
-                        resource=vapp_resource)
+            vapp = VApp(
+                self.client, name=request.target_vapp, resource=vapp_resource)
             vapp_vm_resource = vapp.get_vm(request.target_vm_name)
             vm = VM(self.client, resource=vapp_vm_resource)
 
             self.undeploy(request)
-            modify_cpu_response = vm.modify_cpu(
-                request.virtual_cpus, request.cores_per_socket)
+            modify_cpu_response = vm.modify_cpu(request.virtual_cpus,
+                                                request.cores_per_socket)
 
             task = self.client.get_task_monitor().wait_for_status(
                 task=modify_cpu_response,
@@ -562,12 +564,12 @@ class VappVm:
         org = Org(self.client, resource=org_resource)
         try:
             vdc_resource = org.get_vdc(request.target_vdc)
-            vdc = VDC(self.client, name=request.target_vdc,
-                      resource=vdc_resource)
+            vdc = VDC(
+                self.client, name=request.target_vdc, resource=vdc_resource)
 
             vapp_resource = vdc.get_vapp(request.target_vapp)
-            vapp = VApp(self.client, name=request.target_vapp,
-                        resource=vapp_resource)
+            vapp = VApp(
+                self.client, name=request.target_vapp, resource=vapp_resource)
             vapp_vm_resource = vapp.get_vm(request.target_vm_name)
             vm = VM(self.client, resource=vapp_vm_resource)
 
@@ -610,12 +612,12 @@ class VappVm:
         org = Org(self.client, resource=org_resource)
         try:
             vdc_resource = org.get_vdc(request.target_vdc)
-            vdc = VDC(self.client, name=request.target_vdc,
-                      resource=vdc_resource)
+            vdc = VDC(
+                self.client, name=request.target_vdc, resource=vdc_resource)
 
             vapp_resource = vdc.get_vapp(request.target_vapp)
-            vapp = VApp(self.client, name=request.target_vapp,
-                        resource=vapp_resource)
+            vapp = VApp(
+                self.client, name=request.target_vapp, resource=vapp_resource)
             vapp_vm_resource = vapp.get_vm(request.target_vm_name)
             vm = VM(self.client, resource=vapp_vm_resource)
 

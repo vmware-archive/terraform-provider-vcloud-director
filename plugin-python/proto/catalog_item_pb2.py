@@ -2,7 +2,8 @@
 # source: proto/catalog_item.proto
 
 import sys
-_b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
+_b = sys.version_info[0] < 3 and (lambda x: x) or (
+    lambda x: x.encode('latin1'))
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
@@ -12,539 +13,772 @@ from google.protobuf import descriptor_pb2
 
 _sym_db = _symbol_database.Default()
 
-
-
-
 DESCRIPTOR = _descriptor.FileDescriptor(
-  name='proto/catalog_item.proto',
-  package='proto',
-  syntax='proto3',
-  serialized_pb=_b('\n\x18proto/catalog_item.proto\x12\x05proto\"T\n\x16\x43\x61talogUploadMediaInfo\x12\x14\n\x0c\x63\x61talog_name\x18\x01 \x01(\t\x12\x11\n\tfile_path\x18\x02 \x01(\t\x12\x11\n\titem_name\x18\x03 \x01(\t\"+\n\x18\x43\x61talogUploadMediaResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\"R\n\x14\x43\x61talogUploadOvaInfo\x12\x14\n\x0c\x63\x61talog_name\x18\x01 \x01(\t\x12\x11\n\tfile_path\x18\x02 \x01(\t\x12\x11\n\titem_name\x18\x03 \x01(\t\"C\n\x18\x43\x61talogCheckResolvedInfo\x12\x14\n\x0c\x63\x61talog_name\x18\x01 \x01(\t\x12\x11\n\titem_name\x18\x02 \x01(\t\")\n\x16\x43\x61talogUploadOvaResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\"S\n\x15\x44\x65leteCatalogItemInfo\x12\x14\n\x0c\x63\x61talog_name\x18\x01 \x01(\t\x12\x11\n\tfile_path\x18\x02 \x01(\t\x12\x11\n\titem_name\x18\x03 \x01(\t\"*\n\x17\x44\x65leteCatalogItemResult\x12\x0f\n\x07\x64\x65leted\x18\x01 \x01(\x08\"C\n\x18IsPresentCatalogItemInfo\x12\x14\n\x0c\x63\x61talog_name\x18\x01 \x01(\t\x12\x11\n\titem_name\x18\x02 \x01(\t\"-\n\x1aIsPresentCatalogItemResult\x12\x0f\n\x07present\x18\x01 \x01(\x08\"\x96\x01\n\x0f\x43\x61ptureVAppInfo\x12\x14\n\x0c\x63\x61talog_name\x18\x01 \x01(\t\x12\x11\n\titem_name\x18\x02 \x01(\t\x12\x11\n\tvapp_name\x18\x03 \x01(\t\x12\x10\n\x08vdc_name\x18\x04 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x05 \x01(\t\x12 \n\x18\x63ustomize_on_instantiate\x18\x06 \x01(\x08\"%\n\x11\x43\x61ptureVAppResult\x12\x10\n\x08\x63\x61ptured\x18\x01 \x01(\x08\x62\x06proto3')
-)
-
-
-
+    name='proto/catalog_item.proto',
+    package='proto',
+    syntax='proto3',
+    serialized_pb=_b(
+        '\n\x18proto/catalog_item.proto\x12\x05proto\"T\n\x16\x43\x61talogUploadMediaInfo\x12\x14\n\x0c\x63\x61talog_name\x18\x01 \x01(\t\x12\x11\n\tfile_path\x18\x02 \x01(\t\x12\x11\n\titem_name\x18\x03 \x01(\t\"+\n\x18\x43\x61talogUploadMediaResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\"R\n\x14\x43\x61talogUploadOvaInfo\x12\x14\n\x0c\x63\x61talog_name\x18\x01 \x01(\t\x12\x11\n\tfile_path\x18\x02 \x01(\t\x12\x11\n\titem_name\x18\x03 \x01(\t\"C\n\x18\x43\x61talogCheckResolvedInfo\x12\x14\n\x0c\x63\x61talog_name\x18\x01 \x01(\t\x12\x11\n\titem_name\x18\x02 \x01(\t\")\n\x16\x43\x61talogUploadOvaResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\"S\n\x15\x44\x65leteCatalogItemInfo\x12\x14\n\x0c\x63\x61talog_name\x18\x01 \x01(\t\x12\x11\n\tfile_path\x18\x02 \x01(\t\x12\x11\n\titem_name\x18\x03 \x01(\t\"*\n\x17\x44\x65leteCatalogItemResult\x12\x0f\n\x07\x64\x65leted\x18\x01 \x01(\x08\"C\n\x18IsPresentCatalogItemInfo\x12\x14\n\x0c\x63\x61talog_name\x18\x01 \x01(\t\x12\x11\n\titem_name\x18\x02 \x01(\t\"-\n\x1aIsPresentCatalogItemResult\x12\x0f\n\x07present\x18\x01 \x01(\x08\"\x96\x01\n\x0f\x43\x61ptureVAppInfo\x12\x14\n\x0c\x63\x61talog_name\x18\x01 \x01(\t\x12\x11\n\titem_name\x18\x02 \x01(\t\x12\x11\n\tvapp_name\x18\x03 \x01(\t\x12\x10\n\x08vdc_name\x18\x04 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x05 \x01(\t\x12 \n\x18\x63ustomize_on_instantiate\x18\x06 \x01(\x08\"%\n\x11\x43\x61ptureVAppResult\x12\x10\n\x08\x63\x61ptured\x18\x01 \x01(\x08\x62\x06proto3'
+    ))
 
 _CATALOGUPLOADMEDIAINFO = _descriptor.Descriptor(
-  name='CatalogUploadMediaInfo',
-  full_name='proto.CatalogUploadMediaInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='catalog_name', full_name='proto.CatalogUploadMediaInfo.catalog_name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='file_path', full_name='proto.CatalogUploadMediaInfo.file_path', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='item_name', full_name='proto.CatalogUploadMediaInfo.item_name', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=35,
-  serialized_end=119,
+    name='CatalogUploadMediaInfo',
+    full_name='proto.CatalogUploadMediaInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='catalog_name',
+            full_name='proto.CatalogUploadMediaInfo.catalog_name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='file_path',
+            full_name='proto.CatalogUploadMediaInfo.file_path',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='item_name',
+            full_name='proto.CatalogUploadMediaInfo.item_name',
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=35,
+    serialized_end=119,
 )
-
 
 _CATALOGUPLOADMEDIARESULT = _descriptor.Descriptor(
-  name='CatalogUploadMediaResult',
-  full_name='proto.CatalogUploadMediaResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='created', full_name='proto.CatalogUploadMediaResult.created', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=121,
-  serialized_end=164,
+    name='CatalogUploadMediaResult',
+    full_name='proto.CatalogUploadMediaResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='created',
+            full_name='proto.CatalogUploadMediaResult.created',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=121,
+    serialized_end=164,
 )
-
 
 _CATALOGUPLOADOVAINFO = _descriptor.Descriptor(
-  name='CatalogUploadOvaInfo',
-  full_name='proto.CatalogUploadOvaInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='catalog_name', full_name='proto.CatalogUploadOvaInfo.catalog_name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='file_path', full_name='proto.CatalogUploadOvaInfo.file_path', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='item_name', full_name='proto.CatalogUploadOvaInfo.item_name', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=166,
-  serialized_end=248,
+    name='CatalogUploadOvaInfo',
+    full_name='proto.CatalogUploadOvaInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='catalog_name',
+            full_name='proto.CatalogUploadOvaInfo.catalog_name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='file_path',
+            full_name='proto.CatalogUploadOvaInfo.file_path',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='item_name',
+            full_name='proto.CatalogUploadOvaInfo.item_name',
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=166,
+    serialized_end=248,
 )
-
 
 _CATALOGCHECKRESOLVEDINFO = _descriptor.Descriptor(
-  name='CatalogCheckResolvedInfo',
-  full_name='proto.CatalogCheckResolvedInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='catalog_name', full_name='proto.CatalogCheckResolvedInfo.catalog_name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='item_name', full_name='proto.CatalogCheckResolvedInfo.item_name', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=250,
-  serialized_end=317,
+    name='CatalogCheckResolvedInfo',
+    full_name='proto.CatalogCheckResolvedInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='catalog_name',
+            full_name='proto.CatalogCheckResolvedInfo.catalog_name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='item_name',
+            full_name='proto.CatalogCheckResolvedInfo.item_name',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=250,
+    serialized_end=317,
 )
-
 
 _CATALOGUPLOADOVARESULT = _descriptor.Descriptor(
-  name='CatalogUploadOvaResult',
-  full_name='proto.CatalogUploadOvaResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='created', full_name='proto.CatalogUploadOvaResult.created', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=319,
-  serialized_end=360,
+    name='CatalogUploadOvaResult',
+    full_name='proto.CatalogUploadOvaResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='created',
+            full_name='proto.CatalogUploadOvaResult.created',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=319,
+    serialized_end=360,
 )
-
 
 _DELETECATALOGITEMINFO = _descriptor.Descriptor(
-  name='DeleteCatalogItemInfo',
-  full_name='proto.DeleteCatalogItemInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='catalog_name', full_name='proto.DeleteCatalogItemInfo.catalog_name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='file_path', full_name='proto.DeleteCatalogItemInfo.file_path', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='item_name', full_name='proto.DeleteCatalogItemInfo.item_name', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=362,
-  serialized_end=445,
+    name='DeleteCatalogItemInfo',
+    full_name='proto.DeleteCatalogItemInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='catalog_name',
+            full_name='proto.DeleteCatalogItemInfo.catalog_name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='file_path',
+            full_name='proto.DeleteCatalogItemInfo.file_path',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='item_name',
+            full_name='proto.DeleteCatalogItemInfo.item_name',
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=362,
+    serialized_end=445,
 )
-
 
 _DELETECATALOGITEMRESULT = _descriptor.Descriptor(
-  name='DeleteCatalogItemResult',
-  full_name='proto.DeleteCatalogItemResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='deleted', full_name='proto.DeleteCatalogItemResult.deleted', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=447,
-  serialized_end=489,
+    name='DeleteCatalogItemResult',
+    full_name='proto.DeleteCatalogItemResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='deleted',
+            full_name='proto.DeleteCatalogItemResult.deleted',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=447,
+    serialized_end=489,
 )
-
 
 _ISPRESENTCATALOGITEMINFO = _descriptor.Descriptor(
-  name='IsPresentCatalogItemInfo',
-  full_name='proto.IsPresentCatalogItemInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='catalog_name', full_name='proto.IsPresentCatalogItemInfo.catalog_name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='item_name', full_name='proto.IsPresentCatalogItemInfo.item_name', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=491,
-  serialized_end=558,
+    name='IsPresentCatalogItemInfo',
+    full_name='proto.IsPresentCatalogItemInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='catalog_name',
+            full_name='proto.IsPresentCatalogItemInfo.catalog_name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='item_name',
+            full_name='proto.IsPresentCatalogItemInfo.item_name',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=491,
+    serialized_end=558,
 )
-
 
 _ISPRESENTCATALOGITEMRESULT = _descriptor.Descriptor(
-  name='IsPresentCatalogItemResult',
-  full_name='proto.IsPresentCatalogItemResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='present', full_name='proto.IsPresentCatalogItemResult.present', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=560,
-  serialized_end=605,
+    name='IsPresentCatalogItemResult',
+    full_name='proto.IsPresentCatalogItemResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='present',
+            full_name='proto.IsPresentCatalogItemResult.present',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=560,
+    serialized_end=605,
 )
-
 
 _CAPTUREVAPPINFO = _descriptor.Descriptor(
-  name='CaptureVAppInfo',
-  full_name='proto.CaptureVAppInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='catalog_name', full_name='proto.CaptureVAppInfo.catalog_name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='item_name', full_name='proto.CaptureVAppInfo.item_name', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='vapp_name', full_name='proto.CaptureVAppInfo.vapp_name', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='vdc_name', full_name='proto.CaptureVAppInfo.vdc_name', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='description', full_name='proto.CaptureVAppInfo.description', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='customize_on_instantiate', full_name='proto.CaptureVAppInfo.customize_on_instantiate', index=5,
-      number=6, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=608,
-  serialized_end=758,
+    name='CaptureVAppInfo',
+    full_name='proto.CaptureVAppInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='catalog_name',
+            full_name='proto.CaptureVAppInfo.catalog_name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='item_name',
+            full_name='proto.CaptureVAppInfo.item_name',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='vapp_name',
+            full_name='proto.CaptureVAppInfo.vapp_name',
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='vdc_name',
+            full_name='proto.CaptureVAppInfo.vdc_name',
+            index=3,
+            number=4,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='description',
+            full_name='proto.CaptureVAppInfo.description',
+            index=4,
+            number=5,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='customize_on_instantiate',
+            full_name='proto.CaptureVAppInfo.customize_on_instantiate',
+            index=5,
+            number=6,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=608,
+    serialized_end=758,
 )
-
 
 _CAPTUREVAPPRESULT = _descriptor.Descriptor(
-  name='CaptureVAppResult',
-  full_name='proto.CaptureVAppResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='captured', full_name='proto.CaptureVAppResult.captured', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=760,
-  serialized_end=797,
+    name='CaptureVAppResult',
+    full_name='proto.CaptureVAppResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='captured',
+            full_name='proto.CaptureVAppResult.captured',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=760,
+    serialized_end=797,
 )
 
-DESCRIPTOR.message_types_by_name['CatalogUploadMediaInfo'] = _CATALOGUPLOADMEDIAINFO
-DESCRIPTOR.message_types_by_name['CatalogUploadMediaResult'] = _CATALOGUPLOADMEDIARESULT
-DESCRIPTOR.message_types_by_name['CatalogUploadOvaInfo'] = _CATALOGUPLOADOVAINFO
-DESCRIPTOR.message_types_by_name['CatalogCheckResolvedInfo'] = _CATALOGCHECKRESOLVEDINFO
-DESCRIPTOR.message_types_by_name['CatalogUploadOvaResult'] = _CATALOGUPLOADOVARESULT
-DESCRIPTOR.message_types_by_name['DeleteCatalogItemInfo'] = _DELETECATALOGITEMINFO
-DESCRIPTOR.message_types_by_name['DeleteCatalogItemResult'] = _DELETECATALOGITEMRESULT
-DESCRIPTOR.message_types_by_name['IsPresentCatalogItemInfo'] = _ISPRESENTCATALOGITEMINFO
-DESCRIPTOR.message_types_by_name['IsPresentCatalogItemResult'] = _ISPRESENTCATALOGITEMRESULT
+DESCRIPTOR.message_types_by_name[
+    'CatalogUploadMediaInfo'] = _CATALOGUPLOADMEDIAINFO
+DESCRIPTOR.message_types_by_name[
+    'CatalogUploadMediaResult'] = _CATALOGUPLOADMEDIARESULT
+DESCRIPTOR.message_types_by_name[
+    'CatalogUploadOvaInfo'] = _CATALOGUPLOADOVAINFO
+DESCRIPTOR.message_types_by_name[
+    'CatalogCheckResolvedInfo'] = _CATALOGCHECKRESOLVEDINFO
+DESCRIPTOR.message_types_by_name[
+    'CatalogUploadOvaResult'] = _CATALOGUPLOADOVARESULT
+DESCRIPTOR.message_types_by_name[
+    'DeleteCatalogItemInfo'] = _DELETECATALOGITEMINFO
+DESCRIPTOR.message_types_by_name[
+    'DeleteCatalogItemResult'] = _DELETECATALOGITEMRESULT
+DESCRIPTOR.message_types_by_name[
+    'IsPresentCatalogItemInfo'] = _ISPRESENTCATALOGITEMINFO
+DESCRIPTOR.message_types_by_name[
+    'IsPresentCatalogItemResult'] = _ISPRESENTCATALOGITEMRESULT
 DESCRIPTOR.message_types_by_name['CaptureVAppInfo'] = _CAPTUREVAPPINFO
 DESCRIPTOR.message_types_by_name['CaptureVAppResult'] = _CAPTUREVAPPRESULT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-CatalogUploadMediaInfo = _reflection.GeneratedProtocolMessageType('CatalogUploadMediaInfo', (_message.Message,), dict(
-  DESCRIPTOR = _CATALOGUPLOADMEDIAINFO,
-  __module__ = 'proto.catalog_item_pb2'
-  # @@protoc_insertion_point(class_scope:proto.CatalogUploadMediaInfo)
-  ))
+CatalogUploadMediaInfo = _reflection.GeneratedProtocolMessageType(
+    'CatalogUploadMediaInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_CATALOGUPLOADMEDIAINFO,
+        __module__='proto.catalog_item_pb2'
+        # @@protoc_insertion_point(class_scope:proto.CatalogUploadMediaInfo)
+    ))
 _sym_db.RegisterMessage(CatalogUploadMediaInfo)
 
-CatalogUploadMediaResult = _reflection.GeneratedProtocolMessageType('CatalogUploadMediaResult', (_message.Message,), dict(
-  DESCRIPTOR = _CATALOGUPLOADMEDIARESULT,
-  __module__ = 'proto.catalog_item_pb2'
-  # @@protoc_insertion_point(class_scope:proto.CatalogUploadMediaResult)
-  ))
+CatalogUploadMediaResult = _reflection.GeneratedProtocolMessageType(
+    'CatalogUploadMediaResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_CATALOGUPLOADMEDIARESULT,
+        __module__='proto.catalog_item_pb2'
+        # @@protoc_insertion_point(class_scope:proto.CatalogUploadMediaResult)
+    ))
 _sym_db.RegisterMessage(CatalogUploadMediaResult)
 
-CatalogUploadOvaInfo = _reflection.GeneratedProtocolMessageType('CatalogUploadOvaInfo', (_message.Message,), dict(
-  DESCRIPTOR = _CATALOGUPLOADOVAINFO,
-  __module__ = 'proto.catalog_item_pb2'
-  # @@protoc_insertion_point(class_scope:proto.CatalogUploadOvaInfo)
-  ))
+CatalogUploadOvaInfo = _reflection.GeneratedProtocolMessageType(
+    'CatalogUploadOvaInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_CATALOGUPLOADOVAINFO,
+        __module__='proto.catalog_item_pb2'
+        # @@protoc_insertion_point(class_scope:proto.CatalogUploadOvaInfo)
+    ))
 _sym_db.RegisterMessage(CatalogUploadOvaInfo)
 
-CatalogCheckResolvedInfo = _reflection.GeneratedProtocolMessageType('CatalogCheckResolvedInfo', (_message.Message,), dict(
-  DESCRIPTOR = _CATALOGCHECKRESOLVEDINFO,
-  __module__ = 'proto.catalog_item_pb2'
-  # @@protoc_insertion_point(class_scope:proto.CatalogCheckResolvedInfo)
-  ))
+CatalogCheckResolvedInfo = _reflection.GeneratedProtocolMessageType(
+    'CatalogCheckResolvedInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_CATALOGCHECKRESOLVEDINFO,
+        __module__='proto.catalog_item_pb2'
+        # @@protoc_insertion_point(class_scope:proto.CatalogCheckResolvedInfo)
+    ))
 _sym_db.RegisterMessage(CatalogCheckResolvedInfo)
 
-CatalogUploadOvaResult = _reflection.GeneratedProtocolMessageType('CatalogUploadOvaResult', (_message.Message,), dict(
-  DESCRIPTOR = _CATALOGUPLOADOVARESULT,
-  __module__ = 'proto.catalog_item_pb2'
-  # @@protoc_insertion_point(class_scope:proto.CatalogUploadOvaResult)
-  ))
+CatalogUploadOvaResult = _reflection.GeneratedProtocolMessageType(
+    'CatalogUploadOvaResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_CATALOGUPLOADOVARESULT,
+        __module__='proto.catalog_item_pb2'
+        # @@protoc_insertion_point(class_scope:proto.CatalogUploadOvaResult)
+    ))
 _sym_db.RegisterMessage(CatalogUploadOvaResult)
 
-DeleteCatalogItemInfo = _reflection.GeneratedProtocolMessageType('DeleteCatalogItemInfo', (_message.Message,), dict(
-  DESCRIPTOR = _DELETECATALOGITEMINFO,
-  __module__ = 'proto.catalog_item_pb2'
-  # @@protoc_insertion_point(class_scope:proto.DeleteCatalogItemInfo)
-  ))
+DeleteCatalogItemInfo = _reflection.GeneratedProtocolMessageType(
+    'DeleteCatalogItemInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_DELETECATALOGITEMINFO,
+        __module__='proto.catalog_item_pb2'
+        # @@protoc_insertion_point(class_scope:proto.DeleteCatalogItemInfo)
+    ))
 _sym_db.RegisterMessage(DeleteCatalogItemInfo)
 
-DeleteCatalogItemResult = _reflection.GeneratedProtocolMessageType('DeleteCatalogItemResult', (_message.Message,), dict(
-  DESCRIPTOR = _DELETECATALOGITEMRESULT,
-  __module__ = 'proto.catalog_item_pb2'
-  # @@protoc_insertion_point(class_scope:proto.DeleteCatalogItemResult)
-  ))
+DeleteCatalogItemResult = _reflection.GeneratedProtocolMessageType(
+    'DeleteCatalogItemResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_DELETECATALOGITEMRESULT,
+        __module__='proto.catalog_item_pb2'
+        # @@protoc_insertion_point(class_scope:proto.DeleteCatalogItemResult)
+    ))
 _sym_db.RegisterMessage(DeleteCatalogItemResult)
 
-IsPresentCatalogItemInfo = _reflection.GeneratedProtocolMessageType('IsPresentCatalogItemInfo', (_message.Message,), dict(
-  DESCRIPTOR = _ISPRESENTCATALOGITEMINFO,
-  __module__ = 'proto.catalog_item_pb2'
-  # @@protoc_insertion_point(class_scope:proto.IsPresentCatalogItemInfo)
-  ))
+IsPresentCatalogItemInfo = _reflection.GeneratedProtocolMessageType(
+    'IsPresentCatalogItemInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_ISPRESENTCATALOGITEMINFO,
+        __module__='proto.catalog_item_pb2'
+        # @@protoc_insertion_point(class_scope:proto.IsPresentCatalogItemInfo)
+    ))
 _sym_db.RegisterMessage(IsPresentCatalogItemInfo)
 
-IsPresentCatalogItemResult = _reflection.GeneratedProtocolMessageType('IsPresentCatalogItemResult', (_message.Message,), dict(
-  DESCRIPTOR = _ISPRESENTCATALOGITEMRESULT,
-  __module__ = 'proto.catalog_item_pb2'
-  # @@protoc_insertion_point(class_scope:proto.IsPresentCatalogItemResult)
-  ))
+IsPresentCatalogItemResult = _reflection.GeneratedProtocolMessageType(
+    'IsPresentCatalogItemResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_ISPRESENTCATALOGITEMRESULT,
+        __module__='proto.catalog_item_pb2'
+        # @@protoc_insertion_point(class_scope:proto.IsPresentCatalogItemResult)
+    ))
 _sym_db.RegisterMessage(IsPresentCatalogItemResult)
 
-CaptureVAppInfo = _reflection.GeneratedProtocolMessageType('CaptureVAppInfo', (_message.Message,), dict(
-  DESCRIPTOR = _CAPTUREVAPPINFO,
-  __module__ = 'proto.catalog_item_pb2'
-  # @@protoc_insertion_point(class_scope:proto.CaptureVAppInfo)
-  ))
+CaptureVAppInfo = _reflection.GeneratedProtocolMessageType(
+    'CaptureVAppInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_CAPTUREVAPPINFO,
+        __module__='proto.catalog_item_pb2'
+        # @@protoc_insertion_point(class_scope:proto.CaptureVAppInfo)
+    ))
 _sym_db.RegisterMessage(CaptureVAppInfo)
 
-CaptureVAppResult = _reflection.GeneratedProtocolMessageType('CaptureVAppResult', (_message.Message,), dict(
-  DESCRIPTOR = _CAPTUREVAPPRESULT,
-  __module__ = 'proto.catalog_item_pb2'
-  # @@protoc_insertion_point(class_scope:proto.CaptureVAppResult)
-  ))
+CaptureVAppResult = _reflection.GeneratedProtocolMessageType(
+    'CaptureVAppResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_CAPTUREVAPPRESULT,
+        __module__='proto.catalog_item_pb2'
+        # @@protoc_insertion_point(class_scope:proto.CaptureVAppResult)
+    ))
 _sym_db.RegisterMessage(CaptureVAppResult)
-
 
 # @@protoc_insertion_point(module_scope)

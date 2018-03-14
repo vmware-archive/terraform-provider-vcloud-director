@@ -22,9 +22,21 @@ func TestAccResourceVApp(t *testing.T) {
 		CheckDestroy: testAccCheckVAppDestroy,
 		Steps: []resource.TestStep{
 			resource.TestStep{
-				Config: testAccVApp_basic,
+				Config: testAccVApp_basic + testAccVdc_create,
 				Check: resource.ComposeTestCheckFunc(
 					testAccCheckCreateVApp(),
+				),
+			},
+			resource.TestStep{
+				Config: testAccVApp_basic + testAccVdc_power_off,
+				Check: resource.ComposeTestCheckFunc(
+					testAccCheckUpdateVApp(),
+				),
+			},
+			resource.TestStep{
+				Config: testAccVApp_basic + testAccVdc_power_on,
+				Check: resource.ComposeTestCheckFunc(
+					testAccCheckUpdateVApp(),
 				),
 			},
 		},
@@ -51,6 +63,17 @@ func testAccCheckCreateVApp() resource.TestCheckFunc {
 		}
 		logging.Plogf("THIS SHOULD BE RESP %#v", *resp)
 		logging.Plog("__INIT_testAccCheckCreateVAPP__")
+		return nil
+	}
+}
+
+func testAccCheckUpdateVApp() resource.TestCheckFunc {
+	return func(s *terraform.State) error {
+		logging.Plog("__INIT_testAccCheckUpdateVApp__")
+
+		//Update when read power on, off API available
+
+		logging.Plog("__DONE_testAccCheckUpdateVApp__")
 		return nil
 	}
 }
@@ -124,6 +147,9 @@ provider "vcloud-director" {
   allow_unverified_ssl = "true"
 }
 
+`
+
+const testAccVdc_create = `
 resource "vcloud-director_vapp" "vapp1" {
         name  					= "${var.VAPP_NAME}"
         template_name 			= "${var.VAPP_TEMPLATE_NAME}"
@@ -133,7 +159,38 @@ resource "vcloud-director_vapp" "vapp1" {
         ip_allocation_mode 		= "${var.VAPP_IP_ALLOCATION_MODE}"
         cpu 					= "${var.VAPP_CPU}"
         memory 					= "${var.VAPP_MEMORY}"
-       
+        power_on				= true
+}
+
+`
+
+const testAccVdc_power_on = `
+resource "vcloud-director_vapp" "vapp1" {
+        name  					= "${var.VAPP_NAME}"
+        template_name 			= "${var.VAPP_TEMPLATE_NAME}"
+        catalog_name  			= "${var.VAPP_CATALOG_NAME}"
+        vdc 					= "${var.VAPP_VDC}"
+        network 				= "${var.VAPP_NETWORK}"
+        ip_allocation_mode 		= "${var.VAPP_IP_ALLOCATION_MODE}"
+        cpu 					= "${var.VAPP_CPU}"
+        memory 					= "${var.VAPP_MEMORY}"
+        power_on				= true
+}
+
+`
+
+const testAccVdc_power_off = `
+resource "vcloud-director_vapp" "vapp1" {
+        name  					= "${var.VAPP_NAME}"
+        template_name 			= "${var.VAPP_TEMPLATE_NAME}"
+        catalog_name  			= "${var.VAPP_CATALOG_NAME}"
+        vdc 					= "${var.VAPP_VDC}"
+        network 				= "${var.VAPP_NETWORK}"
+        ip_allocation_mode 		= "${var.VAPP_IP_ALLOCATION_MODE}"
+        cpu 					= "${var.VAPP_CPU}"
+        memory 					= "${var.VAPP_MEMORY}"
+	    power_on				= false
 
 }
+
 `

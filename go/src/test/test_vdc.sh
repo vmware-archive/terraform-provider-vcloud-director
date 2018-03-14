@@ -7,11 +7,6 @@
 export TF_ACC=1
 export TF_LOG=TRACE
 
-
-
-export TF_ACC=1
-export TF_LOG=TRACE
-
 export VCD_ALLOW_UNVERIFIED_SSL=true
 export VCD_IP="10.172.158.127"
 

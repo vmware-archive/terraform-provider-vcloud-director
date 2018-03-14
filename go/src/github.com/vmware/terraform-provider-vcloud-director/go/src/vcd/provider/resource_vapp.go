@@ -70,6 +70,12 @@ func resourceVApp() *schema.Resource {
 				Optional: true,
 				ForceNew: true,
 			},
+
+			"power_on": &schema.Schema{
+				Type:     schema.TypeBool,
+				Optional: true,
+				ForceNew: false,
+			},
 		},
 	}
 }
@@ -182,15 +188,38 @@ func resourceVAppRead(d *schema.ResourceData, m interface{}) error {
 }
 
 func resourceVAppUpdate(d *schema.ResourceData, m interface{}) error {
-	logging.Plog("__INIT__NOT IMPL_resourceVAppUpdate_")
-	oraw, nraw := d.GetChange("name")
-	o := oraw.(string)
-	n := nraw.(string)
+	logging.Plog("__INIT__resourceVAppUpdate_")
 
-	msg := o + " , " + n
-	logging.PlogWarn(msg)
+	vAppName := d.Get("name").(string)
+	vdc := d.Get("vdc").(string)
 
-	return fmt.Errorf("__ERROR__Not Updating NAME , NOT IMPLEMENTED !!!!")
+	powerOnOldRaw, powerOnNewRaw := d.GetChange("power_on")
+	powerOnOld := powerOnOldRaw.(bool)
+	powerOnNew := powerOnNewRaw.(bool)
+
+	logging.Plog(fmt.Sprintf("[powerOnOld %v ]  [powerOnNew %v ]", powerOnOld, powerOnNew))
+
+	if !(powerOnOld == powerOnNew) {
+
+		updateVAppInfo := proto.UpdateVAppInfo{
+			Name:    vAppName,
+			Vdc:     vdc,
+			PowerOn: powerOnNew,
+		}
+
+		provider := getProvider(m)
+		resp, errp := provider.UpdateVApp(updateVAppInfo)
+		if errp != nil {
+			return fmt.Errorf("Error Updating VApp :[%+v] %#v", updateVAppInfo, errp)
+		}
+		if resp.Updated {
+			logging.Plog(fmt.Sprintf("VApp [%+v]  updated  ", resp))
+		}
+	} else {
+		return fmt.Errorf("__ERROR__ Can not update field other then power_on")
+	}
+
+	return nil
 }
 
 func resourceVAppDelete(d *schema.ResourceData, m interface{}) error {

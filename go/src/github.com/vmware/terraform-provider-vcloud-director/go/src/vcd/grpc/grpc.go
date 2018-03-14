@@ -7,9 +7,9 @@
 package grpc
 
 import (
+	plugin "github.com/hashicorp/go-plugin"
 	"github.com/vmware/terraform-provider-vcloud-director/go/src/vcd/proto"
 	"golang.org/x/net/context"
-	plugin "github.com/hashicorp/go-plugin"
 )
 
 // GRPCClient is an implementation of KV that talks over RPC.
@@ -21,7 +21,7 @@ type GRPCClient struct {
 // Here is the gRPC server that GRPCClient talks to.
 type GRPCServer struct {
 	// This is the real implementation
-	Impl proto.PyVcloudProviderServer
+	Impl   proto.PyVcloudProviderServer
 	broker *plugin.GRPCBroker
 }
 
@@ -210,6 +210,19 @@ func (m *GRPCServer) ReadVApp(
 	req *proto.ReadVAppInfo) (*proto.ReadVAppResult, error) {
 	v, err := m.Impl.ReadVApp(ctx, req)
 	return &proto.ReadVAppResult{Present: v.Present}, err
+
+}
+
+func (m *GRPCClient) UpdateVApp(itemInfo proto.UpdateVAppInfo) (*proto.UpdateVAppResult, error) {
+	result, err := m.client.UpdateVApp(context.Background(), &itemInfo)
+	return result, err
+}
+
+func (m *GRPCServer) UpdateVApp(
+	ctx context.Context,
+	req *proto.UpdateVAppInfo) (*proto.UpdateVAppResult, error) {
+	v, err := m.Impl.UpdateVApp(ctx, req)
+	return &proto.UpdateVAppResult{Updated: v.Updated}, err
 
 }
 

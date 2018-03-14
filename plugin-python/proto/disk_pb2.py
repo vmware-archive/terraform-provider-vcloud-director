@@ -2,7 +2,8 @@
 # source: proto/disk.proto
 
 import sys
-_b=sys.version_info[0]<3 and (lambda x:x) or (lambda x:x.encode('latin1'))
+_b = sys.version_info[0] < 3 and (lambda x: x) or (
+    lambda x: x.encode('latin1'))
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
@@ -12,293 +13,455 @@ from google.protobuf import descriptor_pb2
 
 _sym_db = _symbol_database.Default()
 
-
-
-
 DESCRIPTOR = _descriptor.FileDescriptor(
-  name='proto/disk.proto',
-  package='proto',
-  syntax='proto3',
-  serialized_pb=_b('\n\x10proto/disk.proto\x12\x05proto\"\xa0\x01\n\x0e\x43reateDiskInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04size\x18\x02 \x01(\t\x12\x10\n\x08\x62us_type\x18\x03 \x01(\t\x12\x14\n\x0c\x62us_sub_type\x18\x04 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x05 \x01(\t\x12\x17\n\x0fstorage_profile\x18\x06 \x01(\t\x12\x0b\n\x03vdc\x18\x07 \x01(\t\x12\x0f\n\x07\x64isk_id\x18\x08 \x01(\t\"4\n\x10\x43reateDiskResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\x12\x0f\n\x07\x64isk_id\x18\x02 \x01(\t\"<\n\x0e\x44\x65leteDiskInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07\x64isk_id\x18\x02 \x01(\t\x12\x0b\n\x03vdc\x18\x03 \x01(\t\"#\n\x10\x44\x65leteDiskResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\":\n\x0cReadDiskInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07\x64isk_id\x18\x02 \x01(\t\x12\x0b\n\x03vdc\x18\x03 \x01(\t\"2\n\x0eReadDiskResult\x12\x0f\n\x07present\x18\x01 \x01(\x08\x12\x0f\n\x07\x64isk_id\x18\x02 \x01(\t2\xbf\x01\n\x0fIndependentDisk\x12:\n\x06\x43reate\x12\x15.proto.CreateDiskInfo\x1a\x17.proto.CreateDiskResult\"\x00\x12\x34\n\x04Read\x12\x13.proto.ReadDiskInfo\x1a\x15.proto.ReadDiskResult\"\x00\x12:\n\x06\x44\x65lete\x12\x15.proto.DeleteDiskInfo\x1a\x17.proto.DeleteDiskResult\"\x00\x62\x06proto3')
-)
-
-
-
+    name='proto/disk.proto',
+    package='proto',
+    syntax='proto3',
+    serialized_pb=_b(
+        '\n\x10proto/disk.proto\x12\x05proto\"\xa0\x01\n\x0e\x43reateDiskInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04size\x18\x02 \x01(\t\x12\x10\n\x08\x62us_type\x18\x03 \x01(\t\x12\x14\n\x0c\x62us_sub_type\x18\x04 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x05 \x01(\t\x12\x17\n\x0fstorage_profile\x18\x06 \x01(\t\x12\x0b\n\x03vdc\x18\x07 \x01(\t\x12\x0f\n\x07\x64isk_id\x18\x08 \x01(\t\"4\n\x10\x43reateDiskResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\x12\x0f\n\x07\x64isk_id\x18\x02 \x01(\t\"<\n\x0e\x44\x65leteDiskInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07\x64isk_id\x18\x02 \x01(\t\x12\x0b\n\x03vdc\x18\x03 \x01(\t\"#\n\x10\x44\x65leteDiskResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\":\n\x0cReadDiskInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07\x64isk_id\x18\x02 \x01(\t\x12\x0b\n\x03vdc\x18\x03 \x01(\t\"2\n\x0eReadDiskResult\x12\x0f\n\x07present\x18\x01 \x01(\x08\x12\x0f\n\x07\x64isk_id\x18\x02 \x01(\t2\xbf\x01\n\x0fIndependentDisk\x12:\n\x06\x43reate\x12\x15.proto.CreateDiskInfo\x1a\x17.proto.CreateDiskResult\"\x00\x12\x34\n\x04Read\x12\x13.proto.ReadDiskInfo\x1a\x15.proto.ReadDiskResult\"\x00\x12:\n\x06\x44\x65lete\x12\x15.proto.DeleteDiskInfo\x1a\x17.proto.DeleteDiskResult\"\x00\x62\x06proto3'
+    ))
 
 _CREATEDISKINFO = _descriptor.Descriptor(
-  name='CreateDiskInfo',
-  full_name='proto.CreateDiskInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='proto.CreateDiskInfo.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='size', full_name='proto.CreateDiskInfo.size', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='bus_type', full_name='proto.CreateDiskInfo.bus_type', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='bus_sub_type', full_name='proto.CreateDiskInfo.bus_sub_type', index=3,
-      number=4, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='description', full_name='proto.CreateDiskInfo.description', index=4,
-      number=5, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='storage_profile', full_name='proto.CreateDiskInfo.storage_profile', index=5,
-      number=6, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='vdc', full_name='proto.CreateDiskInfo.vdc', index=6,
-      number=7, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='disk_id', full_name='proto.CreateDiskInfo.disk_id', index=7,
-      number=8, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=28,
-  serialized_end=188,
+    name='CreateDiskInfo',
+    full_name='proto.CreateDiskInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='name',
+            full_name='proto.CreateDiskInfo.name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='size',
+            full_name='proto.CreateDiskInfo.size',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='bus_type',
+            full_name='proto.CreateDiskInfo.bus_type',
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='bus_sub_type',
+            full_name='proto.CreateDiskInfo.bus_sub_type',
+            index=3,
+            number=4,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='description',
+            full_name='proto.CreateDiskInfo.description',
+            index=4,
+            number=5,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='storage_profile',
+            full_name='proto.CreateDiskInfo.storage_profile',
+            index=5,
+            number=6,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='vdc',
+            full_name='proto.CreateDiskInfo.vdc',
+            index=6,
+            number=7,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='disk_id',
+            full_name='proto.CreateDiskInfo.disk_id',
+            index=7,
+            number=8,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=28,
+    serialized_end=188,
 )
-
 
 _CREATEDISKRESULT = _descriptor.Descriptor(
-  name='CreateDiskResult',
-  full_name='proto.CreateDiskResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='created', full_name='proto.CreateDiskResult.created', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='disk_id', full_name='proto.CreateDiskResult.disk_id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=190,
-  serialized_end=242,
+    name='CreateDiskResult',
+    full_name='proto.CreateDiskResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='created',
+            full_name='proto.CreateDiskResult.created',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='disk_id',
+            full_name='proto.CreateDiskResult.disk_id',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=190,
+    serialized_end=242,
 )
-
 
 _DELETEDISKINFO = _descriptor.Descriptor(
-  name='DeleteDiskInfo',
-  full_name='proto.DeleteDiskInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='proto.DeleteDiskInfo.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='disk_id', full_name='proto.DeleteDiskInfo.disk_id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='vdc', full_name='proto.DeleteDiskInfo.vdc', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=244,
-  serialized_end=304,
+    name='DeleteDiskInfo',
+    full_name='proto.DeleteDiskInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='name',
+            full_name='proto.DeleteDiskInfo.name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='disk_id',
+            full_name='proto.DeleteDiskInfo.disk_id',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='vdc',
+            full_name='proto.DeleteDiskInfo.vdc',
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=244,
+    serialized_end=304,
 )
-
 
 _DELETEDISKRESULT = _descriptor.Descriptor(
-  name='DeleteDiskResult',
-  full_name='proto.DeleteDiskResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='created', full_name='proto.DeleteDiskResult.created', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=306,
-  serialized_end=341,
+    name='DeleteDiskResult',
+    full_name='proto.DeleteDiskResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='created',
+            full_name='proto.DeleteDiskResult.created',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=306,
+    serialized_end=341,
 )
-
 
 _READDISKINFO = _descriptor.Descriptor(
-  name='ReadDiskInfo',
-  full_name='proto.ReadDiskInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='name', full_name='proto.ReadDiskInfo.name', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='disk_id', full_name='proto.ReadDiskInfo.disk_id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='vdc', full_name='proto.ReadDiskInfo.vdc', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=343,
-  serialized_end=401,
+    name='ReadDiskInfo',
+    full_name='proto.ReadDiskInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='name',
+            full_name='proto.ReadDiskInfo.name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='disk_id',
+            full_name='proto.ReadDiskInfo.disk_id',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='vdc',
+            full_name='proto.ReadDiskInfo.vdc',
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=343,
+    serialized_end=401,
 )
 
-
 _READDISKRESULT = _descriptor.Descriptor(
-  name='ReadDiskResult',
-  full_name='proto.ReadDiskResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='present', full_name='proto.ReadDiskResult.present', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='disk_id', full_name='proto.ReadDiskResult.disk_id', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=403,
-  serialized_end=453,
+    name='ReadDiskResult',
+    full_name='proto.ReadDiskResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='present',
+            full_name='proto.ReadDiskResult.present',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='disk_id',
+            full_name='proto.ReadDiskResult.disk_id',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=403,
+    serialized_end=453,
 )
 
 DESCRIPTOR.message_types_by_name['CreateDiskInfo'] = _CREATEDISKINFO
@@ -309,87 +472,103 @@ DESCRIPTOR.message_types_by_name['ReadDiskInfo'] = _READDISKINFO
 DESCRIPTOR.message_types_by_name['ReadDiskResult'] = _READDISKRESULT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-CreateDiskInfo = _reflection.GeneratedProtocolMessageType('CreateDiskInfo', (_message.Message,), dict(
-  DESCRIPTOR = _CREATEDISKINFO,
-  __module__ = 'proto.disk_pb2'
-  # @@protoc_insertion_point(class_scope:proto.CreateDiskInfo)
-  ))
+CreateDiskInfo = _reflection.GeneratedProtocolMessageType(
+    'CreateDiskInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_CREATEDISKINFO,
+        __module__='proto.disk_pb2'
+        # @@protoc_insertion_point(class_scope:proto.CreateDiskInfo)
+    ))
 _sym_db.RegisterMessage(CreateDiskInfo)
 
-CreateDiskResult = _reflection.GeneratedProtocolMessageType('CreateDiskResult', (_message.Message,), dict(
-  DESCRIPTOR = _CREATEDISKRESULT,
-  __module__ = 'proto.disk_pb2'
-  # @@protoc_insertion_point(class_scope:proto.CreateDiskResult)
-  ))
+CreateDiskResult = _reflection.GeneratedProtocolMessageType(
+    'CreateDiskResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_CREATEDISKRESULT,
+        __module__='proto.disk_pb2'
+        # @@protoc_insertion_point(class_scope:proto.CreateDiskResult)
+    ))
 _sym_db.RegisterMessage(CreateDiskResult)
 
-DeleteDiskInfo = _reflection.GeneratedProtocolMessageType('DeleteDiskInfo', (_message.Message,), dict(
-  DESCRIPTOR = _DELETEDISKINFO,
-  __module__ = 'proto.disk_pb2'
-  # @@protoc_insertion_point(class_scope:proto.DeleteDiskInfo)
-  ))
+DeleteDiskInfo = _reflection.GeneratedProtocolMessageType(
+    'DeleteDiskInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_DELETEDISKINFO,
+        __module__='proto.disk_pb2'
+        # @@protoc_insertion_point(class_scope:proto.DeleteDiskInfo)
+    ))
 _sym_db.RegisterMessage(DeleteDiskInfo)
 
-DeleteDiskResult = _reflection.GeneratedProtocolMessageType('DeleteDiskResult', (_message.Message,), dict(
-  DESCRIPTOR = _DELETEDISKRESULT,
-  __module__ = 'proto.disk_pb2'
-  # @@protoc_insertion_point(class_scope:proto.DeleteDiskResult)
-  ))
+DeleteDiskResult = _reflection.GeneratedProtocolMessageType(
+    'DeleteDiskResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_DELETEDISKRESULT,
+        __module__='proto.disk_pb2'
+        # @@protoc_insertion_point(class_scope:proto.DeleteDiskResult)
+    ))
 _sym_db.RegisterMessage(DeleteDiskResult)
 
-ReadDiskInfo = _reflection.GeneratedProtocolMessageType('ReadDiskInfo', (_message.Message,), dict(
-  DESCRIPTOR = _READDISKINFO,
-  __module__ = 'proto.disk_pb2'
-  # @@protoc_insertion_point(class_scope:proto.ReadDiskInfo)
-  ))
+ReadDiskInfo = _reflection.GeneratedProtocolMessageType(
+    'ReadDiskInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_READDISKINFO,
+        __module__='proto.disk_pb2'
+        # @@protoc_insertion_point(class_scope:proto.ReadDiskInfo)
+    ))
 _sym_db.RegisterMessage(ReadDiskInfo)
 
-ReadDiskResult = _reflection.GeneratedProtocolMessageType('ReadDiskResult', (_message.Message,), dict(
-  DESCRIPTOR = _READDISKRESULT,
-  __module__ = 'proto.disk_pb2'
-  # @@protoc_insertion_point(class_scope:proto.ReadDiskResult)
-  ))
+ReadDiskResult = _reflection.GeneratedProtocolMessageType(
+    'ReadDiskResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_READDISKRESULT,
+        __module__='proto.disk_pb2'
+        # @@protoc_insertion_point(class_scope:proto.ReadDiskResult)
+    ))
 _sym_db.RegisterMessage(ReadDiskResult)
 
-
-
 _INDEPENDENTDISK = _descriptor.ServiceDescriptor(
-  name='IndependentDisk',
-  full_name='proto.IndependentDisk',
-  file=DESCRIPTOR,
-  index=0,
-  options=None,
-  serialized_start=456,
-  serialized_end=647,
-  methods=[
-  _descriptor.MethodDescriptor(
-    name='Create',
-    full_name='proto.IndependentDisk.Create',
+    name='IndependentDisk',
+    full_name='proto.IndependentDisk',
+    file=DESCRIPTOR,
     index=0,
-    containing_service=None,
-    input_type=_CREATEDISKINFO,
-    output_type=_CREATEDISKRESULT,
     options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='Read',
-    full_name='proto.IndependentDisk.Read',
-    index=1,
-    containing_service=None,
-    input_type=_READDISKINFO,
-    output_type=_READDISKRESULT,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='Delete',
-    full_name='proto.IndependentDisk.Delete',
-    index=2,
-    containing_service=None,
-    input_type=_DELETEDISKINFO,
-    output_type=_DELETEDISKRESULT,
-    options=None,
-  ),
-])
+    serialized_start=456,
+    serialized_end=647,
+    methods=[
+        _descriptor.MethodDescriptor(
+            name='Create',
+            full_name='proto.IndependentDisk.Create',
+            index=0,
+            containing_service=None,
+            input_type=_CREATEDISKINFO,
+            output_type=_CREATEDISKRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='Read',
+            full_name='proto.IndependentDisk.Read',
+            index=1,
+            containing_service=None,
+            input_type=_READDISKINFO,
+            output_type=_READDISKRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
+            name='Delete',
+            full_name='proto.IndependentDisk.Delete',
+            index=2,
+            containing_service=None,
+            input_type=_DELETEDISKINFO,
+            output_type=_DELETEDISKRESULT,
+            options=None,
+        ),
+    ])
 _sym_db.RegisterServiceDescriptor(_INDEPENDENTDISK)
 
 DESCRIPTOR.services_by_name['IndependentDisk'] = _INDEPENDENTDISK

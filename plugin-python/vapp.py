@@ -12,6 +12,7 @@ from pyvcloud.vcd.client import EntityType
 from pyvcloud.vcd.client import get_links
 from pyvcloud.vcd.org import Org
 from pyvcloud.vcd.vdc import VDC
+from pyvcloud.vcd.vapp import VApp
 
 from proto import pyvcloudprovider_pb2 as pyvcloudprovider_pb2
 from proto import pyvcloudprovider_pb2_grpc as pyvcloudprovider_pb2_grpc
@@ -185,3 +186,56 @@ def delete(client, vappInfo):
 
     except Exception as e:
         logging.exception("error occured create vapp ", e)
+
+
+def update(client, context, vappInfo):
+    logging.info("__INIT__update[Vapp]")
+
+    cresult = vapp_pb2.UpdateVAppResult()
+    cresult.updated = False
+
+    print("Vapp[ {0} ], Vdc[ {1} ]".format(vappInfo.name, vappInfo.vdc))
+
+    org_resource = client.get_org()
+    org = Org(client, resource=org_resource)
+    try:
+        vdc_resource = org.get_vdc(vappInfo.vdc)
+        vdc = VDC(client, name=vappInfo.vdc, resource=vdc_resource)
+        vapp_resource = vdc.get_vapp(vappInfo.name)
+        vapp = VApp(client, name=vappInfo.name, resource=vapp_resource)
+        resp = None
+        if (vappInfo.power_on == True):
+            logging.info("Powering on [Vapp %v]".format(vappInfo.name))
+            resp = vapp.power_on()
+        else:
+            logging.info("Powering off [Vapp %v]".format(vappInfo.name))
+            resp = vapp.undeploy()
+
+        task = client.get_task_monitor().wait_for_status(
+            task=resp,
+            timeout=60,
+            poll_frequency=2,
+            fail_on_statuses=None,
+            expected_target_statuses=[
+                TaskStatus.SUCCESS, TaskStatus.ABORTED, TaskStatus.ERROR,
+                TaskStatus.CANCELED
+            ],
+            callback=None)
+
+        st = task.get('status')
+        if st == TaskStatus.SUCCESS.value:
+            message = 'status : {0} '.format(st)
+            logging.info(message)
+            cresult.updated = True
+        else:
+            raise errors.VappUpdateError(
+                etree.tostring(task, pretty_print=True))
+    except Exception as e:
+        error_message = '__ERROR_updating [Vapp] power_on={0} for Vapp {1} . __ErrorMessage__ {2}'.format(
+            vappInfo.power_on, vappInfo.name, str(e))
+        logging.warn(error_message)
+        cresult.updated = False
+        context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
+        context.set_details(error_message)
+    logging.info("__DONE__update[Vapp]")
+    return cresult

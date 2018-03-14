@@ -9,11 +9,10 @@ package grpc
 import (
 	"net/rpc"
 
-	"google.golang.org/grpc"
-	"golang.org/x/net/context"
 	"github.com/hashicorp/go-plugin"
 	"github.com/vmware/terraform-provider-vcloud-director/go/src/vcd/proto"
-	
+	"golang.org/x/net/context"
+	"google.golang.org/grpc"
 
 	"github.com/vmware/terraform-provider-vcloud-director/go/src/util/logging"
 )
@@ -118,16 +117,16 @@ func (p *UserProviderPlugin) Server(*plugin.MuxBroker) (interface{}, error) {
 	return &UserRPCServer{}, nil
 }
 
-func (p *UserProviderPlugin) GRPCServer(broker *plugin.GRPCBroker,s *grpc.Server) error {
+func (p *UserProviderPlugin) GRPCServer(broker *plugin.GRPCBroker, s *grpc.Server) error {
 
 	return nil
 }
 
 // ONLY GRPC CLIENT IS USE ON THIS SIDE
-func (p *UserProviderPlugin) GRPCClient(ctx context.Context,broker *plugin.GRPCBroker,c *grpc.ClientConn) (interface{}, error) {
+func (p *UserProviderPlugin) GRPCClient(ctx context.Context, broker *plugin.GRPCBroker, c *grpc.ClientConn) (interface{}, error) {
 	logging.Plog("UserProviderPlugin GRPCClient")
 	return &UserGRPCClient{
 		client: proto.NewUserClient(c),
 		broker: broker,
-		}, nil
+	}, nil
 }
