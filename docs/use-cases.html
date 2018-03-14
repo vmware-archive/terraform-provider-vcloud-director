@@ -1,0 +1,280 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Terraform Provider vCloud Director</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
+    pre code {
+        background-color: #eee;
+        border: 1px solid #999;
+        display: block;
+        padding: 0px;
+    }
+
+    .page-header {
+        color: #fff;
+        text-align: center;
+        background-color: #159957;
+        background-image: linear-gradient(120deg, #155799, #159957);
+        padding: 5rem 6rem;
+    }
+
+    h2 {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-weight: normal;
+        color: #159957;
+    }
+
+    div.reference div {
+        display: none
+    }
+
+    div.reference div.catalog-usage {
+        display: block
+    }
+
+    div.reference div.catalog-argument-reference,
+    div.reference div.catalog-argument-reference div {
+        display: block
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid mt-2 p-4">
+        <div class="page-header mb-3">
+            <h1 class="text-center">Terraform Provider for vCloud Director</h1>
+        </div>
+        <hr />
+        <div class="home ml-2">
+            <a href="index.html">Home</a>
+        </div>
+        <div class="content p-2">
+            <div class="row">
+                <div class="use-cases col-3">
+                    <h2 class="text-center">Use Cases</h2>
+                    <hr />
+                    <div class="list-group">
+                        <a href="#" class="catalog list-group-item list-group-item-action active">Catalog</a>
+                        <a href="#" class="catalog-item-ova list-group-item list-group-item-action">Catalog_Item_OVA</a>
+                        <a href="#" class="catalog-item-media list-group-item list-group-item-action">Catalog_Item_Media</a>
+                        <a href="#" class="vapp list-group-item list-group-item-action">Vapp</a>
+                        <a href="#" class="vapp-vm list-group-item list-group-item-action">Vapp_VM</a>
+                    </div>
+                </div>
+                <div class="reference col-9">
+                    <div class="catalog-usage col-12">
+                        <h2>Example Usage</h2>
+                        <hr />
+                        <pre>
+ <code>
+ resource "vcloud-director_catalog" "source_catalog" {
+ name = "source_catalog"
+ description = "source_catalog desc"
+ shared = "true"
+ }
+ </code>
+ </pre>
+                    </div>
+                    <div class="catalog-argument-reference col-12">
+                        <h2>Argument Reference</h2>
+                        <hr />
+                        <div class="col-12">
+                            <p>The following arguments are supported</p>
+                            <ul>
+                                <li>name - (Required) Name of the catalog</li>
+                                <li>description - (Optional) Description Text for the catalog</li>
+                                <li>shared - (Optional) Boolean , Controls if the catalog is published to external org</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="catalog-item-ova-usage col-12">
+                        <h2>Example Usage</h2>
+                        <hr />
+                        <pre>
+ <code>
+ resource "vcloud-director_catalog_item_ova" "item2" {
+ item_name = "capturedItem"
+ catalog_name = "catalog_ova"
+ source_vdc_name ="catalog_vdc"
+ source_vapp_name = "catalog_vapp"
+ customize_on_instantiate = "true"
+ }
+ </code>
+ </pre>
+                        <pre>
+ <code>
+ resource "vcloud-director_catalog_item_ova" "item2" {
+ item_name = "uploadedova"
+ catalog_name = "catalog_ova"
+ source_file_path = "/home/catalog-media.iso"
+ description = "iso upload"
+ }
+ </code>
+ </pre>
+                    </div>
+                    <div class="catalog-item-ova-argument-reference col-12">
+                        <h2>Argument Reference</h2>
+                        <hr />
+                        <div class="col-12">
+                            <p>The following arguments are supported</p>
+                            <ul>
+                                <li>item_name - (Optional) destination catalog item name</li>
+                                <li>catalog_name - (Required) destination catalog name</li>
+                                <li>source_file_path - (Required) ova or media file path</li>
+                                <li>source_vdc_name - (Required) source vdc to capture a vapp from</li>
+                                <li>source_vapp_name - (Required) source vapp to capture to catalog item</li>
+                                <li>customize_on_instantiate - (Optional) "true/false"</li>
+                                <li>description - (Optional) description text for the ova item</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="catalog-item-media-usage col-12">
+                        <h2>Example Usage</h2>
+                        <hr />
+                        <pre>
+ <code>
+ resource "vcloud-director_catalog_item_media" "item1" {
+ item_name = "item1"
+ catalog_name= "catalogname"
+ source_file_path="/home/centos.iso"
+ }
+ </code>
+ </pre>
+                    </div>
+                    <div class="catalog-item-media-argument-reference col-12">
+                        <h2>Argument Reference</h2>
+                        <hr />
+                        <div class="col-12">
+                            <p>The following arguments are supported</p>
+                            <ul>
+                                <li>item_name - (Optional) destination catalog item name</li>
+                                <li>catalog_name - (Required) destination catalog name</li>
+                                <li>source_file_path - (Required) media file path</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="vapp-usage col-12">
+                        <h2>Example Usage</h2>
+                        <hr />
+                        <pre>
+ <code>
+ resource "vcloud-director_vapp" "vapp1" {
+ name = "vcdvapp"
+ template_name = "vcdlab"
+ catalog_name = "source1"
+ vdc = "vdcname"
+ network = "ORGNET1"
+ ip_allocation_mode = "static"
+ cpu = "4"
+ memory = "2000"
+ storage_profile = "SP_PERFORMANCE_SDD"
+ }
+ </code>
+ </pre>
+                    </div>
+                    <div class="vapp-argument-reference col-12">
+                        <h2>Argument Reference</h2>
+                        <hr />
+                        <div class="col-12">
+                            <p>The following arguments are supported</p>
+                            <ul>
+                                <li>name - (Required) Vapp name</li>
+                                <li>template_name - (Required) source catalog item name</li>
+                                <li>catalog_name - (Required) source catalog name</li>
+                                <li>vdc - (Required) Org Vdc where this VAPP gets created</li>
+                                <li>network - (OptionalL) org network for the vapp</li>
+                                <li>ip_allocation_mode -(Optional) "static"/"dynamic"</li>
+                                <li>memory - (Optional) in MB</li>
+                                <li>cpu - (Optional) number of CPU</li>
+                                <li>storage_profile - (Optional) storage profile to use for the vapp</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="vapp-vm-usage col-12">
+                        <h2>Example Usage</h2>
+                        <hr />
+                        <pre>
+ <code>
+ resource "vcloud-director_vapp_vm" "vm1" {
+ target_vm_name = "vm_name"
+ target_vapp = "vapp1"
+ target_vdc = "vdc1"
+ source_vapp = "vapp1"
+ source_vm_name = "sourcevm1" 
+ hostname = "vcdcell"
+ password = "rootpass" 
+ password_auto = "false"
+ password_reset = "false"
+ cust_script = "/home/setup.sh"
+ network = "MGMT"
+ storage_profile = "PERFORMACE_1"
+ power_on = "true"
+ all_eulas_accepted = "true"
+ }
+ </code>
+ </pre>
+                        <pre>
+ <code>
+ resource "vcloud-director_vapp_vm" "vm1" {
+ target_vm_name = "vm_name"
+ target_vapp = "vapp1"
+ target_vdc = "vdc1"
+ source_catalog_name = "cata1"
+ source_template_name = "template1"
+ hostname = "vcdcell"
+ password = "rootpass" 
+ password_auto = "false"
+ password_reset = "false"
+ cust_script = "/home/setup.sh"
+ network = "MGMT"
+ storage_profile = "PERFORMACE_1"
+ power_on = "true"
+ all_eulas_accepted = "true"
+ }
+ </code>
+ </pre>
+                    </div>
+                    <div class="vapp-vm-argument-reference col-12">
+                        <h2>Argument Reference</h2>
+                        <hr />
+                        <div class="col-12">
+                            <p>The following arguments are supported</p>
+                            <ul>
+                                <li>source_vapp - (Required) source vApp or vAppTemplate resource</li>
+                                <li>source_vm_name - (Required) source VM name</li>
+                                <li>target_vm_name - (Optional) target VM name</li>
+                                <li>hostname - (Optional) target guest hostname</li>
+                                <li>password - (Required) set the administrator password for target machine</li>
+                                <li>password_auto - (Required) "true"/"false", autogenerate administrator password</li>
+                                <li>password_reset - (Rptional) "true" if the administrator password for this virtual machine must be reset after first use else "false"</li>
+                                <li>cust_script - (Optional) script to run on guest customization</li>
+                                <li>network - (Optional) Name of the vApp network to connect. If omitted, the VM won't be connected to any network</li>
+                                <li>storage_profile - (Optional) the name of the storage profile to be used for this VM</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $("document").ready(function() {
+        $('div.use-cases a').click(function(e) {
+            e.preventDefault();
+            var className = $(this).attr('class').split(' ')[0];
+            $(this).siblings().removeClass('active');
+            $('div.reference div').css('display', 'none');
+            $('.' + className + '-usage').css('display', 'block');
+            $('.' + className + '-argument-reference').css('display', 'block');
+            $('.' + className + '-argument-reference div').css('display', 'block');
+            $(this).addClass('active');
+        });
+    });
+    </script>
+</body>
+
+</html>

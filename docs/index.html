@@ -5,53 +5,57 @@
     <title>Terraform Provider vCloud Director</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
     <style type="text/css">
-        pre code {
-            background-color: #eee;
-            border: 1px solid #999;
-            display: block;
-            padding: 0px;
-        }
-        .page-header{
-            color: #fff;
-            text-align: center;
-            background-color: #159957;
-            background-image: linear-gradient(120deg, #155799, #159957);
-            padding: 5rem 6rem;
-        }
+    pre code {
+        background-color: #eee;
+        border: 1px solid #999;
+        display: block;
+        padding: 0px;
+    }
 
-        .overview h2, .feature-1 h3, .feature-2 h3, .feature-3 h3, .feature-4 h3 {
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-weight: normal;
-            color: #159957;
-        }
+    .page-header {
+        color: #fff;
+        text-align: center;
+        background-color: #159957;
+        background-image: linear-gradient(120deg, #155799, #159957);
+        padding: 5rem 6rem;
+    }
 
-        a {
-            list-style: none
-        }
+    .overview h2,
+    .feature-1 h3,
+    .feature-2 h3,
+    .feature-3 h3,
+    .feature-4 h3,
+    .feature-5 h3 {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-weight: normal;
+        color: #159957;
+    }
+
+    a {
+        list-style: none
+    }
     </style>
 </head>
 
 <body>
-    <div class="container mt-3">
+    <div class="container-fluid mt-2 p-4">
         <div class="page-header mb-3">
             <h1 class="text-center">Terraform Provider for vCloud Director</h1>
         </div>
         <hr />
         <div class="content">
-            <div class="main h-50 mb-4">
+            <div class="main h-50 ml-4 mb-4">
                 <p>
-                    <strong>Terraform Provider</strong> is a tool which enables operations such as create, update, and delete to improve infrastructure on vCloud Director.
+                    <strong>Terraform Provider</strong> is a tool which enables operations such as create, update, and delete to improve infrastructure on <strong>vCloud Director</strong>.
                 </p>
             </div>
-            <div class="overview mb-4 h-100">
+            <div class="overview mb-4 ml-4 mr-4 h-100">
                 <h2>Overview</h2>
                 <hr />
                 <p>
                     <strong>Terraform</strong> is a tool for building, changing, and versioning infrastructure safely and efficiently. Terraform can manage existing and popular service providers as well as custom in-house solutions.
-                </p>
-                <p>
-                    <strong>Terraform Provider</strong> is a tool which is based on Terraform and works with configuration files. These configuration files contain all the information which is relevant enough to perform create/update/read/delete operations on resources available on vCloud Director.
+                    <strong>Terraform Provider</strong> is a tool which is based on Terraform and works with configuration files. These configuration files contain all the information which is relevant enough to perform <strong>create/update/read/delete</strong> operations on the resources available on vCloud Director.
                 </p>
                 <p>The current document covers the following <strong>Terraform Provider</strong> topics:</p>
                 <ol>
@@ -67,9 +71,6 @@
                             <li>
                                 <a href="#go">GO Setup</a>
                             </li>
-                            <li>
-                                <a href="#protobuf">Protobuf Setup</a>
-                            </li>
                         </ul>
                     </li>
                     <li>
@@ -78,9 +79,12 @@
                     <li>
                         <a href="#feature-4">References</a>
                     </li>
+                    <li>
+                        <a href="#feature-5">Report Issues</a>
+                    </li>
                 </ol>
             </div>
-            <div class="features">
+            <div class="features ml-4">
                 <div id="feature-1" class="feature-1 mb-4 h-100">
                     <h3>Terraform Provider Architecture</h3>
                     <hr />
@@ -88,6 +92,9 @@
                         <strong>Terraform Provider</strong> has been developed using Python and GO. It uses Client-Server model inside the hood where the client has been written using GO and server has been written using Python language. The core reason to use two different languages is to make a bridge between Terraform and Pyvcloud API. Pyvcloud is the SDK developed by VMware and provides an medium to talk to vCloud Director. Terraform uses GO to communicate where Pyvcloud has been written in Python3.
                     </p>
                     <p>We are using GRPC Protocol to handle the communication between GO client and Python server.</p>
+                    <p>
+                        <img class="ml-4" src="architecture.jpg" />
+                    </p>
                 </div>
                 <div id="feature-2" class="feature-2 mb-4 h-100">
                     <h3>Installaton and Configuration</h3>
@@ -96,58 +103,61 @@
                         <li><strong>Install Python3.6</strong></li>
                     </ul>
                     <pre>
-                        <code>
-                            wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz
-                            ./configure
-                            make
-                            make install
-                        </code>
-                    </pre>
+ <code>
+ wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz
+ ./configure
+ make
+ make install
+ </code>
+ </pre>
                     <ul>
                         <li><strong>Install Python Dependencies</strong></li>
                     </ul>
                     <pre>
-                        <code>
-                            pip3.6 install grpcio
-                            pip3.6 install grpcio-tools
-                            pip3.6 install grpcio_health_checking
-                            pip3.6 install vcd_cli
-                        </code>
-                    </pre>
+ <code>
+ pip3.6 install grpcio
+ pip3.6 install grpcio-tools
+ pip3.6 install grpcio_health_checking
+ pip3.6 install vcd_cli
+ </code>
+ </pre>
                     <ul id="go">
                         <li><strong>Install GO</strong></li>
                     </ul>
                     <pre>
-                        <code>
-                            wget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz
-                            export PATH=/opt/go/bin:$PATH
-                            export  GOROOT=/opt/go
-                            export GOPATH=/home/terraform-provider-vcloud-director/go/
-                        </code>
-                    </pre>
-                    <ul id="protobuf">
-                        <li><strong>Install Protoc</strong></li>
-                    </ul>
-                    <pre>
-                        <code>
-                            wget https://github.com/google/protobuf/releases/download/v3.4.1/protobuf-cpp-3.4.1.tar.gz
-                            tar -xvf proto*
-                            cd proto*
-                            yum install autoconf automake libtool curl make g++ unzip
-                            ./configure
-                            make
-                            make check
-                            make install
-                        </code>
-                    </pre>
+ <code>
+ wget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz
+ export PATH=/opt/go/bin:$PATH
+ export GOROOT=/opt/go
+ export GOPATH=/home/terraform-provider-vcloud-director/go/
+ </code>
+ </pre>
                 </div>
                 <div id="feature-3" class="feature-3 mb-4 h-100">
                     <h3>Use Cases</h3>
                     <hr />
+                    <p>Please refer to
+                        <a href="use-cases.html">this</a> for more details on use cases.</p>
                 </div>
                 <div id="feature-4" class="feature-4 mb-4 h-100">
                     <h3>References</h3>
                     <hr />
+                    <ul>
+                        <li>
+                            <a href="https://terraform.io" target="_blank">Terrafom Docs</a>
+                        </li>
+                        <li>
+                            <a href="http://vmware.github.io/pyvcloud/" target="_blank">Pyvcloud Docs</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="feature-5" class="feature-5 mb-4 h-100">
+                    <h3>Report Issues</h3>
+                    <hr />
+                    <p>
+                        Please refer to
+                        <a href="https://github.com/vmware/terraform-provider-vcloud-director" target="_blank">this</a> to report issues and know more details about the project.
+                    </p>
                 </div>
             </div>
         </div>
