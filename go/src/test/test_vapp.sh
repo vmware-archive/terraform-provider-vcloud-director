@@ -7,22 +7,17 @@
 export TF_ACC=1
 export TF_LOG=TRACE
 
-export VCD_ALLOW_UNVERIFIED_SSL=true
-export VCD_IP="10.172.158.127"
-
-export VCD_USER="acmeadmin"
-export VCD_PASSWORD="VMware1!"
-export VCD_ORG="ACME"
-
-#. ./test_setlogin.sh
 
 
-export TF_VAR_VAPP_NAME="pcp_vapp_100"
-export TF_VAR_VAPP_TEMPLATE_NAME="tinyova"
-export TF_VAR_VAPP_CATALOG_NAME="ACME"
-export TF_VAR_VAPP_VDC="ACME_PAYG"
+. ./test_setlogin.sh
 
-export TF_VAR_VAPP_NETWORK="172.16.1.0"
+
+export TF_VAR_VAPP_NAME="acvapp"
+export TF_VAR_VAPP_TEMPLATE_NAME="CentOS7"
+export TF_VAR_VAPP_CATALOG_NAME="Components"
+export TF_VAR_VAPP_VDC="Terraform_VDC"
+
+export TF_VAR_VAPP_NETWORK="192.168.10.0/247"
 export TF_VAR_VAPP_MEMORY="64"
 export TF_VAR_VAPP_CPU="1"
 export TF_VAR_VAPP_IP_ALLOCATION_MODE="dhcp"
