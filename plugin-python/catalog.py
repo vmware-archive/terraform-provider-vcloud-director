@@ -20,9 +20,10 @@ import logging
 import inspect
 
 
-def read(client, name):
+def read(client, context, name):
     #logging.basicConfig(level=logging.DEBUG)
-    logging.debug("===__INIT__===catalog_is_present %s", name)
+    logging.debug("__INIT__read[catalog]__ %s", name)
+    logging.debug("catalog_name  %s", name)
 
     try:
         logged_in_org = client.get_org()
@@ -35,48 +36,122 @@ def read(client, name):
             logging.info(vars(catalog))
             logging.info("\n==desc=[%s]", catalog.Description)
 
-            #for i in inspect.getmembers(catalog):
-            #       print(i)
-            #ogging.info(description)
+            result.name = str(catalog.get("name"))
             result.description = str(catalog.Description)
+            result.shared = catalog.IsPublished
             result.present = True
         except Exception as e:
-            print(e)
-            logging.warn(e)
-            logging.info("catalog is not present")
+            logging.warning(
+                "__ERROR__ while reading catalog[{0}]. __ERROR_MESSAGE__[{1}]".
+                format(name, str(e)))
 
         return result
 
     except Exception as e:
-        logging.warn("===__ERROR__=== ....__catalog_is_present ERROR occured",
-                     e)
+        logging.error(
+            "__ERROR__ while reading catalog[{0}]. __ERROR_MESSAGE__[{1}]".
+            format(name, str(e)))
         raise
 
 
-def create(client, name, description, shared):
-    logging.debug("===_INIT_create name = [%s]  desc = [%s] shared = [%s] ",
-                  name, description, shared)
+def create(client, context, name, description, shared):
+    logging.debug("_INIT_create_catalog__")
+    logging.debug("name = [%s]  desc = [%s] shared = [%s] ", name, description,
+                  shared)
+
+    result = pyvcloudprovider_pb2.CreateCatalogResult()
+    result.created = False
+    try:
+        logged_in_org = client.get_org()
+        org = Org(client, resource=logged_in_org)
+
+        try:
+            catalog = org.create_catalog(name=name, description=description)
+            result.created = True
+
+            if shared:
+                success = share_catalog(client, name, shared)
+                if not success:
+                    result.created = False
+        except Exception as e:
+            error_message = "__ ERROR Creating catalog [{0}] __ERROR_MESSAGE__ [{1}]".format(
+                name, str(e))
+            logging.warn(error_message)
+            context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
+            context.set_details(error_message)
+    except Exception as e:
+        error_message = "__ ERROR Creating catalog [{0}] __ERROR_MESSAGE__ [{1}]".format(
+            name, str(e))
+        logging.warn(error_message)
+        context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
+        context.set_details(error_message)
+
+    logging.debug("_DONE_create_catalog__")
+    return result
+
+
+def update(client, context, old_name, new_name, description, shared):
+    logging.info("\n __INIT_update_catalog__")
+    logging.debug(
+        "\n old_name = [%s] new_name = [%s]  desc = [%s] shared = [%s] ",
+        old_name, new_name, description, shared)
+    result = pyvcloudprovider_pb2.UpdateCatalogResult()
+    result.updated = False
 
     try:
         logged_in_org = client.get_org()
         org = Org(client, resource=logged_in_org)
-        result = pyvcloudprovider_pb2.CreateCatalogResult()
-        result.created = False
         try:
-            catalog = org.create_catalog(name=name, description=description)
-            result.created = True
+            catalog = org.update_catalog(
+                old_catalog_name=old_name,
+                new_catalog_name=new_name,
+                description=description)
+            result.updated = True
+            #TODO implement partial state in terraform
+            success = share_catalog(client, new_name, shared)
+            if not success:
+                result.updated = False
         except Exception as e:
-            logging.info("===__INFO__ Not Created catalog [" + name + "]")
-        logging.debug(
-            "===_DONE_create name = [%s]  desc = [%s] shared = [%s] ", name,
-            description, shared)
-        return result
-
+            error_message = "Error occured while updating catalog {0} __ERROR_MESSAGE__ {1}".format(
+                old_name, str(e))
+            logging.error(error_message)
+            context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
+            context.set_details(error_message)
     except Exception as e:
-        logging.warn("error occured", e)
+        error_message = "Error occured while updating catalog {0} __ERROR_MESSAGE__ {1}".format(
+            old_name, str(e))
+        logging.error(error_message)
+        context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
+        context.set_details(error_message)
+
+    logging.debug("__DONE_update_catalog__")
+    return result
 
 
-def delete(client, name):
+def share_catalog(client, name, shared):
+    logging.info("\n __INIT_update_shared_catalog__")
+    logging.debug("\n name = [%s] shared = [%s]  ", name, shared)
+    success = False
+    try:
+        logged_in_org = client.get_org()
+        org = Org(client, resource=logged_in_org)
+        try:
+            catalog = org.share_catalog(name=name, share=shared)
+            success = True
+        except Exception as e:
+            logging.error(
+                "Error occured while updating share_catalog to shared = [%v], __ERROR_MESSAGE__ ",
+                shared, str(e))
+    except Exception as e:
+        logging.error(
+            "Error occured while updating share_catalog to shared = [%v], __ERROR_MESSAGE__ ",
+            shared, str(e))
+
+    logging.info("__DONE_update_share_catalog__")
+    return success
+
+
+def delete(client, context, name):
     logging.debug("=== delete catalog called === \n")
 
     try:
@@ -88,11 +163,19 @@ def delete(client, name):
             catalog = org.delete_catalog(name)
             result.deleted = True
         except Exception as e:
-            logging.info("\n Not Deleted  catalog [" + name + "]")
+            error_message = "Error occured while deleting catalog {0} __ERROR_MESSAGE__ {1}".format(
+                name, str(e))
+            logging.error(error_message)
+            context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
+            context.set_details(error_message)
         return result
 
     except Exception as e:
-        logging.warn("error occured", e)
+        error_message = "Error occured while deleting catalog {0} __ERROR_MESSAGE__ {1}".format(
+            name, str(e))
+        logging.error(error_message)
+        context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
+        context.set_details(error_message)
 
 
 def upload_media(client, catalog_name, file_name, item_name):

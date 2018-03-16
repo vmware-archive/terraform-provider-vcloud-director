@@ -80,6 +80,19 @@ func (m *GRPCServer) DeleteCatalog(
 
 }
 
+func (m *GRPCClient) UpdateCatalog(c proto.UpdateCatalogInfo) (*proto.UpdateCatalogResult, error) {
+	result, err := m.client.UpdateCatalog(context.Background(), &c)
+	return result, err
+}
+
+func (m *GRPCServer) UpdateCatalog(
+	ctx context.Context,
+	req *proto.UpdateCatalogInfo) (*proto.UpdateCatalogResult, error) {
+	v, err := m.Impl.UpdateCatalog(ctx, req)
+	return &proto.UpdateCatalogResult{Updated: v.Updated}, err
+
+}
+
 // impl for CatalogUploadMedia
 
 func (m *GRPCClient) CatalogUploadMedia(mediaInfo proto.CatalogUploadMediaInfo) (*proto.CatalogUploadMediaResult, error) {

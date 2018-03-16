@@ -44,6 +44,13 @@ class PyVcloudProviderStub(object):
             response_deserializer=proto_dot_pyvcloudprovider__pb2.
             DeleteCatalogResult.FromString,
         )
+        self.UpdateCatalog = channel.unary_unary(
+            '/proto.PyVcloudProvider/UpdateCatalog',
+            request_serializer=proto_dot_pyvcloudprovider__pb2.
+            UpdateCatalogInfo.SerializeToString,
+            response_deserializer=proto_dot_pyvcloudprovider__pb2.
+            UpdateCatalogResult.FromString,
+        )
         self.CatalogUploadMedia = channel.unary_unary(
             '/proto.PyVcloudProvider/CatalogUploadMedia',
             request_serializer=proto_dot_catalog__item__pb2.
@@ -150,6 +157,13 @@ class PyVcloudProviderServicer(object):
 
     def DeleteCatalog(self, request, context):
         """delete a catalog
+    """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateCatalog(self, request, context):
+        """update a catalog
     """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -266,6 +280,14 @@ def add_PyVcloudProviderServicer_to_server(servicer, server):
             FromString,
             response_serializer=proto_dot_pyvcloudprovider__pb2.
             DeleteCatalogResult.SerializeToString,
+        ),
+        'UpdateCatalog':
+        grpc.unary_unary_rpc_method_handler(
+            servicer.UpdateCatalog,
+            request_deserializer=proto_dot_pyvcloudprovider__pb2.
+            UpdateCatalogInfo.FromString,
+            response_serializer=proto_dot_pyvcloudprovider__pb2.
+            UpdateCatalogResult.SerializeToString,
         ),
         'CatalogUploadMedia':
         grpc.unary_unary_rpc_method_handler(

@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     package='proto',
     syntax='proto3',
     serialized_pb=_b(
-        '\n\x1cproto/pyvcloudprovider.proto\x12\x05proto\x1a\x10proto/vapp.proto\x1a\x18proto/catalog_item.proto\"\x89\x01\n\x10LoginCredentials\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x0b\n\x03org\x18\x03 \x01(\t\x12\x1b\n\x13use_vcd_cli_profile\x18\x04 \x01(\x08\x12\n\n\x02ip\x18\x05 \x01(\t\x12\x1b\n\x13\x61llow_insecure_flag\x18\x06 \x01(\x08\"\x1c\n\x0bLoginResult\x12\r\n\x05token\x18\x01 \x01(\t\"<\n\x07\x43\x61talog\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x0e\n\x06shared\x18\x03 \x01(\x08\"W\n\x11ReadCatalogResult\x12\x0f\n\x07present\x18\x01 \x01(\x08\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x0e\n\x06shared\x18\x04 \x01(\x08\"&\n\x13\x43reateCatalogResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\"&\n\x13\x44\x65leteCatalogResult\x12\x0f\n\x07\x64\x65leted\x18\x01 \x01(\x08\"\'\n\x13\x43heckResolvedResult\x12\x10\n\x08resolved\x18\x01 \x01(\x08\"\x1d\n\nStopResult\x12\x0f\n\x07stopped\x18\x01 \x01(\x08\"\n\n\x08StopInfo2\xa4\x08\n\x10PyVcloudProvider\x12\x36\n\x05Login\x12\x17.proto.LoginCredentials\x1a\x12.proto.LoginResult\"\x00\x12\x39\n\x0bReadCatalog\x12\x0e.proto.Catalog\x1a\x18.proto.ReadCatalogResult\"\x00\x12=\n\rCreateCatalog\x12\x0e.proto.Catalog\x1a\x1a.proto.CreateCatalogResult\"\x00\x12=\n\rDeleteCatalog\x12\x0e.proto.Catalog\x1a\x1a.proto.DeleteCatalogResult\"\x00\x12V\n\x12\x43\x61talogUploadMedia\x12\x1d.proto.CatalogUploadMediaInfo\x1a\x1f.proto.CatalogUploadMediaResult\"\x00\x12P\n\x10\x43\x61talogUploadOva\x12\x1b.proto.CatalogUploadOvaInfo\x1a\x1d.proto.CatalogUploadOvaResult\"\x00\x12Q\n\x10OvaCheckResolved\x12\x1f.proto.CatalogCheckResolvedInfo\x1a\x1a.proto.CheckResolvedResult\"\x00\x12S\n\x11\x44\x65leteCatalogItem\x12\x1c.proto.DeleteCatalogItemInfo\x1a\x1e.proto.DeleteCatalogItemResult\"\x00\x12\\\n\x14isPresentCatalogItem\x12\x1f.proto.IsPresentCatalogItemInfo\x1a!.proto.IsPresentCatalogItemResult\"\x00\x12\x41\n\x0b\x43\x61ptureVapp\x12\x16.proto.CaptureVAppInfo\x1a\x18.proto.CaptureVAppResult\"\x00\x12>\n\nCreateVApp\x12\x15.proto.CreateVAppInfo\x1a\x17.proto.CreateVAppResult\"\x00\x12>\n\nDeleteVApp\x12\x15.proto.DeleteVAppInfo\x1a\x17.proto.DeleteVAppResult\"\x00\x12\x38\n\x08ReadVApp\x12\x13.proto.ReadVAppInfo\x1a\x15.proto.ReadVAppResult\"\x00\x12>\n\nUpdateVApp\x12\x15.proto.UpdateVAppInfo\x1a\x17.proto.UpdateVAppResult\"\x00\x12\x32\n\nStopPlugin\x12\x0f.proto.StopInfo\x1a\x11.proto.StopResult\"\x00\x42\x37\n\x1c\x63om.vmware.pyvcloud.providerB\x15PyVcloudProviderProtoP\x01\x62\x06proto3'
+        '\n\x1cproto/pyvcloudprovider.proto\x12\x05proto\x1a\x10proto/vapp.proto\x1a\x18proto/catalog_item.proto\"\x89\x01\n\x10LoginCredentials\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x0b\n\x03org\x18\x03 \x01(\t\x12\x1b\n\x13use_vcd_cli_profile\x18\x04 \x01(\x08\x12\n\n\x02ip\x18\x05 \x01(\t\x12\x1b\n\x13\x61llow_insecure_flag\x18\x06 \x01(\x08\"\x1c\n\x0bLoginResult\x12\r\n\x05token\x18\x01 \x01(\t\"<\n\x07\x43\x61talog\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x0e\n\x06shared\x18\x03 \x01(\x08\"W\n\x11ReadCatalogResult\x12\x0f\n\x07present\x18\x01 \x01(\x08\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x0e\n\x06shared\x18\x04 \x01(\x08\"&\n\x13\x43reateCatalogResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\"&\n\x13\x44\x65leteCatalogResult\x12\x0f\n\x07\x64\x65leted\x18\x01 \x01(\x08\"X\n\x11UpdateCatalogInfo\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x10\n\x08old_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x0e\n\x06shared\x18\x04 \x01(\x08\"&\n\x13UpdateCatalogResult\x12\x0f\n\x07updated\x18\x01 \x01(\x08\"\'\n\x13\x43heckResolvedResult\x12\x10\n\x08resolved\x18\x01 \x01(\x08\"\x1d\n\nStopResult\x12\x0f\n\x07stopped\x18\x01 \x01(\x08\"\n\n\x08StopInfo2\xed\x08\n\x10PyVcloudProvider\x12\x36\n\x05Login\x12\x17.proto.LoginCredentials\x1a\x12.proto.LoginResult\"\x00\x12\x39\n\x0bReadCatalog\x12\x0e.proto.Catalog\x1a\x18.proto.ReadCatalogResult\"\x00\x12=\n\rCreateCatalog\x12\x0e.proto.Catalog\x1a\x1a.proto.CreateCatalogResult\"\x00\x12=\n\rDeleteCatalog\x12\x0e.proto.Catalog\x1a\x1a.proto.DeleteCatalogResult\"\x00\x12G\n\rUpdateCatalog\x12\x18.proto.UpdateCatalogInfo\x1a\x1a.proto.UpdateCatalogResult\"\x00\x12V\n\x12\x43\x61talogUploadMedia\x12\x1d.proto.CatalogUploadMediaInfo\x1a\x1f.proto.CatalogUploadMediaResult\"\x00\x12P\n\x10\x43\x61talogUploadOva\x12\x1b.proto.CatalogUploadOvaInfo\x1a\x1d.proto.CatalogUploadOvaResult\"\x00\x12Q\n\x10OvaCheckResolved\x12\x1f.proto.CatalogCheckResolvedInfo\x1a\x1a.proto.CheckResolvedResult\"\x00\x12S\n\x11\x44\x65leteCatalogItem\x12\x1c.proto.DeleteCatalogItemInfo\x1a\x1e.proto.DeleteCatalogItemResult\"\x00\x12\\\n\x14isPresentCatalogItem\x12\x1f.proto.IsPresentCatalogItemInfo\x1a!.proto.IsPresentCatalogItemResult\"\x00\x12\x41\n\x0b\x43\x61ptureVapp\x12\x16.proto.CaptureVAppInfo\x1a\x18.proto.CaptureVAppResult\"\x00\x12>\n\nCreateVApp\x12\x15.proto.CreateVAppInfo\x1a\x17.proto.CreateVAppResult\"\x00\x12>\n\nDeleteVApp\x12\x15.proto.DeleteVAppInfo\x1a\x17.proto.DeleteVAppResult\"\x00\x12\x38\n\x08ReadVApp\x12\x13.proto.ReadVAppInfo\x1a\x15.proto.ReadVAppResult\"\x00\x12>\n\nUpdateVApp\x12\x15.proto.UpdateVAppInfo\x1a\x17.proto.UpdateVAppResult\"\x00\x12\x32\n\nStopPlugin\x12\x0f.proto.StopInfo\x1a\x11.proto.StopResult\"\x00\x42\x37\n\x1c\x63om.vmware.pyvcloud.providerB\x15PyVcloudProviderProtoP\x01\x62\x06proto3'
     ),
     dependencies=[
         proto_dot_vapp__pb2.DESCRIPTOR,
@@ -420,6 +420,131 @@ _DELETECATALOGRESULT = _descriptor.Descriptor(
     serialized_end=482,
 )
 
+_UPDATECATALOGINFO = _descriptor.Descriptor(
+    name='UpdateCatalogInfo',
+    full_name='proto.UpdateCatalogInfo',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='name',
+            full_name='proto.UpdateCatalogInfo.name',
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='old_name',
+            full_name='proto.UpdateCatalogInfo.old_name',
+            index=1,
+            number=2,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='description',
+            full_name='proto.UpdateCatalogInfo.description',
+            index=2,
+            number=3,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=_b("").decode('utf-8'),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+        _descriptor.FieldDescriptor(
+            name='shared',
+            full_name='proto.UpdateCatalogInfo.shared',
+            index=3,
+            number=4,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=484,
+    serialized_end=572,
+)
+
+_UPDATECATALOGRESULT = _descriptor.Descriptor(
+    name='UpdateCatalogResult',
+    full_name='proto.UpdateCatalogResult',
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name='updated',
+            full_name='proto.UpdateCatalogResult.updated',
+            index=0,
+            number=1,
+            type=8,
+            cpp_type=7,
+            label=1,
+            has_default_value=False,
+            default_value=False,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            options=None,
+            file=DESCRIPTOR),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    options=None,
+    is_extendable=False,
+    syntax='proto3',
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=574,
+    serialized_end=612,
+)
+
 _CHECKRESOLVEDRESULT = _descriptor.Descriptor(
     name='CheckResolvedResult',
     full_name='proto.CheckResolvedResult',
@@ -453,8 +578,8 @@ _CHECKRESOLVEDRESULT = _descriptor.Descriptor(
     syntax='proto3',
     extension_ranges=[],
     oneofs=[],
-    serialized_start=484,
-    serialized_end=523,
+    serialized_start=614,
+    serialized_end=653,
 )
 
 _STOPRESULT = _descriptor.Descriptor(
@@ -490,8 +615,8 @@ _STOPRESULT = _descriptor.Descriptor(
     syntax='proto3',
     extension_ranges=[],
     oneofs=[],
-    serialized_start=525,
-    serialized_end=554,
+    serialized_start=655,
+    serialized_end=684,
 )
 
 _STOPINFO = _descriptor.Descriptor(
@@ -509,8 +634,8 @@ _STOPINFO = _descriptor.Descriptor(
     syntax='proto3',
     extension_ranges=[],
     oneofs=[],
-    serialized_start=556,
-    serialized_end=566,
+    serialized_start=686,
+    serialized_end=696,
 )
 
 DESCRIPTOR.message_types_by_name['LoginCredentials'] = _LOGINCREDENTIALS
@@ -519,6 +644,8 @@ DESCRIPTOR.message_types_by_name['Catalog'] = _CATALOG
 DESCRIPTOR.message_types_by_name['ReadCatalogResult'] = _READCATALOGRESULT
 DESCRIPTOR.message_types_by_name['CreateCatalogResult'] = _CREATECATALOGRESULT
 DESCRIPTOR.message_types_by_name['DeleteCatalogResult'] = _DELETECATALOGRESULT
+DESCRIPTOR.message_types_by_name['UpdateCatalogInfo'] = _UPDATECATALOGINFO
+DESCRIPTOR.message_types_by_name['UpdateCatalogResult'] = _UPDATECATALOGRESULT
 DESCRIPTOR.message_types_by_name['CheckResolvedResult'] = _CHECKRESOLVEDRESULT
 DESCRIPTOR.message_types_by_name['StopResult'] = _STOPRESULT
 DESCRIPTOR.message_types_by_name['StopInfo'] = _STOPINFO
@@ -584,6 +711,26 @@ DeleteCatalogResult = _reflection.GeneratedProtocolMessageType(
     ))
 _sym_db.RegisterMessage(DeleteCatalogResult)
 
+UpdateCatalogInfo = _reflection.GeneratedProtocolMessageType(
+    'UpdateCatalogInfo',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_UPDATECATALOGINFO,
+        __module__='proto.pyvcloudprovider_pb2'
+        # @@protoc_insertion_point(class_scope:proto.UpdateCatalogInfo)
+    ))
+_sym_db.RegisterMessage(UpdateCatalogInfo)
+
+UpdateCatalogResult = _reflection.GeneratedProtocolMessageType(
+    'UpdateCatalogResult',
+    (_message.Message, ),
+    dict(
+        DESCRIPTOR=_UPDATECATALOGRESULT,
+        __module__='proto.pyvcloudprovider_pb2'
+        # @@protoc_insertion_point(class_scope:proto.UpdateCatalogResult)
+    ))
+_sym_db.RegisterMessage(UpdateCatalogResult)
+
 CheckResolvedResult = _reflection.GeneratedProtocolMessageType(
     'CheckResolvedResult',
     (_message.Message, ),
@@ -625,8 +772,8 @@ _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
     file=DESCRIPTOR,
     index=0,
     options=None,
-    serialized_start=569,
-    serialized_end=1629,
+    serialized_start=699,
+    serialized_end=1832,
     methods=[
         _descriptor.MethodDescriptor(
             name='Login',
@@ -665,9 +812,18 @@ _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
             options=None,
         ),
         _descriptor.MethodDescriptor(
+            name='UpdateCatalog',
+            full_name='proto.PyVcloudProvider.UpdateCatalog',
+            index=4,
+            containing_service=None,
+            input_type=_UPDATECATALOGINFO,
+            output_type=_UPDATECATALOGRESULT,
+            options=None,
+        ),
+        _descriptor.MethodDescriptor(
             name='CatalogUploadMedia',
             full_name='proto.PyVcloudProvider.CatalogUploadMedia',
-            index=4,
+            index=5,
             containing_service=None,
             input_type=proto_dot_catalog__item__pb2._CATALOGUPLOADMEDIAINFO,
             output_type=proto_dot_catalog__item__pb2._CATALOGUPLOADMEDIARESULT,
@@ -676,7 +832,7 @@ _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
         _descriptor.MethodDescriptor(
             name='CatalogUploadOva',
             full_name='proto.PyVcloudProvider.CatalogUploadOva',
-            index=5,
+            index=6,
             containing_service=None,
             input_type=proto_dot_catalog__item__pb2._CATALOGUPLOADOVAINFO,
             output_type=proto_dot_catalog__item__pb2._CATALOGUPLOADOVARESULT,
@@ -685,7 +841,7 @@ _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
         _descriptor.MethodDescriptor(
             name='OvaCheckResolved',
             full_name='proto.PyVcloudProvider.OvaCheckResolved',
-            index=6,
+            index=7,
             containing_service=None,
             input_type=proto_dot_catalog__item__pb2._CATALOGCHECKRESOLVEDINFO,
             output_type=_CHECKRESOLVEDRESULT,
@@ -694,7 +850,7 @@ _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
         _descriptor.MethodDescriptor(
             name='DeleteCatalogItem',
             full_name='proto.PyVcloudProvider.DeleteCatalogItem',
-            index=7,
+            index=8,
             containing_service=None,
             input_type=proto_dot_catalog__item__pb2._DELETECATALOGITEMINFO,
             output_type=proto_dot_catalog__item__pb2._DELETECATALOGITEMRESULT,
@@ -703,7 +859,7 @@ _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
         _descriptor.MethodDescriptor(
             name='isPresentCatalogItem',
             full_name='proto.PyVcloudProvider.isPresentCatalogItem',
-            index=8,
+            index=9,
             containing_service=None,
             input_type=proto_dot_catalog__item__pb2._ISPRESENTCATALOGITEMINFO,
             output_type=proto_dot_catalog__item__pb2.
@@ -713,7 +869,7 @@ _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
         _descriptor.MethodDescriptor(
             name='CaptureVapp',
             full_name='proto.PyVcloudProvider.CaptureVapp',
-            index=9,
+            index=10,
             containing_service=None,
             input_type=proto_dot_catalog__item__pb2._CAPTUREVAPPINFO,
             output_type=proto_dot_catalog__item__pb2._CAPTUREVAPPRESULT,
@@ -722,7 +878,7 @@ _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
         _descriptor.MethodDescriptor(
             name='CreateVApp',
             full_name='proto.PyVcloudProvider.CreateVApp',
-            index=10,
+            index=11,
             containing_service=None,
             input_type=proto_dot_vapp__pb2._CREATEVAPPINFO,
             output_type=proto_dot_vapp__pb2._CREATEVAPPRESULT,
@@ -731,7 +887,7 @@ _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
         _descriptor.MethodDescriptor(
             name='DeleteVApp',
             full_name='proto.PyVcloudProvider.DeleteVApp',
-            index=11,
+            index=12,
             containing_service=None,
             input_type=proto_dot_vapp__pb2._DELETEVAPPINFO,
             output_type=proto_dot_vapp__pb2._DELETEVAPPRESULT,
@@ -740,7 +896,7 @@ _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
         _descriptor.MethodDescriptor(
             name='ReadVApp',
             full_name='proto.PyVcloudProvider.ReadVApp',
-            index=12,
+            index=13,
             containing_service=None,
             input_type=proto_dot_vapp__pb2._READVAPPINFO,
             output_type=proto_dot_vapp__pb2._READVAPPRESULT,
@@ -749,7 +905,7 @@ _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
         _descriptor.MethodDescriptor(
             name='UpdateVApp',
             full_name='proto.PyVcloudProvider.UpdateVApp',
-            index=13,
+            index=14,
             containing_service=None,
             input_type=proto_dot_vapp__pb2._UPDATEVAPPINFO,
             output_type=proto_dot_vapp__pb2._UPDATEVAPPRESULT,
@@ -758,7 +914,7 @@ _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
         _descriptor.MethodDescriptor(
             name='StopPlugin',
             full_name='proto.PyVcloudProvider.StopPlugin',
-            index=14,
+            index=15,
             containing_service=None,
             input_type=_STOPINFO,
             output_type=_STOPRESULT,

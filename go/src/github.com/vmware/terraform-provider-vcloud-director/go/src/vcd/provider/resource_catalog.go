@@ -27,12 +27,12 @@ func resourceCatalog() *schema.Resource {
 			},
 			"description": &schema.Schema{
 				Type:     schema.TypeString,
-				Required: true,
+				Optional: true,
 				ForceNew: false,
 			},
 			"shared": &schema.Schema{
 				Type:     schema.TypeBool,
-				Required: true,
+				Optional: true,
 				ForceNew: false,
 			},
 		},
@@ -109,7 +109,35 @@ func resourceCatalogRead(d *schema.ResourceData, m interface{}) error {
 
 func resourceCatalogUpdate(d *schema.ResourceData, m interface{}) error {
 
-	logging.Plog(fmt.Sprintf("__INIT__DONE__ NO IMPl !!! resourceCatalogUpdate "))
+	logging.Plog(fmt.Sprintf("__INIT__resourceCatalogUpdate__ "))
+
+	cNameOldRaw, cNameNewRaw := d.GetChange("name")
+	cNameOld := cNameOldRaw.(string)
+	cNameNew := cNameNewRaw.(string)
+
+	desc := d.Get("description").(string)
+	shared := d.Get("shared").(bool)
+
+	vcdClient := m.(*VCDClient)
+	provider := vcdClient.getProvider()
+
+	updateCatalogInfo := proto.UpdateCatalogInfo{
+		Name:        cNameNew,
+		OldName:     cNameOld,
+		Description: desc,
+		Shared:      shared,
+	}
+	res, err := provider.UpdateCatalog(updateCatalogInfo)
+
+	if err != nil {
+		return fmt.Errorf("Error updating Catalog :[%+v] %#v", updateCatalogInfo, err)
+	}
+	if res.Updated {
+		logging.Plog(fmt.Sprintf("Catalog [%+v]  updated", res))
+		d.SetId(cNameNew)
+	}
+
+	logging.Plog(fmt.Sprintf("__DONE__resourceCatalogUpdate__ "))
 	return nil
 }
 

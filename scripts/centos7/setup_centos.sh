@@ -8,6 +8,8 @@ echo 'set up rum dependencies'
  yum install wget -y
  yum install zlib-devel -y
  yum install openssl openssl-devel -y
+ yum install sqlite-devel -y
+ 
 cd /home/terraform-provider-vcloud-director/scripts/centos7
 
 . ../setenv.sh

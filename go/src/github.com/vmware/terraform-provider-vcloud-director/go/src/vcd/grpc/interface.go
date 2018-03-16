@@ -44,6 +44,8 @@ type PyVcloudProvider interface {
 
 	DeleteCatalog(name string) (*proto.DeleteCatalogResult, error)
 
+	UpdateCatalog(c proto.UpdateCatalogInfo) (*proto.UpdateCatalogResult, error)
+
 	//Catalog Item
 	CatalogUploadMedia(c proto.CatalogUploadMediaInfo) (*proto.CatalogUploadMediaResult, error)
 

@@ -65,7 +65,7 @@ class PyVcloudProviderServicer(
         self.py_plugin_server = pyPluginServer
 
     def ReadCatalog(self, request, context):
-        return catalog.read(self.client, request.name)
+        return catalog.read(self.client, context, request.name)
 
     def Login(self, request, context):
         lc = pyvcloudprovider_pb2.LoginCredentials()
@@ -90,11 +90,18 @@ class PyVcloudProviderServicer(
     def CreateCatalog(self, request, context):
         logging.info("=========================[%s]", request.description)
         logging.info("=========================[%s]", request.name)
-        return catalog.create(self.client, request.name, request.description,
-                              request.shared)
+        return catalog.create(self.client, context, request.name,
+                              request.description, request.shared)
 
     def DeleteCatalog(self, request, context):
-        return catalog.delete(self.client, request.name)
+        return catalog.delete(self.client, context, request.name)
+
+    def UpdateCatalog(self, request, context):
+        logging.info("=========================[%s]", request.description)
+        logging.info("=========================[%s]", request.name)
+        return catalog.update(self.client, context, request.old_name,
+                              request.name, request.description,
+                              request.shared)
 
     def CatalogUploadMedia(self, request, context):
         #here the request object is CatalogUploadMediaInfo of the protoc / python definition

@@ -8,17 +8,10 @@ provider "vcloud-director" {
 }
 
 
-resource "vcloud-director_vapp" "vapp1" {
-        name  					= "pcp_vapp_4"
-        template_name 			= "tinyova"
-        catalog_name  			= "ACME"
-        vdc 					= "ACME_PAYG"
-        network 				= "172.16.1.0"
-        ip_allocation_mode 		= "dhcp"
-        cpu 					= 2
-        memory 					= 64
-        power_on 				= false
-       
+resource "vcloud-director_catalog" "catalog1" {
+        name    ="pcp_catalog_01"
+        #description = "pcp desc"
+        #shared  = "true"
 
 }
 	
