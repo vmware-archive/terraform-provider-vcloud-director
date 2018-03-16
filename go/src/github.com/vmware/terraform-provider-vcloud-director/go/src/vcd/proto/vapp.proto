@@ -15,13 +15,13 @@ message CreateVAppInfo{
         string catalog_name = 2 ;
         string template_name = 3;
         string vdc = 4;
-
         string network =5;
         string ip_allocation_mode=6;
         string memory=7;
         int32 cpu=8;
         bool power_on=9;
         string storage_profile=10;
+        bool accept_all_eulas=11;
         
 }
 

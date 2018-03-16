@@ -160,6 +160,7 @@ resource "vcloud-director_vapp" "vapp1" {
         cpu 					= "${var.VAPP_CPU}"
         memory 					= "${var.VAPP_MEMORY}"
         power_on				= true
+        accept_all_eulas		= true
 }
 
 `
@@ -175,6 +176,7 @@ resource "vcloud-director_vapp" "vapp1" {
         cpu 					= "${var.VAPP_CPU}"
         memory 					= "${var.VAPP_MEMORY}"
         power_on				= true
+        accept_all_eulas		= true
 }
 
 `
@@ -190,7 +192,7 @@ resource "vcloud-director_vapp" "vapp1" {
         cpu 					= "${var.VAPP_CPU}"
         memory 					= "${var.VAPP_MEMORY}"
 	    power_on				= false
-
+	    accept_all_eulas		= true
 }
 
 `

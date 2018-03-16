@@ -25,12 +25,9 @@ export TF_VAR_VIRTUAL_CPUS=2
 export TF_VAR_POWER_ON=true
 export TF_VAR_ALL_EULAS_ACCEPTED=true
 
-# create from catalog
-export TF_VAR_TARGET_VAPP_NAME="test2"
-export TF_VAR_SOURCE_VM_NAME="Tiny Linux template"
-export TF_VAR_SOURCE_CATALOG_NAME="ACME"
-export TF_VAR_TEMPLATE_NAME="Tiny Linux VM.ova"
+# create from vapp
+export TF_VAR_TARGET_VAPP_NAME="test1"
+export TF_VAR_SOURCE_VM_NAME="MS Machine"
+export TF_VAR_SOURCE_VAPP="test2"
 
-go test github.com/vmware/terraform-provider-vcloud-director/go/src/vcd/provider/ -v -run TestAccResourceVappVm | grep --line-buffered -vE 'DEBUG|TRACE|terraform|^$'
-
-
+go test github.com/vmware/terraform-provider-vcloud-director/go/src/vcd/provider/ -v -run TestAccResourceVappVmFromVapp | grep --line-buffered -vE 'DEBUG|TRACE|terraform|^$'

@@ -71,16 +71,19 @@
                             <li>
                                 <a href="#go">GO Setup</a>
                             </li>
+                            <li>
+                                <a href="#terraform">Terraform Setup</a>
+                            </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#feature-3">Use Cases</a>
+                        <a href="use-cases.html">Use Cases</a>
                     </li>
                     <li>
-                        <a href="#feature-4">References</a>
+                        <a href="#feature-3">References</a>
                     </li>
                     <li>
-                        <a href="#feature-5">Report Issues</a>
+                        <a href="#feature-4">Report Issues</a>
                     </li>
                 </ol>
             </div>
@@ -104,7 +107,11 @@
                     </ul>
                     <pre>
  <code>
+ yum group install "Development Tools" -y
+ yum install wget zlib-devel openssl openssl-devel -y
  wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz
+ tar -xvf Python*
+ cd Python-3.6.3
  ./configure
  make
  make install
@@ -126,20 +133,27 @@
                     </ul>
                     <pre>
  <code>
+ cd /opt
  wget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz
+ tar -xvf go*
  export PATH=/opt/go/bin:$PATH
  export GOROOT=/opt/go
- export GOPATH=/home/terraform-provider-vcloud-director/go/
+ wget http://10.172.158.140/terraform-provider-vcloud-director
+ </code>
+ </pre>
+                    <ul id="terraform">
+                        <li><strong>Install Terraform</strong></li>
+                    </ul>
+                    <pre>
+ <code>
+ wget https://releases.hashicorp.com/terraform/0.9.8/terraform_0.9.8_linux_amd64.zip
+ unzip terraform_0.9.8_linux_amd64.zip
+ sudo mv terraform /usr/local/bin/
+ terraform --version
  </code>
  </pre>
                 </div>
-                <div id="feature-3" class="feature-3 mb-4 h-100">
-                    <h3>Use Cases</h3>
-                    <hr />
-                    <p>Please refer to
-                        <a href="use-cases.html">this</a> for more details on use cases.</p>
-                </div>
-                <div id="feature-4" class="feature-4 mb-4 h-100">
+                <div id="feature-3" class="feature-4 mb-4 h-100">
                     <h3>References</h3>
                     <hr />
                     <ul>
@@ -151,7 +165,7 @@
                         </li>
                     </ul>
                 </div>
-                <div id="feature-5" class="feature-5 mb-4 h-100">
+                <div id="feature-4" class="feature-5 mb-4 h-100">
                     <h3>Report Issues</h3>
                     <hr />
                     <p>
