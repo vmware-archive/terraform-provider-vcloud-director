@@ -64,17 +64,28 @@ func resourceCatalogCreate(d *schema.ResourceData, m interface{}) error {
 		return nil
 	}
 
-	catalog := proto.Catalog{Name: cname, Description: desc, Shared: shared}
+	catalog := proto.Catalog{Name: cname, Description: desc}
 
 	logging.Plog(fmt.Sprintf("__LOG__calling create catalog  name=[%v]  description=[%v]  ", cname, desc))
-	res, err := provider.CreateCatalog(catalog)
+	createCatalogRes, createCatalogErr := provider.CreateCatalog(catalog)
 
-	if err != nil {
-		return fmt.Errorf("Error Creating catalog :[%v] %#v", cname, err)
+	if createCatalogErr != nil {
+		return fmt.Errorf("Error Creating catalog :[%v] %#v", cname, createCatalogErr)
 	}
-	if res.Created {
+	if createCatalogRes.Created {
 		logging.Plog(fmt.Sprintf("catalog [%v]  created  ", cname))
 		d.SetId(cname)
+	}
+
+	if shared {
+		res, err := resourceShareCatalog(cname, shared, m)
+		if err != nil {
+			//Return the error message returned by resourceShareCatalog
+			return err
+		}
+		if res.Success {
+			logging.Plog(fmt.Sprintf("catalog[%v] updated to state shared = [true] ", cname))
+		}
 	}
 	logging.Plog("__DONE__resourceCatalogCreate ")
 	return nil
@@ -97,6 +108,13 @@ func resourceCatalogRead(d *schema.ResourceData, m interface{}) error {
 	if res.Present {
 		logging.Plog(fmt.Sprintf("__LOG__ catalog %v is present / setting state ", cname))
 		d.SetId(cname)
+		//If someone updates name from UI, in that case we will not find that catalog in vcd
+		//hence we are currently marking it as deleted in  terraform
+		//but ideally we should update it in terraform as the name field can be updated
+
+		//d.Set("name", res.Name)
+		d.Set("description", res.Description)
+		d.Set("shared", res.Shared)
 	} else {
 		// resource catalog not present / clear id for recreate
 		d.SetId("")
@@ -115,30 +133,65 @@ func resourceCatalogUpdate(d *schema.ResourceData, m interface{}) error {
 	cNameOld := cNameOldRaw.(string)
 	cNameNew := cNameNewRaw.(string)
 
-	desc := d.Get("description").(string)
-	shared := d.Get("shared").(bool)
+	d.Partial(true)
 
 	vcdClient := m.(*VCDClient)
 	provider := vcdClient.getProvider()
 
-	updateCatalogInfo := proto.UpdateCatalogInfo{
-		Name:        cNameNew,
-		OldName:     cNameOld,
-		Description: desc,
-		Shared:      shared,
-	}
-	res, err := provider.UpdateCatalog(updateCatalogInfo)
+	if d.HasChange("name") || d.HasChange("description") {
+		desc := d.Get("description").(string)
+		updateCatalogInfo := proto.UpdateCatalogInfo{
+			Name:        cNameNew,
+			OldName:     cNameOld,
+			Description: desc,
+		}
+		_, err := provider.UpdateCatalog(updateCatalogInfo)
 
-	if err != nil {
-		return fmt.Errorf("Error updating Catalog :[%+v] %#v", updateCatalogInfo, err)
-	}
-	if res.Updated {
-		logging.Plog(fmt.Sprintf("Catalog [%+v]  updated", res))
+		if err != nil {
+			return fmt.Errorf("Error updating Catalog name or description :[%+v] %#v", updateCatalogInfo, err)
+		}
+
+		d.SetPartial("name")
+		d.SetPartial("description")
 		d.SetId(cNameNew)
 	}
+	if d.HasChange("shared") {
+		shared := d.Get("shared").(bool)
+		res, err := resourceShareCatalog(cNameNew, shared, m)
+		if err != nil {
+			//Return the error message returned by resourceShareCatalog
+			return err
+		}
+		if res.Success {
+			d.SetPartial("shared")
+		}
+	}
+
+	d.Partial(false)
 
 	logging.Plog(fmt.Sprintf("__DONE__resourceCatalogUpdate__ "))
 	return nil
+}
+
+func resourceShareCatalog(name string, shared bool, m interface{}) (*proto.ShareCatalogResult, error) {
+	logging.Plog("__INIT__resourceShareCatalog_")
+
+	logging.Plog(fmt.Sprintf("name: [%v], shared[%v]", name, shared))
+	vcdClient := m.(*VCDClient)
+	provider := vcdClient.getProvider()
+
+	shareCatalogInfo := proto.ShareCatalogInfo{
+		Name:   name,
+		Shared: shared,
+	}
+	res, err := provider.ShareCatalog(shareCatalogInfo)
+	logging.Plog(fmt.Sprintf("ShareCatalog[name: %v] response: [%v]", name, res))
+
+	if err != nil {
+		logging.Plog(fmt.Sprintf("Error sharing Catalog :[%+v] %#v", shareCatalogInfo, err))
+	}
+	logging.Plog("__DONE__resourceShareCatalog_")
+	return res, err
 }
 
 func resourceCatalogDelete(d *schema.ResourceData, m interface{}) error {
@@ -153,7 +206,7 @@ func resourceCatalogDelete(d *schema.ResourceData, m interface{}) error {
 	_, err := provider.DeleteCatalog(cname)
 
 	if err != nil {
-		return fmt.Errorf("Error Creating catalog :%v %#v", cname, err)
+		return fmt.Errorf("Error deleting catalog :%v %#v", cname, err)
 	}
 	logging.Plog(fmt.Sprintf("__DONE__resourceCatalogDelete_"))
 	return nil

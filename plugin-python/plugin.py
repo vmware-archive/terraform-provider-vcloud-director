@@ -91,7 +91,7 @@ class PyVcloudProviderServicer(
         logging.info("=========================[%s]", request.description)
         logging.info("=========================[%s]", request.name)
         return catalog.create(self.client, context, request.name,
-                              request.description, request.shared)
+                              request.description)
 
     def DeleteCatalog(self, request, context):
         return catalog.delete(self.client, context, request.name)
@@ -100,8 +100,10 @@ class PyVcloudProviderServicer(
         logging.info("=========================[%s]", request.description)
         logging.info("=========================[%s]", request.name)
         return catalog.update(self.client, context, request.old_name,
-                              request.name, request.description,
-                              request.shared)
+                              request.name, request.description)
+        
+    def ShareCatalog(self, request, context):
+        return catalog.share_catalog(self.client, context, request.name, request.shared)    
 
     def CatalogUploadMedia(self, request, context):
         #here the request object is CatalogUploadMediaInfo of the protoc / python definition

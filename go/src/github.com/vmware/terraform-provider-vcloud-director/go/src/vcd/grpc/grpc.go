@@ -93,6 +93,19 @@ func (m *GRPCServer) UpdateCatalog(
 
 }
 
+func (m *GRPCClient) ShareCatalog(c proto.ShareCatalogInfo) (*proto.ShareCatalogResult, error) {
+	result, err := m.client.ShareCatalog(context.Background(), &c)
+	return result, err
+}
+
+func (m *GRPCServer) ShareCatalog(
+	ctx context.Context,
+	req *proto.ShareCatalogInfo) (*proto.ShareCatalogResult, error) {
+	v, err := m.Impl.ShareCatalog(ctx, req)
+	return &proto.ShareCatalogResult{Success: v.Success}, err
+
+}
+
 // impl for CatalogUploadMedia
 
 func (m *GRPCClient) CatalogUploadMedia(mediaInfo proto.CatalogUploadMediaInfo) (*proto.CatalogUploadMediaResult, error) {

@@ -33,6 +33,9 @@ service PyVcloudProvider {
   
   //update a catalog
   rpc UpdateCatalog ( UpdateCatalogInfo ) returns ( UpdateCatalogResult )  {}
+  
+  //Share a catalog
+  rpc ShareCatalog ( ShareCatalogInfo ) returns ( ShareCatalogResult )  {}
 
   //catalog upload Media - anything other than ova
   rpc CatalogUploadMedia ( CatalogUploadMediaInfo ) returns ( CatalogUploadMediaResult )  {}
@@ -91,7 +94,6 @@ message LoginResult{
 message Catalog {
 	string name = 1;
 	string description = 2;
-	bool shared = 3;
 }
 
 message ReadCatalogResult{
@@ -114,10 +116,17 @@ message UpdateCatalogInfo{
 		string name = 1;
 		string old_name = 2;
 		string description = 3;
-		bool shared = 4;
 }
 message UpdateCatalogResult{
         bool updated = 1;
+}
+
+message ShareCatalogInfo{
+		string name = 1;
+		bool shared = 4;
+}
+message ShareCatalogResult{
+        bool success = 1;
 }
 
 

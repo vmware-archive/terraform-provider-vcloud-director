@@ -14,7 +14,7 @@ from pyvcloud.vcd.org import Org
 
 from proto import pyvcloudprovider_pb2 as pyvcloudprovider_pb2
 from proto import pyvcloudprovider_pb2_grpc as pyvcloudprovider_pb2_grpc
-
+import grpc
 import requests
 import logging
 import inspect
@@ -54,10 +54,9 @@ def read(client, context, name):
         raise
 
 
-def create(client, context, name, description, shared):
+def create(client, context, name, description):
     logging.debug("_INIT_create_catalog__")
-    logging.debug("name = [%s]  desc = [%s] shared = [%s] ", name, description,
-                  shared)
+    logging.debug("name = [%s]  desc = [%s] ", name, description)
 
     result = pyvcloudprovider_pb2.CreateCatalogResult()
     result.created = False
@@ -68,11 +67,6 @@ def create(client, context, name, description, shared):
         try:
             catalog = org.create_catalog(name=name, description=description)
             result.created = True
-
-            if shared:
-                success = share_catalog(client, name, shared)
-                if not success:
-                    result.created = False
         except Exception as e:
             error_message = "__ ERROR Creating catalog [{0}] __ERROR_MESSAGE__ [{1}]".format(
                 name, str(e))
@@ -90,11 +84,11 @@ def create(client, context, name, description, shared):
     return result
 
 
-def update(client, context, old_name, new_name, description, shared):
+def update(client, context, old_name, new_name, description):
     logging.info("\n __INIT_update_catalog__")
     logging.debug(
-        "\n old_name = [%s] new_name = [%s]  desc = [%s] shared = [%s] ",
-        old_name, new_name, description, shared)
+        "\n old_name = [%s] new_name = [%s]  desc = [%s]",
+        old_name, new_name, description)
     result = pyvcloudprovider_pb2.UpdateCatalogResult()
     result.updated = False
 
@@ -107,10 +101,6 @@ def update(client, context, old_name, new_name, description, shared):
                 new_catalog_name=new_name,
                 description=description)
             result.updated = True
-            #TODO implement partial state in terraform
-            success = share_catalog(client, new_name, shared)
-            if not success:
-                result.updated = False
         except Exception as e:
             error_message = "Error occured while updating catalog {0} __ERROR_MESSAGE__ {1}".format(
                 old_name, str(e))
@@ -128,27 +118,30 @@ def update(client, context, old_name, new_name, description, shared):
     return result
 
 
-def share_catalog(client, name, shared):
-    logging.info("\n __INIT_update_shared_catalog__")
+def share_catalog(client, context, name, shared):
+    logging.info("\n __INIT_shared_catalog__")
     logging.debug("\n name = [%s] shared = [%s]  ", name, shared)
-    success = False
+    result = pyvcloudprovider_pb2.ShareCatalogResult()
+    result.success = False
     try:
         logged_in_org = client.get_org()
         org = Org(client, resource=logged_in_org)
         try:
             catalog = org.share_catalog(name=name, share=shared)
-            success = True
+            result.success = True
         except Exception as e:
-            logging.error(
-                "Error occured while updating share_catalog to shared = [%v], __ERROR_MESSAGE__ ",
-                shared, str(e))
+            error_message = "Error occured while sharing catalog[{0}[ to shared = [{1}], __ERROR_MESSAGE__ [{2}[".format(name, shared, str(e))
+            logging.error(error_message)
+            context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
+            context.set_details(error_message)
     except Exception as e:
-        logging.error(
-            "Error occured while updating share_catalog to shared = [%v], __ERROR_MESSAGE__ ",
-            shared, str(e))
+        error_message = "Error occured while sharing catalog[{0}[ to shared = [{1}], __ERROR_MESSAGE__ [{2}[".format(name, shared, str(e))
+        logging.error(error_message)
+        context.set_code(grpc.StatusCode.INVALID_ARGUMENT)
+        context.set_details(error_message)
 
-    logging.info("__DONE_update_share_catalog__")
-    return success
+    logging.info("__DONE_share_catalog__")
+    return result
 
 
 def delete(client, context, name):

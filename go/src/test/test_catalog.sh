@@ -18,5 +18,4 @@ go test github.com/vmware/terraform-provider-vcloud-director/go/src/vcd/provider
 
 
 #SEE EG BELOW
-#go test -run Foo     # Run top-level tests matching "Foo", such as "TestFooBar". 
-
+#go test -run Foo     # Run top-level tests matching "Foo", such as "TestFooBar".

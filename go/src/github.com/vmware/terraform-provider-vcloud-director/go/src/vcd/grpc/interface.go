@@ -46,6 +46,8 @@ type PyVcloudProvider interface {
 
 	UpdateCatalog(c proto.UpdateCatalogInfo) (*proto.UpdateCatalogResult, error)
 
+	ShareCatalog(c proto.ShareCatalogInfo) (*proto.ShareCatalogResult, error)
+
 	//Catalog Item
 	CatalogUploadMedia(c proto.CatalogUploadMediaInfo) (*proto.CatalogUploadMediaResult, error)
 

@@ -45,7 +45,7 @@ func (c Config) CreateClient() (*VCDClient, error) {
 	client := plugin.NewClient(&plugin.ClientConfig{
 		HandshakeConfig: grpc.Handshake,
 		Plugins:         grpc.PluginMap,
-		Cmd:             exec.Command("pyvtf", "start"),
+		Cmd:             exec.Command("sh", "-c", os.Getenv("PY_PLUGIN")),
 		AllowedProtocols: []plugin.Protocol{
 			plugin.ProtocolNetRPC, plugin.ProtocolGRPC},
 	})

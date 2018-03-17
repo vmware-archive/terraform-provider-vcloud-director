@@ -9,9 +9,9 @@ provider "vcloud-director" {
 
 
 resource "vcloud-director_catalog" "catalog1" {
-        name    ="pcp_catalog_01"
-        #description = "pcp desc"
-        #shared  = "true"
+        name    ="pcp_catalog_5006"
+        description = "pcp desc 5004"
+        shared  = "true"
 
 }
 	
