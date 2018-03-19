@@ -1,3 +1,9 @@
+/*****************************************************************
+* terraform-provider-vcloud-director
+* Copyright (c) 2017 VMware, Inc. All Rights Reserved.
+* SPDX-License-Identifier: BSD-2-Clause
+******************************************************************/
+
 <!doctype html>
 <html>
 
@@ -17,15 +23,15 @@
         text-align: center;
         background-color: #159957;
         background-image: linear-gradient(120deg, #155799, #159957);
-        padding: 5rem 6rem;
+        padding: 4.5rem 6rem;
+        height: 200px;
     }
 
     .overview h2,
     .feature-1 h3,
     .feature-2 h3,
     .feature-3 h3,
-    .feature-4 h3,
-    .feature-5 h3 {
+    .feature-4 h3 {
         margin-top: 2rem;
         margin-bottom: 1rem;
         font-weight: normal;
@@ -39,73 +45,110 @@
 </head>
 
 <body>
-    <div class="container-fluid mt-2 p-4">
-        <div class="page-header mb-3">
-            <h1 class="text-center">Terraform Provider for vCloud Director</h1>
+    <div class="container-fluid p-4">
+        <div class="page-header h-100 mb-4">
+            <div class="row">
+                <div class="col">
+                    <h1 class="text-center">Terraform Provider for vCloud Director</h1>
+                </div>
+            </div>
         </div>
         <hr />
-        <div class="content">
-            <div class="main h-50 ml-4 mb-4">
-                <p>
-                    <strong>Terraform Provider</strong> is a tool which enables operations such as create, update, and delete to improve infrastructure on <strong>vCloud Director</strong>.
-                </p>
-            </div>
-            <div class="overview mb-4 ml-4 mr-4 h-100">
-                <h2>Overview</h2>
-                <hr />
-                <p>
-                    <strong>Terraform</strong> is a tool for building, changing, and versioning infrastructure safely and efficiently. Terraform can manage existing and popular service providers as well as custom in-house solutions.
-                    <strong>Terraform Provider</strong> is a tool which is based on Terraform and works with configuration files. These configuration files contain all the information which is relevant enough to perform <strong>create/update/read/delete</strong> operations on the resources available on vCloud Director.
-                </p>
-                <p>The current document covers the following <strong>Terraform Provider</strong> topics:</p>
-                <ol>
-                    <li>
-                        <a href="#feature-1">Architecure</a>
-                    </li>
-                    <li>
-                        <a href="#feature-2">Installation and Configuration</a>
-                        <ul>
-                            <li>
-                                <a href="#python">Python Setup</a>
-                            </li>
-                            <li>
-                                <a href="#go">GO Setup</a>
-                            </li>
-                            <li>
-                                <a href="#terraform">Terraform Setup</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="use-cases.html">Use Cases</a>
-                    </li>
-                    <li>
-                        <a href="#feature-3">References</a>
-                    </li>
-                    <li>
-                        <a href="#feature-4">Report Issues</a>
-                    </li>
-                </ol>
-            </div>
-            <div class="features ml-4">
-                <div id="feature-1" class="feature-1 mb-4 h-100">
-                    <h3>Terraform Provider Architecture</h3>
-                    <hr />
+        <div class="content h-100 mb-4">
+            <div class="row ml-2">
+                <div class="col">
                     <p>
-                        <strong>Terraform Provider</strong> has been developed using Python and GO. It uses Client-Server model inside the hood where the client has been written using GO and server has been written using Python language. The core reason to use two different languages is to make a bridge between Terraform and Pyvcloud API. Pyvcloud is the SDK developed by VMware and provides an medium to talk to vCloud Director. Terraform uses GO to communicate where Pyvcloud has been written in Python3.
-                    </p>
-                    <p>We are using GRPC Protocol to handle the communication between GO client and Python server.</p>
-                    <p>
-                        <img class="ml-4" src="architecture.jpg" />
+                        <strong>Terraform Provider</strong> is a tool which enables operations such as create, update, and delete to improve infrastructure on <strong>vCloud Director</strong>.
                     </p>
                 </div>
-                <div id="feature-2" class="feature-2 mb-4 h-100">
-                    <h3>Installaton and Configuration</h3>
-                    <hr />
-                    <ul id="python">
-                        <li><strong>Install Python3.6</strong></li>
-                    </ul>
-                    <pre>
+            </div>
+        </div>
+        <div class="overview mb-4 h-100">
+            <div class="row">
+                <div class="col">
+                    <h2>Overview</h2>
+                </div>
+            </div>
+            <hr />
+            <div class="row ml-2">
+                <div class="col" <p>
+                    <strong>Terraform</strong> is a tool for building, changing, and versioning infrastructure safely and efficiently. Terraform can manage existing and popular service providers as well as custom in-house solutions.
+                    <strong>Terraform Provider</strong> is a tool which is based on Terraform and works with configuration files. These configuration files contain all the information which is relevant enough to perform <strong>create/update/read/delete</strong> operations on the resources available on vCloud Director.
+                    </p>
+                    <p>The current document covers the following <strong>Terraform Provider</strong> topics:</p>
+                    <ol>
+                        <li>
+                            <a href="#feature-1" class="feature-1">Architecure</a>
+                        </li>
+                        <li>
+                            <a href="#feature-2" class="feature-2">Installation and Configuration</a>
+                            <ul>
+                                <li>
+                                    <a href="#python" class="python">Install Python 3.6</a>
+                                </li>
+                                <li>
+                                    <a href="#go" class="go">Install GO</a>
+                                </li>
+                                <li>
+                                    <a href="#terraform" class="terraform">Install Terraform</a>
+                                </li>
+                                <li>
+                                    <a href="#go-binary" class="go-binary">Configure GO Binary</a>
+                                </li>
+                                <li>
+                                    <a href="#pyvtf" class="pyvtf">Install Pyvtf</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="use-cases.html">Use Cases</a>
+                        </li>
+                        <li>
+                            <a href="#feature-3" class="feature-3">References</a>
+                        </li>
+                        <li>
+                            <a href="#feature-4" class="feature-4">Report Issues</a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="features h-100 mb-4">
+            <div id="feature-1" class="feature-1">
+                <div class="row">
+                    <div class="col">
+                        <h3>Terraform Provider Architecture</h3>
+                    </div>
+                </div>
+                <hr />
+                <div class="row ml-2">
+                    <div class="col">
+                        <p>
+                            <strong>Terraform Provider</strong> has been developed using Python and GO. It uses Client-Server model inside the hood where the client has been written using GO and server has been written using Python language. The core reason to use two different languages is to make a bridge between Terraform and Pyvcloud API. Pyvcloud is the SDK developed by VMware and provides an medium to talk to vCloud Director. Terraform uses GO to communicate where Pyvcloud has been written in Python3.
+                        </p>
+                        <p>We are using GRPC Protocol to handle the communication between GO client and Python server.</p>
+                    </div>
+                </div>
+                <div class="row ml-2">
+                    <div class="col-2"></div>
+                    <div class="col-10">
+                        <img class="ml-4" src="architecture.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div id="feature-2" class="feature-2">
+                <div class="row">
+                    <div class="col">
+                        <h3>Installaton and Configuration</h3>
+                    </div>
+                </div>
+                <hr />
+                <div class="row ml-2">
+                    <div class="col">
+                        <ul id="python">
+                            <li><strong>Install Python3.6</strong></li>
+                        </ul>
+                        <pre class="ml-4 mr-4">
  <code>
  yum group install "Development Tools" -y
  yum install wget zlib-devel openssl openssl-devel -y
@@ -115,67 +158,159 @@
  ./configure
  make
  make install
+
+ python --version
  </code>
  </pre>
-                    <ul>
-                        <li><strong>Install Python Dependencies</strong></li>
-                    </ul>
-                    <pre>
+                    </div>
+                </div>
+                <div class="row ml-2">
+                    <div class="col">
+                        <p>
+                            <ul>
+                                <li>
+                                    <strong>Install pip3.6 using
+ <a href="https://pip.pypa.io/en/stable/installing/">this.</a>
+ </strong>
+                                </li>
+                            </ul>
+                        </p>
+                        <pre class="ml-4 mr-4">
  <code>
- pip3.6 install grpcio
- pip3.6 install grpcio-tools
- pip3.6 install grpcio_health_checking
- pip3.6 install vcd_cli
+ pip --version
  </code>
  </pre>
-                    <ul id="go">
-                        <li><strong>Install GO</strong></li>
-                    </ul>
-                    <pre>
+                    </div>
+                </div>
+                <div class="row ml-2">
+                    <div class="col">
+                        <ul id="go">
+                            <li><strong>Install GO</strong></li>
+                        </ul>
+                        <pre class="ml-4 mr-4">
  <code>
  cd /opt
  wget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz
  tar -xvf go*
  export PATH=/opt/go/bin:$PATH
  export GOROOT=/opt/go
- wget http://10.172.158.140/terraform-provider-vcloud-director
+
+ go version
  </code>
  </pre>
-                    <ul id="terraform">
-                        <li><strong>Install Terraform</strong></li>
-                    </ul>
-                    <pre>
+                    </div>
+                </div>
+                <div class="row ml-2">
+                    <div class="col">
+                        <ul id="terraform">
+                            <li><strong>Install Terraform</strong></li>
+                        </ul>
+                        <pre class="ml-4 mr-4">
  <code>
  wget https://releases.hashicorp.com/terraform/0.9.8/terraform_0.9.8_linux_amd64.zip
  unzip terraform_0.9.8_linux_amd64.zip
  sudo mv terraform /usr/local/bin/
+
  terraform --version
+
  </code>
  </pre>
+                    </div>
                 </div>
-                <div id="feature-3" class="feature-4 mb-4 h-100">
-                    <h3>References</h3>
-                    <hr />
-                    <ul>
-                        <li>
-                            <a href="https://terraform.io" target="_blank">Terrafom Docs</a>
-                        </li>
-                        <li>
-                            <a href="http://vmware.github.io/pyvcloud/" target="_blank">Pyvcloud Docs</a>
-                        </li>
-                    </ul>
+                <div class="row ml-2">
+                    <div class="col">
+                        <ul id="go-binary">
+                            <li><strong>Configure GO Binary</strong></li>
+                        </ul>
+                        <p class="ml-4">
+                            It is a binary code written in GO and managed by VMware. This binary will be consumed by Terraform CLI. Terraform CLI uses function of this binary to maintain the infrastructure on vCloud Director. This GO binary is a pure abstraction to Terraform CLI for all the subsequent parts of the architecture. Internally, this binary sends GRPC requests as per the operation (create/update/read/delete) to the server and notify the user about the response received from the server.
+                        </p>
+                        <p class="ml-4">
+                             To get the GO Binary, use the following command and put the binary in the same directory where you have installed GO on your local system. As per this document, GO is installed in '/opt'.
+                        </p>
+                        <pre class="ml-4 mr-4">
+ <code>
+ cd /opt
+ wget http://10.172.158.140/terraform-provider-vcloud-director
+ </code>
+ </pre>
+                    </div>
                 </div>
-                <div id="feature-4" class="feature-5 mb-4 h-100">
-                    <h3>Report Issues</h3>
-                    <hr />
-                    <p>
-                        Please refer to
-                        <a href="https://github.com/vmware/terraform-provider-vcloud-director" target="_blank">this</a> to report issues and know more details about the project.
-                    </p>
+                <div class="row ml-2">
+                    <div class="col">
+                        <ul id="pyvtf">
+                            <li><strong>Install Pyvtf</strong></li>
+                        </ul>
+                        <p class="ml-4">
+                            Pyvtf is a Python Package by VMware which creates a python server on the client machine and responsible enough to handle GRPC requests from GO client. As per the <a href="#feature-1">Architecture</a>, it sits between GRPC and Pyvcloud API. It is an abstraction of Pyvcloud API and vCloud Director to the GO client. Once it receives a request from GO client, it connects with the vCloud Director using Pyvcloud API, does the appropriate processing and returns the response back to GO client. To install pyvtf on the system, use the following command.
+                        </p>
+                        <pre class="ml-4 mr-4">
+ <code>
+ pip3.6 install pyvtf
+
+ pyvtf --version
+ </code>
+ </pre>
+                        <p class="ml-4">
+                            To start/stop the python server through pyvtf, use following command,
+                        </p>
+                        <pre class="ml-4 mr-4">
+ <code>
+ pyvtf start/stop
+ </code>
+ </pre>
+                    </div>
+                </div>
+            </div>
+            <div id="feature-3" class="feature-3">
+                <div class="row ml-2">
+                    <div class="col">
+                        <h3>References</h3>
+                        <hr />
+                        <ul>
+                            <li>
+                                <a href="https://terraform.io" target="_blank">Terrafom Docs</a>
+                            </li>
+                            <li>
+                                <a href="http://vmware.github.io/pyvcloud/" target="_blank">Pyvcloud Docs</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="feature-4" class="feature-4">
+                <div class="row ml-2">
+                    <div class="col">
+                        <h3>Report Issues</h3>
+                        <hr />
+                        <p class="ml-2">
+                            Please refer to
+                            <a href="https://github.com/vmware/terraform-provider-vcloud-director" target="_blank">this</a> to report issues and know more details about the project.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript">
+$("document").ready(function() {
+    var links = ['.feature-1', '.feature-2', '.python',
+        '.go', '.terraform', '.go-binary', '.pyvtf', '.feature-3', '.feature-4'
+    ];
+
+    $.each(links, function(index, value) {
+        $(value).click(function(e) {
+            $('html, body').animate({
+                scrollTop: $($.attr(this, 'href')).offset().top
+            }, 1200);
+
+            return false;
+        });
+    });
+});
+</script>
 
 </html>
