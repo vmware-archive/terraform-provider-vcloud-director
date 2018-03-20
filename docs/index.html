@@ -1,9 +1,8 @@
-/*****************************************************************
-* terraform-provider-vcloud-director
-* Copyright (c) 2017 VMware, Inc. All Rights Reserved.
-* SPDX-License-Identifier: BSD-2-Clause
-******************************************************************/
-
+<!-- ***************************************************************** -->
+<!-- * terraform-provider-vcloud-director -->
+<!-- * Copyright (c) 2017 VMware, Inc. All Rights Reserved. -->
+<!-- * SPDX-License-Identifier: BSD-2-Clause -->
+<!-- ******************************************************************-->
 <!doctype html>
 <html>
 
@@ -31,7 +30,9 @@
     .feature-1 h3,
     .feature-2 h3,
     .feature-3 h3,
-    .feature-4 h3 {
+    .feature-4 h3,
+    .centos h4,
+    .macos h4 {
         margin-top: 2rem;
         margin-bottom: 1rem;
         font-weight: normal;
@@ -84,21 +85,45 @@
                             <a href="#feature-2" class="feature-2">Installation and Configuration</a>
                             <ul>
                                 <li>
-                                    <a href="#python" class="python">Install Python 3.6</a>
+                                    <a href="#centos" class="centos">Centos 7 Setup</a>
+                                    <ul>
+                                        <li>
+                                            Install Python 3.6
+                                        </li>
+                                        <li>
+                                            Install GO
+                                        </li>
+                                        <li>
+                                            Install Terraform
+                                        </li>
+                                        <li>
+                                            Configure GO Binary
+                                        </li>
+                                        <li>
+                                            Install Pyvtf
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
-                                    <a href="#go" class="go">Install GO</a>
+                                    <a href="#macos" class="macos">MacOS Setup</a>
+                                    <ul>
+                                        <li>
+                                            Install Python 3.6
+                                        </li>
+                                        <li>
+                                            Install GO
+                                        </li>
+                                        <li>
+                                            Install Terraform
+                                        </li>
+                                        <li>
+                                            Configure GO Binary
+                                        </li>
+                                        <li>
+                                            Install Pyvtf
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li>
-                                    <a href="#terraform" class="terraform">Install Terraform</a>
-                                </li>
-                                <li>
-                                    <a href="#go-binary" class="go-binary">Configure GO Binary</a>
-                                </li>
-                                <li>
-                                    <a href="#pyvtf" class="pyvtf">Install Pyvtf</a>
-                                </li>
-                            </ul>
                         </li>
                         <li>
                             <a href="use-cases.html">Use Cases</a>
@@ -143,48 +168,41 @@
                     </div>
                 </div>
                 <hr />
+                <div id="centos" class="centos row ml-2">
+                    <div class="col">
+                        <h4>CentOS 7 Setup</h4>
+                    </div>
+                </div>
                 <div class="row ml-2">
                     <div class="col">
-                        <ul id="python">
-                            <li><strong>Install Python3.6</strong></li>
+                        <ul>
+                            <li>
+                                <strong>Install Python3.6</strong>
+                            </li>
                         </ul>
                         <pre class="ml-4 mr-4">
  <code>
  yum group install "Development Tools" -y
- yum install wget zlib-devel openssl openssl-devel -y
- wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz
+ yum install wget zlib-devel sqlite-devel openssl openssl-devel -y
+ wget https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz
  tar -xvf Python*
- cd Python-3.6.3
+ cd Python-3.6.4
  ./configure
  make
  make install
-
- python --version
- </code>
- </pre>
-                    </div>
-                </div>
-                <div class="row ml-2">
-                    <div class="col">
-                        <p>
-                            <ul>
-                                <li>
-                                    <strong>Install pip3.6 using
- <a href="https://pip.pypa.io/en/stable/installing/">this.</a>
- </strong>
-                                </li>
-                            </ul>
-                        </p>
+</code>
+</pre>
                         <pre class="ml-4 mr-4">
- <code>
- pip --version
+<code>
+ python3 --version // output --> 3.6.4
+ pip3.6 --version // output --> pip 9.0.1 from /usr/local/lib/python3.6/site-packages (python 3.6)
  </code>
  </pre>
                     </div>
                 </div>
                 <div class="row ml-2">
                     <div class="col">
-                        <ul id="go">
+                        <ul>
                             <li><strong>Install GO</strong></li>
                         </ul>
                         <pre class="ml-4 mr-4">
@@ -194,51 +212,56 @@
  tar -xvf go*
  export PATH=/opt/go/bin:$PATH
  export GOROOT=/opt/go
-
- go version
+</code>
+</pre>
+                        <pre class="ml-4 mr-4">
+<code>
+ go version // output --> go version go1.9.4 darwin/amd64
  </code>
  </pre>
                     </div>
                 </div>
                 <div class="row ml-2">
                     <div class="col">
-                        <ul id="terraform">
+                        <ul>
                             <li><strong>Install Terraform</strong></li>
                         </ul>
                         <pre class="ml-4 mr-4">
  <code>
- wget https://releases.hashicorp.com/terraform/0.9.8/terraform_0.9.8_linux_amd64.zip
- unzip terraform_0.9.8_linux_amd64.zip
+ wget https://releases.hashicorp.com/terraform/0.11.4/terraform_0.11.4_linux_amd64.zip
+ unzip terraform_0.11.4_linux_amd64.zip
  sudo mv terraform /usr/local/bin/
-
- terraform --version
-
+</code>
+</pre>
+                        <pre class="ml-4 mr-4">
+<code>
+ terraform --version // output --> Terraform version: 0.11.4
  </code>
  </pre>
                     </div>
                 </div>
                 <div class="row ml-2">
                     <div class="col">
-                        <ul id="go-binary">
+                        <ul>
                             <li><strong>Configure GO Binary</strong></li>
                         </ul>
                         <p class="ml-4">
                             It is a binary code written in GO and managed by VMware. This binary will be consumed by Terraform CLI. Terraform CLI uses function of this binary to maintain the infrastructure on vCloud Director. This GO binary is a pure abstraction to Terraform CLI for all the subsequent parts of the architecture. Internally, this binary sends GRPC requests as per the operation (create/update/read/delete) to the server and notify the user about the response received from the server.
                         </p>
                         <p class="ml-4">
-                             To get the GO Binary, use the following command and put the binary in the same directory where you have installed GO on your local system. As per this document, GO is installed in '/opt'.
+                            To get the GO Binary, use the following command and put the binary in '/usr/local/bin/'
                         </p>
                         <pre class="ml-4 mr-4">
  <code>
- cd /opt
- wget http://10.172.158.140/terraform-provider-vcloud-director
+ cd /usr/local/bin/
+ wget http://10.172.158.140:8081/linux/terraform-provider-vcloud-director
  </code>
  </pre>
                     </div>
                 </div>
                 <div class="row ml-2">
                     <div class="col">
-                        <ul id="pyvtf">
+                        <ul>
                             <li><strong>Install Pyvtf</strong></li>
                         </ul>
                         <p class="ml-4">
@@ -247,8 +270,11 @@
                         <pre class="ml-4 mr-4">
  <code>
  pip3.6 install pyvtf
-
- pyvtf --version
+ </code>
+</pre>
+                        <pre class="ml-4 mr-4">
+<code>
+ pyvtf --version // output --> 0.2
  </code>
  </pre>
                         <p class="ml-4">
@@ -262,44 +288,159 @@
                     </div>
                 </div>
             </div>
-            <div id="feature-3" class="feature-3">
-                <div class="row ml-2">
-                    <div class="col">
-                        <h3>References</h3>
-                        <hr />
-                        <ul>
-                            <li>
-                                <a href="https://terraform.io" target="_blank">Terrafom Docs</a>
-                            </li>
-                            <li>
-                                <a href="http://vmware.github.io/pyvcloud/" target="_blank">Pyvcloud Docs</a>
-                            </li>
-                        </ul>
-                    </div>
+            <div id="macos" class="macos row ml-2">
+                <div class="col">
+                    <h4>MacOS 7 Setup</h4>
                 </div>
             </div>
-            <div id="feature-4" class="feature-4">
-                <div class="row ml-2">
-                    <div class="col">
-                        <h3>Report Issues</h3>
-                        <hr />
-                        <p class="ml-2">
-                            Please refer to
-                            <a href="https://github.com/vmware/terraform-provider-vcloud-director" target="_blank">this</a> to report issues and know more details about the project.
-                        </p>
-                    </div>
+            <div class="row ml-2">
+                <div class="col">
+                    <ul>
+                        <li>
+                            <strong>Install Python3.6</strong>
+                        </li>
+                    </ul>
+                    <pre class="ml-4 mr-4">
+ <code>
+ wget https://www.python.org/ftp/python/3.6.5/python-3.6.5rc1-macosx10.9.pkg
+</code>
+</pre>
+                    <p class="ml-4 mr-4">
+                        Above command will download the Python 3.6 installer. Run the installer and follow the instructions to install Python 3.6. To check the current version of python, run the following command.
+                    </p>
+                    <pre class="ml-4 mr-4">
+ <code>
+ python3.6 --version // output --> 3.6.4
+ pip3.6 --version // output --> pip 9.0.1 from /usr/local/lib/python3.6/site-packages (python 3.6)
+
+ </code>
+ </pre>
+                </div>
+            </div>
+            <div class="row ml-2">
+                <div class="col">
+                    <ul>
+                        <li><strong>Install GO</strong></li>
+                    </ul>
+                    <pre class="ml-4 mr-4">
+ <code>
+ cd /opt
+ wget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz
+ tar -xvf go*
+ export PATH=/opt/go/bin:$PATH
+ export GOROOT=/opt/go
+</code>
+</pre>
+                    <pre class="ml-4 mr-4">
+<code>
+ go version // output --> go version go1.9.4 darwin/amd64
+ </code>
+ </pre>
+                </div>
+            </div>
+            <div class="row ml-2">
+                <div class="col">
+                    <ul>
+                        <li><strong>Install Terraform</strong></li>
+                    </ul>
+                    <pre class="ml-4 mr-4">
+ <code>
+ wget https://releases.hashicorp.com/terraform/0.11.4/terraform_0.11.4_linux_amd64.zip
+ unzip terraform_0.11.4_linux_amd64.zip
+ sudo mv terraform /usr/local/bin/
+</code>
+</pre>
+                    <pre class="ml-4 mr-4">
+<code>
+ terraform --version // output --> Terraform version: 0.11.4
+ </code>
+ </pre>
+                </div>
+            </div>
+            <div class="row ml-2">
+                <div class="col">
+                    <ul>
+                        <li><strong>Configure GO Binary</strong></li>
+                    </ul>
+                    <p class="ml-4">
+                        It is a binary code written in GO and managed by VMware. This binary will be consumed by Terraform CLI. Terraform CLI uses function of this binary to maintain the infrastructure on vCloud Director. This GO binary is a pure abstraction to Terraform CLI for all the subsequent parts of the architecture. Internally, this binary sends GRPC requests as per the operation (create/update/read/delete) to the server and notify the user about the response received from the server.
+                    </p>
+                    <p class="ml-4">
+                        To get the GO Binary, use the following command and put the binary in '/usr/local/bin/'
+                    </p>
+                    <pre class="ml-4 mr-4">
+ <code>
+ cd /usr/local/bin/
+ wget http://10.172.158.140:8081/mac/terraform-provider-vcloud-director
+ </code>
+ </pre>
+                </div>
+            </div>
+            <div class="row ml-2">
+                <div class="col">
+                    <ul>
+                        <li><strong>Install Pyvtf</strong></li>
+                    </ul>
+                    <p class="ml-4">
+                        Pyvtf is a Python Package by VMware which creates a python server on the client machine and responsible enough to handle GRPC requests from GO client. As per the <a href="#feature-1">Architecture</a>, it sits between GRPC and Pyvcloud API. It is an abstraction of Pyvcloud API and vCloud Director to the GO client. Once it receives a request from GO client, it connects with the vCloud Director using Pyvcloud API, does the appropriate processing and returns the response back to GO client. To install pyvtf on the system, use the following command.
+                    </p>
+                    <pre class="ml-4 mr-4">
+ <code>
+ pip3.6 install pyvtf
+ </code>
+</pre>
+                    <pre class="ml-4 mr-4">
+<code>
+ pyvtf --version // output --> 0.2
+ </code>
+ </pre>
+                    <p class="ml-4">
+                        To start/stop the python server through pyvtf, use following command,
+                    </p>
+                    <pre class="ml-4 mr-4">
+ <code>
+ pyvtf start/stop
+ </code>
+ </pre>
                 </div>
             </div>
         </div>
+        <div id="feature-3" class="feature-3">
+            <div class="row ml-2">
+                <div class="col">
+                    <h3>References</h3>
+                    <hr />
+                    <ul>
+                        <li>
+                            <a href="https://terraform.io" target="_blank">Terrafom Docs</a>
+                        </li>
+                        <li>
+                            <a href="http://vmware.github.io/pyvcloud/" target="_blank">Pyvcloud Docs</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="feature-4" class="feature-4">
+            <div class="row ml-2">
+                <div class="col">
+                    <h3>Report Issues</h3>
+                    <hr />
+                    <p class="ml-2">
+                        Please refer to
+                        <a href="https://github.com/vmware/terraform-provider-vcloud-director" target="_blank">this</a> to report issues and know more details about the project.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 </body>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript">
 $("document").ready(function() {
-    var links = ['.feature-1', '.feature-2', '.python',
-        '.go', '.terraform', '.go-binary', '.pyvtf', '.feature-3', '.feature-4'
-    ];
+    var links = ['.feature-1', '.feature-2', '.centos', '.macos', '.feature-3', '.feature-4'];
 
     $.each(links, function(index, value) {
         $(value).click(function(e) {
