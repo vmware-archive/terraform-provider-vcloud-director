@@ -57,6 +57,7 @@ def create(client, context, vappInfo):
         memory = None
         storage_profile = None
         accept_all_eulas = False
+        power_on = False
         if vappInfo.network:
             network = vappInfo.network
         if vappInfo.memory:
@@ -65,6 +66,8 @@ def create(client, context, vappInfo):
             storage_profile = vappInfo.storage_profile
         if vappInfo.accept_all_eulas:
             accept_all_eulas = vappInfo.accept_all_eulas
+        if vappInfo.power_on:
+            power_on = vappInfo.power_on
 
         logging.info(
             "__LOG__ CREATE VAPP Params - MEMORY = [%s] NETWORK = [%s] storage_profile =[%s] ",
@@ -77,12 +80,12 @@ def create(client, context, vappInfo):
             network=network,
             memory=memory,
             cpu=vappInfo.cpu,
+            power_on=power_on,
             storage_profile=storage_profile,
             accept_all_eulas=accept_all_eulas)
 
         task = client.get_task_monitor().wait_for_status(
             task=result.Tasks.Task[0],
-            #TODO timeout configurable
             timeout=60,
             poll_frequency=2,
             fail_on_statuses=None,
@@ -98,6 +101,14 @@ def create(client, context, vappInfo):
         else:
             raise errors.VCDVappCreationError(
                 etree.tostring(task, pretty_print=True))
+
+        vapp = vdc.get_vapp(vappInfo.name)
+        if vappInfo.power_on is True:
+            logging.info("Powering on [Vapp %v]".format(vappInfo.name))
+            vapp.power_on()
+        else:
+            logging.info("Powering off [Vapp %v]".format(vappInfo.name))
+            vapp.undeploy()
 
     except Exception as e:
 

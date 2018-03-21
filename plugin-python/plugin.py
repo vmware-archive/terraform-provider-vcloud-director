@@ -173,6 +173,9 @@ class PyVcloudProviderServicer(
         vapp_info.memory = request.memory
         vapp_info.cpu = request.cpu
         vapp_info.storage_profile = request.storage_profile
+        vapp_info.power_on = request.power_on
+        vapp_info.accept_all_eulas = request.accept_all_eulas
+
         logging.debug("__LOG__ [%s]", vapp_info)
         return vapp.create(self.client, context, vapp_info)
 

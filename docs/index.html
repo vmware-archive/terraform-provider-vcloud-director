@@ -97,7 +97,7 @@
                                             Install Terraform
                                         </li>
                                         <li>
-                                            Configure GO Binary
+                                            Configure Terraform Provider Binary
                                         </li>
                                         <li>
                                             Install Pyvtf
@@ -117,7 +117,7 @@
                                             Install Terraform
                                         </li>
                                         <li>
-                                            Configure GO Binary
+                                            Configure Terraform Provider Binary
                                         </li>
                                         <li>
                                             Install Pyvtf
@@ -194,7 +194,7 @@
 </pre>
                         <pre class="ml-4 mr-4">
 <code>
- python3 --version // output --> 3.6.4
+ python3 --version // output --> Python 3.6.4
  pip3.6 --version // output --> pip 9.0.1 from /usr/local/lib/python3.6/site-packages (python 3.6)
  </code>
  </pre>
@@ -243,7 +243,7 @@
                 <div class="row ml-2">
                     <div class="col">
                         <ul>
-                            <li><strong>Configure GO Binary</strong></li>
+                            <li><strong>Configure Terraform Provider Binary</strong></li>
                         </ul>
                         <p class="ml-4">
                             It is a binary code written in GO and managed by VMware. This binary will be consumed by Terraform CLI. Terraform CLI uses function of this binary to maintain the infrastructure on vCloud Director. This GO binary is a pure abstraction to Terraform CLI for all the subsequent parts of the architecture. Internally, this binary sends GRPC requests as per the operation (create/update/read/delete) to the server and notify the user about the response received from the server.
@@ -274,7 +274,8 @@
 </pre>
                         <pre class="ml-4 mr-4">
 <code>
- pyvtf --version // output --> 0.2
+ pyvtf --version // output --> 0.4
+ pyvtf --help
  </code>
  </pre>
                         <p class="ml-4">
@@ -302,11 +303,11 @@
                     </ul>
                     <pre class="ml-4 mr-4">
  <code>
- wget https://www.python.org/ftp/python/3.6.5/python-3.6.5rc1-macosx10.9.pkg
+ wget https://www.python.org/ftp/python/3.6.4/python-3.6.4-macosx10.6.pkg
 </code>
 </pre>
                     <p class="ml-4 mr-4">
-                        Above command will download the Python 3.6 installer. Run the installer and follow the instructions to install Python 3.6. To check the current version of python, run the following command.
+                        Above command will download the Python 3.6 installer. Run the installer and follow the instructions to install Python 3.6. To check the current version of python, run the following command in terminal.
                     </p>
                     <pre class="ml-4 mr-4">
  <code>
@@ -324,13 +325,12 @@
                     </ul>
                     <pre class="ml-4 mr-4">
  <code>
- cd /opt
- wget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz
- tar -xvf go*
- export PATH=/opt/go/bin:$PATH
- export GOROOT=/opt/go
+ wget https://dl.google.com/go/go1.10.darwin-amd64.pkg
 </code>
 </pre>
+<p class="ml-4 mr-4">
+                        Above command will download the Go installer. Run the installer and follow the instructions to install Go. To check the current version of go, run the following command in terminal.
+                    </p>
                     <pre class="ml-4 mr-4">
 <code>
  go version // output --> go version go1.9.4 darwin/amd64
@@ -345,8 +345,8 @@
                     </ul>
                     <pre class="ml-4 mr-4">
  <code>
- wget https://releases.hashicorp.com/terraform/0.11.4/terraform_0.11.4_linux_amd64.zip
- unzip terraform_0.11.4_linux_amd64.zip
+ wget https://releases.hashicorp.com/terraform/0.11.4/terraform_0.11.4_darwin_amd64.zip
+ unzip terraform_0.11.4_darwin_amd64.zip
  sudo mv terraform /usr/local/bin/
 </code>
 </pre>
@@ -360,7 +360,7 @@
             <div class="row ml-2">
                 <div class="col">
                     <ul>
-                        <li><strong>Configure GO Binary</strong></li>
+                        <li><strong>Configure Terraform Provider Binary</strong></li>
                     </ul>
                     <p class="ml-4">
                         It is a binary code written in GO and managed by VMware. This binary will be consumed by Terraform CLI. Terraform CLI uses function of this binary to maintain the infrastructure on vCloud Director. This GO binary is a pure abstraction to Terraform CLI for all the subsequent parts of the architecture. Internally, this binary sends GRPC requests as per the operation (create/update/read/delete) to the server and notify the user about the response received from the server.
@@ -372,6 +372,7 @@
  <code>
  cd /usr/local/bin/
  wget http://10.172.158.140:8081/mac/terraform-provider-vcloud-director
+ chmod +x terraform-provider-vcloud-director
  </code>
  </pre>
                 </div>
@@ -391,7 +392,8 @@
 </pre>
                     <pre class="ml-4 mr-4">
 <code>
- pyvtf --version // output --> 0.2
+ pyvtf --version // output --> 0.4
+ pyvtf --help
  </code>
  </pre>
                     <p class="ml-4">
