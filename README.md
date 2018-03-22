@@ -20,7 +20,7 @@ We are using GRPC Protocol to handle the communication between GO client and Pyt
 
 ## Try it out
 
-See the [Setup.md](https://raw.githubusercontent.com/vmware/terraform-provider-vcloud-director/master/docs/SETUP.md)
+See the [Setup.md](https://github.com/vmware/terraform-provider-vcloud-director/blob/master/README.md)
 See the [Release Docs](https://vmware.github.io/terraform-provider-vcloud-director/)
 
 ## Contributing
