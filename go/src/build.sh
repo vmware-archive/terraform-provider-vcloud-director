@@ -4,5 +4,16 @@
 # SPDX-License-Identifier: BSD-2-Clause
 #*****************************************************************
 
-go build -o terraform-provider-vcloud-director
+OS="`uname`"
+case $OS in
+  'Linux')
+    go build -o ../../builds/linux/terraform-provider-vcloud-director
+    ;;
+  'WindowsNT')
+    OS='Windows'
+    ;;
+  'Darwin') 
+    go build -o ../../builds/mac/terraform-provider-vcloud-director
+    ;;
+esac
 
