@@ -1,9 +1,8 @@
-/*****************************************************************
+<!--/*****************************************************************
 * terraform-provider-vcloud-director
 * Copyright (c) 2017 VMware, Inc. All Rights Reserved.
 * SPDX-License-Identifier: BSD-2-Clause
-******************************************************************/
-
+******************************************************************/ -->
 <!doctype html>
 <html>
 
@@ -37,12 +36,14 @@
         display: none
     }
 
-    div.reference div.catalog-usage {
+    div.reference div.provider-usage {
         display: block
     }
 
-    div.reference div.catalog-argument-reference,
-    div.reference div.catalog-argument-reference div {
+    div.reference div.provider-argument-reference,
+    div.reference div.provider-sample-reference,
+    div.reference div.provider-sample-reference div,
+    div.reference div.provider-argument-reference div {
         display: block
     }
     </style>
@@ -63,7 +64,8 @@
                     <h2 class="text-center">Use Cases</h2>
                     <hr />
                     <div class="list-group">
-                        <a href="#" class="catalog list-group-item list-group-item-action active">Catalog</a>
+                        <a href="#" class="provider list-group-item list-group-item-action active">Provider Settings</a>
+                        <a href="#" class="catalog list-group-item list-group-item-action">Catalog</a>
                         <a href="#" class="catalog-item-ova list-group-item list-group-item-action">Catalog_Item_OVA</a>
                         <a href="#" class="catalog-item-media list-group-item list-group-item-action">Catalog_Item_Media</a>
                         <a href="#" class="vapp list-group-item list-group-item-action">Vapp</a>
@@ -71,6 +73,78 @@
                     </div>
                 </div>
                 <div class="reference col-9">
+                    <div class="provider-usage col-12">
+                        <h2>Example Usage</h2>
+                        <hr />
+                        <pre>
+ <code>
+ variable VCD_IP {
+ type = "string"
+ default = "XXXXXXXXXXXXXX"
+ }
+
+ variable VCD_USER {
+ type = "string"
+ default = "XXXXXXXXXXXXXX"
+ }
+
+ variable VCD_ORG {
+ type = "string"
+ default = "XXXXXXXXXXXXXX"
+ }
+
+ variable VCD_ALLOW_UNVERIFIED_SSL {
+ type = "string"
+ default = "XXXXXXXXXXXXXX"
+ }
+
+ variable VCD_USE_VCD_CLI_PROFILE {
+ type = "string"
+ default = "XXXXXXXXXXXXXX"
+ }
+
+ provider "vcloud-director" {
+ allow_unverified_ssl = "${var.VCD_ALLOW_UNVERIFIED_SSL}"
+ use_vcd_cli_profile = "${var.VCD_USE_VCD_CLI_PROFILE}"
+ ip = "${var.VCD_IP}"
+ user = "${var.VCD_USER}"
+ org = "${var.VCD_ORG}"
+ }
+ </code>
+ </pre>
+                    </div>
+                    <div class="provider-argument-reference col-12">
+                        <h2>Argument Reference</h2>
+                        <hr />
+                        <div class="col-12">
+                            <p>The following arguments will be treated as <strong>Environment variables</strong> for Terraform Provider execution. These variables are required to be set before starting the Terraform Provider execution.</p>
+                            <ul>
+                                <li>VCD_ALLOW_UNVERIFIED_SSL - ("true" / "false") Whether VCD should allow unverified ssl connection or not.</li>
+                                <li>VCD_USE_VCD_CLI_PROFILE - ("true" / "false")
+                                    <br /> If it is <b>false</b> then specify VCD Password in the Provider settings above.
+                                    <br /> If it is <b>true</b> then use the below command to log in to VCD_CLI and do not include VCD_PASSWORD in the Provider settings above.
+                                    <pre>
+ <code>
+ vcd login --no-verify-ssl-certs "VCD_HOST_NAME" "VCD_ORG_NAME" "VCD_USER_NAME" -p "VCD_PASSWORD"
+ </code>
+ </pre>
+                                </li>
+                                <li>VCD_IP - (string) VCD IP Address</li>
+                                <li>VCD_USER - (string) VCD User Name</li>
+                                <li>VCD_ORG - (string) VCD Org Name</li>
+                                <li>VCD_PASSWORD - (string) VCD Passowrd</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="provider-sample-reference col-12">
+                        <h2>Sample</h2>
+                        <hr />
+                        <div class="col-12">
+                            <p>Please take a look for sample
+                                <a href="https://github.com/vmware/terraform-provider-vcloud-director/blob/master/go/src/main.tf" target="_blank">main.tf</a>
+                            </p>
+                        </div>
+                    </div>
                     <div class="catalog-usage col-12">
                         <h2>Example Usage</h2>
                         <hr />
@@ -276,6 +350,8 @@
             $('div.reference div').css('display', 'none');
             $('.' + className + '-usage').css('display', 'block');
             $('.' + className + '-argument-reference').css('display', 'block');
+            $('.' + className + '-sample-reference').css('display', 'block');
+            $('.' + className + '-sample-reference div').css('display', 'block');
             $('.' + className + '-argument-reference div').css('display', 'block');
             $(this).addClass('active');
         });

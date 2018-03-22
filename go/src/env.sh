@@ -1,3 +1,10 @@
+
+#!/bin/bash
+#*****************************************************************
+# terraform-provider-vcloud-director
+# Copyright (c) 2017 VMware, Inc. All Rights Reserved.
+# SPDX-License-Identifier: BSD-2-Clause
+#*****************************************************************
 export TF_ACC=1
 export TF_LOG=TRACE
 

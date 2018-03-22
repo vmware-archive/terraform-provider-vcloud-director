@@ -3,8 +3,38 @@
 # Copyright (c) 2017 VMware, Inc. All Rights Reserved.
 # SPDX-License-Identifier: BSD-2-Clause
 #*****************************************************************
+
+variable VCD_IP {
+  type = "string"
+  default = "csa-sandbox.eng.vmware.com"
+}
+
+variable VCD_USER {
+  type = "string"
+  default = "terraformadmin"
+}
+
+variable VCD_ORG {
+  type = "string"
+  default = "Terraform"
+}
+
+variable VCD_ALLOW_UNVERIFIED_SSL {
+  type = "string"
+  default = "true"
+}
+
+variable VCD_USE_VCD_CLI_PROFILE {
+  type = "string"
+  default = "true"
+}
+
 provider "vcloud-director" {
-  #value come from ENV VARIALES
+  allow_unverified_ssl = "${var.VCD_ALLOW_UNVERIFIED_SSL}"
+  use_vcd_cli_profile = "${var.VCD_USE_VCD_CLI_PROFILE}"
+  ip = "${var.VCD_IP}"
+  user = "${var.VCD_USER}"
+  org = "${var.VCD_ORG}"
 }
 
 resource "vcloud-director_catalog" "catalog1" {
