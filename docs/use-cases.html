@@ -70,6 +70,10 @@
                         <a href="#" class="catalog-item-media list-group-item list-group-item-action">Catalog_Item_Media</a>
                         <a href="#" class="vapp list-group-item list-group-item-action">Vapp</a>
                         <a href="#" class="vapp-vm list-group-item list-group-item-action">Vapp_VM</a>
+                        <a href="#" class="independent-disk list-group-item list-group-item-action">INDEPENDENT_DISK</a>
+                        <a href="#" class="org list-group-item list-group-item-action">ORG</a>
+                        <a href="#" class="org-vdc list-group-item list-group-item-action">ORG_VDC</a>
+                        <a href="#" class="user list-group-item list-group-item-action">User</a>
                     </div>
                 </div>
                 <div class="reference col-9">
@@ -201,11 +205,11 @@
                         <div class="col-12">
                             <p>The following arguments are supported</p>
                             <ul>
-                                <li>item_name - (Optional) destination catalog item name</li>
+                                <li>item_name - (Required) destination catalog item name</li>
                                 <li>catalog_name - (Required) destination catalog name</li>
-                                <li>source_file_path - (Required) ova or media file path</li>
-                                <li>source_vdc_name - (Required) source vdc to capture a vapp from</li>
-                                <li>source_vapp_name - (Required) source vapp to capture to catalog item</li>
+                                <li>source_file_path - (Optional) ova or media file path</li>
+                                <li>source_vdc_name - (Optional) source vdc to capture a vapp from</li>
+                                <li>source_vapp_name - (Optional) source vapp to capture to catalog item</li>
                                 <li>customize_on_instantiate - (Optional) "true/false"</li>
                                 <li>description - (Optional) description text for the ova item</li>
                             </ul>
@@ -230,7 +234,7 @@
                         <div class="col-12">
                             <p>The following arguments are supported</p>
                             <ul>
-                                <li>item_name - (Optional) destination catalog item name</li>
+                                <li>item_name - (Required) destination catalog item name</li>
                                 <li>catalog_name - (Required) destination catalog name</li>
                                 <li>source_file_path - (Required) media file path</li>
                             </ul>
@@ -265,11 +269,13 @@
                                 <li>template_name - (Required) source catalog item name</li>
                                 <li>catalog_name - (Required) source catalog name</li>
                                 <li>vdc - (Required) Org Vdc where this VAPP gets created</li>
-                                <li>network - (OptionalL) org network for the vapp</li>
+                                <li>network - (Optional) org network for the vapp</li>
                                 <li>ip_allocation_mode -(Optional) "static"/"dynamic"</li>
                                 <li>memory - (Optional) in MB</li>
                                 <li>cpu - (Optional) number of CPU</li>
                                 <li>storage_profile - (Optional) storage profile to use for the vapp</li>
+                                <li>power_on - (Optional) "true" / "false"</li>
+                                <li>accept_all_eulas - (Optional) "true" / "false"</li>
                             </ul>
                         </div>
                     </div>
@@ -323,9 +329,13 @@
                         <div class="col-12">
                             <p>The following arguments are supported</p>
                             <ul>
-                                <li>source_vapp - (Required) source vApp or vAppTemplate resource</li>
-                                <li>source_vm_name - (Required) source VM name</li>
-                                <li>target_vm_name - (Optional) target VM name</li>
+                                <li>source_vapp - (Optional) source vApp name</li>
+                                <li>source_vm_name - (Optional) source VM name</li>
+                                <li>source_catalog_name - (Optional) source catalog name</li>
+                                <li>source_template_name - (Optional) source template name</li>
+                                <li>target_vapp - (Required) target vApp name</li>
+                                <li>target_vm_name - (Required) target VM name</li>
+                                <li>target_vdc - (Required) target VDC</li>
                                 <li>hostname - (Optional) target guest hostname</li>
                                 <li>password - (Required) set the administrator password for target machine</li>
                                 <li>password_auto - (Required) "true"/"false", autogenerate administrator password</li>
@@ -333,6 +343,201 @@
                                 <li>cust_script - (Optional) script to run on guest customization</li>
                                 <li>network - (Optional) Name of the vApp network to connect. If omitted, the VM won't be connected to any network</li>
                                 <li>storage_profile - (Optional) the name of the storage profile to be used for this VM</li>
+                                <li>power_on - (Optional) "true" / "false"</li>
+                                <li>all_eulas_accepted - (Optional) "true" / "false"</li>
+                                <li>ip_allocation_mode - (Optional) "dhcp"</li>
+                                <li>virtual_cpus - (Optional) Number of virtual cpus</li>
+                                <li>cores_per_socket- (Optional) Number of cores per socket</li>
+                                <li>memory- (Optional) memory size in MB</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="independent-disk-usage col-12">
+                        <h2>Example Usage</h2>
+                        <hr />
+                        <pre>
+ <code>
+ resource "vcloud-director_independent_disk" "IndependentDisk1" {
+ name = "DISK_NAME"
+ size = "100"
+ vdc = "OVD4"
+ }
+ </code>
+ </pre>
+                    </div>
+                    <div class="independent-disk-argument-reference col-12">
+                        <h2>Argument Reference</h2>
+                        <hr />
+                        <div class="col-12">
+                            <p>The following arguments are supported</p>
+                            <ul>
+                                <li>name - (Required) Disk Name</li>
+                                <li>size - (Required) Disk Size in MB</li>
+                                <li>vdc - (Required) ORG VDC where disk has to be created</li>
+                                <li>description - (Optional) Disk Description</li>
+                                <li>storage_profile - (Optional) Storage Profile for Disk</li>
+                                <li>disk_id - (Optional) Disk ID</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="org-usage col-12">
+                        <h2>Example Usage</h2>
+                        <hr />
+                        <pre>
+ <code>
+ resource "vcloud-director_org" "org1" {
+ name = "ORG_NAME"
+ full_name = "ORG_FULL_NAME"
+ is_enabled = "true"
+ force = "true"
+ recursive = "true"
+ }
+ </code>
+ </pre>
+                    </div>
+                    <div class="org-argument-reference col-12">
+                        <h2>Argument Reference</h2>
+                        <hr />
+                        <div class="col-12">
+                            <p>The following arguments are supported</p>
+                            <ul>
+                                <li>name - (Required) The name of the organization</li>
+                                <li>full_name - (Required) The fullname of the organization</li>
+                                <li>is_enabled - (Required) true if enable the organization else false</li>
+                                <li>force - (Required) "true" / "false"</li>
+                                <li>recursive - (Required) "true" / "false"</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="org-vdc-usage col-12">
+                        <h2>Example Usage</h2>
+                        <hr />
+                        <pre>
+ <code>
+ resource "vcloud-director_org_vdc" "ovdc1" {
+ org_name = "ORG_NAME"
+ vdc_name = "VDC_NAME"
+ provider_vdc_name = "PVDC_NAME"
+ description = "DESCRIPTION"
+ allocation_model = "AllocationVApp"
+ cpu_units = "MHz"
+ cpu_allocated = "0"
+ cpu_limit = "0"
+ mem_units = "MB"
+ mem_allocated = "0"
+ mem_limit = "0"
+ nic_quota = "0"
+ network_quota = "0"
+ vm_quota = "0"
+ storage_profiles = "PF1,PF1"
+ resource_guaranteed_memory = "None"
+ resource_guaranteed_cpu = "None"
+ vcpu_in_mhz = "None"
+ is_thin_provision = "None"
+ network_pool_name = "None"
+ uses_fast_provisioning = "None"
+ over_commit_allowed = "None"
+ vm_discovery_enabled = "None"
+ is_enabled = "true"
+ }
+ </code>
+ </pre>
+                    </div>
+                    <div class="org-vdc-argument-reference col-12">
+                        <h2>Argument Reference</h2>
+                        <hr />
+                        <div class="col-12">
+                            <p>The following arguments are supported</p>
+                            <ul>
+                                <li>org_name - (Required) The name of the new org</li>
+                                <li>vdc_name - (Required) The name of the new org vdc</li>
+                                <li>provider_vdc_name - (Required) The name of an existing provider vdc</li>
+                                <li>description - (Required) The description of the new org vdc</li>
+                                <li>allocation_model - (Required) The allocation model used by this vDC. One of AllocationVApp, AllocationPool or ReservationPool</li>
+                                <li>cpu_units - (Required) The cpu units compute capacity allocated to this vDC. One of MHz or GHz</li>
+                                <li>cpu_allocated - (Required) Capacity that is committed to be available</li>
+                                <li>cpu_limit - (Required) Capacity limit relative to the value specified for Allocation</li>
+                                <li>mem_units - (Required) The memory units compute capacity allocated to this vDC. One of MB or GB</li>
+                                <li>mem_allocated - (Required) Memory capacity that is committed to be available
+                                </li>
+                                <li>mem_limit - (Required) Memory capacity limit relative to the value specified for Allocation</li>
+                                <li>nic_quota - (Required) Maximum number of virtual NICs allowed in this vDC. Defaults to 0, which specifies an unlimited number</li>
+                                <li>network_quota - (Required) Maximum number of network objects that can be deployed in this vDC. Defaults to 0, which means no networks can be deployed</li>
+                                <li>vm_quota - (Required) The maximum number of VMs that can be created in this vDC. Defaults to 0, which specifies an unlimited number</li>
+                                <li>storage_profiles - (Optional) List of provider vDC storage profiles to add to this vDC. Each item is a dictionary that should include the following elements,
+                                    <ul>
+                                        <li>name - (string) name of the PVDC storage profile</li>
+                                        <li>enabled - (bool) True if the storage profile is enabled for this vDC else false</li>
+                                        <li>units - (string) Units used to define limit. One of MB or GB</li>
+                                        <li>limit - (int) Max number of units allocated for this storage profile
+                                        </li>
+                                        <li>default - (bool) True if this is default storage profile for this vDC</li>
+                                    </ul>
+                                </li>
+                                <li>resource_guaranteed_memory - (Required) Percentage of allocated CPU resources guaranteed to vApps deployed in this vDC. Value defaults to 1.0 if the element is empty</li>
+                                <li>resource_guaranteed_cpu - (Required) Percentage of allocated memory resources guaranteed to vApps deployed in this vDC. Value defaults to 1.0 if the element is empty</li>
+                                <li>vcpu_in_mhz - (Required) Specifies the clock frequency, in Megahertz, for any virtual CPU that is allocated to a VM</li>
+                                <li>is_thin_provision - (Required) Boolean to request thin provisioning</li>
+                                <li>network_pool_name - (Required) Reference to a network pool in the Provider vDC</li>
+                                <li>uses_fast_provisioning - (Required) Boolean to request fast provisioning
+                                </li>
+                                <li>over_commit_allowed - (Required) Set to false to disallow creation of the VDC if the AllocationModel is AllocationPool or ReservationPool and the ComputeCapacity you specified is greater than what the backing Provider VDC can supply. Defaults to true if empty or missing
+                                </li>
+                                <li>vm_discovery_enabled - (Required) True if discovery of vCenter VMs is enabled for resource pools backing this vDC</li>
+                                <li>is_enabled - (Required) True if this vDC is enabled for use by the organization users</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="user-usage col-12">
+                        <h2>Example Usage</h2>
+                        <hr />
+                        <pre>
+ <code>
+ resource "vcloud-director_user" "source_user"{
+ name = "pcp_pcp_google_4"
+ password = "123456"
+ role_name = "Organization Administrator"
+ full_name = "USER_FULL_NAME"
+ description = "USER_DESCRIPTION"
+ email = "USER_EMAIL"
+ telephone = "12345678"
+ im = "i_m_val"
+ alert_email = "ALERT_EMAIL"
+ alert_email_prefix = "ALERT_EMAIL_PREFIX"
+ stored_vm_quota = 0
+ deployed_vm_quota = 0
+ is_group_role = "false"
+ is_default_cached = "false"
+ is_external = "false"
+ is_alert_enabled = "true"
+ is_enabled = "true"
+ }
+ </code>
+ </pre>
+                    </div>
+                    <div class="user-argument-reference col-12">
+                        <h2>Argument Reference</h2>
+                        <hr />
+                        <div class="col-12">
+                            <p>The following arguments are supported</p>
+                            <ul>
+                                <li>name - (Required) The username of the user</li>
+                                <li>password - (Required) The password of the user</li>
+                                <li>role_name - (Required) The role of the user</li>
+                                <li>full_name - (Required) The full name of the user</li>
+                                <li>description - (Optional) The description for the User</li>
+                                <li>email - (Optional) The email of the user</li>
+                                <li>telephone - (Optional) The telephone of the user</li>
+                                <li>im - (Optional) The im address of the user</li>
+                                <li>alert_email - (Optional) The alert email address</li>
+                                <li>alert_email_prefix - (Optional) The string to prepend to the alert message subject line</li>
+                                <li>stored_vm_quota - (Optional) The quota of vApps that this user can store</li>
+                                <li>deployed_vm_quota - (Optional) The quota of vApps that this user can deploy concurrently</li>
+                                <li>is_group_role - (Optional) Indicates if the user has a group role</li>
+                                <li>is_default_cached - (Optional) Indicates if user should be cached</li>
+                                <li>is_external - (Optional) Indicates if user is imported from an external source</li>
+                                <li>is_alert_enabled - (Optional) The alert email address</li>
+                                <li>s_enabled - (Required) Enable user</li>
                             </ul>
                         </div>
                     </div>
