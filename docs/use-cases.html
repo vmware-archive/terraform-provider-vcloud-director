@@ -123,7 +123,7 @@
                         <div class="col-12">
                             <p>The following arguments will be treated as <strong>Environment variables</strong> for Terraform Provider execution. These variables are required to be set before starting the Terraform Provider execution.</p>
                             <ul>
-                                <li>VCD_ALLOW_UNVERIFIED_SSL - ("true" / "false") Whether VCD should allow unverified ssl connection or not.</li>
+                                <li>VCD_ALLOW_UNVERIFIED_SSL - ("true" / "false") Whether VCD should allow unverified SSL connection or not.</li>
                                 <li>VCD_USE_VCD_CLI_PROFILE - ("true" / "false")
                                     <br /> If it is <b>false</b> then specify VCD Password in the Provider settings above.
                                     <br /> If it is <b>true</b> then use the below command to log in to VCD_CLI and do not include VCD_PASSWORD in the Provider settings above.
@@ -144,7 +144,7 @@
                         <h2>Sample</h2>
                         <hr />
                         <div class="col-12">
-                            <p>Please take a look for sample
+                            <p>Please take a look at sample
                                 <a href="https://github.com/vmware/terraform-provider-vcloud-director/blob/master/go/src/main.tf" target="_blank">main.tf</a>
                             </p>
                         </div>
@@ -170,7 +170,7 @@
                             <ul>
                                 <li>name - (Required) Name of the catalog</li>
                                 <li>description - (Optional) Description Text for the catalog</li>
-                                <li>shared - (Optional) Boolean , Controls if the catalog is published to external org</li>
+                                <li>shared - (Optional) Controls if the catalog is published to external org</li>
                             </ul>
                         </div>
                     </div>
@@ -209,7 +209,7 @@
                                 <li>catalog_name - (Required) destination catalog name</li>
                                 <li>source_file_path - (Optional) ova or media file path</li>
                                 <li>source_vdc_name - (Optional) source vdc to capture a vapp from</li>
-                                <li>source_vapp_name - (Optional) source vapp to capture to catalog item</li>
+                                <li>source_vapp_name - (Optional) source vapp to capture a catalog item</li>
                                 <li>customize_on_instantiate - (Optional) "true/false"</li>
                                 <li>description - (Optional) description text for the ova item</li>
                             </ul>
@@ -373,7 +373,7 @@
                             <ul>
                                 <li>name - (Required) Disk Name</li>
                                 <li>size - (Required) Disk Size in MB</li>
-                                <li>vdc - (Required) ORG VDC where disk has to be created</li>
+                                <li>vdc - (Required) ORG VDC where disk needs to be created</li>
                                 <li>description - (Optional) Disk Description</li>
                                 <li>storage_profile - (Optional) Storage Profile for Disk</li>
                                 <li>disk_id - (Optional) Disk ID</li>

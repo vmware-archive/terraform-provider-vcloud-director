@@ -31,6 +31,8 @@
     .feature-2 h3,
     .feature-3 h3,
     .feature-4 h3,
+    .feature-5 h3,
+    .feature-6 h3,
     .centos h4,
     .macos h4 {
         margin-top: 2rem;
@@ -59,7 +61,7 @@
             <div class="row ml-2">
                 <div class="col">
                     <p>
-                        <strong>Terraform Provider</strong> is a tool which enables operations such as create, update, and delete to manage infrastructure on <strong>vCloud Director</strong>.
+                        <strong>The Terraform Provider</strong> is a tool which enables operations such as create, update, and delete to manage infrastructure on <strong>vCloud Director</strong>.
                     </p>
                 </div>
             </div>
@@ -78,6 +80,9 @@
                     </p>
                     <p>The current document covers the following <strong>Terraform Provider</strong> topics:</p>
                     <ol>
+                        <li>
+                            <a href="#feature-5" class="feature-5">Why New Terraform Provider Plugin</a>
+                        </li>
                         <li>
                             <a href="#feature-1" class="feature-1">Architecure</a>
                         </li>
@@ -99,9 +104,9 @@
                                         <li>
                                             Configure Terraform Provider Binary
                                         </li>
-                                        <li>
+                                        <!--li>
                                             Install Pyvtf
-                                        </li>
+                                        </li-->
                                     </ul>
                                 </li>
                                 <li>
@@ -119,14 +124,20 @@
                                         <li>
                                             Configure Terraform Provider Binary
                                         </li>
-                                        <li>
+                                        <!--li>
                                             Install Pyvtf
-                                        </li>
+                                        </li-->
                                     </ul>
                                 </li>
                         </li>
                         <li>
+                            <a href="installation.html">Install Setup using Scripts</a>
+                        </li>
+                        <li>
                             <a href="use-cases.html">Use Cases</a>
+                        </li>
+                        <li>
+                            <a href="#feature-6" class="feature-6">Required Versions</a>
                         </li>
                         <li>
                             <a href="#feature-3" class="feature-3">References</a>
@@ -139,6 +150,50 @@
             </div>
         </div>
         <div class="features h-100 mb-4">
+            <div id="feature-5" class="feature-5">
+                <div class="row">
+                    <div class="col">
+                        <h3>Why New Terraform Provider Plugin</h3>
+                    </div>
+                </div>
+                <hr />
+                <div class="row ml-2">
+                    <div class="col">
+                        <p>
+                            VMware has a constant support to Terraform. To align with this support, VMware released a <a href="https://www.terraform.io/docs/providers/vcd/" target="_blank">Terraform Provider Plugin</a> for vCloud Director. But this new Terraform Provider Plugin has few advantages over the earlier released plugin such as,
+                            <ul>
+                                <li>
+                                    The earlier plugin supports a limited scope in terms of resources to
+                                    manage through vCloud Director. That plugin only provides support for <strong>Vapp</strong> and <strong>Vapp VM</strong> resources where this new plugin also provides support for other resources such as <strong>Catalog</strong>,
+                                    <strong>Catalog Item OVA</strong>,
+                                    <strong>Catalog Item Media</strong>,
+                                    <strong>Independent Disk</strong>,
+                                    <strong>ORG</strong>,
+                                    <strong>ORG VDC</strong> and
+                                    <strong>User</strong>
+                                    to manage through vCloud Director.
+                                </li>
+                                <br />
+                                <li>
+                                    The earlier plugin supports less number of parameters to perform various actions on the resources. This new plugin supports many parameters which eventually gives the ability to manage and customize resources based on the
+                                    requirements. For example, this new plugin gives the ability to manage <strong>memory</strong>,
+                                    <strong>CPU</strong>,
+                                    <strong>virtual sockets</strong>,
+                                    <strong>storage profiles</strong> and
+                                    <strong>network</strong>
+                                    over the resources on the fly.
+                                </li>
+                                <br />
+                                <li>
+                                    The essential advantage of this new plugin is support from <strong>Pyvcloud API</strong>. This new plugin is entirely based on Pyvcloud API. Pyvcloud is a Python SDK from VMware which is an abstraction to vCloud Director.
+
+                                    This API is actively contributed by VMware and open to contribution for the community as well. This API provides an extensive ability to automate the resource management through vCloud Director.
+                                </li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
             <div id="feature-1" class="feature-1">
                 <div class="row">
                     <div class="col">
@@ -149,7 +204,7 @@
                 <div class="row ml-2">
                     <div class="col">
                         <p>
-                            <strong>Terraform Provider</strong> has been developed using Python and GO. It uses Client-Server model inside the hood where the client has been written using GO and server has been written using Python language. The core reason to use two different languages is to make a bridge between Terraform and Pyvcloud API. Pyvcloud is the SDK developed by VMware and provides an medium to talk to vCloud Director. Terraform uses GO to communicate where Pyvcloud has been written in Python3.
+                            <strong>Terraform Provider</strong> has been developed using Python and GO. It uses Client-Server model inside the hood where the client has been written using GO and the server has been written using Python language. The core reason to use two different languages is to make a bridge between Terraform and Pyvcloud API. Pyvcloud is the SDK developed by VMware and provides a medium to talk to vCloud Director. Terraform uses GO to communicate where Pyvcloud has been written in Python3.
                         </p>
                         <p>We are using GRPC Protocol to handle the communication between GO client and Python server.</p>
                     </div>
@@ -246,7 +301,7 @@
                             <li><strong>Configure Terraform Provider Binary</strong></li>
                         </ul>
                         <p class="ml-4">
-                            It is a binary code written in GO and managed by VMware. This binary will be consumed by Terraform CLI. Terraform CLI uses function of this binary to maintain the infrastructure on vCloud Director. This GO binary is a pure abstraction to Terraform CLI for all the subsequent parts of the architecture. Internally, this binary sends GRPC requests as per the operation (create/update/read/delete) to the server and notify the user about the response received from the server.
+                            It is a binary code written in GO and managed by VMware. This binary will be consumed by Terraform CLI. Terraform CLI uses this binary to maintain the infrastructure through vCloud Director. This GO binary is a pure abstraction to Terraform CLI for all the subsequent parts of the architecture. Internally, this binary sends GRPC requests as per the operation (create/update/read/delete) to the server and notify the user about the response received from the server.
                         </p>
                         <p class="ml-4">
                             To get the GO Binary, use the following command and put the binary in '/usr/local/bin/'
@@ -260,13 +315,13 @@
  </pre>
                     </div>
                 </div>
-                <div class="row ml-2">
+                <!--div class="row ml-2">
                     <div class="col">
                         <ul>
                             <li><strong>Install Pyvtf</strong></li>
                         </ul>
                         <p class="ml-4">
-                            Pyvtf is a Python Package by VMware which creates a python server on the client machine and responsible enough to handle GRPC requests from GO client. As per the <a href="#feature-1">Architecture</a>, it sits between GRPC and Pyvcloud API. It is an abstraction of Pyvcloud API and vCloud Director to the GO client. Once it receives a request from GO client, it connects with the vCloud Director using Pyvcloud API, does the appropriate processing and returns the response back to GO client. To install pyvtf on the system, use the following command.
+                            Pyvtf is a Python Package by VMware which creates a python server on the client machine and responsible enough to handle GRPC requests from GO client. As per the <a href="#feature-1">Architecture</a>, it sits between GRPC and Pyvcloud API. It is an abstraction of Pyvcloud API and vCloud Director to the GO client. Once it receives a request from GO client, it connects with the vCloud Director using Pyvcloud API, does the appropriate processing and returns the response back to the GO client. To install pyvtf on the system, use the following command.
                         </p>
                         <pre class="ml-4 mr-4">
  <code>
@@ -275,12 +330,12 @@
 </pre>
                         <pre class="ml-4 mr-4">
 <code>
- pyvtf --version // output --> 0.4
+ pyvtf --version // output > 0.4
  pyvtf --help
  </code>
  </pre>
                         <p class="ml-4">
-                            To start/stop the python server through pyvtf, use following command,
+                            To start/stop the python server through pyvtf, use the following command,
                         </p>
                         <pre class="ml-4 mr-4">
  <code>
@@ -289,7 +344,7 @@
  </pre>
                     </div>
                 </div>
-            </div>
+            </div-->
             <div id="macos" class="macos row ml-2">
                 <div class="col">
                     <h4>MacOS 7 Setup</h4>
@@ -364,7 +419,7 @@
                         <li><strong>Configure Terraform Provider Binary</strong></li>
                     </ul>
                     <p class="ml-4">
-                        It is a binary code written in GO and managed by VMware. This binary will be consumed by Terraform CLI. Terraform CLI uses function of this binary to maintain the infrastructure on vCloud Director. This GO binary is a pure abstraction to Terraform CLI for all the subsequent parts of the architecture. Internally, this binary sends GRPC requests as per the operation (create/update/read/delete) to the server and notify the user about the response received from the server.
+                        It is a binary code written in GO and managed by VMware. This binary will be consumed by Terraform CLI. Terraform CLI uses this binary to maintain the infrastructure through vCloud Director. This GO binary is a pure abstraction to Terraform CLI for all the subsequent parts of the architecture. Internally, this binary sends GRPC requests as per the operation (create/update/read/delete) to the server and notify the user about the response received from the server.
                     </p>
                     <p class="ml-4">
                         To get the GO Binary, use the following command and put the binary in '/usr/local/bin/'
@@ -378,13 +433,13 @@
  </pre>
                 </div>
             </div>
-            <div class="row ml-2">
+            <!--div class="row ml-2">
                 <div class="col">
                     <ul>
                         <li><strong>Install Pyvtf</strong></li>
                     </ul>
                     <p class="ml-4">
-                        Pyvtf is a Python Package by VMware which creates a python server on the client machine and responsible enough to handle GRPC requests from GO client. As per the <a href="#feature-1">Architecture</a>, it sits between GRPC and Pyvcloud API. It is an abstraction of Pyvcloud API and vCloud Director to the GO client. Once it receives a request from GO client, it connects with the vCloud Director using Pyvcloud API, does the appropriate processing and returns the response back to GO client. To install pyvtf on the system, use the following command.
+                        Pyvtf is a Python Package by VMware which creates a python server on the client machine and responsible enough to handle GRPC requests from GO client. As per the <a href="#feature-1">Architecture</a>, it sits between GRPC and Pyvcloud API. It is an abstraction of Pyvcloud API and vCloud Director to the GO client. Once it receives a request from GO client, it connects with the vCloud Director using Pyvcloud API, does the appropriate processing and returns the response back to the GO client. To install pyvtf on the system, use the following command.
                     </p>
                     <pre class="ml-4 mr-4">
  <code>
@@ -393,18 +448,37 @@
 </pre>
                     <pre class="ml-4 mr-4">
 <code>
- pyvtf --version // output --> 0.4
+ pyvtf --version // output 0.4
  pyvtf --help
  </code>
  </pre>
                     <p class="ml-4">
-                        To start/stop the python server through pyvtf, use following command,
+                        To start/stop the python server through pyvtf, use the following command,
                     </p>
                     <pre class="ml-4 mr-4">
  <code>
  pyvtf start/stop
  </code>
  </pre>
+                </div>
+            </div>
+        </div-->
+        <div id="feature-6" class="feature-6">
+            <div class="row ml-2">
+                <div class="col">
+                    <h3>Required Versions</h3>
+                    <hr />
+                </div>
+            </div>
+            <div class="row ml-2">
+                <div class="col">
+                    <p class="ml-2">
+                        Terraform Provider Plugin requires minimal versions of following packages,
+                        <ul>
+                            <li>vcd_cli >= 20.2.0</li>
+                            <li>pyvcloud >= 19.2.0</li>
+                        </ul>
+                    </p>
                 </div>
             </div>
         </div>
@@ -443,7 +517,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript">
 $("document").ready(function() {
-    var links = ['.feature-1', '.feature-2', '.centos', '.macos', '.feature-3', '.feature-4'];
+    var links = ['.feature-1', '.feature-2', '.centos', '.macos', '.feature-3', '.feature-4', '.feature-5', '.feature-6'];
 
     $.each(links, function(index, value) {
         $(value).click(function(e) {

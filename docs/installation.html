@@ -1,0 +1,124 @@
+<!--/*****************************************************************
+* terraform-provider-vcloud-director
+* Copyright (c) 2017 VMware, Inc. All Rights Reserved.
+* SPDX-License-Identifier: BSD-2-Clause
+******************************************************************/ -->
+<!doctype html>
+<html>
+
+<head>
+    <title>Terraform Provider vCloud Director</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
+    pre code {
+        background-color: #eee;
+        border: 1px solid #999;
+        display: block;
+        padding: 0px;
+    }
+
+    .page-header {
+        color: #fff;
+        text-align: center;
+        background-color: #159957;
+        background-image: linear-gradient(120deg, #155799, #159957);
+        padding: 5rem 6rem;
+    }
+
+    h2 {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-weight: normal;
+        color: #159957;
+    }
+
+    div.reference div {
+        display: none
+    }
+
+    div.reference div.provider-usage {
+        display: block
+    }
+
+    div.reference div.provider-argument-reference,
+    div.reference div.provider-sample-reference,
+    div.reference div.provider-sample-reference div,
+    div.reference div.provider-argument-reference div {
+        display: block
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid mt-2 p-4">
+        <div class="page-header mb-3">
+            <h1 class="text-center">Terraform Provider for vCloud Director</h1>
+        </div>
+        <hr />
+        <div class="home ml-2 mb-4">
+            <a href="index.html">Home</a>
+        </div>
+        <br />
+        <div class="centos ml-2 mt-4">
+            <div class="row ml-2">
+                <div class="col">
+                    <h3>Install on CentOS</h3>
+                </div>
+            </div>
+            <hr />
+            <div class="row ml-2">
+                <div class="col">
+                    <p>Please download <a href="CentOS-SETUP.sh" download="CentOS-SETUP.sh" />this</a> script and run it as follows in terminal,</p>
+                    <pre>
+ <code>
+ . CentOS-SETUP.sh
+ </code>
+ </pre>
+                    <p>Once installation is done, append following lines to update the PATH variable at the end of <b>~/.bash_profile</b>
+                    </p>
+                    <pre>
+ <code>
+ export GOROOT=/opt/go
+ export GOPATH=${PWD}/terraform-provider-vcloud-director/go/
+ export PATH=/opt/go/bin:$PATH
+ export PATH=${GOPATH}/bin:$PATH
+ </code>
+ </pre>
+                </div>
+            </div>
+        </div>
+        <div class="centos ml-2 mt-4">
+            <div class="row ml-2">
+                <div class="col">
+                    <h3>Install on MacOS</h3>
+                </div>
+            </div>
+            <hr />
+            <div class="row ml-2">
+                <div class="col">
+                    <p>Please download <a href="MacOS-SETUP.sh" download="MacOS-SETUP.sh" />this</a> script and run it as follows in terminal,</p>
+                    <pre>
+ <code>
+ . MacOS-SETUP.sh
+ </code>
+ </pre>
+                    <p>Once installation is done, append following lines to update the PATH variable at the end of <b>~/.bash_profile</b>. In case if <b>~/.bash_profile</b> is not present then create using <b>touch</b></p>
+                    <pre>
+ <code> touch ~/.bash_profile</code>
+ </pre>
+                    <p>and then add the following lines.</p>
+                    <pre>
+ <code>
+ export GOVERSION=$(brew list go | head -n 1 | cut -d '/' -f 6)
+ export GOROOT=$(brew --prefix)/Cellar/go/${GOVERSION}/libexec
+ export GOPATH=${PWD}/terraform-provider-vcloud-director/go
+ export PATH=${GOPATH}/bin:$PATH
+ </code>
+ </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
