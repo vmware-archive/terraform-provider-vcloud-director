@@ -111,6 +111,7 @@ if [ "$?" -ne 0 ]; then
 	wget https://releases.hashicorp.com/terraform/0.11.4/terraform_0.11.4_darwin_amd64.zip
 	unzip terraform_0.11.4_darwin_amd64.zip
 	sudo mv terraform /usr/local/bin/
+	rm -rf terraform_*
 else
 	echo "DONE - Terraform is already installed" >> $DIR/setup.log 2>&1
 	echo "DONE - Terraform is already installed"
