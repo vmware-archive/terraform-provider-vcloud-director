@@ -68,17 +68,18 @@
             <hr />
             <div class="row ml-2">
                 <div class="col">
-                    <p>Please download <a href="CentOS-SETUP.sh" download="CentOS-SETUP.sh" />this</a> script and run it as follows in terminal,</p>
+                    <p>Please download <a href="CentOS-SETUP.sh" download="CentOS-SETUP.sh" />this</a> script and run it as follows in a terminal,</p>
                     <pre>
  <code>
  . CentOS-SETUP.sh
  </code>
  </pre>
-                    <p>Once installation is done, append following lines to update the PATH variable at the end of <b>~/.bash_profile</b>
+                    <p>Once the installation is done, append following lines to update the PATH variable at the end of <b>~/.bash_profile</b>
                     </p>
                     <pre>
  <code>
  export GOROOT=/opt/go
+ export PROJECTDIR=${PWD}/terraform-provider-vcloud-director
  export GOPATH=${PWD}/terraform-provider-vcloud-director/go/
  export PATH=/opt/go/bin:$PATH
  export PATH=${GOPATH}/bin:$PATH
@@ -96,13 +97,13 @@
             <hr />
             <div class="row ml-2">
                 <div class="col">
-                    <p>Please download <a href="MacOS-SETUP.sh" download="MacOS-SETUP.sh" />this</a> script and run it as follows in terminal,</p>
+                    <p>Please download <a href="MacOS-SETUP.sh" download="MacOS-SETUP.sh" />this</a> script and run it as follows in a terminal,</p>
                     <pre>
  <code>
  . MacOS-SETUP.sh
  </code>
  </pre>
-                    <p>Once installation is done, append following lines to update the PATH variable at the end of <b>~/.bash_profile</b>. In case if <b>~/.bash_profile</b> is not present then create using <b>touch</b></p>
+                    <p>Once the installation is done, append following lines to update the PATH variable at the end of <b>~/.bash_profile</b>. In case if <b>~/.bash_profile</b> is not present then create using <b>touch</b>.</p>
                     <pre>
  <code> touch ~/.bash_profile</code>
  </pre>
@@ -111,6 +112,7 @@
  <code>
  export GOVERSION=$(brew list go | head -n 1 | cut -d '/' -f 6)
  export GOROOT=$(brew --prefix)/Cellar/go/${GOVERSION}/libexec
+ export PROJECTDIR=${PWD}/terraform-provider-vcloud-director
  export GOPATH=${PWD}/terraform-provider-vcloud-director/go
  export PATH=${GOPATH}/bin:$PATH
  </code>
