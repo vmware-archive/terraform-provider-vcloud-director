@@ -119,7 +119,7 @@ function fetch_source_code(){
 	fi
 	cd $DIR/terraform-provider-vcloud-director/go/src
 	export PROJECTDIR=$DIR/terraform-provider-vcloud-director
-	export GOPATH=$DIR/terraform-provider-vcloud-director/go/
+	export GOPATH=$DIR/terraform-provider-vcloud-director/go
 	export PATH=${GOPATH}/bin:$PATH
 	echo "FETCH - Fetching external go libraries" >> $DIR/setup.log 2>&1
 	echo "FETCH - Fetching external go libraries"
@@ -142,7 +142,6 @@ fi
 
 # source ~/.bash_profile
 cd $DIR
-sudo mv $DIR/terraform-provider-vcloud-director/builds/linux/terraform-provider-vcloud-director /usr/local/bin/
 
 terraform-provider-vcloud-director >> $DIR/setup.log 2>&1
 if [ "$?" -ne 0 ]; then

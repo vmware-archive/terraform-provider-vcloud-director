@@ -5,15 +5,16 @@
 #*****************************************************************
 
 OS="`uname`"
+mkdir ../bin
 case $OS in
   'Linux')
-    go build -o ../../builds/linux/terraform-provider-vcloud-director
+    go build -o ../bin/terraform-provider-vcloud-director
     ;;
   'WindowsNT')
     OS='Windows'
     ;;
   'Darwin') 
-    go build -o ../../builds/mac/terraform-provider-vcloud-director
+    go build -o ../bin/terraform-provider-vcloud-director
     ;;
 esac
 
